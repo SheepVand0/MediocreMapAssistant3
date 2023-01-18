@@ -1,12 +1,19 @@
-"C:\Users\user\Documents\Unreal Projects\MMA3\Intermediate\Build\Win64\UnrealEditor\Inc\MMA3\MMA3.init.gen.cpp"
+C:\Users\user\Documents\GitHub\MediocreMapAssistant3\MMA3\Intermediate\Build\Win64\UnrealEditor\Inc\MMA3\MMA3.init.gen.cpp
 /I .
-/I "C:\Users\user\Documents\Unreal Projects\MMA3\Intermediate\Build\Win64\UnrealEditor\Inc\MMA3"
-/I "C:\Users\user\Documents\Unreal Projects\MMA3\Source"
+/I ..\Intermediate\Build\Win64\UnrealEditor\Inc\UMG
 /I Runtime
+/I Runtime\UMG\Public
+/I Runtime\Online
+/I Runtime\Online\HTTP\Public
 /I Runtime\TraceLog\Public
 /I Runtime\Core\Public
+/I ..\Intermediate\Build\Win64\UnrealEditor\Inc\MovieScene
+/I Runtime\MovieScene\Public
 /I ..\Intermediate\Build\Win64\UnrealEditor\Inc\CoreUObject
 /I Runtime\CoreUObject\Public
+/I ..\Intermediate\Build\Win64\UnrealEditor\Inc\InputCore
+/I Runtime\InputCore\Classes
+/I Runtime\InputCore\Public
 /I ..\Intermediate\Build\Win64\UnrealEditor\Inc\Engine
 /I ..\Shaders\Shared
 /I Runtime\Engine\Classes
@@ -25,9 +32,6 @@
 /I Runtime\JsonUtilities\Public
 /I ..\Intermediate\Build\Win64\UnrealEditor\Inc\SlateCore
 /I Runtime\SlateCore\Public
-/I ..\Intermediate\Build\Win64\UnrealEditor\Inc\InputCore
-/I Runtime\InputCore\Classes
-/I Runtime\InputCore\Public
 /I ..\Intermediate\Build\Win64\UnrealEditor\Inc\Slate
 /I Runtime\Slate\Public
 /I Runtime\ImageWrapper\Public
@@ -120,8 +124,6 @@
 /I ..\Intermediate\Build\Win64\UnrealEditor\Inc\BlueprintGraph
 /I Editor\BlueprintGraph\Classes
 /I Editor\BlueprintGraph\Public
-/I Runtime\Online
-/I Runtime\Online\HTTP\Public
 /I ..\Intermediate\Build\Win64\UnrealEditor\Inc\FunctionalTesting
 /I Developer\FunctionalTesting\Classes
 /I Developer\FunctionalTesting\Public
@@ -176,16 +178,6 @@
 /I Developer\CollectionManager\Public
 /I ThirdParty\libSampleRate\Public
 /I Runtime\NetworkFileSystem\Public
-/I ..\Intermediate\Build\Win64\UnrealEditor\Inc\UMG
-/I Runtime\UMG\Public
-/I ..\Intermediate\Build\Win64\UnrealEditor\Inc\MovieScene
-/I Runtime\MovieScene\Public
-/I ..\Intermediate\Build\Win64\UnrealEditor\Inc\TimeManagement
-/I Runtime\TimeManagement\Public
-/I ..\Intermediate\Build\Win64\UnrealEditor\Inc\MovieSceneTracks
-/I Runtime\MovieSceneTracks\Public
-/I ..\Intermediate\Build\Win64\UnrealEditor\Inc\PropertyPath
-/I Runtime\PropertyPath\Public
 /I ..\Intermediate\Build\Win64\UnrealEditor\Inc\NavigationSystem
 /I Runtime\NavigationSystem\Public
 /I ..\Intermediate\Build\Win64\UnrealEditor\Inc\GeometryCollectionEngine
@@ -253,6 +245,14 @@
 /I Runtime\ClothingSystemRuntimeInterface\Public
 /I ..\Intermediate\Build\Win64\UnrealEditor\Inc\AnimationDataController
 /I Developer\AnimationDataController\Public
+/I ..\Intermediate\Build\Win64\UnrealEditor\Inc\TimeManagement
+/I Runtime\TimeManagement\Public
+/I ..\Intermediate\Build\Win64\UnrealEditor\Inc\MovieSceneTracks
+/I Runtime\MovieSceneTracks\Public
+/I ..\Intermediate\Build\Win64\UnrealEditor\Inc\PropertyPath
+/I Runtime\PropertyPath\Public
+/I C:\Users\user\Documents\GitHub\MediocreMapAssistant3\MMA3\Intermediate\Build\Win64\UnrealEditor\Inc\MMA3
+/I C:\Users\user\Documents\GitHub\MediocreMapAssistant3\MMA3\Source
 /I ThirdParty\mimalloc\include
 /I ThirdParty\LibTiff\Source\Win64
 /I ThirdParty\LibTiff\Source
@@ -273,12 +273,12 @@
 /I "C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\shared"
 /I "C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\um"
 /I "C:\Program Files (x86)\Windows Kits\10\include\10.0.19041.0\winrt"
-/FI"C:\Users\user\Documents\Unreal Projects\MMA3\Intermediate\Build\Win64\MMA3Editor\Development\Engine\SharedPCH.Engine.ShadowErrors.h"
-/FI"C:\Users\user\Documents\Unreal Projects\MMA3\Intermediate\Build\Win64\UnrealEditor\Development\MMA3\Definitions.MMA3.h"
-/Yu"C:\Users\user\Documents\Unreal Projects\MMA3\Intermediate\Build\Win64\MMA3Editor\Development\Engine\SharedPCH.Engine.ShadowErrors.h"
-/Fp"C:\Users\user\Documents\Unreal Projects\MMA3\Intermediate\Build\Win64\MMA3Editor\Development\Engine\SharedPCH.Engine.ShadowErrors.h.pch"
-/Fo"C:\Users\user\Documents\Unreal Projects\MMA3\Intermediate\Build\Win64\UnrealEditor\Development\MMA3\MMA3.init.gen.cpp.obj"
-/sourceDependencies "C:\Users\user\Documents\Unreal Projects\MMA3\Intermediate\Build\Win64\UnrealEditor\Development\MMA3\MMA3.init.gen.cpp.json"
+/FI"C:\Users\user\Documents\GitHub\MediocreMapAssistant3\MMA3\Intermediate\Build\Win64\MMA3Editor\Development\Engine\SharedPCH.Engine.ShadowErrors.h"
+/FI"C:\Users\user\Documents\GitHub\MediocreMapAssistant3\MMA3\Intermediate\Build\Win64\UnrealEditor\Development\MMA3\Definitions.MMA3.h"
+/Yu"C:\Users\user\Documents\GitHub\MediocreMapAssistant3\MMA3\Intermediate\Build\Win64\MMA3Editor\Development\Engine\SharedPCH.Engine.ShadowErrors.h"
+/Fp"C:\Users\user\Documents\GitHub\MediocreMapAssistant3\MMA3\Intermediate\Build\Win64\MMA3Editor\Development\Engine\SharedPCH.Engine.ShadowErrors.h.pch"
+/Fo"C:\Users\user\Documents\GitHub\MediocreMapAssistant3\MMA3\Intermediate\Build\Win64\UnrealEditor\Development\MMA3\MMA3.init.gen.cpp.obj"
+/sourceDependencies C:\Users\user\Documents\GitHub\MediocreMapAssistant3\MMA3\Intermediate\Build\Win64\UnrealEditor\Development\MMA3\MMA3.init.gen.cpp.json
 /Zc:inline
 /nologo
 /Oi

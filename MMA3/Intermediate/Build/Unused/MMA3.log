@@ -1,0 +1,31 @@
+﻿  Using bundled DotNet SDK
+  Log file: C:\Users\user\AppData\Local\UnrealBuildTool\Log.txt
+  Using 'git status' to determine working set for adaptive non-unity build (C:\Users\user\Documents\GitHub\MediocreMapAssistant3).
+  Building MMA3Editor...
+  Using Visual Studio 2022 14.33.31629 toolchain (C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.33.31629) and Windows 10.0.19041.0 SDK (C:\Program Files (x86)\Windows Kits\10).
+  [Adaptive Build] Excluded from MMA3 unity file: CustomButton.cpp, CustomScrollBox.cpp, LevelSelectionWidget.cpp, WidgetUtils.cpp
+  Distributing 4 actions to XGE
+  --------------------Build System Warning---------------------------------------
+  Failed to connect to Coordinator:
+      All builds will run in standalone mode.
+  
+  -------------------------------------------------------------------------------
+  
+  Build ID: {C242AA2E-916C-46D7-B66A-EB8B0E98E91F}
+  
+  --------------------Project: Default-------------------------------------------
+  [1/4] CustomScrollBox.cpp (0:06.61 at +0:00)
+  [2/4] UnrealEditor-MMA3-0023.dll (0:00.82 at +0:06)
+     Création de la bibliothèque C:\Users\user\Documents\GitHub\MediocreMapAssistant3\MMA3\Intermediate\Build\Win64\UnrealEditor\Development\MMA3\UnrealEditor-MMA3-0023.suppressed.lib et de l'objet C:\Users\user\Documents\GitHub\MediocreMapAssistant3\MMA3\Intermediate\Build\Win64\UnrealEditor\Development\MMA3\UnrealEditor-MMA3-0023.suppressed.exp
+  [3/4] UnrealEditor-MMA3-0023.lib (0:00.07 at +0:07)
+     Création de la bibliothèque C:\Users\user\Documents\GitHub\MediocreMapAssistant3\MMA3\Intermediate\Build\Win64\UnrealEditor\Development\MMA3\UnrealEditor-MMA3-0023.lib et de l'objet C:\Users\user\Documents\GitHub\MediocreMapAssistant3\MMA3\Intermediate\Build\Win64\UnrealEditor\Development\MMA3\UnrealEditor-MMA3-0023.exp
+  [4/4] MMA3Editor.target (0:00.23 at +0:07)
+  ---------------------- Done ----------------------
+  
+      Rebuild All: 1 succeeded, 0 failed, 0 skipped
+  
+  1 build system warning(s):
+     - Failed to connect to Coordinator
+  
+  Total time in XGE executor: 7.91 seconds
+  Total execution time: 8.62 seconds

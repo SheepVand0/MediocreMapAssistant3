@@ -23,6 +23,12 @@
     <None Include="..\..\Config\DefaultGame.ini">
       <Filter>Config</Filter>
     </None>
+    <Filter Include="Config\HoloLens">
+      <UniqueIdentifier>{4C8DD267-CDE7-336F-8602-F5F485D22BAB}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Config\HoloLens\HoloLensEngine.ini">
+      <Filter>Config\HoloLens</Filter>
+    </None>
     <Filter Include="Source\MMA3">
       <UniqueIdentifier>{2AAFD189-2263-3AEC-82BA-0E9E464D9E8C}</UniqueIdentifier>
     </Filter>
@@ -40,6 +46,45 @@
     </ClCompile>
     <ClInclude Include="..\..\Source\MMA3\MMA3GameModeBase.h">
       <Filter>Source\MMA3</Filter>
+    </ClInclude>
+    <Filter Include="Source\MMA3\Widgets">
+      <UniqueIdentifier>{869E9E89-8CFC-3D43-823E-2B16D2E14BE2}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\MMA3\Widgets\WidgetUtils.cpp">
+      <Filter>Source\MMA3\Widgets</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\MMA3\Widgets\WidgetUtils.h">
+      <Filter>Source\MMA3\Widgets</Filter>
+    </ClInclude>
+    <Filter Include="Source\MMA3\Widgets\Components">
+      <UniqueIdentifier>{A29F9AF4-832A-32D2-B33E-7D180DD5B77E}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\MMA3\Widgets\Components\CustomButton.cpp">
+      <Filter>Source\MMA3\Widgets\Components</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\MMA3\Widgets\Components\CustomButton.h">
+      <Filter>Source\MMA3\Widgets\Components</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\MMA3\Widgets\Components\CustomScrollBox.cpp">
+      <Filter>Source\MMA3\Widgets\Components</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\MMA3\Widgets\Components\CustomScrollBox.h">
+      <Filter>Source\MMA3\Widgets\Components</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\MMA3\Widgets\Components\CustomSpinBox.cpp">
+      <Filter>Source\MMA3\Widgets\Components</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\MMA3\Widgets\Components\CustomSpinBox.h">
+      <Filter>Source\MMA3\Widgets\Components</Filter>
+    </ClInclude>
+    <Filter Include="Source\MMA3\Widgets\MainMenu">
+      <UniqueIdentifier>{C86DE05F-3523-36E0-92EE-C4F2C5FBA474}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\MMA3\Widgets\MainMenu\LevelSelectionWidget.cpp">
+      <Filter>Source\MMA3\Widgets\MainMenu</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\MMA3\Widgets\MainMenu\LevelSelectionWidget.h">
+      <Filter>Source\MMA3\Widgets\MainMenu</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
