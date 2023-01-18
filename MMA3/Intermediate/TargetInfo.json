@@ -1,0 +1,14 @@
+{
+	"Targets": [
+		{
+			"Name": "MMA3",
+			"Path": "C:\\Users\\user\\Documents\\Unreal Projects\\MMA3\\Source\\MMA3.Target.cs",
+			"Type": "Game"
+		},
+		{
+			"Name": "MMA3Editor",
+			"Path": "C:\\Users\\user\\Documents\\Unreal Projects\\MMA3\\Source\\MMA3Editor.Target.cs",
+			"Type": "Editor"
+		}
+	]
+}
