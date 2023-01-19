@@ -37,7 +37,7 @@ void EmptyLinkFunctionForGeneratedCodeCustomSpinBox() {}
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCustomSpinBox_Statics::Class_MetaDataParams[] = {
-		{ "Comment", "/**\n * \n */" },
+		{ "Comment", "/**\n *\n */" },
 		{ "IncludePath", "Widgets/Components/CustomSpinBox.h" },
 		{ "ModuleRelativePath", "Widgets/Components/CustomSpinBox.h" },
 	};
@@ -78,9 +78,9 @@ void EmptyLinkFunctionForGeneratedCodeCustomSpinBox() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_MMA3_Source_MMA3_Widgets_Components_CustomSpinBox_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UCustomSpinBox, UCustomSpinBox::StaticClass, TEXT("UCustomSpinBox"), &Z_Registration_Info_UClass_UCustomSpinBox, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCustomSpinBox), 103216940U) },
+		{ Z_Construct_UClass_UCustomSpinBox, UCustomSpinBox::StaticClass, TEXT("UCustomSpinBox"), &Z_Registration_Info_UClass_UCustomSpinBox, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCustomSpinBox), 3801324837U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_MMA3_Source_MMA3_Widgets_Components_CustomSpinBox_h_617159135(TEXT("/Script/MMA3"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_MMA3_Source_MMA3_Widgets_Components_CustomSpinBox_h_2323437163(TEXT("/Script/MMA3"),
 		Z_CompiledInDeferFile_FID_MMA3_Source_MMA3_Widgets_Components_CustomSpinBox_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_MMA3_Source_MMA3_Widgets_Components_CustomSpinBox_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

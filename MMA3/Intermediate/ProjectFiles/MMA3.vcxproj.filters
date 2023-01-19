@@ -65,16 +65,40 @@
     <ClInclude Include="..\..\Source\MMA3\Widgets\Components\CustomButton.h">
       <Filter>Source\MMA3\Widgets\Components</Filter>
     </ClInclude>
+    <ClCompile Include="..\..\Source\MMA3\Widgets\Components\CustomComboString.cpp">
+      <Filter>Source\MMA3\Widgets\Components</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\MMA3\Widgets\Components\CustomComboString.h">
+      <Filter>Source\MMA3\Widgets\Components</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\MMA3\Widgets\Components\CustomEditableTextBox.cpp">
+      <Filter>Source\MMA3\Widgets\Components</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\MMA3\Widgets\Components\CustomEditableTextBox.h">
+      <Filter>Source\MMA3\Widgets\Components</Filter>
+    </ClInclude>
     <ClCompile Include="..\..\Source\MMA3\Widgets\Components\CustomScrollBox.cpp">
       <Filter>Source\MMA3\Widgets\Components</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\MMA3\Widgets\Components\CustomScrollBox.h">
       <Filter>Source\MMA3\Widgets\Components</Filter>
     </ClInclude>
+    <ClCompile Include="..\..\Source\MMA3\Widgets\Components\CustomSlider.cpp">
+      <Filter>Source\MMA3\Widgets\Components</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\MMA3\Widgets\Components\CustomSlider.h">
+      <Filter>Source\MMA3\Widgets\Components</Filter>
+    </ClInclude>
     <ClCompile Include="..\..\Source\MMA3\Widgets\Components\CustomSpinBox.cpp">
       <Filter>Source\MMA3\Widgets\Components</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\MMA3\Widgets\Components\CustomSpinBox.h">
+      <Filter>Source\MMA3\Widgets\Components</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\MMA3\Widgets\Components\CustomTextBlock.cpp">
+      <Filter>Source\MMA3\Widgets\Components</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\MMA3\Widgets\Components\CustomTextBlock.h">
       <Filter>Source\MMA3\Widgets\Components</Filter>
     </ClInclude>
     <Filter Include="Source\MMA3\Widgets\MainMenu">

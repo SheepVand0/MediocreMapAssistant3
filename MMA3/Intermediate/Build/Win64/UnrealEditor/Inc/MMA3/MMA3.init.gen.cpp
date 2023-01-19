@@ -17,13 +17,13 @@ void EmptyLinkFunctionForGeneratedCodeMMA3_init() {}
 				nullptr,
 				0,
 				PKG_CompiledIn | 0x00000000,
-				0x4F3FEDBD,
-				0xFA693751,
+				0x0A7FFFD5,
+				0x667C68CD,
 				METADATA_PARAMS(nullptr, 0)
 			};
 			UECodeGen_Private::ConstructUPackage(Z_Registration_Info_UPackage__Script_MMA3.OuterSingleton, PackageParams);
 		}
 		return Z_Registration_Info_UPackage__Script_MMA3.OuterSingleton;
 	}
-	static FRegisterCompiledInInfo Z_CompiledInDeferPackage_UPackage__Script_MMA3(Z_Construct_UPackage__Script_MMA3, TEXT("/Script/MMA3"), Z_Registration_Info_UPackage__Script_MMA3, CONSTRUCT_RELOAD_VERSION_INFO(FPackageReloadVersionInfo, 0x4F3FEDBD, 0xFA693751));
+	static FRegisterCompiledInInfo Z_CompiledInDeferPackage_UPackage__Script_MMA3(Z_Construct_UPackage__Script_MMA3, TEXT("/Script/MMA3"), Z_Registration_Info_UPackage__Script_MMA3, CONSTRUCT_RELOAD_VERSION_INFO(FPackageReloadVersionInfo, 0x0A7FFFD5, 0x667C68CD));
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

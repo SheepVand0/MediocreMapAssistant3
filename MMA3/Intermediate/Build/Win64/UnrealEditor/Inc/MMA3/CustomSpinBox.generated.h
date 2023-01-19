@@ -36,7 +36,7 @@ public: \
 
 #define FID_MMA3_Source_MMA3_Widgets_Components_CustomSpinBox_h_15_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
-	NO_API UCustomSpinBox(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()); \
+	NO_API UCustomSpinBox(const FObjectInitializer& ObjectInitializer); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(UCustomSpinBox) \
 	DECLARE_VTABLE_PTR_HELPER_CTOR(NO_API, UCustomSpinBox); \
 	DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(UCustomSpinBox); \
@@ -48,8 +48,6 @@ public:
 
 
 #define FID_MMA3_Source_MMA3_Widgets_Components_CustomSpinBox_h_15_ENHANCED_CONSTRUCTORS \
-	/** Standard constructor, called after all reflected properties have been initialized */ \
-	NO_API UCustomSpinBox(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()) : Super(ObjectInitializer) { }; \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	NO_API UCustomSpinBox(UCustomSpinBox&&); \
@@ -57,7 +55,7 @@ private: \
 public: \
 	DECLARE_VTABLE_PTR_HELPER_CTOR(NO_API, UCustomSpinBox); \
 	DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(UCustomSpinBox); \
-	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(UCustomSpinBox)
+	DEFINE_DEFAULT_CONSTRUCTOR_CALL(UCustomSpinBox)
 
 
 #define FID_MMA3_Source_MMA3_Widgets_Components_CustomSpinBox_h_12_PROLOG

@@ -29,5 +29,5 @@ UCustomButton::UCustomButton() {
 	WidgetStyle.SetPressed(l_Brush);
 	WidgetStyle.SetDisabled(l_Brush);
 
-
+	RenderTransform.Shear = FVector2D(-1, 0);
 }
