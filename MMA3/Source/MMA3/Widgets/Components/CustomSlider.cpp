@@ -23,22 +23,22 @@ UCustomSlider::UCustomSlider() {
 	FSlateBrush l_Thumb = UWidgetBlueprintLibrary::MakeBrushFromMaterial(l_SliderThumb.Object);
 	l_Thumb = WidgetUtils::GetUIElementStyle(l_Thumb, 16, FColor::White, FMargin(0.5f));
 	l_Thumb.ImageSize = FVector2d(4, 16);
-	IndentHandle = true;
+	SetIndentHandle(true);
 
 	/////////////////////////////////////////////////////////////////////////////
 
-	WidgetStyle.NormalBarImage = l_Background;
+	WidgetStyle.SetNormalBarImage(l_Background);
 	l_Background.TintColor = FColor::Black;
-	WidgetStyle.DisabledBarImage = l_Background;
-	WidgetStyle.HoveredBarImage = l_Hovered;
+	WidgetStyle.SetDisabledBarImage(l_Background);
+	WidgetStyle.SetHoveredBarImage(l_Hovered);
 
 	/////////////////////////////////////////////////////////////////////////////
 
-	WidgetStyle.NormalThumbImage = l_Thumb;
-	WidgetStyle.HoveredThumbImage = l_Thumb;
-	WidgetStyle.DisabledThumbImage = l_Thumb;
+	WidgetStyle.SetNormalThumbImage(l_Thumb);
+	WidgetStyle.SetHoveredThumbImage(l_Thumb);
+	WidgetStyle.SetDisabledThumbImage(l_Thumb);
 
-	WidgetStyle.BarThickness = 30;
+	WidgetStyle.SetBarThickness(30);
 
 	RenderTransform.Shear = FVector2D(-1, 0);
 }

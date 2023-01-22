@@ -8,7 +8,15 @@
 *.obj
 *.pdb
 *.log
+*.response
+*.dll
+*.res
+*.old
+*.exp
 
+
+MMA3/Binaries/*
+Intermediate/*
 
 # Precompiled Headers
 *.gch
@@ -51,10 +59,11 @@ SourceArt/**/*.tga
 # Binary Files
 Binaries/*
 Plugins/*/Binaries/*
-MMA3/Intermediate/Build/*
+MMA3/Intermediate/Build
 MMA3/Saved/Crashes
 MMA3/Saved/Config/CrashReportClient
 MMA3/Saved/Logs
+MMA3/Build/
 
 # Builds
 Build/*

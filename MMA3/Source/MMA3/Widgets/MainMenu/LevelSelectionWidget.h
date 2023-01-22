@@ -5,6 +5,11 @@
 #include "CoreMinimal.h"
 #include "Blueprint/UserWidget.h"
 #include "Components/Spacer.h"
+#include "MMA3/Widgets/Enums.h"
+#include "MMA3/Widgets/Structures.h"
+#include "HAL/FileManagerGeneric.h"
+#include "VaRest/Public/VaRestJsonObject.h"
+#include "VaRest/Public/VaRestJsonValue.h"
 #include "LevelSelectionWidget.generated.h"
 
 /**
@@ -17,6 +22,12 @@ class MMA3_API ULevelSelectionWidget : public UUserWidget
 
 public:
 
+	static ULevelSelectionWidget* Instance;
+
+	static IPlatformFile& s_FileManager;
+
+	virtual void PostLoad() override;
+
 	UPROPERTY(EditAnywhere, meta = (BindWidget))
 		class UCanvasPanel* MainCanvas;
 
@@ -28,7 +39,7 @@ public:
 	/////////////////////////////////////////////////////////////////////////////
 
 	UPROPERTY(EditAnywhere, meta = (BindWidget))
-		class UCustomScrollBox* LevelsScrollBox;
+		class UMapList* LevelsScrollBox;
 
 	/////////////////////////////////////////////////////////////////////////////
 
@@ -63,4 +74,30 @@ public:
 	UPROPERTY(EditAnywhere, meta = (BindWidget))
 		class UCustomTextBlock* SongBpm;
 
+	/////////////////////////////////////////////////////////////////////////////
+
+public:
+
+	UPROPERTY()
+		TArray<FMapInfo> m_Maps;
+
+	UFUNCTION()
+		void RefreshMaps(EMapListType p_Type);
+
+};
+
+
+struct FDirectoryVisitor : public IPlatformFile::FDirectoryVisitor
+{
+	bool Visit(const TCHAR* FilenameOrDirectory, bool bIsDirectory) override
+	{
+
+		ULevelSelectionWidget* l_Widget = ULevelSelectionWidget::Instance;
+
+		IFileHandle* l_FileHandle = l_Widget->s_FileManager.OpenRead(FilenameOrDirectory);
+
+		//l_Widget->m_Maps.Add();
+
+		return true;
+	}
 };
