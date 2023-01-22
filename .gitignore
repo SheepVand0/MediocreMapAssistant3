@@ -16,7 +16,7 @@
 
 
 MMA3/Binaries/*
-Intermediate/*
+MMA3/Intermediate/*
 
 # Precompiled Headers
 *.gch
