@@ -24,10 +24,13 @@ public:
 
 	FMapInfo();
 
-	FMapInfo(FString p_SongName, FString p_SongAuthor, FString p_SongMapper, FString p_MapPath, FString p_AudioFileName);
+	FMapInfo(FString p_SongName, FString p_SongSubName, FString p_SongAuthor, FString p_SongMapper, FString p_MapPath, FString p_AudioFileName);
 
 	UPROPERTY()
 		FString SongName;
+
+	UPROPERTY()
+		FString SongSubName;
 
 	UPROPERTY()
 		FString SongAuthor;
@@ -40,6 +43,26 @@ public:
 
 	UPROPERTY()
 		FString AudioFileName;
+
+	UPROPERTY()
+		float BPM;
+
+	UPROPERTY()
+		float PreviewStartTime;
+
+	UPROPERTY()
+		float PreviewDuration;
+
+	UPROPERTY()
+		FString CoverImageFileName;
+
+	UPROPERTY()
+		FString EnvironmentName;
+
+	UPROPERTY()
+		TArray<UVaRestJsonValue> Contributors;
+
+	///Finish Data list from info.dat of a map
 
 	UPROPERTY()
 		USoundWave* Song;

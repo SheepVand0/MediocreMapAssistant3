@@ -18,9 +18,13 @@ class MMA3_API UMMAConfig : public USaveGame
 
 public:
 
+	UMMAConfig();
+
 	static UMMAConfig* Instance;
 
-	UPROPERTY()
-		FString GamePath;
+	UPROPERTY(EditAnywhere)
+		FString GamePath = FString("");
 
 };
+
+UMMAConfig* UMMAConfig::Instance = nullptr;

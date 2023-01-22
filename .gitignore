@@ -16,7 +16,8 @@
 
 
 MMA3/Binaries/*
-MMA3/Intermediate/*
+Intermediate/*
+MMA3/Plugins/*
 
 # Precompiled Headers
 *.gch
@@ -88,3 +89,4 @@ Plugins/*/Intermediate/*
 
 # Cache files for the editor to use
 DerivedDataCache/*
+MMA3/Intermediate/ProjectFiles/UE5.vcxproj

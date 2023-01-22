@@ -8,8 +8,9 @@
 #include "MMA3/Widgets/Enums.h"
 #include "MMA3/Widgets/Structures.h"
 #include "HAL/FileManagerGeneric.h"
-#include "VaRest/Public/VaRestJsonObject.h"
-#include "VaRest/Public/VaRestJsonValue.h"
+#include "C:\Program Files\Epic Games\UE_5.1\Engine\Plugins\Marketplace\VaRestPlugin\Source\VaRest\Public\VaRestSubsystem.h"
+#include "C:\Program Files\Epic Games\UE_5.1\Engine\Plugins\Marketplace\VaRestPlugin\Source\VaRest\Public\VaRestJsonObject.h"
+#include "C:\Program Files\Epic Games\UE_5.1\Engine\Plugins\Marketplace\VaRestPlugin\Source\VaRest\Public\VaRestJsonValue.h"
 #include "LevelSelectionWidget.generated.h"
 
 /**
@@ -23,8 +24,6 @@ class MMA3_API ULevelSelectionWidget : public UUserWidget
 public:
 
 	static ULevelSelectionWidget* Instance;
-
-	static IPlatformFile& s_FileManager;
 
 	virtual void PostLoad() override;
 
@@ -86,15 +85,38 @@ public:
 
 };
 
+ULevelSelectionWidget* ULevelSelectionWidget::Instance = nullptr;
 
 struct FDirectoryVisitor : public IPlatformFile::FDirectoryVisitor
 {
 	bool Visit(const TCHAR* FilenameOrDirectory, bool bIsDirectory) override
 	{
 
+		if (!bIsDirectory) return true;
+
 		ULevelSelectionWidget* l_Widget = ULevelSelectionWidget::Instance;
 
-		IFileHandle* l_FileHandle = l_Widget->s_FileManager.OpenRead(FilenameOrDirectory);
+		IPlatformFile& l_FileManager = FPlatformFileManager::Get().GetPlatformFile();
+
+		if (!l_FileManager.FileExists(*(FilenameOrDirectory + FString("/info.dat")))) return true;
+
+		IFileHandle* l_FileHandle = l_FileManager.OpenRead(*(FilenameOrDirectory + FString("/info.dat")));
+
+		FString l_FileResult;
+
+		FFileHelper::LoadFileToString(l_FileResult, *(FilenameOrDirectory + FString("/info.dat")));
+
+		FMapInfo l_Info = FMapInfo{};
+
+		UVaRestJsonObject* l_Object = UVaRestSubsystem().ConstructVaRestJsonObject();
+		l_Object->DecodeJson(l_FileResult);
+
+		l_Info.SongName = l_Object->GetStringField(FString("_songName"));
+		l_Info.SongSubName = l_Object->GetStringField(FString("_songSubName"));
+		l_Info.SongAuthor = l_Object->GetStringField(FString("_songAuthorName"));
+		l_Info.SongMapper = l_Object->GetStringField(FString("_levelAuthorName"));
+		l_Info.MapPath = FilenameOrDirectory;
+		l_Info.AudioFileName = FilenameOrDirectory + l_Object->GetStringField(FString("_"));
 
 		//l_Widget->m_Maps.Add();
 

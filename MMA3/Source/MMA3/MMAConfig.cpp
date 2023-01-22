@@ -3,3 +3,6 @@
 
 #include "MMAConfig.h"
 
+UMMAConfig::UMMAConfig() {
+	UMMAConfig::Instance = this;
+}

@@ -16,19 +16,21 @@ void ULevelSelectionWidget::PostLoad() {
 		}
 	}
 
-	s_FileManager = FPlatformFileManager::Get().GetPlatformFile();
-
-	Instance = this;
+	ULevelSelectionWidget::Instance = this;
 
 	RefreshMaps(EMapListType::WIP);
 }
 
 void ULevelSelectionWidget::RefreshMaps(EMapListType p_MapRefreshType) {
 
+	m_Maps.Empty();
+
 	FString l_Path = UMMAConfig::Instance->GamePath + (p_MapRefreshType == EMapListType::WIP ? "CustomWIPLevels" : "CustomLevels");
 
 	FDirectoryVisitor l_Visitor;
 
-	s_FileManager.IterateDirectory(*l_Path, l_Visitor);
+	IPlatformFile& l_FileManager = FPlatformFileManager::Get().GetPlatformFile();
+
+	l_FileManager.IterateDirectory(*l_Path, l_Visitor);
 
 };
