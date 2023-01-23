@@ -23,3 +23,10 @@ public:
 	}
 
 };
+
+template<typename T, typename F>
+void foreach(T &p_Container, F p_Func) {
+	for (T l_Item : p_Container) {
+		p_Func(l_Item);
+	}
+};

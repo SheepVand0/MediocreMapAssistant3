@@ -3,6 +3,8 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "C:\Program Files\Epic Games\UE_5.1\Engine\Plugins\Marketplace\VaRestPlugin\Source\VaRest\Public\VaRestJsonValue.h"
+#include "C:\Program Files\Epic Games\UE_5.1\Engine\Plugins\Marketplace\VaRestPlugin\Source\VaRest\Public\VaRestSubsystem.h"
 #include "Structures.generated.h"
 
 /**
@@ -22,9 +24,61 @@ struct MMA3_API FMapInfo {
 
 public:
 
-	FMapInfo();
+	USTRUCT()
+	struct FMapDifficulty {
 
-	FMapInfo(FString p_SongName, FString p_SongSubName, FString p_SongAuthor, FString p_SongMapper, FString p_MapPath, FString p_AudioFileName);
+		GENERATED_USTRUCT_BODY()
+
+		UPROPERTY()
+			FString Difficulty;
+
+		UPROPERTY()
+			int DifficultyRank;
+
+		UPROPERTY()
+			FString BeatmapFileName;
+
+		UPROPERTY()
+			float NoteJumpMovementSpeed;
+
+		UPROPERTY()
+			float NoteJumpStartBeatOffset;
+
+		UPROPERTY()
+			FString DifficultyLabel;
+
+		UPROPERTY()
+			TArray<UVaRestJsonValue*> Contributors;
+
+		UPROPERTY()
+			TArray<FString> Requirements;
+
+		UPROPERTY()
+			TArray<FString> Warnings;
+
+		UPROPERTY()
+			TArray<FString> Informations;
+
+		UPROPERTY()
+			TArray<FString> Suggestions;
+
+		UPROPERTY()
+			TMap<FString, FLinearColor*> Colors;
+
+	};
+
+	USTRUCT()
+		struct FDifficultyBeatmapSet {
+
+		UPROPERTY()
+			FString Name;
+
+		UPROPERTY()
+			TArray<FMapDifficulty> DifficultyBeatmaps;
+
+	};
+
+	FMapInfo();
 
 	UPROPERTY()
 		FString SongName;
@@ -60,11 +114,13 @@ public:
 		FString EnvironmentName;
 
 	UPROPERTY()
-		TArray<UVaRestJsonValue> Contributors;
-
-	///Finish Data list from info.dat of a map
+		TArray<FDifficultyBeatmapSet> DifficultyBeatmapSets;
 
 	UPROPERTY()
 		USoundWave* Song;
+
+	FString GetJson();
+
+	void FromJson(FString p_Json, FString p_MapMath);
 
 };
