@@ -3,9 +3,12 @@
 
 #include "LevelSelectionWidget.h"
 #include "MMA3/MMAConfig.h"
+#include "MMA3/Widgets/MainMenu/SubWidgets/MapCell.h"
 #include "Kismet/GameplayStatics.h"
 
 void ULevelSelectionWidget::PostLoad() {
+	Super::PostLoad();
+
 	if (UMMAConfig::Instance == nullptr) {
 		bool l_SaveGameExists = UGameplayStatics::DoesSaveGameExist(MMA_SAVE_GAME_SLOT_NAME, 0);
 
@@ -32,5 +35,11 @@ void ULevelSelectionWidget::RefreshMaps(EMapListType p_MapRefreshType) {
 	IPlatformFile& l_FileManager = FPlatformFileManager::Get().GetPlatformFile();
 
 	l_FileManager.IterateDirectory(*l_Path, l_Visitor);
+
+	for (int l_i = 0; l_i < m_Maps.Num(); l_i++) {
+
+		UMapCell* l_Mapcell = CreateWidget<UMapCell>(this);
+
+	}
 
 };

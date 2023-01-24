@@ -20,7 +20,7 @@ Structures::~Structures()
 FMapInfo::FMapInfo() {}
 
 FString FMapInfo::GetJson() {
-
+	return FString("");
 }
 
 void FMapInfo::FromJson(FString p_Json, FString p_MapPath) {
@@ -47,15 +47,15 @@ void FMapInfo::FromJson(FString p_Json, FString p_MapPath) {
 		TArray<FMapDifficulty> l_Difficulties = TArray<FMapDifficulty>();
 		TArray<UVaRestJsonValue*> l_SerializedDifficulties = l_DifficultyBeatmapSets[l_i]->AsObject()->GetArrayField("_difficultyBeatmaps");
 
-		for (int l_i = 0; l_i < l_SerializedDifficulties.Num(); l_i++) {
+		for (int l_i1 = 0; l_i1 < l_SerializedDifficulties.Num(); l_i1++) {
 			FMapDifficulty l_Difficulty = {};
-			UVaRestJsonObject* l_Object = l_SerializedDifficulties[l_i]->AsObject();
-			l_Difficulty.Difficulty = l_Object->GetStringField("_difficulty");
-			l_Difficulty.DifficultyRank = l_Object->GetIntegerField("_difficultyRank");
-			l_Difficulty.NoteJumpMovementSpeed = l_Object->GetNumberField("_noteJumpMovementSpeed");
-			l_Difficulty.NoteJumpStartBeatOffset = l_Object->GetNumberField("_noteJumpStartBeatOffset");
+			UVaRestJsonObject* l_BeatmapSetObject = l_SerializedDifficulties[l_i1]->AsObject();
+			l_Difficulty.Difficulty = l_BeatmapSetObject->GetStringField("_difficulty");
+			l_Difficulty.DifficultyRank = l_BeatmapSetObject->GetIntegerField("_difficultyRank");
+			l_Difficulty.NoteJumpMovementSpeed = l_BeatmapSetObject->GetNumberField("_noteJumpMovementSpeed");
+			l_Difficulty.NoteJumpStartBeatOffset = l_BeatmapSetObject->GetNumberField("_noteJumpStartBeatOffset");
 
-			UVaRestJsonValue* l_CustomDataValue = l_Object->GetField("_customData");
+			UVaRestJsonValue* l_CustomDataValue = l_BeatmapSetObject->GetField("_customData");
 			UVaRestJsonObject* l_CustomData = l_CustomDataValue->AsObject();
 
 			l_Difficulty.DifficultyLabel = l_CustomData->GetStringField("_difficultyLabel");

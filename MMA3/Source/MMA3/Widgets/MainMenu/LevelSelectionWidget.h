@@ -108,17 +108,9 @@ struct FDirectoryVisitor : public IPlatformFile::FDirectoryVisitor
 
 		FMapInfo l_Info = FMapInfo{};
 
-		UVaRestJsonObject* l_Object = UVaRestSubsystem().ConstructVaRestJsonObject();
-		l_Object->DecodeJson(l_FileResult);
+		l_Info.FromJson(l_FileResult, FilenameOrDirectory);
 
-		l_Info.SongName = l_Object->GetStringField(FString("_songName"));
-		l_Info.SongSubName = l_Object->GetStringField(FString("_songSubName"));
-		l_Info.SongAuthor = l_Object->GetStringField(FString("_songAuthorName"));
-		l_Info.SongMapper = l_Object->GetStringField(FString("_levelAuthorName"));
-		l_Info.MapPath = FilenameOrDirectory;
-		l_Info.AudioFileName = FilenameOrDirectory + l_Object->GetStringField(FString("_"));
-
-		//l_Widget->m_Maps.Add();
+		l_Widget->m_Maps.Add(l_Info);
 
 		return true;
 	}

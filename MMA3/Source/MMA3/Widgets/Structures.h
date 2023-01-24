@@ -18,65 +18,67 @@ public:
 };
 
 USTRUCT()
+struct FMapDifficulty {
+
+	GENERATED_BODY()
+
+	UPROPERTY()
+		FString Difficulty;
+
+	UPROPERTY()
+		int DifficultyRank;
+
+	UPROPERTY()
+		FString BeatmapFileName;
+
+	UPROPERTY()
+		float NoteJumpMovementSpeed;
+
+	UPROPERTY()
+		float NoteJumpStartBeatOffset;
+
+	UPROPERTY()
+		FString DifficultyLabel;
+
+	UPROPERTY()
+		TArray<UVaRestJsonValue*> Contributors;
+
+	UPROPERTY()
+		TArray<FString> Requirements;
+
+	UPROPERTY()
+		TArray<FString> Warnings;
+
+	UPROPERTY()
+		TArray<FString> Informations;
+
+	UPROPERTY()
+		TArray<FString> Suggestions;
+
+	UPROPERTY()
+		TMap<FString, FLinearColor> Colors;
+
+};
+
+USTRUCT()
+struct FDifficultyBeatmapSet {
+
+	GENERATED_BODY()
+
+	UPROPERTY()
+		FString Name;
+
+	UPROPERTY()
+		TArray<FMapDifficulty> DifficultyBeatmaps;
+
+};
+
+USTRUCT()
 struct MMA3_API FMapInfo {
 
 	GENERATED_USTRUCT_BODY()
 
 public:
-
-	USTRUCT()
-	struct FMapDifficulty {
-
-		GENERATED_USTRUCT_BODY()
-
-		UPROPERTY()
-			FString Difficulty;
-
-		UPROPERTY()
-			int DifficultyRank;
-
-		UPROPERTY()
-			FString BeatmapFileName;
-
-		UPROPERTY()
-			float NoteJumpMovementSpeed;
-
-		UPROPERTY()
-			float NoteJumpStartBeatOffset;
-
-		UPROPERTY()
-			FString DifficultyLabel;
-
-		UPROPERTY()
-			TArray<UVaRestJsonValue*> Contributors;
-
-		UPROPERTY()
-			TArray<FString> Requirements;
-
-		UPROPERTY()
-			TArray<FString> Warnings;
-
-		UPROPERTY()
-			TArray<FString> Informations;
-
-		UPROPERTY()
-			TArray<FString> Suggestions;
-
-		UPROPERTY()
-			TMap<FString, FLinearColor*> Colors;
-
-	};
-
-	USTRUCT()
-		struct FDifficultyBeatmapSet {
-
-		UPROPERTY()
-			FString Name;
-
-		UPROPERTY()
-			TArray<FMapDifficulty> DifficultyBeatmaps;
-
-	};
 
 	FMapInfo();
 

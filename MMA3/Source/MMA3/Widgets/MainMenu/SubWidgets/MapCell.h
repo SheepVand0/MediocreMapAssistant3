@@ -20,16 +20,22 @@ class MMA3_API UMapCell : public UUserWidget
 public:
 
 	UPROPERTY(meta = (BindWidget))
-		UMapButton* m_Button;
+		UMapButton* CButton;
 
 	UPROPERTY(meta = (BindWidget))
-		UCustomTextBlock* m_Name;
+		UCustomTextBlock* CName;
 
 	UPROPERTY(meta = (BindWidget))
-		UCustomTextBlock* m_Author;
+		UCustomTextBlock* CAuthor;
 
 	UPROPERTY(meta = (BindWidget))
-		UCustomTextBlock* m_Mapper;
+		UCustomTextBlock* CMapper;
+
+	UPROPERTY(meta = (BindWidget))
+		UCustomTextBlock* CBpm;
+
+	UPROPERTY(meta = (BindWidget))
+		UCustomTextBlock* CDuration;
 
 private:
 
