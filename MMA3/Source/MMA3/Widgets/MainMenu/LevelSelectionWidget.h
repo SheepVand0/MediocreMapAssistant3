@@ -8,15 +8,19 @@
 #include "MMA3/Widgets/Enums.h"
 #include "MMA3/Widgets/Structures.h"
 #include "HAL/FileManagerGeneric.h"
+#include "MMA3/Widgets/Components/MapList.h"
 #include "C:\Program Files\Epic Games\UE_5.1\Engine\Plugins\Marketplace\VaRestPlugin\Source\VaRest\Public\VaRestSubsystem.h"
 #include "C:\Program Files\Epic Games\UE_5.1\Engine\Plugins\Marketplace\VaRestPlugin\Source\VaRest\Public\VaRestJsonObject.h"
 #include "C:\Program Files\Epic Games\UE_5.1\Engine\Plugins\Marketplace\VaRestPlugin\Source\VaRest\Public\VaRestJsonValue.h"
+#include "Components/VerticalBox.h"
 #include "LevelSelectionWidget.generated.h"
+
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnMapCellNeedToBeAdded)
 
 /**
  *
  */
-UCLASS(Abstract)
+UCLASS()
 class MMA3_API ULevelSelectionWidget : public UUserWidget
 {
 	GENERATED_BODY()
@@ -26,6 +30,9 @@ public:
 	static ULevelSelectionWidget* Instance;
 
 	virtual void PostLoad() override;
+
+	UPROPERTY(BlueprintAssignable)
+		FOnMapCellNeedToBeAdded OnMapCellNeedToBeAdded;
 
 	UPROPERTY(EditAnywhere, meta = (BindWidget))
 		class UCanvasPanel* MainCanvas;
@@ -37,8 +44,11 @@ public:
 
 	/////////////////////////////////////////////////////////////////////////////
 
-	UPROPERTY(EditAnywhere, meta = (BindWidget))
+	UPROPERTY(BlueprintReadOnly, meta = (BindWidget))
 		class UMapList* LevelsScrollBox;
+
+	UPROPERTY(EditAnywhere, meta = (BindWidget))
+		class UVerticalBox* MapDetailsBox;
 
 	/////////////////////////////////////////////////////////////////////////////
 
@@ -73,8 +83,6 @@ public:
 	UPROPERTY(EditAnywhere, meta = (BindWidget))
 		class UCustomTextBlock* SongBpm;
 
-	/////////////////////////////////////////////////////////////////////////////
-
 public:
 
 	UPROPERTY()
@@ -82,6 +90,11 @@ public:
 
 	UFUNCTION()
 		void RefreshMaps(EMapListType p_Type);
+
+	UFUNCTION()
+		void OnMapSelected();
+
+
 
 };
 
@@ -92,19 +105,21 @@ struct FDirectoryVisitor : public IPlatformFile::FDirectoryVisitor
 	bool Visit(const TCHAR* FilenameOrDirectory, bool bIsDirectory) override
 	{
 
-		if (!bIsDirectory) return true;
+		GEngine->AddOnScreenDebugMessage(0, 10.0f, FColor::White, FString(FilenameOrDirectory));
+
+		if (!bIsDirectory) return false;
 
 		ULevelSelectionWidget* l_Widget = ULevelSelectionWidget::Instance;
 
 		IPlatformFile& l_FileManager = FPlatformFileManager::Get().GetPlatformFile();
 
-		if (!l_FileManager.FileExists(*(FilenameOrDirectory + FString("/info.dat")))) return true;
+		if (!l_FileManager.FileExists(*(FilenameOrDirectory + FString("\\info.dat")))) return true;
 
-		IFileHandle* l_FileHandle = l_FileManager.OpenRead(*(FilenameOrDirectory + FString("/info.dat")));
+		IFileHandle* l_FileHandle = l_FileManager.OpenRead(*(FilenameOrDirectory + FString("\\info.dat")));
 
 		FString l_FileResult;
 
-		FFileHelper::LoadFileToString(l_FileResult, *(FilenameOrDirectory + FString("/info.dat")));
+		FFileHelper::LoadFileToString(l_FileResult, *(FilenameOrDirectory + FString("\\info.dat")));
 
 		FMapInfo l_Info = FMapInfo{};
 

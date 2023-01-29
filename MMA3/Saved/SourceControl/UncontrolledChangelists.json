@@ -6,8 +6,10 @@
 			"description": "Default Uncontrolled Changelist",
 			"files": [
 				"C:/Users/user/Documents/GitHub/MediocreMapAssistant3/MMA3/Content/Blueprints/Widgets/MainMenu/BP_LevelSelectionWidget.uasset",
-				"C:/Users/user/Documents/GitHub/MediocreMapAssistant3/MMA3/Content/Blueprints/Widgets/MainMenu/BP_MapCell.uasset",
-				"C:/Users/user/Documents/GitHub/MediocreMapAssistant3/MMA3/Content/Blueprints/Widgets/MainMenu/SubComponents/BP_MapCell.uasset"
+				"C:/Users/user/Documents/GitHub/MediocreMapAssistant3/MMA3/Content/Blueprints/Widgets/MainMenu/SubComponents/BP_MapCell.uasset",
+				"C:/Users/user/Documents/GitHub/MediocreMapAssistant3/MMA3/Content/Levels/M_Main.umap",
+				"C:/Users/user/Documents/GitHub/MediocreMapAssistant3/MMA3/Content/Blueprints/BP_Controller.uasset",
+				"C:/Users/user/Documents/GitHub/MediocreMapAssistant3/MMA3/Content/Blueprints/Widgets/MainMenu/BP_MapCell.uasset"
 			]
 		}
 	]

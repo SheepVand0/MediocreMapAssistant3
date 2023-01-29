@@ -23,7 +23,7 @@ public:
 	static UMMAConfig* Instance;
 
 	UPROPERTY(EditAnywhere)
-		FString GamePath = FString("");
+		FString GamePath = FString("C:\\Users\\user\\Desktop\\BS1.18.3\\BSLegacyLauncher\\Installed Versions\\Beat Saber 1.26.0");
 
 };
 

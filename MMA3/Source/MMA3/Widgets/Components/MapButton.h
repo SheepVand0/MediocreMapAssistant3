@@ -4,7 +4,6 @@
 
 #include "CoreMinimal.h"
 #include "Components/Button.h"
-#include "MapList.h"
 #include "MapButton.generated.h"
 
 
@@ -21,18 +20,9 @@ public:
 
 	UMapButton();
 
-	UFUNCTION(BlueprintCallable)
-		void SetUnselected();
-
-	UFUNCTION(BlueprintCallable)
-		void SetSelected();
-
 	UPROPERTY(BlueprintReadOnly)
 		FSlateBrush m_NormalBrush;
 
 	UPROPERTY(BlueprintReadOnly)
 		FSlateBrush m_PressedBrush;
-
-	UPROPERTY()
-		UMapList* m_ListReference;
 };

@@ -31,23 +31,8 @@ UMapButton::UMapButton() {
 	WidgetStyle.Hovered = l_Brush;
 	WidgetStyle.Pressed = m_PressedBrush;
 
-	/////////////////////////////////////////////////////////////////////////////
-
-	OnClicked.AddDynamic(this, &UMapButton::SetSelected);
-
 	//m_ListReference = p_ListReference;
 
-	if (m_ListReference != nullptr)
-		m_ListReference->OnMapButtonPressedEvent.AddDynamic(this, &UMapButton::SetUnselected);
-}
-
-void UMapButton::SetSelected() {
-	if (m_ListReference != nullptr)
-		m_ListReference->OnMapButtonPressedEvent.Broadcast();
-	WidgetStyle.Normal = m_PressedBrush;
 
 }
 
-void UMapButton::SetUnselected() {
-	WidgetStyle.Normal = m_NormalBrush;
-}
