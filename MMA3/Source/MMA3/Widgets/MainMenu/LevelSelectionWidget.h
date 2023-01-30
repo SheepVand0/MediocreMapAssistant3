@@ -8,6 +8,9 @@
 #include "MMA3/Widgets/Enums.h"
 #include "MMA3/Widgets/Structures.h"
 #include "HAL/FileManagerGeneric.h"
+#include "Blueprint/WidgetBlueprintLibrary.h"
+
+#include "Components/Image.h"
 #include "MMA3/Widgets/Components/MapList.h"
 #include "C:\Program Files\Epic Games\UE_5.1\Engine\Plugins\Marketplace\VaRestPlugin\Source\VaRest\Public\VaRestSubsystem.h"
 #include "C:\Program Files\Epic Games\UE_5.1\Engine\Plugins\Marketplace\VaRestPlugin\Source\VaRest\Public\VaRestJsonObject.h"
@@ -16,6 +19,7 @@
 #include "LevelSelectionWidget.generated.h"
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnMapCellNeedToBeAdded)
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnBlueprintIsReady)
 
 /**
  *
@@ -29,10 +33,13 @@ public:
 
 	static ULevelSelectionWidget* Instance;
 
-	virtual void PostLoad() override;
+	virtual void NativeConstruct() override;
 
 	UPROPERTY(BlueprintAssignable)
 		FOnMapCellNeedToBeAdded OnMapCellNeedToBeAdded;
+
+	UPROPERTY(BlueprintAssignable)
+		FOnBlueprintIsReady OnBlueprintReady;
 
 	UPROPERTY(EditAnywhere, meta = (BindWidget))
 		class UCanvasPanel* MainCanvas;
@@ -88,13 +95,14 @@ public:
 	UPROPERTY()
 		TArray<FMapInfo> m_Maps;
 
+	UFUNCTION(BlueprintCallable)
+		void EventBlueprintReady();
+
 	UFUNCTION()
 		void RefreshMaps(EMapListType p_Type);
 
 	UFUNCTION()
 		void OnMapSelected();
-
-
 
 };
 
@@ -102,30 +110,31 @@ ULevelSelectionWidget* ULevelSelectionWidget::Instance = nullptr;
 
 struct FDirectoryVisitor : public IPlatformFile::FDirectoryVisitor
 {
+
 	bool Visit(const TCHAR* FilenameOrDirectory, bool bIsDirectory) override
 	{
 
-		GEngine->AddOnScreenDebugMessage(0, 10.0f, FColor::White, FString(FilenameOrDirectory));
+		if (bIsDirectory) {
 
-		if (!bIsDirectory) return false;
+			FString l_Directory = FilenameOrDirectory;
+			l_Directory = l_Directory.Replace(TEXT("/"), TEXT("\\"));
 
-		ULevelSelectionWidget* l_Widget = ULevelSelectionWidget::Instance;
+			ULevelSelectionWidget* l_Widget = ULevelSelectionWidget::Instance;
 
-		IPlatformFile& l_FileManager = FPlatformFileManager::Get().GetPlatformFile();
+			IPlatformFile& l_FileManager = FPlatformFileManager::Get().GetPlatformFile();
 
-		if (!l_FileManager.FileExists(*(FilenameOrDirectory + FString("\\info.dat")))) return true;
+			if (!l_FileManager.FileExists(*(l_Directory + FString("\\info.dat")))) return true;
 
-		IFileHandle* l_FileHandle = l_FileManager.OpenRead(*(FilenameOrDirectory + FString("\\info.dat")));
+			FString l_FileResult;
 
-		FString l_FileResult;
+			FFileHelper::LoadFileToString(l_FileResult, *(l_Directory + FString("\\info.dat")));
 
-		FFileHelper::LoadFileToString(l_FileResult, *(FilenameOrDirectory + FString("\\info.dat")));
+			FMapInfo l_Info = FMapInfo{};
 
-		FMapInfo l_Info = FMapInfo{};
+			l_Info.FromJson(l_FileResult, l_Directory);
 
-		l_Info.FromJson(l_FileResult, FilenameOrDirectory);
-
-		l_Widget->m_Maps.Add(l_Info);
+			l_Widget->m_Maps.Add(l_Info);
+		}
 
 		return true;
 	}

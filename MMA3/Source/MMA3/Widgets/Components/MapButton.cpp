@@ -32,7 +32,5 @@ UMapButton::UMapButton() {
 	WidgetStyle.Pressed = m_PressedBrush;
 
 	//m_ListReference = p_ListReference;
-
-
 }
 

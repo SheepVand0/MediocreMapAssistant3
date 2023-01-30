@@ -25,18 +25,19 @@ FString FMapInfo::GetJson() {
 
 void FMapInfo::FromJson(FString p_Json, FString p_MapPath) {
 
-	UVaRestJsonObject* l_Object = UVaRestSubsystem().ConstructVaRestJsonObject();
+	UVaRestJsonObject* l_Object = GEngine->GetEngineSubsystem<UVaRestSubsystem>()->ConstructVaRestJsonObject();
 
 	l_Object->DecodeJson(p_Json);
 
 	SongName = l_Object->GetStringField("_songName");
 	SongSubName = l_Object->GetStringField("_songSubName");
-	SongAuthor = l_Object->GetStringField("_songAuthor");
+	SongAuthor = l_Object->GetStringField("_songAuthorName");
 	SongMapper = l_Object->GetStringField("_levelAuthorName");
 	MapPath = p_MapPath;
 	AudioFileName = l_Object->GetStringField("_songFileName");
 	CoverImageFileName = l_Object->GetStringField("_coverImageFileName");
 	EnvironmentName = l_Object->GetStringField("_environmentName");
+	BPM = l_Object->GetNumberField("_beatsPerMinute");
 
 	TArray<UVaRestJsonValue*> l_DifficultyBeatmapSets = l_Object->GetArrayField("_difficultyBeatmapSets");
 

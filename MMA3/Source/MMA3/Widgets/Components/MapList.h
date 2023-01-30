@@ -39,12 +39,14 @@ public:
 	UPROPERTY(meta = (BindWidget))
 		UCustomTextBlock* CDuration;
 
-	UPROPERTY()
+	UPROPERTY(BlueprintReadOnly)
 		UMapList* m_ListReference;
 
-	void SetUnselected();
+	UFUNCTION()
+		void SetUnselected();
 
-	void SetSelected();
+	UFUNCTION()
+		void SetSelected();
 
 private:
 

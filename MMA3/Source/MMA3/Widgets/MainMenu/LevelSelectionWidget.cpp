@@ -3,10 +3,13 @@
 
 #include "LevelSelectionWidget.h"
 #include "MMA3/MMAConfig.h"
+#include "Engine/Texture2D.h"
+#include "ImageUtils.h"
+#include "MMA3/Widgets/WidgetUtils.h"
 #include "Kismet/GameplayStatics.h"
 
-void ULevelSelectionWidget::PostLoad() {
-	Super::PostLoad();
+void ULevelSelectionWidget::NativeConstruct() {
+	//Super::PostLoad();
 
 	//return;
 
@@ -26,6 +29,10 @@ void ULevelSelectionWidget::PostLoad() {
 
 	LevelsScrollBox->OnMapButtonPressedEvent.AddDynamic(this, &ULevelSelectionWidget::OnMapSelected);
 
+	OnBlueprintReady.AddDynamic(this, &ULevelSelectionWidget::EventBlueprintReady);
+}
+
+void ULevelSelectionWidget::EventBlueprintReady() {
 	RefreshMaps(EMapListType::WIP);
 }
 
@@ -38,6 +45,32 @@ void ULevelSelectionWidget::OnMapSelected() {
 	Mapper->SetText(FText::FromString(l_Info.SongMapper));
 	SongDuration->SetText(FText::FromString("0:00"));
 	SongBpm->SetText(FText::FromString(FString::SanitizeFloat(l_Info.BPM)));
+
+	if (l_Info.Cover == nullptr) {
+		IPlatformFile& l_FileManager = FPlatformFileManager::Get().GetPlatformFile();
+
+		if (!l_FileManager.FileExists(*(l_Info.MapPath + FString("\\" + l_Info.CoverImageFileName)))) return;
+
+		FString l_FilePath = (l_Info.MapPath + "\\" + l_Info.CoverImageFileName);
+
+		bool l_IsValid;
+
+		int l_Width;
+		int l_Height;
+
+		l_Info.Cover = WidgetUtils::LoadTexture2DFromFile(l_FilePath, (l_FilePath.Find(".png")) ? EJoyImageFormats::PNG : EJoyImageFormats::JPG, l_IsValid, l_Width, l_Height);
+	}
+
+	GEngine->AddOnScreenDebugMessage(1, 10.0f, FColor::White, FString(l_Info.Cover == nullptr ? "True" : "False"));
+	GEngine->AddOnScreenDebugMessage(2, 10.0f, FColor::White, FString(CoverPreview == nullptr ? "True" : "False"));
+
+	FSlateBrush l_Brush = UWidgetBlueprintLibrary::MakeBrushFromTexture(l_Info.Cover);
+	l_Brush = WidgetUtils::GetUIElementStyle(l_Brush, 255, FColor::White, FMargin(0));
+	l_Brush.DrawAs = ESlateBrushDrawType::RoundedBox;
+	l_Brush.OutlineSettings.CornerRadii = FVector4d(10);
+	l_Brush.OutlineSettings.RoundingType = ESlateBrushRoundingType::FixedRadius;
+
+	CoverPreview->SetBrush(l_Brush);
 }
 
 void ULevelSelectionWidget::RefreshMaps(EMapListType p_MapRefreshType) {
@@ -46,7 +79,7 @@ void ULevelSelectionWidget::RefreshMaps(EMapListType p_MapRefreshType) {
 
 	FString l_Path = UMMAConfig::Instance->GamePath + "\\Beat Saber_Data" + (p_MapRefreshType == EMapListType::WIP ? "\\CustomWIPLevels" : "\\CustomLevels");
 
-	GEngine->AddOnScreenDebugMessage(0, 10.0f, FColor::White, l_Path);
+	//GEngine->AddOnScreenDebugMessage(0, 10.0f, FColor::White, l_Path);
 
 	FDirectoryVisitor l_Visitor;
 
@@ -59,6 +92,15 @@ void ULevelSelectionWidget::RefreshMaps(EMapListType p_MapRefreshType) {
 	for (int l_i = 0; l_i < m_Maps.Num(); l_i++) {
 
 		OnMapCellNeedToBeAdded.Broadcast();
+	}
+
+	for (int l_i = 0; l_i < LevelsScrollBox->GetChildrenCount(); l_i++) {
+
+		UMapCell* l_Cell = Cast<UMapCell>(LevelsScrollBox->GetChildAt(l_i));
+		if (l_Cell == nullptr) continue;
+
+		l_Cell->m_ListReference = LevelsScrollBox;
+		l_Cell->SetData(m_Maps[l_i]);
 	}
 
 };

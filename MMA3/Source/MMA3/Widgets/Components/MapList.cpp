@@ -14,14 +14,14 @@ void UMapCell::SetData(FMapInfo p_Info) {
 
 	CButton->OnClicked.AddDynamic(this, &UMapCell::SetSelected);
 
-	if (m_ListReference != nullptr)
-		m_ListReference->OnMapButtonPressedEvent.AddDynamic(this, &UMapCell::SetUnselected);
+	m_ListReference->OnMapButtonPressedEvent.AddDynamic(this, &UMapCell::SetUnselected);
 }
 
 void UMapCell::SetSelected() {
-	if (m_ListReference != nullptr)
-		m_ListReference->OnMapButtonPressedEvent.Broadcast();
+	GEngine->AddOnScreenDebugMessage(1, 10.0f, FColor::White, FString("Pressed"));
 	m_ListReference->SelectedCell = this;
+	m_ListReference->OnMapButtonPressedEvent.Broadcast();
+	CButton->WidgetStyle.SetNormal(CButton->m_PressedBrush);
 }
 
 void UMapCell::SetUnselected() {

@@ -121,6 +121,9 @@ public:
 	UPROPERTY()
 		USoundWave* Song;
 
+	UPROPERTY()
+		UTexture2D* Cover;
+
 	FString GetJson();
 
 	void FromJson(FString p_Json, FString p_MapMath);
