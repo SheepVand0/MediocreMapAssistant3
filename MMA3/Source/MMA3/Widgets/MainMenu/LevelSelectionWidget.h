@@ -9,7 +9,6 @@
 #include "MMA3/Widgets/Structures.h"
 #include "HAL/FileManagerGeneric.h"
 #include "Blueprint/WidgetBlueprintLibrary.h"
-
 #include "Components/Image.h"
 #include "MMA3/Widgets/Components/MapList.h"
 #include "C:\Program Files\Epic Games\UE_5.1\Engine\Plugins\Marketplace\VaRestPlugin\Source\VaRest\Public\VaRestSubsystem.h"

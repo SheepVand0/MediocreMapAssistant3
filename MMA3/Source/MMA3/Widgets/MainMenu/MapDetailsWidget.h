@@ -11,7 +11,12 @@
 #include "MMA3/Widgets/Components/CustomScrollBox.h"
 #include "MMA3/Widgets/Components/CustomEditableTextBox.h"
 #include "MMA3/Widgets/Structures.h"
+#include "Components/Image.h"
+#include "ImageUtils.h"
 #include "MapDetailsWidget.generated.h"
+
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnNeedToAddDifficultyBeatmaps)
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnDifficultySelected, FString, SerializedDifficulty)
 
 /**
  *
@@ -23,7 +28,11 @@ class MMA3_API UMapDetailsWidget : public UUserWidget
 
 public:
 
-	FMapInfo m_Info;
+	UPROPERTY()
+		FMapInfo m_Info;
+
+	UPROPERTY()
+		FMapDifficulty m_SelectedDifficulty;
 
 	UPROPERTY(EditAnywhere, meta =(BindWidget))
 		class UCustomEditableTextBox* MapName;
@@ -58,6 +67,15 @@ public:
 	UPROPERTY(EditAnywhere, meta = (BindWidget))
 		class UCustomEditableTextBox* CoverFile;
 
+	UPROPERTY(EditAnywhere, meta = (BindWidget))
+		class UImage* CoverPreview;
+
+	UPROPERTY(EditAnywhere, meta = (BindWidget))
+		class UCustomTextBlock* AudioNotFound;
+
+	UPROPERTY(EditAnywhere, meta = (BindWidget))
+		class UCustomTextBlock* CoverNotFound;
+
 	//////////////////////////////////////////////////
 
 	UPROPERTY(EditAnywhere, meta = (BindWidget))
@@ -78,6 +96,9 @@ public:
 	UPROPERTY(EditAnywhere, meta = (BindWidget))
 		class UCustomScrollBox* CDifficultyList;
 
+	UPROPERTY(EditAnywhere, meta = (BindWidget))
+		class UCustomEditableTextBox* CDifficultyLabel;
+
 	//////////////////////////////////////////////////
 
 	UPROPERTY(EditAnywhere, meta = (BindWidget))
@@ -94,5 +115,25 @@ public:
 
 	UPROPERTY(EditAnywhere, meta = (BindWidget))
 		class UCustomButton* NinetyModeButton;
+
+	//////////////////////////////////////////////////
+
+	UPROPERTY(BlueprintReadOnly)
+		TArray<FString> ListBeatmapDifficultiesSerialized;
+
+	UPROPERTY(BlueprintAssignable)
+		FOnNeedToAddDifficultyBeatmaps OnNeedToAddDifficultyBeatmaps;
+
+	UFUNCTION()
+		void SetMap(FMapInfo p_Map);
+
+	UFUNCTION()
+		void UpdateCover();
+
+	UFUNCTION()
+		void UpdateMapList(FString p_Mode);
+
+	UFUNCTION()
+		void SetDifficultyPropertiesEnable(bool p_Enable);
 
 };

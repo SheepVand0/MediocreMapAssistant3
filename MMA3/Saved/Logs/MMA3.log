@@ -2557,3 +2557,881 @@ LogConfig: Set CVar [[r.Shadow.DetectVertexShaderLayerAtRuntime:1]]
 [2023.02.01-16.26.50:463][192]LogFileHelpers: InternalPromptForCheckoutAndSave took 52 ms (total: 221 ms)
 [2023.02.01-16.26.50:474][192]AssetCheck: New page: Asset Save: BP_MapDetailWidget
 [2023.02.01-16.26.50:474][192]LogContentValidation: Display: Validating /Script/UMGEditor.WidgetBlueprint /Game/Blueprints/Widgets/MainMenu/BP_MapDetailWidget.BP_MapDetailWidget
+[2023.02.01-16.45.47:357][172]LogFileHelpers: InternalPromptForCheckoutAndSave started...
+[2023.02.01-16.45.47:403][172]LogSavePackage: Moving output files for package: /Game/Blueprints/Widgets/MainMenu/BP_MapDetailWidget
+[2023.02.01-16.45.47:404][172]LogSavePackage: Moving '../../../../../../Users/user/Documents/GitHub/MediocreMapAssistant3/MMA3/Saved/BP_MapDetailWidget7600B5254E0D4A273CC6EBBCE2CB3E6F.tmp' to '../../../../../../Users/user/Documents/GitHub/MediocreMapAssistant3/MMA3/Content/Blueprints/Widgets/MainMenu/BP_MapDetailWidget.uasset'
+[2023.02.01-16.45.47:410][172]LogFileHelpers: InternalPromptForCheckoutAndSave took 53 ms (total: 274 ms)
+[2023.02.01-16.45.47:425][172]AssetCheck: New page: Asset Save: BP_MapDetailWidget
+[2023.02.01-16.45.47:425][172]LogContentValidation: Display: Validating /Script/UMGEditor.WidgetBlueprint /Game/Blueprints/Widgets/MainMenu/BP_MapDetailWidget.BP_MapDetailWidget
+[2023.02.01-16.45.48:012][232]LogUObjectHash: Compacting FUObjectHashTables data took   2.87ms
+[2023.02.01-16.45.51:046][232]LogSlate: Window 'Save Content' being destroyed
+[2023.02.01-16.45.52:712][346]LogFileHelpers: InternalPromptForCheckoutAndSave started...
+[2023.02.01-16.45.52:750][346]LogSavePackage: Moving output files for package: /Game/Blueprints/Widgets/MainMenu/BP_MapDetailWidget
+[2023.02.01-16.45.52:750][346]LogSavePackage: Moving '../../../../../../Users/user/Documents/GitHub/MediocreMapAssistant3/MMA3/Saved/BP_MapDetailWidget2088E56E4B20F94EE18F179FBB7CB210.tmp' to '../../../../../../Users/user/Documents/GitHub/MediocreMapAssistant3/MMA3/Content/Blueprints/Widgets/MainMenu/BP_MapDetailWidget.uasset'
+[2023.02.01-16.45.52:755][346]LogFileHelpers: InternalPromptForCheckoutAndSave took 43 ms (total: 317 ms)
+[2023.02.01-16.45.52:765][346]AssetCheck: New page: Asset Save: BP_MapDetailWidget
+[2023.02.01-16.45.52:765][346]LogContentValidation: Display: Validating /Script/UMGEditor.WidgetBlueprint /Game/Blueprints/Widgets/MainMenu/BP_MapDetailWidget.BP_MapDetailWidget
+[2023.02.01-17.05.30:947][749]LogDerivedDataCache: C:/Users/user/AppData/Local/UnrealEngine/Common/DerivedDataCache: Maintenance finished in +00:00:03.133 and deleted 0 files with total size 0 MiB. Scanned 2389 files in 2175 folders with total size 152 MiB.
+[2023.02.01-17.43.49:138][753]LogHotReload: New module detected: UnrealEditor-MMA3-0015.dll
+[2023.02.01-17.43.50:144][757]LogHotReload: Starting Hot-Reload from IDE
+[2023.02.01-17.43.50:305][757]LogUObjectHash: Compacting FUObjectHashTables data took   4.13ms
+[2023.02.01-17.43.50:351][757]LogClass: UPackage /Script/MMA3 Reload.
+[2023.02.01-17.43.50:351][757]LogClass: UClass MapDetailsWidget Reload.
+[2023.02.01-17.43.50:394][757]LogClass: Could not find existing class MapDetailsWidget in package /Script/MMA3 for reload, assuming new or modified class
+[2023.02.01-17.43.50:394][757]LogClass: Function SetMap is new or belongs to a modified class.
+[2023.02.01-17.43.50:394][757]LogClass: Function UpdateCover is new or belongs to a modified class.
+[2023.02.01-17.43.50:425][757]Re-instancing MapDetailsWidget after reload.
+[2023.02.01-17.43.50:427][757]LogBlueprint: Error: [AssetLog] C:\Users\user\Documents\GitHub\MediocreMapAssistant3\MMA3\Content\Blueprints\Widgets\MainMenu\BP_MapDetailWidget.uasset: [Compiler] A required widget binding "CoverPreview" of type  Image  was not found.
+[2023.02.01-17.43.50:427][757]LogBlueprint: Error: [AssetLog] C:\Users\user\Documents\GitHub\MediocreMapAssistant3\MMA3\Content\Blueprints\Widgets\MainMenu\BP_MapDetailWidget.uasset: [Compiler] A required widget binding "AudioNotFound" of type  Custom Text Block  was not found.
+[2023.02.01-17.43.50:427][757]LogBlueprint: Error: [AssetLog] C:\Users\user\Documents\GitHub\MediocreMapAssistant3\MMA3\Content\Blueprints\Widgets\MainMenu\BP_MapDetailWidget.uasset: [Compiler] A required widget binding "CoverNotFound" of type  Custom Text Block  was not found.
+[2023.02.01-17.43.50:433][757]LogBlueprint: Error: [AssetLog] C:\Users\user\Documents\GitHub\MediocreMapAssistant3\MMA3\Content\Blueprints\Widgets\MainMenu\BP_MapDetailWidget.uasset: [Compiler] A required widget binding "CoverPreview" of type  Image  was not found.
+[2023.02.01-17.43.50:433][757]LogBlueprint: Error: [AssetLog] C:\Users\user\Documents\GitHub\MediocreMapAssistant3\MMA3\Content\Blueprints\Widgets\MainMenu\BP_MapDetailWidget.uasset: [Compiler] A required widget binding "AudioNotFound" of type  Custom Text Block  was not found.
+[2023.02.01-17.43.50:433][757]LogBlueprint: Error: [AssetLog] C:\Users\user\Documents\GitHub\MediocreMapAssistant3\MMA3\Content\Blueprints\Widgets\MainMenu\BP_MapDetailWidget.uasset: [Compiler] A required widget binding "CoverNotFound" of type  Custom Text Block  was not found.
+[2023.02.01-17.43.50:683][757]LogUObjectHash: Compacting FUObjectHashTables data took   2.20ms
+[2023.02.01-17.43.50:748][757]Display: HotReload took  0.6s.
+[2023.02.01-17.43.50:749][757]Display: Reload/Re-instancing Complete: 2 packages changed, 1 class changed, 21 classes unchanged, 7 enums unchanged, 5 scriptstructs unchanged, 114 functions remapped, 5 scriptstructs remapped
+[2023.02.01-17.59.58:974][661]LogHotReload: New module detected: UnrealEditor-MMA3-0016.dll
+[2023.02.01-17.59.59:979][665]LogHotReload: Starting Hot-Reload from IDE
+[2023.02.01-18.00.00:154][665]LogUObjectHash: Compacting FUObjectHashTables data took   2.60ms
+[2023.02.01-18.00.00:174][665]LogClass: UPackage /Script/MMA3 Reload.
+[2023.02.01-18.00.00:174][665]LogClass: UClass MapDetailsWidget Reload.
+[2023.02.01-18.00.00:226][665]LogClass: Could not find existing class MapDetailsWidget in package /Script/MMA3 for reload, assuming new or modified class
+[2023.02.01-18.00.00:226][665]LogClass: Function SetDifficultyPropertiesEnable is new or belongs to a modified class.
+[2023.02.01-18.00.00:226][665]LogClass: Function SetMap is new or belongs to a modified class.
+[2023.02.01-18.00.00:226][665]LogClass: Function UpdateCover is new or belongs to a modified class.
+[2023.02.01-18.00.00:226][665]LogClass: Function UpdateMapList is new or belongs to a modified class.
+[2023.02.01-18.00.00:263][665]Re-instancing MapDetailsWidget after reload.
+[2023.02.01-18.00.00:265][665]LogBlueprint: Error: [AssetLog] C:\Users\user\Documents\GitHub\MediocreMapAssistant3\MMA3\Content\Blueprints\Widgets\MainMenu\BP_MapDetailWidget.uasset: [Compiler] A required widget binding "CoverPreview" of type  Image  was not found.
+[2023.02.01-18.00.00:265][665]LogBlueprint: Error: [AssetLog] C:\Users\user\Documents\GitHub\MediocreMapAssistant3\MMA3\Content\Blueprints\Widgets\MainMenu\BP_MapDetailWidget.uasset: [Compiler] A required widget binding "AudioNotFound" of type  Custom Text Block  was not found.
+[2023.02.01-18.00.00:265][665]LogBlueprint: Error: [AssetLog] C:\Users\user\Documents\GitHub\MediocreMapAssistant3\MMA3\Content\Blueprints\Widgets\MainMenu\BP_MapDetailWidget.uasset: [Compiler] A required widget binding "CoverNotFound" of type  Custom Text Block  was not found.
+[2023.02.01-18.00.00:265][665]LogBlueprint: Error: [AssetLog] C:\Users\user\Documents\GitHub\MediocreMapAssistant3\MMA3\Content\Blueprints\Widgets\MainMenu\BP_MapDetailWidget.uasset: [Compiler] A required widget binding "CDifficultyLabel" of type  Custom Text Block  was not found.
+[2023.02.01-18.00.00:270][665]LogBlueprint: Error: [AssetLog] C:\Users\user\Documents\GitHub\MediocreMapAssistant3\MMA3\Content\Blueprints\Widgets\MainMenu\BP_MapDetailWidget.uasset: [Compiler] A required widget binding "CoverPreview" of type  Image  was not found.
+[2023.02.01-18.00.00:270][665]LogBlueprint: Error: [AssetLog] C:\Users\user\Documents\GitHub\MediocreMapAssistant3\MMA3\Content\Blueprints\Widgets\MainMenu\BP_MapDetailWidget.uasset: [Compiler] A required widget binding "AudioNotFound" of type  Custom Text Block  was not found.
+[2023.02.01-18.00.00:270][665]LogBlueprint: Error: [AssetLog] C:\Users\user\Documents\GitHub\MediocreMapAssistant3\MMA3\Content\Blueprints\Widgets\MainMenu\BP_MapDetailWidget.uasset: [Compiler] A required widget binding "CoverNotFound" of type  Custom Text Block  was not found.
+[2023.02.01-18.00.00:270][665]LogBlueprint: Error: [AssetLog] C:\Users\user\Documents\GitHub\MediocreMapAssistant3\MMA3\Content\Blueprints\Widgets\MainMenu\BP_MapDetailWidget.uasset: [Compiler] A required widget binding "CDifficultyLabel" of type  Custom Text Block  was not found.
+[2023.02.01-18.00.00:559][665]LogUObjectHash: Compacting FUObjectHashTables data took   2.15ms
+[2023.02.01-18.00.00:617][665]Display: HotReload took  0.6s.
+[2023.02.01-18.00.00:617][665]Display: Reload/Re-instancing Complete: 2 packages changed, 1 class changed, 21 classes unchanged, 7 enums unchanged, 5 scriptstructs unchanged, 114 functions remapped, 5 scriptstructs remapped
+[2023.02.01-18.00.29:099][658]LogBlueprint: Error: [AssetLog] C:\Users\user\Documents\GitHub\MediocreMapAssistant3\MMA3\Content\Blueprints\Widgets\MainMenu\BP_MapDetailWidget.uasset: [Compiler] A required widget binding "CoverPreview" of type  Image  was not found.
+[2023.02.01-18.00.29:099][658]LogBlueprint: Error: [AssetLog] C:\Users\user\Documents\GitHub\MediocreMapAssistant3\MMA3\Content\Blueprints\Widgets\MainMenu\BP_MapDetailWidget.uasset: [Compiler] A required widget binding "AudioNotFound" of type  Custom Text Block  was not found.
+[2023.02.01-18.00.29:099][658]LogBlueprint: Error: [AssetLog] C:\Users\user\Documents\GitHub\MediocreMapAssistant3\MMA3\Content\Blueprints\Widgets\MainMenu\BP_MapDetailWidget.uasset: [Compiler] A required widget binding "CoverNotFound" of type  Custom Text Block  was not found.
+[2023.02.01-18.00.29:099][658]LogBlueprint: Error: [AssetLog] C:\Users\user\Documents\GitHub\MediocreMapAssistant3\MMA3\Content\Blueprints\Widgets\MainMenu\BP_MapDetailWidget.uasset: [Compiler] A required widget binding "CDifficultyLabel" of type  Custom Text Block  was not found.
+[2023.02.01-18.00.30:429][808]LogBlueprint: Error: [AssetLog] C:\Users\user\Documents\GitHub\MediocreMapAssistant3\MMA3\Content\Blueprints\Widgets\MainMenu\BP_MapDetailWidget.uasset: [Compiler] A required widget binding "CoverPreview" of type  Image  was not found.
+[2023.02.01-18.00.30:429][808]LogBlueprint: Error: [AssetLog] C:\Users\user\Documents\GitHub\MediocreMapAssistant3\MMA3\Content\Blueprints\Widgets\MainMenu\BP_MapDetailWidget.uasset: [Compiler] A required widget binding "AudioNotFound" of type  Custom Text Block  was not found.
+[2023.02.01-18.00.30:429][808]LogBlueprint: Error: [AssetLog] C:\Users\user\Documents\GitHub\MediocreMapAssistant3\MMA3\Content\Blueprints\Widgets\MainMenu\BP_MapDetailWidget.uasset: [Compiler] A required widget binding "CoverNotFound" of type  Custom Text Block  was not found.
+[2023.02.01-18.00.30:429][808]LogBlueprint: Error: [AssetLog] C:\Users\user\Documents\GitHub\MediocreMapAssistant3\MMA3\Content\Blueprints\Widgets\MainMenu\BP_MapDetailWidget.uasset: [Compiler] A required widget binding "CDifficultyLabel" of type  Custom Text Block  was not found.
+[2023.02.01-18.00.31:250][900]LogBlueprint: Error: [AssetLog] C:\Users\user\Documents\GitHub\MediocreMapAssistant3\MMA3\Content\Blueprints\Widgets\MainMenu\BP_MapDetailWidget.uasset: [Compiler] A required widget binding "CoverPreview" of type  Image  was not found.
+[2023.02.01-18.00.31:250][900]LogBlueprint: Error: [AssetLog] C:\Users\user\Documents\GitHub\MediocreMapAssistant3\MMA3\Content\Blueprints\Widgets\MainMenu\BP_MapDetailWidget.uasset: [Compiler] A required widget binding "AudioNotFound" of type  Custom Text Block  was not found.
+[2023.02.01-18.00.31:250][900]LogBlueprint: Error: [AssetLog] C:\Users\user\Documents\GitHub\MediocreMapAssistant3\MMA3\Content\Blueprints\Widgets\MainMenu\BP_MapDetailWidget.uasset: [Compiler] A required widget binding "CoverNotFound" of type  Custom Text Block  was not found.
+[2023.02.01-18.00.31:250][900]LogBlueprint: Error: [AssetLog] C:\Users\user\Documents\GitHub\MediocreMapAssistant3\MMA3\Content\Blueprints\Widgets\MainMenu\BP_MapDetailWidget.uasset: [Compiler] A required widget binding "CDifficultyLabel" of type  Custom Text Block  was not found.
+[2023.02.01-18.00.32:881][ 89]LogBlueprint: Error: [AssetLog] C:\Users\user\Documents\GitHub\MediocreMapAssistant3\MMA3\Content\Blueprints\Widgets\MainMenu\BP_MapDetailWidget.uasset: [Compiler] A required widget binding "CoverPreview" of type  Image  was not found.
+[2023.02.01-18.00.32:881][ 89]LogBlueprint: Error: [AssetLog] C:\Users\user\Documents\GitHub\MediocreMapAssistant3\MMA3\Content\Blueprints\Widgets\MainMenu\BP_MapDetailWidget.uasset: [Compiler] A required widget binding "AudioNotFound" of type  Custom Text Block  was not found.
+[2023.02.01-18.00.32:882][ 89]LogBlueprint: Error: [AssetLog] C:\Users\user\Documents\GitHub\MediocreMapAssistant3\MMA3\Content\Blueprints\Widgets\MainMenu\BP_MapDetailWidget.uasset: [Compiler] A required widget binding "CoverNotFound" of type  Custom Text Block  was not found.
+[2023.02.01-18.00.32:882][ 89]LogBlueprint: Error: [AssetLog] C:\Users\user\Documents\GitHub\MediocreMapAssistant3\MMA3\Content\Blueprints\Widgets\MainMenu\BP_MapDetailWidget.uasset: [Compiler] A required widget binding "CDifficultyLabel" of type  Custom Text Block  was not found.
+[2023.02.01-18.00.34:609][290]LogBlueprint: Error: [AssetLog] C:\Users\user\Documents\GitHub\MediocreMapAssistant3\MMA3\Content\Blueprints\Widgets\MainMenu\BP_MapDetailWidget.uasset: [Compiler] A required widget binding "CoverPreview" of type  Image  was not found.
+[2023.02.01-18.00.34:609][290]LogBlueprint: Error: [AssetLog] C:\Users\user\Documents\GitHub\MediocreMapAssistant3\MMA3\Content\Blueprints\Widgets\MainMenu\BP_MapDetailWidget.uasset: [Compiler] A required widget binding "AudioNotFound" of type  Custom Text Block  was not found.
+[2023.02.01-18.00.34:609][290]LogBlueprint: Error: [AssetLog] C:\Users\user\Documents\GitHub\MediocreMapAssistant3\MMA3\Content\Blueprints\Widgets\MainMenu\BP_MapDetailWidget.uasset: [Compiler] A required widget binding "CoverNotFound" of type  Custom Text Block  was not found.
+[2023.02.01-18.00.34:609][290]LogBlueprint: Error: [AssetLog] C:\Users\user\Documents\GitHub\MediocreMapAssistant3\MMA3\Content\Blueprints\Widgets\MainMenu\BP_MapDetailWidget.uasset: [Compiler] A required widget binding "CDifficultyLabel" of type  Custom Text Block  was not found.
+[2023.02.01-18.00.48:865][972]LogSlate: Window 'Color Picker' being destroyed
+[2023.02.01-18.01.10:776][589]LogBlueprint: Error: [AssetLog] C:\Users\user\Documents\GitHub\MediocreMapAssistant3\MMA3\Content\Blueprints\Widgets\MainMenu\BP_MapDetailWidget.uasset: [Compiler] A required widget binding "CoverPreview" of type  Image  was not found.
+[2023.02.01-18.01.10:776][589]LogBlueprint: Error: [AssetLog] C:\Users\user\Documents\GitHub\MediocreMapAssistant3\MMA3\Content\Blueprints\Widgets\MainMenu\BP_MapDetailWidget.uasset: [Compiler] A required widget binding "CoverNotFound" of type  Custom Text Block  was not found.
+[2023.02.01-18.01.10:776][589]LogBlueprint: Error: [AssetLog] C:\Users\user\Documents\GitHub\MediocreMapAssistant3\MMA3\Content\Blueprints\Widgets\MainMenu\BP_MapDetailWidget.uasset: [Compiler] A required widget binding "CDifficultyLabel" of type  Custom Text Block  was not found.
+[2023.02.01-18.01.16:654][281]LogBlueprint: Error: [AssetLog] C:\Users\user\Documents\GitHub\MediocreMapAssistant3\MMA3\Content\Blueprints\Widgets\MainMenu\BP_MapDetailWidget.uasset: [Compiler] A required widget binding "CoverPreview" of type  Image  was not found.
+[2023.02.01-18.01.16:654][281]LogBlueprint: Error: [AssetLog] C:\Users\user\Documents\GitHub\MediocreMapAssistant3\MMA3\Content\Blueprints\Widgets\MainMenu\BP_MapDetailWidget.uasset: [Compiler] A required widget binding "CoverNotFound" of type  Custom Text Block  was not found.
+[2023.02.01-18.01.16:654][281]LogBlueprint: Error: [AssetLog] C:\Users\user\Documents\GitHub\MediocreMapAssistant3\MMA3\Content\Blueprints\Widgets\MainMenu\BP_MapDetailWidget.uasset: [Compiler] A required widget binding "CDifficultyLabel" of type  Custom Text Block  was not found.
+[2023.02.01-18.01.17:520][375]LogBlueprint: Error: [AssetLog] C:\Users\user\Documents\GitHub\MediocreMapAssistant3\MMA3\Content\Blueprints\Widgets\MainMenu\BP_MapDetailWidget.uasset: [Compiler] A required widget binding "CoverPreview" of type  Image  was not found.
+[2023.02.01-18.01.17:520][375]LogBlueprint: Error: [AssetLog] C:\Users\user\Documents\GitHub\MediocreMapAssistant3\MMA3\Content\Blueprints\Widgets\MainMenu\BP_MapDetailWidget.uasset: [Compiler] A required widget binding "CoverNotFound" of type  Custom Text Block  was not found.
+[2023.02.01-18.01.17:520][375]LogBlueprint: Error: [AssetLog] C:\Users\user\Documents\GitHub\MediocreMapAssistant3\MMA3\Content\Blueprints\Widgets\MainMenu\BP_MapDetailWidget.uasset: [Compiler] A required widget binding "CDifficultyLabel" of type  Custom Text Block  was not found.
+[2023.02.01-18.01.26:292][410]LogSlate: Window 'Color Picker' being destroyed
+[2023.02.01-18.02.33:830][129]LogBlueprint: Error: [AssetLog] C:\Users\user\Documents\GitHub\MediocreMapAssistant3\MMA3\Content\Blueprints\Widgets\MainMenu\BP_MapDetailWidget.uasset: [Compiler] A required widget binding "CoverPreview" of type  Image  was not found.
+[2023.02.01-18.02.33:830][129]LogBlueprint: Error: [AssetLog] C:\Users\user\Documents\GitHub\MediocreMapAssistant3\MMA3\Content\Blueprints\Widgets\MainMenu\BP_MapDetailWidget.uasset: [Compiler] A required widget binding "CDifficultyLabel" of type  Custom Text Block  was not found.
+[2023.02.01-18.03.03:763][981]LogBlueprint: Error: [AssetLog] C:\Users\user\Documents\GitHub\MediocreMapAssistant3\MMA3\Content\Blueprints\Widgets\MainMenu\BP_MapDetailWidget.uasset: [Compiler] A required widget binding "CoverPreview" of type  Image  was not found.
+[2023.02.01-18.03.03:763][981]LogBlueprint: Error: [AssetLog] C:\Users\user\Documents\GitHub\MediocreMapAssistant3\MMA3\Content\Blueprints\Widgets\MainMenu\BP_MapDetailWidget.uasset: [Compiler] A required widget binding "CDifficultyLabel" of type  Custom Text Block  was not found.
+[2023.02.01-18.03.43:877][476]LogUObjectHash: Compacting FUObjectHashTables data took   3.15ms
+[2023.02.01-18.03.43:880][476]LogFileHelpers: Editor autosave (incl. external actors) for '/Game/Levels/M_Main' took 0.128
+[2023.02.01-18.03.43:881][476]OBJ SavePackage: Generating thumbnails for [2] asset(s) in package [/Game/Blueprints/Widgets/MainMenu/BP_MapDetailWidget] ([2] browsable assets)...
+[2023.02.01-18.03.43:890][476]OBJ SavePackage:     Rendered thumbnail for [WidgetBlueprint /Game/Blueprints/Widgets/MainMenu/BP_MapDetailWidget.BP_MapDetailWidget]
+[2023.02.01-18.03.43:890][476]OBJ SavePackage: Finished generating thumbnails for package [/Game/Blueprints/Widgets/MainMenu/BP_MapDetailWidget]
+[2023.02.01-18.03.43:905][476]LogSavePackage: Moving output files for package: /Temp/Autosaves/Game/Blueprints/Widgets/MainMenu/BP_MapDetailWidget_Auto4
+[2023.02.01-18.03.43:905][476]LogSavePackage: Moving '../../../../../../Users/user/Documents/GitHub/MediocreMapAssistant3/MMA3/Saved/BP_MapDetailWidget_Auto4FC287EAE4C4A74082E30D4A47543783B.tmp' to '../../../../../../Users/user/Documents/GitHub/MediocreMapAssistant3/MMA3/Saved/Autosaves/Game/Blueprints/Widgets/MainMenu/BP_MapDetailWidget_Auto4.uasset'
+[2023.02.01-18.03.43:906][476]LogFileHelpers: Auto-saving content packages took 0.025
+[2023.02.01-18.05.31:890][801]LogDerivedDataCache: C:/Users/user/AppData/Local/UnrealEngine/Common/DerivedDataCache: Maintenance finished in +00:00:04.076 and deleted 0 files with total size 0 MiB. Scanned 2389 files in 2175 folders with total size 152 MiB.
+[2023.02.01-18.06.54:081][639]LogBlueprint: Error: [AssetLog] C:\Users\user\Documents\GitHub\MediocreMapAssistant3\MMA3\Content\Blueprints\Widgets\MainMenu\BP_MapDetailWidget.uasset: [Compiler] A required widget binding "CoverPreview" of type  Image  was not found.
+[2023.02.01-18.06.54:081][639]LogBlueprint: Error: [AssetLog] C:\Users\user\Documents\GitHub\MediocreMapAssistant3\MMA3\Content\Blueprints\Widgets\MainMenu\BP_MapDetailWidget.uasset: [Compiler] A required widget binding "CDifficultyLabel" of type  Custom Text Block  was not found.
+[2023.02.01-18.07.22:361][987]LogBlueprint: Error: [AssetLog] C:\Users\user\Documents\GitHub\MediocreMapAssistant3\MMA3\Content\Blueprints\Widgets\MainMenu\BP_MapDetailWidget.uasset: [Compiler] A required widget binding "CoverPreview" of type  Image  was not found.
+[2023.02.01-18.07.22:361][987]LogBlueprint: Error: [AssetLog] C:\Users\user\Documents\GitHub\MediocreMapAssistant3\MMA3\Content\Blueprints\Widgets\MainMenu\BP_MapDetailWidget.uasset: [Compiler] A required widget binding "CDifficultyLabel" of type  Custom Text Block  was not found.
+[2023.02.01-18.07.23:164][ 58]LogBlueprint: Error: [AssetLog] C:\Users\user\Documents\GitHub\MediocreMapAssistant3\MMA3\Content\Blueprints\Widgets\MainMenu\BP_MapDetailWidget.uasset: [Compiler] A required widget binding "CoverPreview" of type  Image  was not found.
+[2023.02.01-18.07.23:164][ 58]LogBlueprint: Error: [AssetLog] C:\Users\user\Documents\GitHub\MediocreMapAssistant3\MMA3\Content\Blueprints\Widgets\MainMenu\BP_MapDetailWidget.uasset: [Compiler] A required widget binding "CDifficultyLabel" of type  Custom Text Block  was not found.
+[2023.02.01-18.07.23:829][119]LogBlueprint: Error: [AssetLog] C:\Users\user\Documents\GitHub\MediocreMapAssistant3\MMA3\Content\Blueprints\Widgets\MainMenu\BP_MapDetailWidget.uasset: [Compiler] A required widget binding "CoverPreview" of type  Image  was not found.
+[2023.02.01-18.07.23:829][119]LogBlueprint: Error: [AssetLog] C:\Users\user\Documents\GitHub\MediocreMapAssistant3\MMA3\Content\Blueprints\Widgets\MainMenu\BP_MapDetailWidget.uasset: [Compiler] A required widget binding "CDifficultyLabel" of type  Custom Text Block  was not found.
+[2023.02.01-18.10.08:927][423]LogBlueprint: Error: [AssetLog] C:\Users\user\Documents\GitHub\MediocreMapAssistant3\MMA3\Content\Blueprints\Widgets\MainMenu\BP_MapDetailWidget.uasset: [Compiler] A required widget binding "CoverPreview" of type  Image  was not found.
+[2023.02.01-18.10.08:927][423]LogBlueprint: Error: [AssetLog] C:\Users\user\Documents\GitHub\MediocreMapAssistant3\MMA3\Content\Blueprints\Widgets\MainMenu\BP_MapDetailWidget.uasset: [Compiler] A required widget binding "CDifficultyLabel" of type  Custom Text Block  was not found.
+[2023.02.01-18.10.14:888][116]LogBlueprint: Error: [AssetLog] C:\Users\user\Documents\GitHub\MediocreMapAssistant3\MMA3\Content\Blueprints\Widgets\MainMenu\BP_MapDetailWidget.uasset: [Compiler] A required widget binding "CoverPreview" of type  Image  was not found.
+[2023.02.01-18.10.14:888][116]LogBlueprint: Error: [AssetLog] C:\Users\user\Documents\GitHub\MediocreMapAssistant3\MMA3\Content\Blueprints\Widgets\MainMenu\BP_MapDetailWidget.uasset: [Compiler] A required widget binding "CDifficultyLabel" of type  Custom Text Block  was not found.
+[2023.02.01-18.11.26:445][615]LogBlueprint: Error: [AssetLog] C:\Users\user\Documents\GitHub\MediocreMapAssistant3\MMA3\Content\Blueprints\Widgets\MainMenu\BP_MapDetailWidget.uasset: [Compiler] A required widget binding "CoverPreview" of type  Image  was not found.
+[2023.02.01-18.11.26:445][615]LogBlueprint: Error: [AssetLog] C:\Users\user\Documents\GitHub\MediocreMapAssistant3\MMA3\Content\Blueprints\Widgets\MainMenu\BP_MapDetailWidget.uasset: [Compiler] A required widget binding "CDifficultyLabel" of type  Custom Text Block  was not found.
+[2023.02.01-18.11.42:609][517]LogBlueprint: Error: [AssetLog] C:\Users\user\Documents\GitHub\MediocreMapAssistant3\MMA3\Content\Blueprints\Widgets\MainMenu\BP_MapDetailWidget.uasset: [Compiler] A required widget binding "CoverPreview" of type  Image  was not found.
+[2023.02.01-18.11.42:610][517]LogBlueprint: Error: [AssetLog] C:\Users\user\Documents\GitHub\MediocreMapAssistant3\MMA3\Content\Blueprints\Widgets\MainMenu\BP_MapDetailWidget.uasset: [Compiler] A required widget binding "CDifficultyLabel" of type  Custom Text Block  was not found.
+[2023.02.01-18.11.49:225][283]LogBlueprint: Error: [AssetLog] C:\Users\user\Documents\GitHub\MediocreMapAssistant3\MMA3\Content\Blueprints\Widgets\MainMenu\BP_MapDetailWidget.uasset: [Compiler] A required widget binding "CoverPreview" of type  Image  was not found.
+[2023.02.01-18.11.49:226][283]LogBlueprint: Error: [AssetLog] C:\Users\user\Documents\GitHub\MediocreMapAssistant3\MMA3\Content\Blueprints\Widgets\MainMenu\BP_MapDetailWidget.uasset: [Compiler] A required widget binding "CDifficultyLabel" of type  Custom Text Block  was not found.
+[2023.02.01-18.11.51:181][484]LogBlueprint: Error: [AssetLog] C:\Users\user\Documents\GitHub\MediocreMapAssistant3\MMA3\Content\Blueprints\Widgets\MainMenu\BP_MapDetailWidget.uasset: [Compiler] A required widget binding "CoverPreview" of type  Image  was not found.
+[2023.02.01-18.11.51:181][484]LogBlueprint: Error: [AssetLog] C:\Users\user\Documents\GitHub\MediocreMapAssistant3\MMA3\Content\Blueprints\Widgets\MainMenu\BP_MapDetailWidget.uasset: [Compiler] A required widget binding "CDifficultyLabel" of type  Custom Text Block  was not found.
+[2023.02.01-18.13.44:293][141]LogUObjectHash: Compacting FUObjectHashTables data took   2.30ms
+[2023.02.01-18.13.44:305][141]LogFileHelpers: Editor autosave (incl. external actors) for '/Game/Levels/M_Main' took 0.086
+[2023.02.01-18.13.44:306][141]OBJ SavePackage: Generating thumbnails for [2] asset(s) in package [/Game/Blueprints/Widgets/MainMenu/BP_MapDetailWidget] ([2] browsable assets)...
+[2023.02.01-18.13.44:312][141]OBJ SavePackage:     Rendered thumbnail for [WidgetBlueprint /Game/Blueprints/Widgets/MainMenu/BP_MapDetailWidget.BP_MapDetailWidget]
+[2023.02.01-18.13.44:312][141]OBJ SavePackage: Finished generating thumbnails for package [/Game/Blueprints/Widgets/MainMenu/BP_MapDetailWidget]
+[2023.02.01-18.13.44:325][141]LogSavePackage: Moving output files for package: /Temp/Autosaves/Game/Blueprints/Widgets/MainMenu/BP_MapDetailWidget_Auto5
+[2023.02.01-18.13.44:325][141]LogSavePackage: Moving '../../../../../../Users/user/Documents/GitHub/MediocreMapAssistant3/MMA3/Saved/BP_MapDetailWidget_Auto561BF2AC64287F42E3D641FA7B87F4C7A.tmp' to '../../../../../../Users/user/Documents/GitHub/MediocreMapAssistant3/MMA3/Saved/Autosaves/Game/Blueprints/Widgets/MainMenu/BP_MapDetailWidget_Auto5.uasset'
+[2023.02.01-18.13.44:326][141]LogFileHelpers: Auto-saving content packages took 0.021
+[2023.02.01-18.13.58:349][495]LogBlueprint: Error: [AssetLog] C:\Users\user\Documents\GitHub\MediocreMapAssistant3\MMA3\Content\Blueprints\Widgets\MainMenu\BP_MapDetailWidget.uasset: [Compiler] A required widget binding "CoverPreview" of type  Image  was not found.
+[2023.02.01-18.13.58:349][495]LogBlueprint: Error: [AssetLog] C:\Users\user\Documents\GitHub\MediocreMapAssistant3\MMA3\Content\Blueprints\Widgets\MainMenu\BP_MapDetailWidget.uasset: [Compiler] A required widget binding "CDifficultyLabel" of type  Custom Text Block  was not found.
+[2023.02.01-18.14.00:974][786]LogBlueprint: Error: [AssetLog] C:\Users\user\Documents\GitHub\MediocreMapAssistant3\MMA3\Content\Blueprints\Widgets\MainMenu\BP_MapDetailWidget.uasset: [Compiler] A required widget binding "CoverPreview" of type  Image  was not found.
+[2023.02.01-18.14.00:974][786]LogBlueprint: Error: [AssetLog] C:\Users\user\Documents\GitHub\MediocreMapAssistant3\MMA3\Content\Blueprints\Widgets\MainMenu\BP_MapDetailWidget.uasset: [Compiler] A required widget binding "CDifficultyLabel" of type  Custom Text Block  was not found.
+[2023.02.01-18.14.10:777][937]LogSlate: Took 0.000620 seconds to synchronously load lazily loaded font '../../../Engine/Content/Slate/Fonts/Roboto-Light.ttf' (167K)
+[2023.02.01-18.14.10:872][941]LogShaderCompilers: Display: ================================================
+[2023.02.01-18.14.10:872][941]LogShaderCompilers: Display: === FShaderJobCache stats ===
+[2023.02.01-18.14.10:872][941]LogShaderCompilers: Display: Total job queries 135, among them cache hits 56 (41.48%)
+[2023.02.01-18.14.10:872][941]LogShaderCompilers: Display: Tracking 79 distinct input hashes that result in 48 distinct outputs (60.76%)
+[2023.02.01-18.14.10:872][941]LogShaderCompilers: Display: RAM used: 0.39 MB (0.00 GB) of 1638.40 MB (1.60 GB) budget. Usage: 0.02%
+[2023.02.01-18.14.10:872][941]LogShaderCompilers: Display: === Shader Compilation stats ===
+[2023.02.01-18.14.10:872][941]LogShaderCompilers: Display: Shaders Compiled: 44
+[2023.02.01-18.14.10:872][941]LogShaderCompilers: Display: Jobs assigned 44, completed 44 (100.00%)
+[2023.02.01-18.14.10:872][941]LogShaderCompilers: Display: Average time worker was idle: 141.55 s
+[2023.02.01-18.14.10:872][941]LogShaderCompilers: Display: Time job spent in pending queue: average 0.13 s, longest 0.85 s
+[2023.02.01-18.14.10:872][941]LogShaderCompilers: Display: Job execution time: average 0.80 s, max 1.46 s
+[2023.02.01-18.14.10:872][941]LogShaderCompilers: Display: Job life time (pending + execution): average 0.92 s, max 1.48
+[2023.02.01-18.14.10:872][941]LogShaderCompilers: Display: Time at least one job was in flight (either pending or executed): 7.81 s
+[2023.02.01-18.14.10:872][941]LogShaderCompilers: Display: Jobs were issued in 44 batches (only local compilation was used), average 1.00 jobs/batch
+[2023.02.01-18.14.10:872][941]LogShaderCompilers: Display: Average processing rate: 5.64 jobs/sec
+[2023.02.01-18.14.10:872][941]LogShaderCompilers: Display: Total thread time: 23.42 s
+[2023.02.01-18.14.10:872][941]LogShaderCompilers: Display: Total thread preprocess time: 1.42 s
+[2023.02.01-18.14.10:872][941]LogShaderCompilers: Display: Percentage time preprocessing: 6.06%
+[2023.02.01-18.14.10:872][941]LogShaderCompilers: Display: Effective parallelization: 3.00 (times faster than compiling all shaders on one thread). Compare with number of workers: 8
+[2023.02.01-18.14.10:872][941]LogShaderCompilers: Display: Top 5 most expensive shader types by average time:
+[2023.02.01-18.14.10:872][941]LogShaderCompilers: Display:                                 TBasePassVSFNoLightMapPolicy (compiled   11 times, average 0.70 sec, max 0.83 sec, min 0.46 sec)
+[2023.02.01-18.14.10:872][941]LogShaderCompilers: Display:                                                 FLumenCardVS (compiled    3 times, average 0.68 sec, max 0.73 sec, min 0.60 sec)
+[2023.02.01-18.14.10:872][941]LogShaderCompilers: Display:                                 TBasePassPSFNoLightMapPolicy (compiled   11 times, average 0.67 sec, max 0.83 sec, min 0.44 sec)
+[2023.02.01-18.14.10:872][941]LogShaderCompilers: Display:                                             FDebugViewModeVS (compiled    1 times, average 0.63 sec, max 0.63 sec, min 0.63 sec)
+[2023.02.01-18.14.10:872][941]LogShaderCompilers: Display:                         TBasePassPSFNoLightMapPolicySkylight (compiled    1 times, average 0.62 sec, max 0.62 sec, min 0.62 sec)
+[2023.02.01-18.14.10:872][941]LogShaderCompilers: Display: Top 5 shader types by total compile time:
+[2023.02.01-18.14.10:872][941]LogShaderCompilers: Display:                                 TBasePassVSFNoLightMapPolicy - 33.10% of total time (compiled   11 times, average 0.70 sec, max 0.83 sec, min 0.46 sec)
+[2023.02.01-18.14.10:872][941]LogShaderCompilers: Display:                                 TBasePassPSFNoLightMapPolicy - 31.39% of total time (compiled   11 times, average 0.67 sec, max 0.83 sec, min 0.44 sec)
+[2023.02.01-18.14.10:872][941]LogShaderCompilers: Display:                                                 FLumenCardVS - 8.71% of total time (compiled    3 times, average 0.68 sec, max 0.73 sec, min 0.60 sec)
+[2023.02.01-18.14.10:872][941]LogShaderCompilers: Display:                                          FLumenCardPS<false> - 5.05% of total time (compiled    3 times, average 0.39 sec, max 0.42 sec, min 0.35 sec)
+[2023.02.01-18.14.10:872][941]LogShaderCompilers: Display:                                TSlateMaterialShaderPSDefault - 4.35% of total time (compiled    4 times, average 0.25 sec, max 0.26 sec, min 0.25 sec)
+[2023.02.01-18.14.10:872][941]LogShaderCompilers: Display: ================================================
+[2023.02.01-18.14.10:937][943]LogSlate: Slate: Had to block on waiting for a draw buffer
+[2023.02.01-18.14.10:956][944]LogSlate: Slate: Had to block on waiting for a draw buffer
+[2023.02.01-18.16.20:079][819]LogBlueprint: Error: [AssetLog] C:\Users\user\Documents\GitHub\MediocreMapAssistant3\MMA3\Content\Blueprints\Widgets\MainMenu\BP_MapDetailWidget.uasset: [Compiler] A required widget binding "CoverPreview" of type  Image  was not found.
+[2023.02.01-18.16.20:079][819]LogBlueprint: Error: [AssetLog] C:\Users\user\Documents\GitHub\MediocreMapAssistant3\MMA3\Content\Blueprints\Widgets\MainMenu\BP_MapDetailWidget.uasset: [Compiler] A required widget binding "CDifficultyLabel" of type  Custom Text Block  was not found.
+[2023.02.01-18.16.24:817][373]LogBlueprint: Error: [AssetLog] C:\Users\user\Documents\GitHub\MediocreMapAssistant3\MMA3\Content\Blueprints\Widgets\MainMenu\BP_MapDetailWidget.uasset: [Compiler] A required widget binding "CoverPreview" of type  Image  was not found.
+[2023.02.01-18.16.24:817][373]LogBlueprint: Error: [AssetLog] C:\Users\user\Documents\GitHub\MediocreMapAssistant3\MMA3\Content\Blueprints\Widgets\MainMenu\BP_MapDetailWidget.uasset: [Compiler] A required widget binding "CDifficultyLabel" of type  Custom Text Block  was not found.
+[2023.02.01-18.16.34:921][569]LogBlueprint: Error: [AssetLog] C:\Users\user\Documents\GitHub\MediocreMapAssistant3\MMA3\Content\Blueprints\Widgets\MainMenu\BP_MapDetailWidget.uasset: [Compiler] A required widget binding "CoverPreview" of type  Image  was not found.
+[2023.02.01-18.16.34:921][569]LogBlueprint: Error: [AssetLog] C:\Users\user\Documents\GitHub\MediocreMapAssistant3\MMA3\Content\Blueprints\Widgets\MainMenu\BP_MapDetailWidget.uasset: [Compiler] A required widget binding "CDifficultyLabel" of type  Custom Text Block  was not found.
+[2023.02.01-18.16.44:561][701]LogBlueprint: Error: [AssetLog] C:\Users\user\Documents\GitHub\MediocreMapAssistant3\MMA3\Content\Blueprints\Widgets\MainMenu\BP_MapDetailWidget.uasset: [Compiler] A required widget binding "CoverPreview" of type  Image  was not found.
+[2023.02.01-18.16.44:561][701]LogBlueprint: Error: [AssetLog] C:\Users\user\Documents\GitHub\MediocreMapAssistant3\MMA3\Content\Blueprints\Widgets\MainMenu\BP_MapDetailWidget.uasset: [Compiler] A required widget binding "CDifficultyLabel" of type  Custom Text Block  was not found.
+[2023.02.01-18.17.03:213][908]LogBlueprint: Error: [AssetLog] C:\Users\user\Documents\GitHub\MediocreMapAssistant3\MMA3\Content\Blueprints\Widgets\MainMenu\BP_MapDetailWidget.uasset: [Compiler] A required widget binding "CoverPreview" of type  Image  was not found.
+[2023.02.01-18.17.03:213][908]LogBlueprint: Error: [AssetLog] C:\Users\user\Documents\GitHub\MediocreMapAssistant3\MMA3\Content\Blueprints\Widgets\MainMenu\BP_MapDetailWidget.uasset: [Compiler] A required widget binding "CDifficultyLabel" of type  Custom Text Block  was not found.
+[2023.02.01-18.17.12:669][ 25]LogBlueprint: Error: [AssetLog] C:\Users\user\Documents\GitHub\MediocreMapAssistant3\MMA3\Content\Blueprints\Widgets\MainMenu\BP_MapDetailWidget.uasset: [Compiler] A required widget binding "CoverPreview" of type  Image  was not found.
+[2023.02.01-18.17.12:669][ 25]LogBlueprint: Error: [AssetLog] C:\Users\user\Documents\GitHub\MediocreMapAssistant3\MMA3\Content\Blueprints\Widgets\MainMenu\BP_MapDetailWidget.uasset: [Compiler] A required widget binding "CDifficultyLabel" of type  Custom Text Block  was not found.
+[2023.02.01-18.17.17:182][549]LogBlueprint: Error: [AssetLog] C:\Users\user\Documents\GitHub\MediocreMapAssistant3\MMA3\Content\Blueprints\Widgets\MainMenu\BP_MapDetailWidget.uasset: [Compiler] A required widget binding "CoverPreview" of type  Image  was not found.
+[2023.02.01-18.17.17:182][549]LogBlueprint: Error: [AssetLog] C:\Users\user\Documents\GitHub\MediocreMapAssistant3\MMA3\Content\Blueprints\Widgets\MainMenu\BP_MapDetailWidget.uasset: [Compiler] A required widget binding "CDifficultyLabel" of type  Custom Text Block  was not found.
+[2023.02.01-18.17.30:992][166]LogBlueprint: Error: [AssetLog] C:\Users\user\Documents\GitHub\MediocreMapAssistant3\MMA3\Content\Blueprints\Widgets\MainMenu\BP_MapDetailWidget.uasset: [Compiler] A required widget binding "CoverPreview" of type  Image  was not found.
+[2023.02.01-18.17.30:992][166]LogBlueprint: Error: [AssetLog] C:\Users\user\Documents\GitHub\MediocreMapAssistant3\MMA3\Content\Blueprints\Widgets\MainMenu\BP_MapDetailWidget.uasset: [Compiler] A required widget binding "CDifficultyLabel" of type  Custom Text Block  was not found.
+[2023.02.01-18.24.06:799][875]LogUObjectHash: Compacting FUObjectHashTables data took   2.03ms
+[2023.02.01-18.24.06:812][875]LogFileHelpers: Editor autosave (incl. external actors) for '/Game/Levels/M_Main' took 0.052
+[2023.02.01-18.24.06:812][875]OBJ SavePackage: Generating thumbnails for [2] asset(s) in package [/Game/Blueprints/Widgets/MainMenu/BP_MapDetailWidget] ([2] browsable assets)...
+[2023.02.01-18.24.06:818][875]OBJ SavePackage:     Rendered thumbnail for [WidgetBlueprint /Game/Blueprints/Widgets/MainMenu/BP_MapDetailWidget.BP_MapDetailWidget]
+[2023.02.01-18.24.06:818][875]OBJ SavePackage: Finished generating thumbnails for package [/Game/Blueprints/Widgets/MainMenu/BP_MapDetailWidget]
+[2023.02.01-18.24.06:832][875]LogSavePackage: Moving output files for package: /Temp/Autosaves/Game/Blueprints/Widgets/MainMenu/BP_MapDetailWidget_Auto6
+[2023.02.01-18.24.06:832][875]LogSavePackage: Moving '../../../../../../Users/user/Documents/GitHub/MediocreMapAssistant3/MMA3/Saved/BP_MapDetailWidget_Auto606E015414C93DA27B2BEC584110DF845.tmp' to '../../../../../../Users/user/Documents/GitHub/MediocreMapAssistant3/MMA3/Saved/Autosaves/Game/Blueprints/Widgets/MainMenu/BP_MapDetailWidget_Auto6.uasset'
+[2023.02.01-18.24.06:833][875]LogFileHelpers: Auto-saving content packages took 0.021
+[2023.02.01-18.25.44:657][210]LogFileHelpers: InternalPromptForCheckoutAndSave started...
+[2023.02.01-18.25.44:709][210]LogSavePackage: Moving output files for package: /Game/Blueprints/Widgets/MainMenu/BP_MapDetailWidget
+[2023.02.01-18.25.44:709][210]LogSavePackage: Moving '../../../../../../Users/user/Documents/GitHub/MediocreMapAssistant3/MMA3/Saved/BP_MapDetailWidgetFABF81CF4E0E36703F8602A0A3741295.tmp' to '../../../../../../Users/user/Documents/GitHub/MediocreMapAssistant3/MMA3/Content/Blueprints/Widgets/MainMenu/BP_MapDetailWidget.uasset'
+[2023.02.01-18.25.44:715][210]LogFileHelpers: InternalPromptForCheckoutAndSave took 57 ms (total: 375 ms)
+[2023.02.01-18.25.44:727][210]AssetCheck: New page: Asset Save: BP_MapDetailWidget
+[2023.02.01-18.25.44:727][210]LogContentValidation: Display: Validating /Script/UMGEditor.WidgetBlueprint /Game/Blueprints/Widgets/MainMenu/BP_MapDetailWidget.BP_MapDetailWidget
+[2023.02.01-18.32.02:927][253]LogFileHelpers: InternalPromptForCheckoutAndSave started...
+[2023.02.01-18.32.02:981][253]LogSavePackage: Moving output files for package: /Game/Blueprints/Widgets/MainMenu/BP_MapDetailWidget
+[2023.02.01-18.32.02:982][253]LogSavePackage: Moving '../../../../../../Users/user/Documents/GitHub/MediocreMapAssistant3/MMA3/Saved/BP_MapDetailWidget9F1E5087470522F2A2FA77B6B719095C.tmp' to '../../../../../../Users/user/Documents/GitHub/MediocreMapAssistant3/MMA3/Content/Blueprints/Widgets/MainMenu/BP_MapDetailWidget.uasset'
+[2023.02.01-18.32.02:987][253]LogFileHelpers: InternalPromptForCheckoutAndSave took 60 ms (total: 435 ms)
+[2023.02.01-18.32.03:000][253]AssetCheck: New page: Asset Save: BP_MapDetailWidget
+[2023.02.01-18.32.03:000][253]LogContentValidation: Display: Validating /Script/UMGEditor.WidgetBlueprint /Game/Blueprints/Widgets/MainMenu/BP_MapDetailWidget.BP_MapDetailWidget
+[2023.02.01-18.34.07:365][505]LogUObjectHash: Compacting FUObjectHashTables data took   2.00ms
+[2023.02.01-18.34.07:374][505]LogFileHelpers: Editor autosave (incl. external actors) for '/Game/Levels/M_Main' took 0.049
+[2023.02.01-18.34.07:374][505]OBJ SavePackage: Generating thumbnails for [2] asset(s) in package [/Game/Blueprints/Widgets/MainMenu/BP_MapDetailWidget] ([2] browsable assets)...
+[2023.02.01-18.34.07:380][505]OBJ SavePackage:     Rendered thumbnail for [WidgetBlueprint /Game/Blueprints/Widgets/MainMenu/BP_MapDetailWidget.BP_MapDetailWidget]
+[2023.02.01-18.34.07:380][505]OBJ SavePackage: Finished generating thumbnails for package [/Game/Blueprints/Widgets/MainMenu/BP_MapDetailWidget]
+[2023.02.01-18.34.07:394][505]LogSavePackage: Moving output files for package: /Temp/Autosaves/Game/Blueprints/Widgets/MainMenu/BP_MapDetailWidget_Auto7
+[2023.02.01-18.34.07:394][505]LogSavePackage: Moving '../../../../../../Users/user/Documents/GitHub/MediocreMapAssistant3/MMA3/Saved/BP_MapDetailWidget_Auto71309C58C4DB3296C3531C6A4C05D9280.tmp' to '../../../../../../Users/user/Documents/GitHub/MediocreMapAssistant3/MMA3/Saved/Autosaves/Game/Blueprints/Widgets/MainMenu/BP_MapDetailWidget_Auto7.uasset'
+[2023.02.01-18.34.07:395][505]LogFileHelpers: Auto-saving content packages took 0.021
+[2023.02.01-18.36.06:319][361]LogBlueprint: Error: [AssetLog] C:\Users\user\Documents\GitHub\MediocreMapAssistant3\MMA3\Content\Blueprints\Widgets\MainMenu\BP_MapDetailWidget.uasset: [Compiler] A required widget binding "CoverPreview" of type  Image  was not found.
+[2023.02.01-18.36.06:319][361]LogBlueprint: Error: [AssetLog] C:\Users\user\Documents\GitHub\MediocreMapAssistant3\MMA3\Content\Blueprints\Widgets\MainMenu\BP_MapDetailWidget.uasset: [Compiler] A required widget binding "CDifficultyLabel" of type  Custom Text Block  was not found.
+[2023.02.01-18.36.09:812][757]LogBlueprint: Error: [AssetLog] C:\Users\user\Documents\GitHub\MediocreMapAssistant3\MMA3\Content\Blueprints\Widgets\MainMenu\BP_MapDetailWidget.uasset: [Compiler] A required widget binding "CoverPreview" of type  Image  was not found.
+[2023.02.01-18.36.09:812][757]LogBlueprint: Error: [AssetLog] C:\Users\user\Documents\GitHub\MediocreMapAssistant3\MMA3\Content\Blueprints\Widgets\MainMenu\BP_MapDetailWidget.uasset: [Compiler] A required widget binding "CDifficultyLabel" of type  Custom Text Block  was not found.
+[2023.02.01-18.36.17:369][650]LogBlueprint: Error: [AssetLog] C:\Users\user\Documents\GitHub\MediocreMapAssistant3\MMA3\Content\Blueprints\Widgets\MainMenu\BP_MapDetailWidget.uasset: [Compiler] A required widget binding "CoverPreview" of type  Image  was not found.
+[2023.02.01-18.36.17:369][650]LogBlueprint: Error: [AssetLog] C:\Users\user\Documents\GitHub\MediocreMapAssistant3\MMA3\Content\Blueprints\Widgets\MainMenu\BP_MapDetailWidget.uasset: [Compiler] A required widget binding "CDifficultyLabel" of type  Custom Text Block  was not found.
+[2023.02.01-18.36.23:135][318]LogBlueprint: Error: [AssetLog] C:\Users\user\Documents\GitHub\MediocreMapAssistant3\MMA3\Content\Blueprints\Widgets\MainMenu\BP_MapDetailWidget.uasset: [Compiler] A required widget binding "CoverPreview" of type  Image  was not found.
+[2023.02.01-18.36.23:135][318]LogBlueprint: Error: [AssetLog] C:\Users\user\Documents\GitHub\MediocreMapAssistant3\MMA3\Content\Blueprints\Widgets\MainMenu\BP_MapDetailWidget.uasset: [Compiler] A required widget binding "CDifficultyLabel" of type  Custom Text Block  was not found.
+[2023.02.01-18.37.28:145][367]LogHotReload: New module detected: UnrealEditor-MMA3-0017.dll
+[2023.02.01-18.37.29:363][501]LogHotReload: Starting Hot-Reload from IDE
+[2023.02.01-18.37.29:428][501]LogUObjectHash: Compacting FUObjectHashTables data took   1.80ms
+[2023.02.01-18.37.29:458][501]LogClass: UPackage /Script/MMA3 Reload.
+[2023.02.01-18.37.29:458][501]LogClass: UClass MapDetailsWidget Reload.
+[2023.02.01-18.37.29:537][501]LogClass: Could not find existing class MapDetailsWidget in package /Script/MMA3 for reload, assuming new or modified class
+[2023.02.01-18.37.29:537][501]LogClass: Function SetDifficultyPropertiesEnable is new or belongs to a modified class.
+[2023.02.01-18.37.29:537][501]LogClass: Function SetMap is new or belongs to a modified class.
+[2023.02.01-18.37.29:537][501]LogClass: Function UpdateCover is new or belongs to a modified class.
+[2023.02.01-18.37.29:537][501]LogClass: Function UpdateMapList is new or belongs to a modified class.
+[2023.02.01-18.37.29:584][501]Re-instancing MapDetailsWidget after reload.
+[2023.02.01-18.37.29:585][501]LogBlueprint: Error: [AssetLog] C:\Users\user\Documents\GitHub\MediocreMapAssistant3\MMA3\Content\Blueprints\Widgets\MainMenu\BP_MapDetailWidget.uasset: [Compiler] A required widget binding "CoverPreview" of type  Image  was not found.
+[2023.02.01-18.37.29:585][501]LogBlueprint: Error: [AssetLog] C:\Users\user\Documents\GitHub\MediocreMapAssistant3\MMA3\Content\Blueprints\Widgets\MainMenu\BP_MapDetailWidget.uasset: [Compiler] A required widget binding "CDifficultyLabel" of type  Custom Editable Text Box  was not found.
+[2023.02.01-18.37.29:590][501]LogBlueprint: Error: [AssetLog] C:\Users\user\Documents\GitHub\MediocreMapAssistant3\MMA3\Content\Blueprints\Widgets\MainMenu\BP_MapDetailWidget.uasset: [Compiler] A required widget binding "CoverPreview" of type  Image  was not found.
+[2023.02.01-18.37.29:590][501]LogBlueprint: Error: [AssetLog] C:\Users\user\Documents\GitHub\MediocreMapAssistant3\MMA3\Content\Blueprints\Widgets\MainMenu\BP_MapDetailWidget.uasset: [Compiler] A required widget binding "CDifficultyLabel" of type  Custom Editable Text Box  was not found.
+[2023.02.01-18.37.30:055][501]LogUObjectHash: Compacting FUObjectHashTables data took   1.70ms
+[2023.02.01-18.37.30:097][501]Display: HotReload took  0.7s.
+[2023.02.01-18.37.30:097][501]Display: Reload/Re-instancing Complete: 2 packages changed, 1 class changed, 21 classes unchanged, 7 enums unchanged, 5 scriptstructs unchanged, 114 functions remapped, 5 scriptstructs remapped
+[2023.02.01-18.37.33:839][898]LogBlueprint: Error: [AssetLog] C:\Users\user\Documents\GitHub\MediocreMapAssistant3\MMA3\Content\Blueprints\Widgets\MainMenu\BP_MapDetailWidget.uasset: [Compiler] A required widget binding "CoverPreview" of type  Image  was not found.
+[2023.02.01-18.37.40:487][655]LogFileHelpers: InternalPromptForCheckoutAndSave started...
+[2023.02.01-18.37.40:535][655]LogSavePackage: Moving output files for package: /Game/Blueprints/Widgets/MainMenu/BP_MapDetailWidget
+[2023.02.01-18.37.40:535][655]LogSavePackage: Moving '../../../../../../Users/user/Documents/GitHub/MediocreMapAssistant3/MMA3/Saved/BP_MapDetailWidget43390E6D4F830A690984F58221C10DC0.tmp' to '../../../../../../Users/user/Documents/GitHub/MediocreMapAssistant3/MMA3/Content/Blueprints/Widgets/MainMenu/BP_MapDetailWidget.uasset'
+[2023.02.01-18.37.40:541][655]LogFileHelpers: InternalPromptForCheckoutAndSave took 54 ms (total: 489 ms)
+[2023.02.01-18.37.40:553][655]AssetCheck: New page: Asset Save: BP_MapDetailWidget
+[2023.02.01-18.37.40:553][655]LogContentValidation: Display: Validating /Script/UMGEditor.WidgetBlueprint /Game/Blueprints/Widgets/MainMenu/BP_MapDetailWidget.BP_MapDetailWidget
+[2023.02.01-18.44.09:184][926]LogUObjectHash: Compacting FUObjectHashTables data took   2.82ms
+[2023.02.01-18.44.09:186][926]LogFileHelpers: Editor autosave (incl. external actors) for '/Game/Levels/M_Main' took 0.104
+[2023.02.01-18.44.09:186][926]OBJ SavePackage: Generating thumbnails for [2] asset(s) in package [/Game/Blueprints/Widgets/MainMenu/BP_MapDetailWidget] ([2] browsable assets)...
+[2023.02.01-18.44.09:193][926]OBJ SavePackage:     Rendered thumbnail for [WidgetBlueprint /Game/Blueprints/Widgets/MainMenu/BP_MapDetailWidget.BP_MapDetailWidget]
+[2023.02.01-18.44.09:193][926]OBJ SavePackage: Finished generating thumbnails for package [/Game/Blueprints/Widgets/MainMenu/BP_MapDetailWidget]
+[2023.02.01-18.44.09:208][926]LogSavePackage: Moving output files for package: /Temp/Autosaves/Game/Blueprints/Widgets/MainMenu/BP_MapDetailWidget_Auto8
+[2023.02.01-18.44.09:208][926]LogSavePackage: Moving '../../../../../../Users/user/Documents/GitHub/MediocreMapAssistant3/MMA3/Saved/BP_MapDetailWidget_Auto83CAAC0774160D566F4AF3DAD9A87B2C0.tmp' to '../../../../../../Users/user/Documents/GitHub/MediocreMapAssistant3/MMA3/Saved/Autosaves/Game/Blueprints/Widgets/MainMenu/BP_MapDetailWidget_Auto8.uasset'
+[2023.02.01-18.44.09:208][926]LogFileHelpers: Auto-saving content packages took 0.023
+[2023.02.01-18.58.23:968][490]LogHotReload: New module detected: UnrealEditor-MMA3-0018.dll
+[2023.02.01-18.58.24:973][494]LogHotReload: Starting Hot-Reload from IDE
+[2023.02.01-18.58.25:083][494]LogUObjectHash: Compacting FUObjectHashTables data took   2.07ms
+[2023.02.01-18.58.25:113][494]LogClass: UPackage /Script/MMA3 Reload.
+[2023.02.01-18.58.25:113][494]LogClass: UClass MapDetailsWidget Reload.
+[2023.02.01-18.58.25:163][494]LogClass: Could not find existing class MapDetailsWidget in package /Script/MMA3 for reload, assuming new or modified class
+[2023.02.01-18.58.25:163][494]LogClass: Function SetDifficultyPropertiesEnable is new or belongs to a modified class.
+[2023.02.01-18.58.25:163][494]LogClass: Function SetMap is new or belongs to a modified class.
+[2023.02.01-18.58.25:163][494]LogClass: Function UpdateCover is new or belongs to a modified class.
+[2023.02.01-18.58.25:163][494]LogClass: Function UpdateMapList is new or belongs to a modified class.
+[2023.02.01-18.58.25:193][494]Re-instancing MapDetailsWidget after reload.
+[2023.02.01-18.58.25:431][494]LogUObjectHash: Compacting FUObjectHashTables data took   1.64ms
+[2023.02.01-18.58.25:480][494]Display: HotReload took  0.5s.
+[2023.02.01-18.58.25:480][494]Display: Reload/Re-instancing Complete: 2 packages changed, 1 class changed, 21 classes unchanged, 7 enums unchanged, 5 scriptstructs unchanged, 114 functions remapped, 5 scriptstructs remapped
+[2023.02.01-19.05.30:944][771]LogDerivedDataCache: C:/Users/user/AppData/Local/UnrealEngine/Common/DerivedDataCache: Maintenance finished in +00:00:03.130 and deleted 0 files with total size 0 MiB. Scanned 2389 files in 2175 folders with total size 152 MiB.
+[2023.02.01-20.05.31:884][573]LogDerivedDataCache: C:/Users/user/AppData/Local/UnrealEngine/Common/DerivedDataCache: Maintenance finished in +00:00:04.069 and deleted 0 files with total size 0 MiB. Scanned 2389 files in 2175 folders with total size 152 MiB.
+[2023.02.01-21.03.44:527][375]LogFileHelpers: InternalPromptForCheckoutAndSave started...
+[2023.02.01-21.03.44:648][375]LogSavePackage: Moving output files for package: /Game/Blueprints/Widgets/MainMenu/BP_MapDetailWidget
+[2023.02.01-21.03.44:649][375]LogSavePackage: Moving '../../../../../../Users/user/Documents/GitHub/MediocreMapAssistant3/MMA3/Saved/BP_MapDetailWidget591B1A474B4BA0441A8C0199C5F6DD99.tmp' to '../../../../../../Users/user/Documents/GitHub/MediocreMapAssistant3/MMA3/Content/Blueprints/Widgets/MainMenu/BP_MapDetailWidget.uasset'
+[2023.02.01-21.03.44:656][375]LogFileHelpers: InternalPromptForCheckoutAndSave took 129 ms (total: 619 ms)
+[2023.02.01-21.03.44:834][375]AssetCheck: New page: Asset Save: BP_MapDetailWidget
+[2023.02.01-21.03.44:834][375]LogContentValidation: Display: Validating /Script/UMGEditor.WidgetBlueprint /Game/Blueprints/Widgets/MainMenu/BP_MapDetailWidget.BP_MapDetailWidget
+[2023.02.01-21.03.45:890][472]LogUObjectHash: Compacting FUObjectHashTables data took   4.83ms
+[2023.02.01-21.03.47:553][472]LogSlate: Window 'Save Content' being destroyed
+[2023.02.01-21.03.47:561][472]LogFileHelpers: InternalPromptForCheckoutAndSave started...
+[2023.02.01-21.03.47:586][472]Cmd: OBJ SAVEPACKAGE PACKAGE="/Game/Assets/Materials/M_Rounded" FILE="../../../../../../Users/user/Documents/GitHub/MediocreMapAssistant3/MMA3/Content/Assets/Materials/M_Rounded.uasset" SILENT=true
+[2023.02.01-21.03.47:591][472]LogSavePackage: Moving output files for package: /Game/Assets/Materials/M_Rounded
+[2023.02.01-21.03.47:591][472]LogSavePackage: Moving '../../../../../../Users/user/Documents/GitHub/MediocreMapAssistant3/MMA3/Saved/M_Rounded1B6F95F040D8304ACC6BA0BBBCF5A56D.tmp' to '../../../../../../Users/user/Documents/GitHub/MediocreMapAssistant3/MMA3/Content/Assets/Materials/M_Rounded.uasset'
+[2023.02.01-21.03.47:596][472]LogFileHelpers: InternalPromptForCheckoutAndSave took 35 ms (total: 654 ms)
+[2023.02.01-21.03.47:597][472]LogStall: Shutdown...
+[2023.02.01-21.03.47:602][472]LogStall: Shutdown complete.
+[2023.02.01-21.03.47:679][472]LogWorld: UWorld::CleanupWorld for World_2, bSessionEnded=true, bCleanupResources=true
+[2023.02.01-21.03.47:679][472]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2023.02.01-21.03.47:704][472]LogWorld: UWorld::CleanupWorld for World_1, bSessionEnded=true, bCleanupResources=true
+[2023.02.01-21.03.47:704][472]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2023.02.01-21.03.47:828][472]LogSlate: Window 'MMA3 - Unreal Editor' being destroyed
+[2023.02.01-21.03.47:908][472]LogDirectoryWatcher: A directory notification for '../../../Engine/Plugins/' was aborted.
+[2023.02.01-21.03.47:909][472]LogDirectoryWatcher: A directory notification for '../../../../../../Users/user/Documents/GitHub/MediocreMapAssistant3/MMA3/Plugins/' was aborted.
+[2023.02.01-21.03.48:052][472]AssetCheck: New page: Asset Save: M_Rounded
+[2023.02.01-21.03.48:053][472]LogContentValidation: Display: Validating /Script/Engine.Material /Game/Assets/Materials/M_Rounded.M_Rounded
+[2023.02.01-21.03.48:053][473]Cmd: QUIT_EDITOR
+[2023.02.01-21.03.48:053][473]LogCore: Engine exit requested (reason: UUnrealEdEngine::CloseEditor())
+[2023.02.01-21.03.48:061][473]LogCore: Engine exit requested (reason: EngineExit() was called; note: exit was already requested)
+[2023.02.01-21.03.48:061][473]LogStaticMesh: Abandoning remaining async distance field tasks for shutdown
+[2023.02.01-21.03.48:062][473]LogStaticMesh: Abandoning remaining async card representation tasks for shutdown
+[2023.02.01-21.03.48:063][473]LogWorld: UWorld::CleanupWorld for M_Main, bSessionEnded=true, bCleanupResources=true
+[2023.02.01-21.03.48:063][473]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2023.02.01-21.03.48:067][473]LogStylusInput: Shutting down StylusInput subsystem.
+[2023.02.01-21.03.48:070][473]LogLevelSequenceEditor: LevelSequenceEditor subsystem deinitialized.
+[2023.02.01-21.03.48:287][473]LogAudio: Display: Beginning Audio Device Manager Shutdown (Module: AudioMixerXAudio2)...
+[2023.02.01-21.03.48:287][473]LogAudio: Display: Destroying 1 Remaining Audio Device(s)...
+[2023.02.01-21.03.48:287][473]LogAudio: Display: Audio Device unregistered from world 'M_Main'.
+[2023.02.01-21.03.48:289][473]LogAudioMixer: FMixerPlatformXAudio2::StopAudioStream() called. InstanceID=1
+[2023.02.01-21.03.48:291][473]LogAudioMixer: FMixerPlatformXAudio2::StopAudioStream() called. InstanceID=1
+[2023.02.01-21.03.48:298][473]LogAudio: Display: Audio Device Manager Shutdown
+[2023.02.01-21.03.48:304][473]LogSlate: Slate User Destroyed.  User Index 0, Is Virtual User: 0
+[2023.02.01-21.03.48:307][473]LogExit: Preparing to exit.
+[2023.02.01-21.03.48:456][473]LogUObjectHash: Compacting FUObjectHashTables data took   3.61ms
+[2023.02.01-21.03.48:495][473]LogPython: Display: Object '/Engine/PythonTypes.add_controls_for_selected_options' was externally referenced when shutting down Python. Forcibly releasing its Python resources!
+[2023.02.01-21.03.48:495][473]LogPython: Display: Object '/Engine/PythonTypes.add_controls_for_selected' was externally referenced when shutting down Python. Forcibly releasing its Python resources!
+[2023.02.01-21.03.48:496][473]LogPython: Display: Object '/Engine/PythonTypes.add_null_above_selected' was externally referenced when shutting down Python. Forcibly releasing its Python resources!
+[2023.02.01-21.03.48:496][473]LogPython: Display: Object '/Engine/PythonTypes.align_translation_rotation' was externally referenced when shutting down Python. Forcibly releasing its Python resources!
+[2023.02.01-21.03.48:496][473]LogPython: Display: Object '/Engine/PythonTypes.align_translation_all' was externally referenced when shutting down Python. Forcibly releasing its Python resources!
+[2023.02.01-21.03.48:496][473]LogPython: Display: Object '/Engine/PythonTypes.align_translation_x' was externally referenced when shutting down Python. Forcibly releasing its Python resources!
+[2023.02.01-21.03.48:496][473]LogPython: Display: Object '/Engine/PythonTypes.align_translation_y' was externally referenced when shutting down Python. Forcibly releasing its Python resources!
+[2023.02.01-21.03.48:496][473]LogPython: Display: Object '/Engine/PythonTypes.align_translation_z' was externally referenced when shutting down Python. Forcibly releasing its Python resources!
+[2023.02.01-21.03.48:496][473]LogPython: Display: Object '/Engine/PythonTypes.align_rotation' was externally referenced when shutting down Python. Forcibly releasing its Python resources!
+[2023.02.01-21.03.48:496][473]LogPython: Display: Object '/Engine/PythonTypes.align_scale' was externally referenced when shutting down Python. Forcibly releasing its Python resources!
+[2023.02.01-21.03.48:496][473]LogPython: Display: Object '/Engine/PythonTypes.search_replace_name_dialog' was externally referenced when shutting down Python. Forcibly releasing its Python resources!
+[2023.02.01-21.03.48:496][473]LogPython: Display: Object '/Engine/PythonTypes.search_replace_entry' was externally referenced when shutting down Python. Forcibly releasing its Python resources!
+[2023.02.01-21.03.48:496][473]LogPython: Display: Object '/Engine/PythonTypes.add_prefix_dialog' was externally referenced when shutting down Python. Forcibly releasing its Python resources!
+[2023.02.01-21.03.48:496][473]LogPython: Display: Object '/Engine/PythonTypes.add_prefix_entry' was externally referenced when shutting down Python. Forcibly releasing its Python resources!
+[2023.02.01-21.03.48:497][473]LogPython: Display: Object '/Engine/PythonTypes.add_suffix_dialog' was externally referenced when shutting down Python. Forcibly releasing its Python resources!
+[2023.02.01-21.03.48:497][473]LogPython: Display: Object '/Engine/PythonTypes.add_suffix_entry' was externally referenced when shutting down Python. Forcibly releasing its Python resources!
+[2023.02.01-21.03.48:497][473]LogPython: Display: Object '/Engine/PythonTypes.do_rename_dialog' was externally referenced when shutting down Python. Forcibly releasing its Python resources!
+[2023.02.01-21.03.48:497][473]LogPython: Display: Object '/Engine/PythonTypes.do_rename_entry' was externally referenced when shutting down Python. Forcibly releasing its Python resources!
+[2023.02.01-21.03.48:497][473]LogPython: Display: Object '/Engine/PythonTypes.ControlOutputFormat' was externally referenced when shutting down Python. Forcibly releasing its Python resources!
+[2023.02.01-21.03.49:190][473]LogWorld: UWorld::CleanupWorld for World_0, bSessionEnded=true, bCleanupResources=true
+[2023.02.01-21.03.49:198][473]LogRuntimeAudioImporter: Warning: Imported sound wave ('Default__ImportedSoundWave') data will be cleared because it is being unloaded
+[2023.02.01-21.03.49:198][473]LogRuntimeAudioImporter: Warning: Imported sound wave ('Default__StreamingSoundWave') data will be cleared because it is being unloaded
+[2023.02.01-21.03.49:198][473]LogRuntimeAudioImporter: Warning: Imported sound wave ('Default__CapturableSoundWave') data will be cleared because it is being unloaded
+[2023.02.01-21.03.49:264][473]LogDemo: Cleaned up 0 splitscreen connections, owner deletion: enabled
+[2023.02.01-21.03.49:384][473]LogExit: Editor shut down
+[2023.02.01-21.03.49:390][473]LogExit: Transaction tracking system shut down
+[2023.02.01-21.03.49:775][473]LogExit: Object subsystem successfully closed.
+[2023.02.01-21.03.49:782][473]LogShaderCompilers: Display: ================================================
+[2023.02.01-21.03.49:782][473]LogShaderCompilers: Display: === FShaderJobCache stats ===
+[2023.02.01-21.03.49:782][473]LogShaderCompilers: Display: Total job queries 139, among them cache hits 58 (41.73%)
+[2023.02.01-21.03.49:782][473]LogShaderCompilers: Display: Tracking 81 distinct input hashes that result in 49 distinct outputs (60.49%)
+[2023.02.01-21.03.49:782][473]LogShaderCompilers: Display: RAM used: 0.40 MB (0.00 GB) of 1638.40 MB (1.60 GB) budget. Usage: 0.02%
+[2023.02.01-21.03.49:782][473]LogShaderCompilers: Display: === Shader Compilation stats ===
+[2023.02.01-21.03.49:782][473]LogShaderCompilers: Display: Shaders Compiled: 44
+[2023.02.01-21.03.49:782][473]LogShaderCompilers: Display: Jobs assigned 44, completed 44 (100.00%)
+[2023.02.01-21.03.49:782][473]LogShaderCompilers: Display: Average time worker was idle: 141.55 s
+[2023.02.01-21.03.49:782][473]LogShaderCompilers: Display: Time job spent in pending queue: average 0.13 s, longest 0.85 s
+[2023.02.01-21.03.49:782][473]LogShaderCompilers: Display: Job execution time: average 0.80 s, max 1.46 s
+[2023.02.01-21.03.49:782][473]LogShaderCompilers: Display: Job life time (pending + execution): average 0.92 s, max 1.48
+[2023.02.01-21.03.49:782][473]LogShaderCompilers: Display: Time at least one job was in flight (either pending or executed): 7.81 s
+[2023.02.01-21.03.49:782][473]LogShaderCompilers: Display: Jobs were issued in 44 batches (only local compilation was used), average 1.00 jobs/batch
+[2023.02.01-21.03.49:782][473]LogShaderCompilers: Display: Average processing rate: 5.64 jobs/sec
+[2023.02.01-21.03.49:782][473]LogShaderCompilers: Display: Total thread time: 23.42 s
+[2023.02.01-21.03.49:782][473]LogShaderCompilers: Display: Total thread preprocess time: 1.42 s
+[2023.02.01-21.03.49:782][473]LogShaderCompilers: Display: Percentage time preprocessing: 6.06%
+[2023.02.01-21.03.49:782][473]LogShaderCompilers: Display: Effective parallelization: 3.00 (times faster than compiling all shaders on one thread). Compare with number of workers: 8
+[2023.02.01-21.03.49:782][473]LogShaderCompilers: Display: Top 5 most expensive shader types by average time:
+[2023.02.01-21.03.49:782][473]LogShaderCompilers: Display:                                 TBasePassVSFNoLightMapPolicy (compiled   11 times, average 0.70 sec, max 0.83 sec, min 0.46 sec)
+[2023.02.01-21.03.49:782][473]LogShaderCompilers: Display:                                                 FLumenCardVS (compiled    3 times, average 0.68 sec, max 0.73 sec, min 0.60 sec)
+[2023.02.01-21.03.49:782][473]LogShaderCompilers: Display:                                 TBasePassPSFNoLightMapPolicy (compiled   11 times, average 0.67 sec, max 0.83 sec, min 0.44 sec)
+[2023.02.01-21.03.49:782][473]LogShaderCompilers: Display:                                             FDebugViewModeVS (compiled    1 times, average 0.63 sec, max 0.63 sec, min 0.63 sec)
+[2023.02.01-21.03.49:782][473]LogShaderCompilers: Display:                         TBasePassPSFNoLightMapPolicySkylight (compiled    1 times, average 0.62 sec, max 0.62 sec, min 0.62 sec)
+[2023.02.01-21.03.49:782][473]LogShaderCompilers: Display: Top 5 shader types by total compile time:
+[2023.02.01-21.03.49:782][473]LogShaderCompilers: Display:                                 TBasePassVSFNoLightMapPolicy - 33.10% of total time (compiled   11 times, average 0.70 sec, max 0.83 sec, min 0.46 sec)
+[2023.02.01-21.03.49:782][473]LogShaderCompilers: Display:                                 TBasePassPSFNoLightMapPolicy - 31.39% of total time (compiled   11 times, average 0.67 sec, max 0.83 sec, min 0.44 sec)
+[2023.02.01-21.03.49:782][473]LogShaderCompilers: Display:                                                 FLumenCardVS - 8.71% of total time (compiled    3 times, average 0.68 sec, max 0.73 sec, min 0.60 sec)
+[2023.02.01-21.03.49:782][473]LogShaderCompilers: Display:                                          FLumenCardPS<false> - 5.05% of total time (compiled    3 times, average 0.39 sec, max 0.42 sec, min 0.35 sec)
+[2023.02.01-21.03.49:782][473]LogShaderCompilers: Display:                                TSlateMaterialShaderPSDefault - 4.35% of total time (compiled    4 times, average 0.25 sec, max 0.26 sec, min 0.25 sec)
+[2023.02.01-21.03.49:782][473]LogShaderCompilers: Display: ================================================
+[2023.02.01-21.03.49:784][473]LogShaderCompilers: Display: Shaders left to compile 0
+[2023.02.01-21.03.49:865][473]LogShaderCompilers: Display: Shaders left to compile 0
+[2023.02.01-21.03.49:996][473]LogVirtualization: UE::Virtualization was shutdown
+[2023.02.01-21.03.50:108][473]LogModuleManager: Shutting down and abandoning module MMA3 (1015)
+[2023.02.01-21.03.50:108][473]LogModuleManager: Shutting down and abandoning module SequencerWidgets (1009)
+[2023.02.01-21.03.50:108][473]LogModuleManager: Shutting down and abandoning module BlueprintGraph (1007)
+[2023.02.01-21.03.50:108][473]LogModuleManager: Shutting down and abandoning module HierarchicalLODOutliner (1005)
+[2023.02.01-21.03.50:108][473]LogModuleManager: Shutting down and abandoning module ExternalImagePicker (1003)
+[2023.02.01-21.03.50:108][473]LogModuleManager: Shutting down and abandoning module UnsavedAssetsTracker (1001)
+[2023.02.01-21.03.50:108][473]LogModuleManager: Shutting down and abandoning module AddContentDialog (999)
+[2023.02.01-21.03.50:111][473]LogModuleManager: Shutting down and abandoning module WidgetCarousel (998)
+[2023.02.01-21.03.50:111][473]LogModuleManager: Shutting down and abandoning module SubobjectEditor (995)
+[2023.02.01-21.03.50:111][473]LogModuleManager: Shutting down and abandoning module SceneOutliner (993)
+[2023.02.01-21.03.50:111][473]LogModuleManager: Shutting down and abandoning module StatusBar (989)
+[2023.02.01-21.03.50:111][473]LogModuleManager: Shutting down and abandoning module GameProjectGeneration (987)
+[2023.02.01-21.03.50:111][473]LogModuleManager: Shutting down and abandoning module StatsViewer (985)
+[2023.02.01-21.03.50:112][473]LogModuleManager: Shutting down and abandoning module SequenceRecorderSections (983)
+[2023.02.01-21.03.50:112][473]LogModuleManager: Shutting down and abandoning module AutomationWorker (981)
+[2023.02.01-21.03.50:112][473]LogModuleManager: Shutting down and abandoning module CameraShakePreviewer (979)
+[2023.02.01-21.03.50:112][473]LogModuleManager: Shutting down and abandoning module TakeRecorderSources (977)
+[2023.02.01-21.03.50:113][473]LogModuleManager: Shutting down and abandoning module TakeTrackRecorders (975)
+[2023.02.01-21.03.50:113][473]LogModuleManager: Shutting down and abandoning module TakesCore (973)
+[2023.02.01-21.03.50:113][473]LogModuleManager: Shutting down and abandoning module WebMMediaFactory (971)
+[2023.02.01-21.03.50:113][473]LogModuleManager: Shutting down and abandoning module WebMMediaEditor (969)
+[2023.02.01-21.03.50:113][473]LogModuleManager: Shutting down and abandoning module WebMMedia (967)
+[2023.02.01-21.03.50:114][473]LogModuleManager: Shutting down and abandoning module WmfMediaFactory (965)
+[2023.02.01-21.03.50:114][473]LogModuleManager: Shutting down and abandoning module WmfMediaEditor (963)
+[2023.02.01-21.03.50:114][473]LogModuleManager: Shutting down and abandoning module MediaPlayerEditor (961)
+[2023.02.01-21.03.50:114][473]LogModuleManager: Shutting down and abandoning module MediaCompositingEditor (959)
+[2023.02.01-21.03.50:114][473]LogModuleManager: Shutting down and abandoning module OpenExrWrapper (957)
+[2023.02.01-21.03.50:115][473]LogModuleManager: Shutting down and abandoning module ImgMediaFactory (955)
+[2023.02.01-21.03.50:115][473]LogModuleManager: Shutting down and abandoning module ImgMediaEditor (953)
+[2023.02.01-21.03.50:116][473]LogModuleManager: Shutting down and abandoning module AvfMediaFactory (951)
+[2023.02.01-21.03.50:116][473]LogModuleManager: Shutting down and abandoning module AvfMediaEditor (949)
+[2023.02.01-21.03.50:116][473]LogModuleManager: Shutting down and abandoning module AndroidMediaFactory (947)
+[2023.02.01-21.03.50:116][473]LogModuleManager: Shutting down and abandoning module AndroidMediaEditor (945)
+[2023.02.01-21.03.50:116][473]LogModuleManager: Shutting down and abandoning module WaveTableEditor (943)
+[2023.02.01-21.03.50:117][473]LogModuleManager: Shutting down and abandoning module ResonanceAudioEditor (941)
+[2023.02.01-21.03.50:117][473]LogModuleManager: Shutting down and abandoning module GooglePADEditor (939)
+[2023.02.01-21.03.50:117][473]LogModuleManager: Shutting down and abandoning module AudioCaptureEditor (937)
+[2023.02.01-21.03.50:117][473]LogModuleManager: Shutting down and abandoning module SequenceRecorder (936)
+[2023.02.01-21.03.50:117][473]LogModuleManager: Shutting down and abandoning module AndroidFileServerEditor (933)
+[2023.02.01-21.03.50:117][473]LogModuleManager: Shutting down and abandoning module PlanarCut (931)
+[2023.02.01-21.03.50:118][473]LogModuleManager: Shutting down and abandoning module CharacterAI (929)
+[2023.02.01-21.03.50:118][473]LogModuleManager: Shutting down and abandoning module TextureAlignMode (927)
+[2023.02.01-21.03.50:118][473]LogModuleManager: Shutting down and abandoning module BspMode (925)
+[2023.02.01-21.03.50:118][473]LogModuleManager: Shutting down and abandoning module GeometryMode (923)
+[2023.02.01-21.03.50:118][473]LogModuleManager: Shutting down and abandoning module TemplateSequenceEditor (921)
+[2023.02.01-21.03.50:118][473]LogModuleManager: Shutting down and abandoning module LevelSequenceEditor (919)
+[2023.02.01-21.03.50:119][473]LogModuleManager: Shutting down and abandoning module ActorSequenceEditor (917)
+[2023.02.01-21.03.50:120][473]LogModuleManager: Shutting down and abandoning module IKRigEditor (915)
+[2023.02.01-21.03.50:121][473]LogModuleManager: Shutting down and abandoning module ControlRigEditor (913)
+[2023.02.01-21.03.50:123][473]LogModuleManager: Shutting down and abandoning module SmartSnapping (911)
+[2023.02.01-21.03.50:123][473]LogModuleManager: Shutting down and abandoning module SessionServices (909)
+[2023.02.01-21.03.50:124][473]LogModuleManager: Shutting down and abandoning module MeshPaint (907)
+[2023.02.01-21.03.50:125][473]LogModuleManager: Shutting down and abandoning module VirtualTexturingEditor (905)
+[2023.02.01-21.03.50:125][473]LogModuleManager: Shutting down and abandoning module PlacementMode (904)
+[2023.02.01-21.03.50:125][473]LogModuleManager: Shutting down and abandoning module FoliageEdit (901)
+[2023.02.01-21.03.50:126][473]LogModuleManager: Shutting down and abandoning module LandscapeEditor (899)
+[2023.02.01-21.03.50:129][473]LogModuleManager: Shutting down and abandoning module SceneDepthPickerMode (897)
+[2023.02.01-21.03.50:129][473]LogModuleManager: Shutting down and abandoning module ActorPickerMode (895)
+[2023.02.01-21.03.50:129][473]LogModuleManager: Shutting down and abandoning module ViewportSnapping (893)
+[2023.02.01-21.03.50:129][473]LogModuleManager: Shutting down and abandoning module ViewportInteraction (891)
+[2023.02.01-21.03.50:129][473]LogModuleManager: Shutting down and abandoning module ClothPainter (889)
+[2023.02.01-21.03.50:129][473]LogModuleManager: Shutting down and abandoning module SkeletalMeshEditor (888)
+[2023.02.01-21.03.50:131][473]LogModuleManager: Shutting down and abandoning module LogVisualizer (885)
+[2023.02.01-21.03.50:132][473]LogModuleManager: Shutting down and abandoning module IOSPlatformEditor (883)
+[2023.02.01-21.03.50:132][473]LogModuleManager: Shutting down and abandoning module AndroidPlatformEditor (881)
+[2023.02.01-21.03.50:132][473]LogModuleManager: Shutting down and abandoning module PIEPreviewDeviceProfileSelector (880)
+[2023.02.01-21.03.50:133][473]LogModuleManager: Shutting down and abandoning module AndroidDeviceDetection (878)
+[2023.02.01-21.03.51:007][473]LogModuleManager: Shutting down and abandoning module WindowsPlatformEditor (875)
+[2023.02.01-21.03.51:007][473]LogModuleManager: Shutting down and abandoning module HoloLensPlatformEditor (873)
+[2023.02.01-21.03.51:007][473]LogModuleManager: Shutting down and abandoning module IOSRuntimeSettings (871)
+[2023.02.01-21.03.51:007][473]LogModuleManager: Shutting down and abandoning module AndroidRuntimeSettings (869)
+[2023.02.01-21.03.51:007][473]LogModuleManager: Shutting down and abandoning module AnimationSettings (867)
+[2023.02.01-21.03.51:007][473]LogModuleManager: Shutting down and abandoning module VirtualizationEditor (865)
+[2023.02.01-21.03.51:007][473]LogModuleManager: Shutting down and abandoning module CSVtoSVG (863)
+[2023.02.01-21.03.51:007][473]LogModuleManager: Shutting down and abandoning module DerivedDataEditor (861)
+[2023.02.01-21.03.51:008][473]LogModuleManager: Shutting down and abandoning module EditorConfig (859)
+[2023.02.01-21.03.51:008][473]LogModuleManager: Shutting down and abandoning module WorldPartitionEditor (857)
+[2023.02.01-21.03.51:008][473]LogModuleManager: Shutting down and abandoning module EditorFramework (855)
+[2023.02.01-21.03.51:008][473]LogModuleManager: Shutting down and abandoning module StaticMeshEditor (853)
+[2023.02.01-21.03.51:009][473]LogModuleManager: Shutting down and abandoning module TraceInsights (851)
+[2023.02.01-21.03.51:013][473]MemoryProfiler: Shutdown
+[2023.02.01-21.03.51:014][473]NetworkingProfiler: Shutdown
+[2023.02.01-21.03.51:014][473]LoadingProfiler: Shutdown
+[2023.02.01-21.03.51:014][473]TimingProfiler: Shutdown
+[2023.02.01-21.03.51:016][473]LogModuleManager: Shutting down and abandoning module TraceServices (850)
+[2023.02.01-21.03.51:018][473]LogModuleManager: Shutting down and abandoning module EditorInteractiveToolsFramework (847)
+[2023.02.01-21.03.51:018][473]LogModuleManager: Shutting down and abandoning module InteractiveToolsFramework (846)
+[2023.02.01-21.03.51:018][473]LogModuleManager: Shutting down and abandoning module InputBindingEditor (843)
+[2023.02.01-21.03.51:018][473]LogModuleManager: Shutting down and abandoning module MergeActors (841)
+[2023.02.01-21.03.51:019][473]LogModuleManager: Shutting down and abandoning module LocalizationDashboard (839)
+[2023.02.01-21.03.51:019][473]LogModuleManager: Shutting down and abandoning module LocalizationService (838)
+[2023.02.01-21.03.51:019][473]LogModuleManager: Shutting down and abandoning module HardwareTargeting (835)
+[2023.02.01-21.03.51:019][473]LogModuleManager: Shutting down and abandoning module DeviceProfileEditor (833)
+[2023.02.01-21.03.51:019][473]LogModuleManager: Shutting down and abandoning module UndoHistory (831)
+[2023.02.01-21.03.51:020][473]LogModuleManager: Shutting down and abandoning module XmlParser (829)
+[2023.02.01-21.03.51:020][473]LogModuleManager: Shutting down and abandoning module Blutility (827)
+[2023.02.01-21.03.51:020][473]LogModuleManager: Shutting down and abandoning module ProjectSettingsViewer (825)
+[2023.02.01-21.03.51:020][473]LogModuleManager: Shutting down and abandoning module ProjectTargetPlatformEditor (824)
+[2023.02.01-21.03.51:021][473]LogModuleManager: Shutting down and abandoning module EditorSettingsViewer (821)
+[2023.02.01-21.03.51:021][473]LogModuleManager: Shutting down and abandoning module InternationalizationSettings (820)
+[2023.02.01-21.03.51:021][473]LogModuleManager: Shutting down and abandoning module SettingsEditor (817)
+[2023.02.01-21.03.51:021][473]LogModuleManager: Shutting down and abandoning module ProjectLauncher (815)
+[2023.02.01-21.03.51:021][473]LogModuleManager: Shutting down and abandoning module SessionFrontend (813)
+[2023.02.01-21.03.51:021][473]LogModuleManager: Shutting down and abandoning module ProfilerClient (811)
+[2023.02.01-21.03.51:021][473]LogModuleManager: Shutting down and abandoning module DeviceManager (809)
+[2023.02.01-21.03.51:022][473]LogModuleManager: Shutting down and abandoning module AutomationController (807)
+[2023.02.01-21.03.51:023][473]LogModuleManager: Shutting down and abandoning module AutomationWindow (805)
+[2023.02.01-21.03.51:024][473]LogModuleManager: Shutting down and abandoning module Layers (803)
+[2023.02.01-21.03.51:025][473]LogModuleManager: Shutting down and abandoning module ComponentVisualizers (801)
+[2023.02.01-21.03.51:025][473]LogModuleManager: Shutting down and abandoning module DetailCustomizations (799)
+[2023.02.01-21.03.51:025][473]LogModuleManager: Shutting down and abandoning module PackagesDialog (797)
+[2023.02.01-21.03.51:025][473]LogModuleManager: Shutting down and abandoning module AnimationBlueprintEditor (795)
+[2023.02.01-21.03.51:026][473]LogModuleManager: Shutting down and abandoning module Persona (793)
+[2023.02.01-21.03.51:027][473]LogModuleManager: Shutting down and abandoning module AdvancedPreviewScene (792)
+[2023.02.01-21.03.51:027][473]LogModuleManager: Shutting down and abandoning module AnimGraph (790)
+[2023.02.01-21.03.51:028][473]LogModuleManager: Shutting down and abandoning module Kismet (787)
+[2023.02.01-21.03.51:052][473]LogModuleManager: Shutting down and abandoning module KismetWidgets (786)
+[2023.02.01-21.03.51:052][473]LogModuleManager: Shutting down and abandoning module GraphEditor (783)
+[2023.02.01-21.03.51:052][473]LogModuleManager: Shutting down and abandoning module StructViewer (781)
+[2023.02.01-21.03.51:052][473]LogModuleManager: Shutting down and abandoning module ClassViewer (779)
+[2023.02.01-21.03.51:059][473]LogModuleManager: Shutting down and abandoning module NaniteTools (777)
+[2023.02.01-21.03.51:059][473]LogModuleManager: Shutting down and abandoning module UncontrolledChangelists (775)
+[2023.02.01-21.03.51:059][473]LogModuleManager: Shutting down and abandoning module SourceControlWindowExtender (773)
+[2023.02.01-21.03.51:059][473]LogModuleManager: Shutting down and abandoning module SourceControlWindows (771)
+[2023.02.01-21.03.51:059][473]LogModuleManager: Shutting down and abandoning module OutputLog (769)
+[2023.02.01-21.03.51:060][473]LogModuleManager: Shutting down and abandoning module Documentation (767)
+[2023.02.01-21.03.51:060][473]LogModuleManager: Shutting down and abandoning module LiveCoding (765)
+[2023.02.01-21.03.51:061][473]LogModuleManager: Shutting down and abandoning module MovieSceneTracks (763)
+[2023.02.01-21.03.51:061][473]LogModuleManager: Shutting down and abandoning module MovieScene (761)
+[2023.02.01-21.03.51:061][473]LogModuleManager: Shutting down and abandoning module StreamingPauseRendering (759)
+[2023.02.01-21.03.51:062][473]LogModuleManager: Shutting down and abandoning module BinkAudioDecoder (757)
+[2023.02.01-21.03.51:062][473]LogModuleManager: Shutting down and abandoning module AudioMixerXAudio2 (755)
+[2023.02.01-21.03.51:062][473]LogModuleManager: Shutting down and abandoning module AudioMixer (754)
+[2023.02.01-21.03.51:062][473]LogModuleManager: Shutting down and abandoning module AudioMixerCore (753)
+[2023.02.01-21.03.51:062][473]LogModuleManager: Shutting down and abandoning module LauncherPlatform (749)
+[2023.02.01-21.03.51:062][473]LogModuleManager: Shutting down and abandoning module AnalyticsET (747)
+[2023.02.01-21.03.51:062][473]LogModuleManager: Shutting down and abandoning module PortalServices (745)
+[2023.02.01-21.03.51:062][473]LogModuleManager: Shutting down and abandoning module PortalRpc (743)
+[2023.02.01-21.03.51:062][473]LogModuleManager: Shutting down and abandoning module MessagingRpc (741)
+[2023.02.01-21.03.51:062][473]LogModuleManager: Shutting down and abandoning module AIModule (739)
+[2023.02.01-21.03.51:062][473]LogModuleManager: Shutting down and abandoning module GameplayDebugger (738)
+[2023.02.01-21.03.51:062][473]LogModuleManager: Shutting down and abandoning module AITestSuite (736)
+[2023.02.01-21.03.51:062][473]LogModuleManager: Shutting down and abandoning module NavigationSystem (734)
+[2023.02.01-21.03.51:062][473]LogModuleManager: Shutting down and abandoning module DataLayerEditor (731)
+[2023.02.01-21.03.51:062][473]LogModuleManager: Shutting down and abandoning module EditorWidgets (730)
+[2023.02.01-21.03.51:062][473]LogModuleManager: Shutting down and abandoning module LevelInstanceEditor (727)
+[2023.02.01-21.03.51:062][473]LogModuleManager: Shutting down and abandoning module TypedElementRuntime (725)
+[2023.02.01-21.03.51:062][473]LogModuleManager: Shutting down and abandoning module TypedElementFramework (723)
+[2023.02.01-21.03.51:062][473]LogModuleManager: Shutting down and abandoning module ImageWriteQueue (721)
+[2023.02.01-21.03.51:062][473]LogModuleManager: Shutting down and abandoning module ProfilerService (719)
+[2023.02.01-21.03.51:192][473]LogModuleManager: Shutting down and abandoning module TaskGraph (717)
+[2023.02.01-21.03.51:193][473]LogModuleManager: Shutting down and abandoning module AudioSynesthesiaEditor (715)
+[2023.02.01-21.03.51:193][473]LogModuleManager: Shutting down and abandoning module MegascansPlugin (713)
+[2023.02.01-21.03.51:193][473]LogModuleManager: Shutting down and abandoning module Bridge (711)
+[2023.02.01-21.03.51:193][473]LogModuleManager: Shutting down and abandoning module ContentBrowserFileDataSource (709)
+[2023.02.01-21.03.51:193][473]LogModuleManager: Shutting down and abandoning module ContentBrowserClassDataSource (707)
+[2023.02.01-21.03.51:193][473]LogModuleManager: Shutting down and abandoning module ContentBrowserAssetDataSource (705)
+[2023.02.01-21.03.51:193][473]LogModuleManager: Shutting down and abandoning module CollectionManager (704)
+[2023.02.01-21.03.51:193][473]LogModuleManager: Shutting down and abandoning module ObjectMixerEditor (701)
+[2023.02.01-21.03.51:194][473]LogModuleManager: Shutting down and abandoning module LightMixer (699)
+[2023.02.01-21.03.51:194][473]LogModuleManager: Shutting down and abandoning module TakeSequencer (697)
+[2023.02.01-21.03.51:194][473]LogModuleManager: Shutting down and abandoning module TakeMovieScene (695)
+[2023.02.01-21.03.51:194][473]LogModuleManager: Shutting down and abandoning module VisualStudioSourceCodeAccess (693)
+[2023.02.01-21.03.51:194][473]LogModuleManager: Shutting down and abandoning module VisualStudioCodeSourceCodeAccess (691)
+[2023.02.01-21.03.51:194][473]LogModuleManager: Shutting down and abandoning module UObjectPlugin (689)
+[2023.02.01-21.03.51:194][473]LogModuleManager: Shutting down and abandoning module SubversionSourceControl (687)
+[2023.02.01-21.03.51:194][473]LogModuleManager: Shutting down and abandoning module RiderSourceCodeAccess (685)
+[2023.02.01-21.03.51:194][473]LogModuleManager: Shutting down and abandoning module PluginUtils (683)
+[2023.02.01-21.03.51:194][473]LogModuleManager: Shutting down and abandoning module PlasticSourceControl (681)
+[2023.02.01-21.03.51:195][473]LogModuleManager: Shutting down and abandoning module DumpGPUServices (679)
+[2023.02.01-21.03.51:196][473]LogModuleManager: Shutting down and abandoning module CLionSourceCodeAccess (677)
+[2023.02.01-21.03.51:196][473]LogModuleManager: Shutting down and abandoning module GitSourceControl (675)
+[2023.02.01-21.03.51:196][473]LogModuleManager: Shutting down and abandoning module VaRestEditor (673)
+[2023.02.01-21.03.51:196][473]LogModuleManager: Shutting down and abandoning module AnimationSharingEd (671)
+[2023.02.01-21.03.51:196][473]LogModuleManager: Shutting down and abandoning module RuntimeAudioImporterEditor (669)
+[2023.02.01-21.03.51:196][473]LogModuleManager: Shutting down and abandoning module RuntimeAudioImporter (667)
+[2023.02.01-21.03.51:196][473]LogModuleManager: Shutting down and abandoning module MediaPlateEditor (665)
+[2023.02.01-21.03.51:196][473]LogModuleManager: Shutting down and abandoning module MediaPlate (663)
+[2023.02.01-21.03.51:196][473]LogModuleManager: Shutting down and abandoning module MediaCompositing (661)
+[2023.02.01-21.03.51:196][473]LogModuleManager: Shutting down and abandoning module ImgMedia (659)
+[2023.02.01-21.03.51:197][473]LogModuleManager: Shutting down and abandoning module OodleNetworkHandlerComponent (657)
+[2023.02.01-21.03.51:197][473]LogModuleManager: Shutting down and abandoning module MobilePatchingUtils (655)
+[2023.02.01-21.03.51:197][473]LogModuleManager: Shutting down and abandoning module SynthesisEditor (653)
+[2023.02.01-21.03.51:197][473]LogModuleManager: Shutting down and abandoning module ProceduralMeshComponentEditor (651)
+[2023.02.01-21.03.51:197][473]LogModuleManager: Shutting down and abandoning module ResonanceAudio (649)
+[2023.02.01-21.03.51:197][473]LogModuleManager: Shutting down and abandoning module ModelingOperatorsEditorOnly (647)
+[2023.02.01-21.03.51:197][473]LogModuleManager: Shutting down and abandoning module ModelingOperators (645)
+[2023.02.01-21.03.51:197][473]LogModuleManager: Shutting down and abandoning module ModelingComponentsEditorOnly (643)
+[2023.02.01-21.03.51:197][473]LogModuleManager: Shutting down and abandoning module ModelingComponents (641)
+[2023.02.01-21.03.51:198][473]LogModuleManager: Shutting down and abandoning module GeometryFramework (640)
+[2023.02.01-21.03.51:198][473]LogModuleManager: Shutting down and abandoning module MeshModelingToolsEditorOnly (637)
+[2023.02.01-21.03.51:198][473]LogModuleManager: Shutting down and abandoning module MeshModelingTools (635)
+[2023.02.01-21.03.51:199][473]LogModuleManager: Shutting down and abandoning module GeometryCacheTracks (633)
+[2023.02.01-21.03.51:199][473]LogModuleManager: Shutting down and abandoning module GeometryCacheStreamer (631)
+[2023.02.01-21.03.51:199][473]LogModuleManager: Shutting down and abandoning module GeometryCacheSequencer (629)
+[2023.02.01-21.03.51:199][473]LogModuleManager: Shutting down and abandoning module DynamicMesh (627)
+[2023.02.01-21.03.51:199][473]LogModuleManager: Shutting down and abandoning module GeometryAlgorithms (625)
+[2023.02.01-21.03.51:199][473]LogModuleManager: Shutting down and abandoning module InputDebugging (623)
+[2023.02.01-21.03.51:199][473]LogModuleManager: Shutting down and abandoning module GooglePAD (621)
+[2023.02.01-21.03.51:199][473]LogModuleManager: Shutting down and abandoning module ArchVisCharacter (619)
+[2023.02.01-21.03.51:199][473]LogModuleManager: Shutting down and abandoning module AssetTags (617)
+[2023.02.01-21.03.51:199][473]LogModuleManager: Shutting down and abandoning module AudioCapture (615)
+[2023.02.01-21.03.51:199][473]LogModuleManager: Shutting down and abandoning module AudioCaptureRtAudio (614)
+[2023.02.01-21.03.51:200][473]LogModuleManager: Shutting down and abandoning module AppleImageUtilsBlueprintSupport (611)
+[2023.02.01-21.03.51:200][473]LogModuleManager: Shutting down and abandoning module AppleImageUtils (609)
+[2023.02.01-21.03.51:200][473]LogModuleManager: Shutting down and abandoning module AndroidPermission (607)
+[2023.02.01-21.03.51:200][473]LogModuleManager: Shutting down and abandoning module InterchangeFbxParser (605)
+[2023.02.01-21.03.51:200][473]LogModuleManager: Shutting down and abandoning module InterchangeCommonParser (603)
+[2023.02.01-21.03.51:200][473]LogModuleManager: Shutting down and abandoning module InterchangeDispatcher (601)
+[2023.02.01-21.03.51:200][473]LogModuleManager: Shutting down and abandoning module InterchangePipelines (599)
+[2023.02.01-21.03.51:200][473]LogModuleManager: Shutting down and abandoning module InterchangeExport (597)
+[2023.02.01-21.03.51:200][473]LogModuleManager: Shutting down and abandoning module InterchangeMessages (595)
+[2023.02.01-21.03.51:200][473]LogModuleManager: Shutting down and abandoning module InterchangeImport (593)
+[2023.02.01-21.03.51:201][473]LogModuleManager: Shutting down and abandoning module InterchangeFactoryNodes (591)
+[2023.02.01-21.03.51:201][473]LogModuleManager: Shutting down and abandoning module InterchangeNodes (589)
+[2023.02.01-21.03.51:201][473]LogModuleManager: Shutting down and abandoning module InterchangeEditorUtilities (587)
+[2023.02.01-21.03.51:201][473]LogModuleManager: Shutting down and abandoning module InterchangeResultsBrowser (585)
+[2023.02.01-21.03.51:201][473]LogModuleManager: Shutting down and abandoning module InterchangeEditorPipelines (583)
+[2023.02.01-21.03.51:201][473]LogModuleManager: Shutting down and abandoning module InterchangeEditor (581)
+[2023.02.01-21.03.51:201][473]LogModuleManager: Shutting down and abandoning module ActorLayerUtilitiesEditor (579)
+[2023.02.01-21.03.51:201][473]LogModuleManager: Shutting down and abandoning module ActorLayerUtilities (577)
+[2023.02.01-21.03.51:201][473]LogModuleManager: Shutting down and abandoning module UVEditorToolsEditorOnly (575)
+[2023.02.01-21.03.51:201][473]LogModuleManager: Shutting down and abandoning module UVEditorTools (573)
+[2023.02.01-21.03.51:202][473]LogModuleManager: Shutting down and abandoning module UVEditor (571)
+[2023.02.01-21.03.51:202][473]LogModuleManager: Shutting down and abandoning module OpenImageDenoise (569)
+[2023.02.01-21.03.51:202][473]LogOpenImageDenoise: OIDN shutting down
+[2023.02.01-21.03.51:202][473]LogModuleManager: Shutting down and abandoning module ModelingEditorUI (567)
+[2023.02.01-21.03.51:202][473]LogModuleManager: Shutting down and abandoning module GeometryProcessingAdapters (565)
+[2023.02.01-21.03.51:203][473]LogModuleManager: Shutting down and abandoning module MeshModelingToolsEditorOnlyExp (563)
+[2023.02.01-21.03.51:204][473]LogModuleManager: Shutting down and abandoning module MeshModelingToolsExp (561)
+[2023.02.01-21.03.51:204][473]LogModuleManager: Shutting down and abandoning module MeshLODToolset (559)
+[2023.02.01-21.03.51:204][473]LogModuleManager: Shutting down and abandoning module Iris (557)
+[2023.02.01-21.03.51:204][473]LogModuleManager: Shutting down and abandoning module GeometryFlowMeshProcessingEditor (555)
+[2023.02.01-21.03.51:204][473]LogModuleManager: Shutting down and abandoning module GeometryFlowMeshProcessing (553)
+[2023.02.01-21.03.51:204][473]LogModuleManager: Shutting down and abandoning module GeometryFlowCore (551)
+[2023.02.01-21.03.51:204][473]LogModuleManager: Shutting down and abandoning module GeometryCollectionNodes (549)
+[2023.02.01-21.03.51:204][473]LogModuleManager: Shutting down and abandoning module GeometryCollectionTracks (547)
+[2023.02.01-21.03.51:204][473]LogModuleManager: Shutting down and abandoning module GeometryCollectionEngine (546)
+[2023.02.01-21.03.51:204][473]LogModuleManager: Shutting down and abandoning module GeometryCollectionSequencer (544)
+[2023.02.01-21.03.51:204][473]LogModuleManager: Shutting down and abandoning module GeometryCollectionEditor (541)
+[2023.02.01-21.03.51:204][473]LogModuleManager: Shutting down and abandoning module DataflowNodes (539)
+[2023.02.01-21.03.51:204][473]LogModuleManager: Shutting down and abandoning module DataflowEditor (537)
+[2023.02.01-21.03.51:204][473]LogModuleManager: Shutting down and abandoning module ChaosUserDataPT (535)
+[2023.02.01-21.03.51:204][473]LogModuleManager: Shutting down and abandoning module ChaosSolverEditor (533)
+[2023.02.01-21.03.51:204][473]LogModuleManager: Shutting down and abandoning module ChaosNiagara (531)
+[2023.02.01-21.03.51:205][473]LogModuleManager: Shutting down and abandoning module FractureEditor (529)
+[2023.02.01-21.03.51:206][473]LogModuleManager: Shutting down and abandoning module BackChannel (527)
+[2023.02.01-21.03.51:206][473]LogModuleManager: Shutting down and abandoning module ChaosClothEditor (525)
+[2023.02.01-21.03.51:206][473]LogModuleManager: Shutting down and abandoning module AutomationUtilsEditor (523)
+[2023.02.01-21.03.51:206][473]LogModuleManager: Shutting down and abandoning module AutomationUtils (521)
+[2023.02.01-21.03.51:206][473]LogModuleManager: Shutting down and abandoning module InterchangeTestEditor (519)
+[2023.02.01-21.03.51:206][473]LogModuleManager: Shutting down and abandoning module InterchangeTests (517)
+[2023.02.01-21.03.51:206][473]LogModuleManager: Shutting down and abandoning module VariantManager (515)
+[2023.02.01-21.03.51:208][473]LogModuleManager: Shutting down and abandoning module VariantManagerContentEditor (514)
+[2023.02.01-21.03.51:208][473]LogModuleManager: Shutting down and abandoning module GLTFMaterialBaking (511)
+[2023.02.01-21.03.51:208][473]LogModuleManager: Shutting down and abandoning module GLTFMaterialAnalyzer (509)
+[2023.02.01-21.03.51:208][473]LogModuleManager: Shutting down and abandoning module DatasmithContentEditor (507)
+[2023.02.01-21.03.51:209][473]LogModuleManager: Shutting down and abandoning module SpeedTreeImporter (505)
+[2023.02.01-21.03.51:209][473]LogModuleManager: Shutting down and abandoning module StylusInput (501)
+[2023.02.01-21.03.51:209][473]LogModuleManager: Shutting down and abandoning module WorldPartitionHLODUtilities (499)
+[2023.02.01-21.03.51:209][473]LogModuleManager: Shutting down and abandoning module SequencerAnimTools (497)
+[2023.02.01-21.03.51:209][473]LogModuleManager: Shutting down and abandoning module PluginBrowser (495)
+[2023.02.01-21.03.51:209][473]LogModuleManager: Shutting down and abandoning module MobileLauncherProfileWizard (493)
+[2023.02.01-21.03.51:209][473]LogModuleManager: Shutting down and abandoning module MaterialAnalyzer (491)
+[2023.02.01-21.03.51:210][473]LogModuleManager: Shutting down and abandoning module ModelingToolsEditorMode (489)
+[2023.02.01-21.03.51:211][473]LogModuleManager: Shutting down and abandoning module GLTFImporter (487)
+[2023.02.01-21.03.51:212][473]LogModuleManager: Shutting down and abandoning module GLTFCore (485)
+[2023.02.01-21.03.51:212][473]LogModuleManager: Shutting down and abandoning module EditorDebugTools (483)
+[2023.02.01-21.03.51:212][473]LogModuleManager: Shutting down and abandoning module EditorScriptingUtilities (481)
+[2023.02.01-21.03.51:212][473]LogModuleManager: Shutting down and abandoning module CryptoKeysOpenSSL (479)
+[2023.02.01-21.03.51:212][473]LogModuleManager: Shutting down and abandoning module CryptoKeys (477)
+[2023.02.01-21.03.51:212][473]LogModuleManager: Shutting down and abandoning module CurveEditorTools (475)
+[2023.02.01-21.03.51:212][473]LogModuleManager: Shutting down and abandoning module BlueprintHeaderView (473)
+[2023.02.01-21.03.51:212][473]LogModuleManager: Shutting down and abandoning module TemplateSequence (471)
+[2023.02.01-21.03.51:212][473]LogModuleManager: Shutting down and abandoning module SequencerScriptingEditor (469)
+[2023.02.01-21.03.51:212][473]LogModuleManager: Shutting down and abandoning module SequencerScripting (467)
+[2023.02.01-21.03.51:212][473]LogModuleManager: Shutting down and abandoning module NiagaraEditorWidgets (465)
+[2023.02.01-21.03.51:213][473]LogModuleManager: Shutting down and abandoning module AnimationModifierLibrary (463)
+[2023.02.01-21.03.51:213][473]LogModuleManager: Shutting down and abandoning module ControlRigSpline (461)
+[2023.02.01-21.03.51:214][473]LogModuleManager: Shutting down and abandoning module BlendSpaceMotionAnalysis (459)
+[2023.02.01-21.03.51:214][473]LogModuleManager: Shutting down and abandoning module AlembicImporter (457)
+[2023.02.01-21.03.51:214][473]LogModuleManager: Shutting down and abandoning module AlembicLibrary (456)
+[2023.02.01-21.03.51:214][473]LogModuleManager: Shutting down and abandoning module GeometryCache (455)
+[2023.02.01-21.03.51:214][473]LogModuleManager: Shutting down and abandoning module GeometryCacheEd (454)
+[2023.02.01-21.03.51:214][473]LogModuleManager: Shutting down and abandoning module PaperTiledImporter (449)
+[2023.02.01-21.03.51:214][473]LogModuleManager: Shutting down and abandoning module PaperSpriteSheetImporter (447)
+[2023.02.01-21.03.51:214][473]LogModuleManager: Shutting down and abandoning module Paper2DEditor (445)
+[2023.02.01-21.03.51:216][473]LogModuleManager: Shutting down and abandoning module EditorTraceUtilities (443)
+[2023.02.01-21.03.51:216][473]LogModuleManager: Shutting down and abandoning module TraceUtilities (441)
+[2023.02.01-21.03.51:216][473]LogModuleManager: Shutting down and abandoning module MeshPaintingToolset (439)
+[2023.02.01-21.03.51:216][473]LogModuleManager: Shutting down and abandoning module MeshPaintEditorMode (437)
+[2023.02.01-21.03.51:216][473]LogModuleManager: Shutting down and abandoning module InputEditor (435)
+[2023.02.01-21.03.51:216][473]LogModuleManager: Shutting down and abandoning module GameplayCameras (431)
+[2023.02.01-21.03.51:216][473]LogModuleManager: Shutting down and abandoning module EnvironmentQueryEditor (429)
+[2023.02.01-21.03.51:217][473]LogModuleManager: Shutting down and abandoning module TcpMessaging (427)
+[2023.02.01-21.03.51:318][473]LogModuleManager: Shutting down and abandoning module UdpMessaging (425)
+[2023.02.01-21.03.51:418][473]LogModuleManager: Shutting down and abandoning module TraceDataFiltering (423)
+[2023.02.01-21.03.51:419][473]LogModuleManager: Shutting down and abandoning module PropertyAccessNode (421)
+[2023.02.01-21.03.51:419][473]LogModuleManager: Shutting down and abandoning module VaRest (419)
+[2023.02.01-21.03.51:420][473]LogModuleManager: Shutting down and abandoning module AnimationSharing (417)
+[2023.02.01-21.03.51:420][473]LogModuleManager: Shutting down and abandoning module ImgMediaEngine (415)
+[2023.02.01-21.03.51:420][473]LogModuleManager: Shutting down and abandoning module SoundFields (413)
+[2023.02.01-21.03.51:420][473]LogModuleManager: Shutting down and abandoning module Synthesis (411)
+[2023.02.01-21.03.51:420][473]LogModuleManager: Shutting down and abandoning module ProceduralMeshComponent (409)
+[2023.02.01-21.03.51:420][473]LogModuleManager: Shutting down and abandoning module SignificanceManager (407)
+[2023.02.01-21.03.51:420][473]LogModuleManager: Shutting down and abandoning module MetasoundEditor (405)
+[2023.02.01-21.03.51:423][473]LogModuleManager: Shutting down and abandoning module AudioWidgets (404)
+[2023.02.01-21.03.51:423][473]LogModuleManager: Shutting down and abandoning module AdvancedWidgets (403)
+[2023.02.01-21.03.51:424][473]LogModuleManager: Shutting down and abandoning module MetasoundEngineTest (399)
+[2023.02.01-21.03.51:424][473]LogModuleManager: Shutting down and abandoning module MetasoundEngine (397)
+[2023.02.01-21.03.51:424][473]LogModuleManager: Shutting down and abandoning module WaveTable (396)
+[2023.02.01-21.03.51:424][473]LogModuleManager: Shutting down and abandoning module AudioCodecEngine (394)
+[2023.02.01-21.03.51:424][473]LogModuleManager: Shutting down and abandoning module MetasoundStandardNodes (391)
+[2023.02.01-21.03.51:424][473]LogModuleManager: Shutting down and abandoning module MetasoundFrontend (389)
+[2023.02.01-21.03.51:427][473]LogModuleManager: Shutting down and abandoning module MetasoundGenerator (387)
+[2023.02.01-21.03.51:427][473]LogModuleManager: Shutting down and abandoning module MetasoundGraphCore (385)
+[2023.02.01-21.03.51:427][473]LogModuleManager: Shutting down and abandoning module PropertyAccessEditor (383)
+[2023.02.01-21.03.51:427][473]LogModuleManager: Shutting down and abandoning module LocationServicesBPLibrary (381)
+[2023.02.01-21.03.51:427][473]LogModuleManager: Shutting down and abandoning module CustomMeshComponent (379)
+[2023.02.01-21.03.51:427][473]LogModuleManager: Shutting down and abandoning module CableComponent (377)
+[2023.02.01-21.03.51:433][473]LogModuleManager: Shutting down and abandoning module AudioSynesthesia (375)
+[2023.02.01-21.03.51:433][473]LogModuleManager: Shutting down and abandoning module AudioAnalyzer (374)
+[2023.02.01-21.03.51:433][473]LogModuleManager: Shutting down and abandoning module AudioSynesthesiaCore (371)
+[2023.02.01-21.03.51:433][473]LogModuleManager: Shutting down and abandoning module PythonScriptPlugin (369)
+[2023.02.01-21.03.51:433][473]LogModuleManager: Shutting down and abandoning module PBIK (367)
+[2023.02.01-21.03.51:433][473]LogModuleManager: Shutting down and abandoning module FullBodyIK (365)
+[2023.02.01-21.03.51:433][473]LogModuleManager: Shutting down and abandoning module ChaosCachingEditor (363)
+[2023.02.01-21.03.51:433][473]LogModuleManager: Shutting down and abandoning module TakeRecorder (362)
+[2023.02.01-21.03.51:434][473]LogModuleManager: Shutting down and abandoning module ChaosCaching (359)
+[2023.02.01-21.03.51:434][473]LogModuleManager: Shutting down and abandoning module GameplayTagsEditor (357)
+[2023.02.01-21.03.51:435][473]LogModuleManager: Shutting down and abandoning module DataValidation (355)
+[2023.02.01-21.03.51:435][473]LogModuleManager: Shutting down and abandoning module FacialAnimationEditor (353)
+[2023.02.01-21.03.51:435][473]LogModuleManager: Shutting down and abandoning module FacialAnimation (351)
+[2023.02.01-21.03.51:435][473]LogModuleManager: Shutting down and abandoning module AssetManagerEditor (349)
+[2023.02.01-21.03.51:435][473]LogModuleManager: Shutting down and abandoning module LevelEditor (348)
+[2023.02.01-21.03.51:441][473]LogModuleManager: Shutting down and abandoning module PixelInspectorModule (347)
+[2023.02.01-21.03.51:441][473]LogModuleManager: Shutting down and abandoning module LevelAssetEditor (345)
+[2023.02.01-21.03.51:441][473]LogModuleManager: Shutting down and abandoning module CommonMenuExtensions (343)
+[2023.02.01-21.03.51:442][473]LogModuleManager: Shutting down and abandoning module MainFrame (341)
+[2023.02.01-21.03.51:442][473]LogModuleManager: Shutting down and abandoning module HotReload (340)
+[2023.02.01-21.03.51:443][473]LogModuleManager: Shutting down and abandoning module TreeMap (336)
+[2023.02.01-21.03.51:443][473]LogModuleManager: Shutting down and abandoning module NiagaraAnimNotifies (333)
+[2023.02.01-21.03.51:443][473]LogModuleManager: Shutting down and abandoning module Niagara (331)
+[2023.02.01-21.03.51:444][473]LogModuleManager: Shutting down and abandoning module SignalProcessing (330)
+[2023.02.01-21.03.51:444][473]LogModuleManager: Shutting down and abandoning module NiagaraEditor (328)
+[2023.02.01-21.03.51:445][473]LogModuleManager: Shutting down and abandoning module ContentBrowser (327)
+[2023.02.01-21.03.51:445][473]LogModuleManager: Shutting down and abandoning module ToolMenus (326)
+[2023.02.01-21.03.51:445][473]LogModuleManager: Shutting down and abandoning module ContentBrowserData (324)
+[2023.02.01-21.03.51:445][473]LogModuleManager: Shutting down and abandoning module NiagaraCore (319)
+[2023.02.01-21.03.51:445][473]LogModuleManager: Shutting down and abandoning module ActorSequence (317)
+[2023.02.01-21.03.51:445][473]LogModuleManager: Shutting down and abandoning module IKRigDeveloper (315)
+[2023.02.01-21.03.51:445][473]LogModuleManager: Shutting down and abandoning module IKRig (313)
+[2023.02.01-21.03.51:445][473]LogModuleManager: Shutting down and abandoning module ControlRigDeveloper (311)
+[2023.02.01-21.03.51:445][473]LogModuleManager: Shutting down and abandoning module ControlRig (309)
+[2023.02.01-21.03.51:445][473]LogModuleManager: Shutting down and abandoning module LevelSequence (308)
+[2023.02.01-21.03.51:445][473]LogModuleManager: Shutting down and abandoning module Paper2D (305)
+[2023.02.01-21.03.51:447][473]LogModuleManager: Shutting down and abandoning module InputBlueprintNodes (303)
+[2023.02.01-21.03.51:447][473]LogModuleManager: Shutting down and abandoning module EnhancedInput (301)
+[2023.02.01-21.03.51:447][473]LogModuleManager: Shutting down and abandoning module WindowsMoviePlayer (299)
+[2023.02.01-21.03.51:448][473]LogModuleManager: Shutting down and abandoning module WebMMoviePlayer (297)
+[2023.02.01-21.03.51:448][473]LogModuleManager: Shutting down and abandoning module AndroidFileServer (295)
+[2023.02.01-21.03.51:448][473]LogModuleManager: Shutting down and abandoning module NetworkReplayStreaming (293)
+[2023.02.01-21.03.51:448][473]LogModuleManager: Shutting down and abandoning module PacketHandler (291)
+[2023.02.01-21.03.51:448][473]LogModuleManager: Shutting down and abandoning module TimeManagement (289)
+[2023.02.01-21.03.51:448][473]LogModuleManager: Shutting down and abandoning module AnimationDataController (287)
+[2023.02.01-21.03.51:448][473]LogModuleManager: Shutting down and abandoning module ClothingSystemEditor (285)
+[2023.02.01-21.03.51:448][473]LogModuleManager: Shutting down and abandoning module ClothingSystemRuntimeNv (283)
+[2023.02.01-21.03.51:448][473]LogModuleManager: Shutting down and abandoning module MediaAssets (281)
+[2023.02.01-21.03.51:448][473]LogModuleManager: Shutting down and abandoning module Overlay (279)
+[2023.02.01-21.03.51:448][473]LogModuleManager: Shutting down and abandoning module OverlayEditor (278)
+[2023.02.01-21.03.51:448][473]LogModuleManager: Shutting down and abandoning module VREditor (275)
+[2023.02.01-21.03.51:448][473]LogModuleManager: Shutting down and abandoning module StringTableEditor (273)
+[2023.02.01-21.03.51:448][473]LogModuleManager: Shutting down and abandoning module GameplayTasksEditor (271)
+[2023.02.01-21.03.51:448][473]LogModuleManager: Shutting down and abandoning module BehaviorTreeEditor (269)
+[2023.02.01-21.03.51:449][473]LogModuleManager: Shutting down and abandoning module FunctionalTesting (267)
+[2023.02.01-21.03.51:449][473]LogModuleManager: Shutting down and abandoning module CollisionAnalyzer (265)
+[2023.02.01-21.03.51:450][473]LogModuleManager: Shutting down and abandoning module WorkspaceMenuStructure (264)
+[2023.02.01-21.03.51:451][473]LogModuleManager: Shutting down and abandoning module UMG (261)
+[2023.02.01-21.03.51:451][473]LogModuleManager: Shutting down and abandoning module UMGEditor (260)
+[2023.02.01-21.03.51:451][473]LogModuleManager: Shutting down and abandoning module EditorStyle (255)
+[2023.02.01-21.03.51:451][473]LogModuleManager: Shutting down and abandoning module SlateReflector (253)
+[2023.02.01-21.03.51:454][473]LogModuleManager: Shutting down and abandoning module Slate (251)
+[2023.02.01-21.03.51:454][473]LogModuleManager: Shutting down and abandoning module SlateCore (249)
+[2023.02.01-21.03.51:455][473]LogModuleManager: Shutting down and abandoning module SubobjectDataInterface (247)
+[2023.02.01-21.03.51:455][473]LogModuleManager: Shutting down and abandoning module LandscapeEditorUtilities (245)
+[2023.02.01-21.03.51:455][473]LogModuleManager: Shutting down and abandoning module UnrealEd (243)
+[2023.02.01-21.03.51:456][473]LogModuleManager: Shutting down and abandoning module MRMesh (241)
+[2023.02.01-21.03.51:456][473]LogModuleManager: Shutting down and abandoning module Messaging (239)
+[2023.02.01-21.03.51:456][473]LogModuleManager: Shutting down and abandoning module SourceCodeAccess (237)
+[2023.02.01-21.03.51:456][473]LogModuleManager: Shutting down and abandoning module HeadMountedDisplay (235)
+[2023.02.01-21.03.51:456][473]LogModuleManager: Shutting down and abandoning module Networking (233)
+[2023.02.01-21.03.51:456][473]LogModuleManager: Shutting down and abandoning module Core (231)
+[2023.02.01-21.03.51:456][473]LogModuleManager: Shutting down and abandoning module MaterialEditor (229)
+[2023.02.01-21.03.51:456][473]LogModuleManager: Shutting down and abandoning module MovieSceneTools (227)
+[2023.02.01-21.03.51:457][473]LogModuleManager: Shutting down and abandoning module CurveEditor (226)
+[2023.02.01-21.03.51:457][473]LogModuleManager: Shutting down and abandoning module Sequencer (224)
+[2023.02.01-21.03.51:457][473]LogModuleManager: Shutting down and abandoning module KismetCompiler (221)
+[2023.02.01-21.03.51:457][473]LogModuleManager: Shutting down and abandoning module MeshBuilder (219)
+[2023.02.01-21.03.51:457][473]LogModuleManager: Shutting down and abandoning module NaniteBuilder (217)
+[2023.02.01-21.03.51:457][473]LogModuleManager: Shutting down and abandoning module MeshUtilities (215)
+[2023.02.01-21.03.51:457][473]LogModuleManager: Shutting down and abandoning module MeshMergeUtilities (214)
+[2023.02.01-21.03.51:459][473]LogModuleManager: Shutting down and abandoning module MeshReductionInterface (213)
+[2023.02.01-21.03.51:459][473]LogModuleManager: Shutting down and abandoning module MeshBoneReduction (212)
+[2023.02.01-21.03.51:459][473]LogModuleManager: Shutting down and abandoning module SkeletalMeshReduction (210)
+[2023.02.01-21.03.51:460][473]LogModuleManager: Shutting down and abandoning module ProxyLODMeshReduction (208)
+[2023.02.01-21.03.51:461][473]LogModuleManager: Shutting down and abandoning module QuadricMeshReduction (206)
+[2023.02.01-21.03.51:462][473]LogModuleManager: Shutting down and abandoning module MaterialBaking (202)
+[2023.02.01-21.03.51:463][473]LogModuleManager: Shutting down and abandoning module TargetDeviceServices (199)
+[2023.02.01-21.03.51:473][473]LogModuleManager: Shutting down and abandoning module NullInstallBundleManager (195)
+[2023.02.01-21.03.51:473][473]LogModuleManager: Shutting down and abandoning module DerivedDataCache (193)
+[2023.02.01-21.03.51:483][473]LogModuleManager: Shutting down and abandoning module TargetPlatform (191)
+[2023.02.01-21.03.51:483][473]LogModuleManager: Shutting down and abandoning module ShaderFormatVectorVM (190)
+[2023.02.01-21.03.51:483][473]LogModuleManager: Shutting down and abandoning module MetalShaderFormat (188)
+[2023.02.01-21.03.51:483][473]LogModuleManager: Shutting down and abandoning module VulkanShaderFormat (186)
+[2023.02.01-21.03.51:485][473]LogModuleManager: Shutting down and abandoning module ShaderFormatOpenGL (184)
+[2023.02.01-21.03.51:485][473]LogModuleManager: Shutting down and abandoning module ShaderFormatD3D (182)
+[2023.02.01-21.03.51:485][473]LogModuleManager: Shutting down and abandoning module AudioFormatOpus (180)
+[2023.02.01-21.03.51:485][473]LogModuleManager: Shutting down and abandoning module AudioFormatOgg (178)
+[2023.02.01-21.03.51:485][473]LogModuleManager: Shutting down and abandoning module AudioFormatBink (176)
+[2023.02.01-21.03.51:485][473]LogModuleManager: Shutting down and abandoning module AudioFormatADPCM (174)
+[2023.02.01-21.03.51:485][473]LogModuleManager: Shutting down and abandoning module WindowsTargetPlatform (167)
+[2023.02.01-21.03.51:485][473]LogModuleManager: Shutting down and abandoning module TVOSTargetPlatform (165)
+[2023.02.01-21.03.51:485][473]LogModuleManager: Shutting down and abandoning module LinuxArm64TargetPlatform (163)
+[2023.02.01-21.03.51:486][473]LogModuleManager: Shutting down and abandoning module LinuxTargetPlatform (161)
+[2023.02.01-21.03.51:486][473]LogModuleManager: Shutting down and abandoning module IOSTargetPlatform (159)
+[2023.02.01-21.03.51:486][473]LogModuleManager: Shutting down and abandoning module HoloLensTargetPlatform (157)
+[2023.02.01-21.03.51:486][473]LogModuleManager: Shutting down and abandoning module AndroidTargetPlatform (155)
+[2023.02.01-21.03.51:487][473]LogModuleManager: Shutting down and abandoning module TextureFormat (153)
+[2023.02.01-21.03.51:487][473]LogModuleManager: Shutting down and abandoning module ImageWrapper (152)
+[2023.02.01-21.03.51:487][473]LogModuleManager: Shutting down and abandoning module TextureFormatOodle (150)
+[2023.02.01-21.03.51:487][473]LogModuleManager: Shutting down and abandoning module TextureFormatUncompressed (148)
+[2023.02.01-21.03.51:487][473]LogModuleManager: Shutting down and abandoning module TextureFormatIntelISPCTexComp (146)
+[2023.02.01-21.03.51:487][473]LogModuleManager: Shutting down and abandoning module TextureFormatETC2 (144)
+[2023.02.01-21.03.51:487][473]LogModuleManager: Shutting down and abandoning module TextureFormatDXT (142)
+[2023.02.01-21.03.51:487][473]LogModuleManager: Shutting down and abandoning module TextureFormatASTC (140)
+[2023.02.01-21.03.51:487][473]LogModuleManager: Shutting down and abandoning module TurnkeySupport (137)
+[2023.02.01-21.03.51:487][473]LogModuleManager: Shutting down and abandoning module InputCore (134)
+[2023.02.01-21.03.51:487][473]LogModuleManager: Shutting down and abandoning module Settings (132)
+[2023.02.01-21.03.51:487][473]LogModuleManager: Shutting down and abandoning module DirectoryWatcher (130)
+[2023.02.01-21.03.51:489][473]LogModuleManager: Shutting down and abandoning module ChaosSolverEngine (128)
+[2023.02.01-21.03.51:489][473]LogModuleManager: Shutting down and abandoning module FieldSystemEngine (127)
+[2023.02.01-21.03.51:489][473]LogModuleManager: Shutting down and abandoning module Chaos (124)
+[2023.02.01-21.03.51:489][473]LogModuleManager: Shutting down and abandoning module GeometryCore (123)
+[2023.02.01-21.03.51:490][473]LogModuleManager: Shutting down and abandoning module WindowsPlatformFeatures (120)
+[2023.02.01-21.03.51:490][473]LogModuleManager: Shutting down and abandoning module GameplayMediaEncoder (119)
+[2023.02.01-21.03.51:490][473]LogModuleManager: Shutting down and abandoning module AVEncoder (118)
+[2023.02.01-21.03.51:490][473]LogModuleManager: Shutting down and abandoning module D3D12RHI (114)
+[2023.02.01-21.03.51:490][473]LogModuleManager: Shutting down and abandoning module LauncherChunkInstaller (112)
+[2023.02.01-21.03.51:490][473]LogModuleManager: Shutting down and abandoning module AISupportModule (110)
+[2023.02.01-21.03.51:490][473]LogModuleManager: Shutting down and abandoning module PixWinPlugin (108)
+[2023.02.01-21.03.51:490][473]LogModuleManager: Shutting down and abandoning module WmfMedia (106)
+[2023.02.01-21.03.51:493][473]LogModuleManager: Shutting down and abandoning module Media (105)
+[2023.02.01-21.03.51:495][473]LogModuleManager: Shutting down and abandoning module ExrReaderGpu (102)
+[2023.02.01-21.03.51:495][473]LogModuleManager: Shutting down and abandoning module WindowsDeviceProfileSelector (100)
+[2023.02.01-21.03.51:495][473]LogModuleManager: Shutting down and abandoning module ExampleDeviceProfileSelector (98)
+[2023.02.01-21.03.51:495][473]LogModuleManager: Shutting down and abandoning module ChunkDownloader (96)
+[2023.02.01-21.03.51:495][473]LogModuleManager: Shutting down and abandoning module ChaosCloth (94)
+[2023.02.01-21.03.51:496][473]LogModuleManager: Shutting down and abandoning module VariantManagerContent (92)
+[2023.02.01-21.03.51:496][473]LogModuleManager: Shutting down and abandoning module GLTFExporter (90)
+[2023.02.01-21.03.51:496][473]LogModuleManager: Shutting down and abandoning module DatasmithContent (88)
+[2023.02.01-21.03.51:497][473]LogModuleManager: Shutting down and abandoning module OnlineBlueprintSupport (86)
+[2023.02.01-21.03.51:497][473]LogModuleManager: Shutting down and abandoning module OnlineSubsystemUtils (84)
+[2023.02.01-21.03.51:497][473]LogModuleManager: Shutting down and abandoning module OnlineSubsystem (82)
+[2023.02.01-21.03.51:502][473]LogModuleManager: Shutting down and abandoning module XMPP (77)
+[2023.02.01-21.03.51:503][473]LogModuleManager: Shutting down and abandoning module WebSockets (76)
+[2023.02.01-21.03.51:521][473]LogModuleManager: Shutting down and abandoning module HTTP (73)
+[2023.02.01-21.03.51:522][473]LogHttp: Warning: [FHttpManager::Flush] FlushReason was Shutdown. Unbinding delegates for 1 outstanding Http Requests:
+[2023.02.01-21.03.51:522][473]LogHttp: Warning: 	verb=[POST] url=[https://datarouter.ol.epicgames.com/datarouter/api/v1/public/data?SessionID=%7B90BDCAB5-49C2-61C7-BB49-A3B3778BB441%7D&AppID=UEEditor.Rocket.Release&AppVersion=5.1.0-23058290%2B%2B%2BUE5%2BRelease-5.1&UserID=219e4f3f451b0e186c285e8827dbafe3%7Ca8a5e13b8e424a188a086f249ca28a05%7C0028f84a-41e0-4610-bd6c-d7e0790867cf&AppEnvironment=datacollector-binary&UploadType=eteventstream] refs=[1] status=Processing
+[2023.02.01-21.03.51:545][473]LogModuleManager: Shutting down and abandoning module SSL (72)
+[2023.02.01-21.03.51:547][473]LogModuleManager: Shutting down and abandoning module OnlineServicesCommonEngineUtils (68)
+[2023.02.01-21.03.51:547][473]LogModuleManager: Shutting down and abandoning module OnlineServicesCommon (66)
+[2023.02.01-21.03.51:547][473]LogModuleManager: Shutting down and abandoning module OnlineServicesInterface (64)
+[2023.02.01-21.03.51:548][473]LogModuleManager: Shutting down and abandoning module NiagaraVertexFactories (62)
+[2023.02.01-21.03.51:548][473]LogModuleManager: Shutting down and abandoning module NiagaraShader (60)
+[2023.02.01-21.03.51:548][473]LogModuleManager: Shutting down and abandoning module DesktopPlatform (58)
+[2023.02.01-21.03.51:548][473]LogModuleManager: Shutting down and abandoning module PerforceSourceControl (56)
+[2023.02.01-21.03.51:551][473]LogModuleManager: Shutting down and abandoning module SourceControl (55)
+[2023.02.01-21.03.51:552][473]LogModuleManager: Shutting down and abandoning module PythonScriptPluginPreload (52)
+[2023.02.01-21.03.51:552][473]LogModuleManager: Shutting down and abandoning module PlatformCryptoOpenSSL (50)
+[2023.02.01-21.03.51:552][473]LogModuleManager: Shutting down and abandoning module PlatformCryptoTypes (48)
+[2023.02.01-21.03.51:552][473]LogModuleManager: Shutting down and abandoning module PlatformCrypto (46)
+[2023.02.01-21.03.51:552][473]LogModuleManager: Shutting down and abandoning module XGEController (44)
+[2023.02.01-21.03.51:552][473]LogXGEController: Cleaning working directory: C:/Users/user/AppData/Local/Temp/UnrealXGEWorkingDir/
+[2023.02.01-21.03.51:552][473]LogModuleManager: Shutting down and abandoning module FastBuildController (42)
+[2023.02.01-21.03.51:554][473]LogModuleManager: Shutting down and abandoning module AnimationModifiers (40)
+[2023.02.01-21.03.51:555][473]LogModuleManager: Shutting down and abandoning module AudioEditor (38)
+[2023.02.01-21.03.51:556][473]LogModuleManager: Shutting down and abandoning module PropertyEditor (37)
+[2023.02.01-21.03.51:556][473]LogModuleManager: Shutting down and abandoning module Virtualization (34)
+[2023.02.01-21.03.51:556][473]LogModuleManager: Shutting down and abandoning module MessageLog (33)
+[2023.02.01-21.03.51:556][473]LogModuleManager: Shutting down and abandoning module TextureCompressor (30)
+[2023.02.01-21.03.51:557][473]LogModuleManager: Shutting down and abandoning module RenderCore (28)
+[2023.02.01-21.03.51:557][473]LogModuleManager: Shutting down and abandoning module Landscape (26)
+[2023.02.01-21.03.51:557][473]LogModuleManager: Shutting down and abandoning module SlateRHIRenderer (24)
+[2023.02.01-21.03.51:560][473]LogModuleManager: Shutting down and abandoning module AnimGraphRuntime (22)
+[2023.02.01-21.03.51:560][473]LogModuleManager: Shutting down and abandoning module Renderer (20)
+[2023.02.01-21.03.51:561][473]LogModuleManager: Shutting down and abandoning module Engine (18)
+[2023.02.01-21.03.51:561][473]LogModuleManager: Shutting down and abandoning module CoreUObject (16)
+[2023.02.01-21.03.51:561][473]LogModuleManager: Shutting down and abandoning module SandboxFile (14)
+[2023.02.01-21.03.51:561][473]LogModuleManager: Shutting down and abandoning module PakFile (12)
+[2023.02.01-21.03.51:561][473]LogModuleManager: Shutting down and abandoning module RSA (11)
+[2023.02.01-21.03.51:561][473]LogModuleManager: Shutting down and abandoning module NetworkFile (8)
+[2023.02.01-21.03.51:561][473]LogModuleManager: Shutting down and abandoning module StreamingFile (6)
+[2023.02.01-21.03.51:561][473]LogModuleManager: Shutting down and abandoning module CookOnTheFly (4)
+[2023.02.01-21.03.51:562][473]LogModuleManager: Shutting down and abandoning module StorageServerClient (2)
+[2023.02.01-21.03.51:840][473]LogD3D12RHI: ~FD3D12DynamicRHI
+[2023.02.01-21.03.51:885][473]LogExit: Exiting.
+[2023.02.01-21.03.51:893][473]Log file closed, 02/01/23 22:03:51
