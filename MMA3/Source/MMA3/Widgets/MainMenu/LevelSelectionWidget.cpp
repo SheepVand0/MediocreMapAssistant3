@@ -49,25 +49,24 @@ void ULevelSelectionWidget::OnMapSelected() {
 	if (l_Info.Cover == nullptr) {
 		IPlatformFile& l_FileManager = FPlatformFileManager::Get().GetPlatformFile();
 
-		if (!l_FileManager.FileExists(*(l_Info.MapPath + FString("\\" + l_Info.CoverImageFileName)))) return;
-
 		FString l_FilePath = (l_Info.MapPath + "\\" + l_Info.CoverImageFileName);
 
-		bool l_IsValid;
+		//GEngine->AddOnScreenDebugMessage(2, 10.0f, FColor::White, FString(l_FilePath));
 
-		int l_Width;
-		int l_Height;
+		//if (!l_FileManager.FileExists(*l_FilePath)) return;
 
-		l_Info.Cover = WidgetUtils::LoadTexture2DFromFile(l_FilePath, (l_FilePath.Find(".png")) ? EJoyImageFormats::PNG : EJoyImageFormats::JPG, l_IsValid, l_Width, l_Height);
+		l_Info.Cover = FImageUtils::ImportFileAsTexture2D(*l_FilePath);
 	}
 
-	GEngine->AddOnScreenDebugMessage(1, 10.0f, FColor::White, FString(l_Info.Cover == nullptr ? "True" : "False"));
-	GEngine->AddOnScreenDebugMessage(2, 10.0f, FColor::White, FString(CoverPreview == nullptr ? "True" : "False"));
+	if (l_Info.Cover == nullptr) return;
 
-	FSlateBrush l_Brush = UWidgetBlueprintLibrary::MakeBrushFromTexture(l_Info.Cover);
+	//GEngine->AddOnScreenDebugMessage(1, 10.0f, FColor::White, FString(l_Info.Cover == nullptr ? "True" : "False"));
+	//GEngine->AddOnScreenDebugMessage(2, 10.0f, FColor::White, FString(CoverPreview == nullptr ? "True" : "False"));
+
+	FSlateBrush l_Brush = UWidgetBlueprintLibrary::MakeBrushFromTexture(l_Info.Cover, l_Info.Cover->GetSizeX(), l_Info.Cover->GetSizeY());
 	l_Brush = WidgetUtils::GetUIElementStyle(l_Brush, 255, FColor::White, FMargin(0));
 	l_Brush.DrawAs = ESlateBrushDrawType::RoundedBox;
-	l_Brush.OutlineSettings.CornerRadii = FVector4d(10);
+	l_Brush.OutlineSettings.CornerRadii = FVector4d(10, 10, 10, 10);
 	l_Brush.OutlineSettings.RoundingType = ESlateBrushRoundingType::FixedRadius;
 
 	CoverPreview->SetBrush(l_Brush);

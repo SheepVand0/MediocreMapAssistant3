@@ -426,5 +426,11 @@
     <ClInclude Include="..\..\Source\MMA3\Widgets\MainMenu\LevelSelectionWidget.h">
       <Filter>Source\MMA3\Widgets\MainMenu</Filter>
     </ClInclude>
+    <ClCompile Include="..\..\Source\MMA3\Widgets\MainMenu\MapDetailsWidget.cpp">
+      <Filter>Source\MMA3\Widgets\MainMenu</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\MMA3\Widgets\MainMenu\MapDetailsWidget.h">
+      <Filter>Source\MMA3\Widgets\MainMenu</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

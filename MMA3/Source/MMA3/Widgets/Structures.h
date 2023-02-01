@@ -122,7 +122,7 @@ public:
 		USoundWave* Song;
 
 	UPROPERTY()
-		UTexture2D* Cover;
+		UTexture2D* Cover = nullptr;
 
 	FString GetJson();
 
