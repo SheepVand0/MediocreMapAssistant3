@@ -10,6 +10,8 @@
 #include "MMA3/Widgets/Components/CustomComboString.h"
 #include "MMA3/Widgets/Components/CustomScrollBox.h"
 #include "MMA3/Widgets/Components/CustomEditableTextBox.h"
+#include "MMA3/Widgets/Components/CustomTextBlock.h"
+#include "MMA3/Widgets/Components/MapButton.h"
 #include "MMA3/Widgets/Structures.h"
 #include "Components/Image.h"
 #include "ImageUtils.h"
@@ -17,6 +19,32 @@
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnNeedToAddDifficultyBeatmaps)
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnDifficultySelected, FString, SerializedDifficulty)
+
+UCLASS()
+class MMA3_API UMapDifficultyCell : public UUserWidget {
+
+	GENERATED_BODY()
+
+private:
+
+	UPROPERTY()
+		UMapDetailsWidget* ParentReference;
+
+	UPROPERTY()
+		class UMapButton* Difficulty;
+
+	//////////////////////////////////////////////////
+
+	UPROPERTY()
+		FString SerializedDifficulty;
+
+public:
+
+	void SetData(UMapDetailsWidget* p_ParentReference, FString p_Difficulty);
+
+	FString GetDifficulty();
+
+};
 
 /**
  *
@@ -28,8 +56,13 @@ class MMA3_API UMapDetailsWidget : public UUserWidget
 
 public:
 
+	virtual void NativeConstruct() override;
+
 	UPROPERTY()
 		FMapInfo m_Info;
+
+	UPROPERTY()
+		FString m_SelectedMode;
 
 	UPROPERTY()
 		FMapDifficulty m_SelectedDifficulty;
@@ -124,6 +157,9 @@ public:
 	UPROPERTY(BlueprintAssignable)
 		FOnNeedToAddDifficultyBeatmaps OnNeedToAddDifficultyBeatmaps;
 
+	UPROPERTY(BlueprintAssignable)
+		FOnDifficultySelected EventOnDifficultySelected;
+
 	UFUNCTION()
 		void SetMap(FMapInfo p_Map);
 
@@ -135,5 +171,8 @@ public:
 
 	UFUNCTION()
 		void SetDifficultyPropertiesEnable(bool p_Enable);
+
+	UFUNCTION()
+		void OnDifficultySelected(FString SerializedDifficulty);
 
 };

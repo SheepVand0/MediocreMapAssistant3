@@ -3,6 +3,22 @@
 
 #include "MapDetailsWidget.h"
 
+void UMapDifficultyCell::SetData(UMapDetailsWidget* p_ParentReference, FString p_Difficulty) {
+	ParentReference = p_ParentReference;
+	SerializedDifficulty = p_Difficulty;
+}
+
+FString UMapDifficultyCell::GetDifficulty() {
+	return SerializedDifficulty;
+}
+
+/////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////
+
+void UMapDetailsWidget::NativeConstruct() {
+	EventOnDifficultySelected.AddDynamic(this, &UMapDetailsWidget::OnDifficultySelected);
+}
+
 void UMapDetailsWidget::SetMap(FMapInfo p_Map) {
 
 	m_Info = p_Map;
@@ -14,22 +30,24 @@ void UMapDetailsWidget::SetMap(FMapInfo p_Map) {
 	SongPath->SetText(FText::FromString(p_Map.AudioFileName));
 	CoverFile->SetText(FText::FromString(p_Map.CoverImageFileName));
 
+	UpdateMapList("Standard");
+
+	UpdateCover();
 }
 
-void UMapDetailsWidget::SetDifficultyPropertiesEnable(bool p_Disable) {
-
-	BeatmapVersion->SetIsEnabled(p_Disable);
-	StandardModeButton->SetIsEnabled(p_Disable);
-	LawlessModeButton->SetIsEnabled(p_Disable);
-	ThreeSixteenModeButton->SetIsEnabled(p_Disable);
-	NinetyModeButton->SetIsEnabled(p_Disable);
-	LightshowModeButton->SetIsEnabled(p_Disable);
-	CMapDifficulty->SetIsEnabled(p_Disable);
-	CNJSSlider->SetIsEnabled(p_Disable);
-	COffsetSlider->SetIsEnabled(p_Disable);
-	CDifficultyList->SetIsEnabled(p_Disable);
-	CEditButton->SetIsEnabled(p_Disable);
-	BeatmapVersion->SetIsEnabled(p_Disable);
+void UMapDetailsWidget::SetDifficultyPropertiesEnable(bool p_Enable) {
+	BeatmapVersion->SetIsEnabled(p_Enable);
+	StandardModeButton->SetIsEnabled(p_Enable);
+	LawlessModeButton->SetIsEnabled(p_Enable);
+	ThreeSixteenModeButton->SetIsEnabled(p_Enable);
+	NinetyModeButton->SetIsEnabled(p_Enable);
+	LightshowModeButton->SetIsEnabled(p_Enable);
+	CMapDifficulty->SetIsEnabled(p_Enable);
+	CNJSSlider->SetIsEnabled(p_Enable);
+	COffsetSlider->SetIsEnabled(p_Enable);
+	CDifficultyList->SetIsEnabled(p_Enable);
+	CEditButton->SetIsEnabled(p_Enable);
+	BeatmapVersion->SetIsEnabled(p_Enable);
 }
 
 void UMapDetailsWidget::UpdateMapList(FString p_Mode) {
@@ -51,8 +69,15 @@ void UMapDetailsWidget::UpdateMapList(FString p_Mode) {
 	bool l_NeedAdd = (ListBeatmapDifficultiesSerialized.Num() == 0) == false;
 	SetDifficultyPropertiesEnable(l_NeedAdd);
 
-	if (l_NeedAdd)
+	if (l_NeedAdd) {
 		OnNeedToAddDifficultyBeatmaps.Broadcast();
+
+		for (int l_i = 0; l_i < ListBeatmapDifficultiesSerialized.Num(); l_i++) {
+			UMapDifficultyCell* l_Cell = Cast<UMapDifficultyCell>(CDifficultyList->GetChildAt(l_i));
+			if (l_Cell == nullptr) continue;
+			l_Cell->SetData(this, ListBeatmapDifficultiesSerialized[l_i]);
+		}
+	}
 }
 
 void UMapDetailsWidget::UpdateCover() {
@@ -63,7 +88,15 @@ void UMapDetailsWidget::UpdateCover() {
 	if (m_Info.Cover != nullptr) {
 
 		CoverPreview->SetBrushFromTexture(m_Info.Cover);
-
+		CoverNotFound->SetVisibility(ESlateVisibility::Collapsed);
 	}
+	else {
+		CoverNotFound->SetVisibility(ESlateVisibility::Visible);
+	}
+}
+
+void UMapDetailsWidget::OnDifficultySelected(FString SerializedDifficulty) {
+	SetDifficultyPropertiesEnable(true);
+
 
 }

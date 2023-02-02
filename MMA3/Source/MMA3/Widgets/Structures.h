@@ -129,3 +129,88 @@ public:
 	void FromJson(FString p_Json, FString p_MapMath);
 
 };
+
+USTRUCT()
+struct MMA3_API FEnvironmentData {
+
+	GENERATED_BODY()
+
+public:
+
+};
+
+USTRUCT()
+struct MMA3_API FDefaultNoodleExtensionsData {
+
+	GENERATED_BODY()
+
+public:
+
+};
+
+USTRUCT()
+struct MMA3_API FNoteData {
+
+	GENERATED_BODY()
+
+public:
+
+	UPROPERTY()
+		float Beat;
+
+	UPROPERTY()
+		float Line;
+
+	UPROPERTY()
+		float Layer;
+
+	UPROPERTY()
+		int Type;
+
+	UPROPERTY()
+		int Direction;
+
+	///Noodle Extensions parameters
+
+	UPROPERTY()
+		bool Fake;
+
+};
+
+USTRUCT()
+struct MMA3_API FBombData {
+
+	GENERATED_BODY()
+
+public:
+
+};
+
+USTRUCT()
+struct MMA3_API FWallData {
+
+	GENERATED_BODY()
+
+public:
+
+};
+
+USTRUCT()
+struct MMA3_API FEventData {
+
+	GENERATED_BODY()
+
+public:
+
+};
+
+USTRUCT()
+struct MMA3_API FMapData {
+
+	GENERATED_BODY()
+
+public:
+
+
+
+};
