@@ -363,6 +363,12 @@
     <ClInclude Include="..\..\Source\MMA3\Core\C_Note.h">
       <Filter>Source\MMA3\Core</Filter>
     </ClInclude>
+    <ClCompile Include="..\..\Source\MMA3\Core\C_ObjectsSpawner.cpp">
+      <Filter>Source\MMA3\Core</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\MMA3\Core\C_ObjectsSpawner.h">
+      <Filter>Source\MMA3\Core</Filter>
+    </ClInclude>
     <ClCompile Include="..\..\Source\MMA3\Core\ObjectFinder.cpp">
       <Filter>Source\MMA3\Core</Filter>
     </ClCompile>

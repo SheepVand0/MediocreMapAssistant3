@@ -9,10 +9,12 @@
 #include "MMA3/Widgets/MainMenu/MapDetailsWidget.h"
 #include "Components/AudioComponent.h"
 #include "BeatCell.h"
+#include "MMA3/MMAConfig.h"
 #include "C_Controller.generated.h"
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnReady);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnTimeUpdated, float, Time);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnNeedToAddBeatmapsObjects);
 
 UCLASS()
 class MMA3_API AC_Controller : public AActor
@@ -35,8 +37,14 @@ public:
 	UPROPERTY(BlueprintAssignable)
 		FOnTimeUpdated OnTimeUpdated;
 
+	UPROPERTY(BlueprintAssignable)
+		FOnNeedToAddBeatmapsObjects OnNeedToAddBeatmapObjects;
+
 	UPROPERTY(EditAnywhere)
 		APlayerController* PlayerControllerReference;
+
+	UPROPERTY()
+		UStaticMeshComponent* TimeMarkerCube;
 
 	UPROPERTY()
 		ABeatCell* BeatCells;
@@ -49,6 +57,12 @@ public:
 
 	UPROPERTY()
 		FMapData CurrentMapData;
+
+	UPROPERTY()
+		UStaticMesh* BombMesh;
+
+	UPROPERTY()
+		UStaticMesh* DotMesh;
 
 	UPROPERTY()
 		float PlayingTime;
@@ -77,8 +91,7 @@ public:
 	UFUNCTION()
 		void GenerateGrid(FMapInfo p_Info, FString p_Diff, FString p_Mode);
 
-	UFUNCTION()
-		void SpawnNotes();
+	static AC_Controller* Instance;
 
 protected:
 	// Called when the game starts or when spawned
@@ -89,3 +102,5 @@ public:
 	virtual void Tick(float DeltaTime) override;
 
 };
+
+AC_Controller* AC_Controller::Instance = nullptr;

@@ -8,6 +8,8 @@
 #include "BeatCell.h"
 #include "Kismet/GameplayStatics.h"
 #include "MMA3/MMAConfig.h"
+#include "C_Controller.h"
+#include "ObjectFinder.h"
 #include "C_Note.generated.h"
 
 UCLASS()
@@ -18,6 +20,10 @@ class MMA3_API AC_Note : public AActor
 public:
 	// Sets default values for this actor's properties
 	AC_Note();
+
+	~AC_Note();
+
+	TMap<int, int> RotationByCutDirection;
 
 protected:
 	// Called when the game starts or when spawned
@@ -31,11 +37,21 @@ public:
 
 	void SetNoodleData(float p_Beat, int p_ColorType, int p_Line, int p_Layer, int p_Direction, FDefaultNoodleExtensionsData p_Data);
 
+	bool PlayedSound;
+
+	bool Binded;
+
+	UFUNCTION()
+		void OnTimeUpdated(float p_Time);
+
 	UPROPERTY()
 		UStaticMeshComponent* CubeMesh;
 
 	UPROPERTY()
 		UStaticMeshComponent* Arrow;
+
+	UPROPERTY()
+		UAudioComponent* HitSoundAudioComponent;
 
 	UPROPERTY()
 		bool IsFake;
@@ -45,12 +61,6 @@ public:
 
 	UPROPERTY()
 		TArray<float> CoordinatesTimes;
-
-	UPROPERTY()
-		UStaticMesh* ArrowMesh;
-
-	UPROPERTY()
-		UStaticMesh* DotMesh;
 
 	UPROPERTY()
 		float Beat;

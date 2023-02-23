@@ -81,10 +81,6 @@ void ULevelSelectionWidget::RefreshMaps(EMapListType p_MapRefreshType) {
 
 	FString l_Path = UMMAConfig::Instance->GamePath + "\\Beat Saber_Data" + (p_MapRefreshType == EMapListType::WIP ? "\\CustomWIPLevels" : "\\CustomLevels");
 
-	//GEngine->
-
-	(0, 10.0f, FColor::White, l_Path);
-
 	FDirectoryVisitor l_Visitor;
 
 	IPlatformFile& l_FileManager = FPlatformFileManager::Get().GetPlatformFile();
@@ -94,7 +90,6 @@ void ULevelSelectionWidget::RefreshMaps(EMapListType p_MapRefreshType) {
 	LevelsScrollBox->ClearChildren();
 
 	for (int l_i = 0; l_i < m_Maps.Num(); l_i++) {
-
 		OnMapCellNeedToBeAdded.Broadcast();
 	}
 
