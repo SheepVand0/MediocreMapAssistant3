@@ -3,8 +3,8 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "C:\Program Files\Epic Games\UE_5.1\Engine\Plugins\Marketplace\VaRestPlugin\Source\VaRest\Public\VaRestJsonValue.h"
-#include "C:\Program Files\Epic Games\UE_5.1\Engine\Plugins\Marketplace\VaRestPlugin\Source\VaRest\Public\VaRestSubsystem.h"
+#include "C:\UE\UE5_1_1\UE_5.1\Engine\Plugins\Marketplace\VaRestPlugin\Source\VaRest\Public\VaRestJsonValue.h"
+#include "C:\UE\UE5_1_1\UE_5.1\Engine\Plugins\Marketplace\VaRestPlugin\Source\VaRest\Public\VaRestSubsystem.h"
 #include "Structures.generated.h"
 
 /**
@@ -146,6 +146,9 @@ struct MMA3_API FDefaultNoodleExtensionsData {
 
 public:
 
+	UPROPERTY()
+		bool Fake;
+
 };
 
 USTRUCT()
@@ -170,10 +173,85 @@ public:
 	UPROPERTY()
 		int Direction;
 
-	///Noodle Extensions parameters
+};
+
+USTRUCT()
+struct MMA3_API FArcData {
+
+	GENERATED_BODY()
+
+public:
 
 	UPROPERTY()
-		bool Fake;
+		float Beat;
+
+	UPROPERTY()
+		int Color;
+
+	UPROPERTY()
+		int Line;
+
+	UPROPERTY()
+		int Layer;
+
+	UPROPERTY()
+		int HeadDirection;
+
+	UPROPERTY()
+		int HeadControlPointLengthMultiplier;
+
+	UPROPERTY()
+		float TailBeat;
+
+	UPROPERTY()
+		float TailLine;
+
+	UPROPERTY()
+		float TailLayer;
+
+	UPROPERTY()
+		float TailColor;
+
+	UPROPERTY()
+		float TailControlPointLengthMultiplier;
+};
+
+USTRUCT()
+struct MMA3_API FChainData {
+
+	GENERATED_BODY()
+
+public:
+
+	UPROPERTY()
+		float Beat;
+
+	UPROPERTY()
+		int Color;
+
+	UPROPERTY()
+		int Line;
+
+	UPROPERTY()
+		int Layer;
+
+	UPROPERTY()
+		int Direction;
+
+	UPROPERTY()
+		int Links;
+
+	UPROPERTY()
+		int Squish;
+
+	UPROPERTY()
+		float TailBeat;
+
+	UPROPERTY()
+		int TailLine;
+
+	UPROPERTY()
+		int TailLayer;
 
 };
 
@@ -205,12 +283,63 @@ public:
 };
 
 USTRUCT()
+struct MMA3_API FBeatmapBookmark {
+
+	GENERATED_BODY()
+
+public:
+
+	UPROPERTY()
+		FString Name;
+
+	UPROPERTY()
+		FColor Color;
+
+	UPROPERTY()
+		float PositionInBeat;
+};
+
+USTRUCT()
+struct MMA3_API FMapCustomData {
+
+	GENERATED_BODY()
+
+public:
+	UPROPERTY()
+		float LastPositionInBeat;
+
+	UPROPERTY()
+		TArray<FBeatmapBookmark> Bookmarks;
+};
+
+USTRUCT()
 struct MMA3_API FMapData {
 
 	GENERATED_BODY()
 
 public:
 
+	UPROPERTY()
+		FString Version;
 
+	UPROPERTY()
+		TArray<FNoteData> Notes;
 
+	UPROPERTY()
+		TArray<FBombData> Bombs;
+
+	UPROPERTY()
+		TArray<FWallData> Walls;
+
+	UPROPERTY()
+		TArray<FArcData> Arcs;
+
+	UPROPERTY()
+		TArray<FChainData> Chains;
+
+	UPROPERTY()
+		TArray<FEventData> Events;
+
+	UPROPERTY()
+		FMapCustomData CustomData;
 };

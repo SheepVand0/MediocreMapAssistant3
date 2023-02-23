@@ -5,6 +5,7 @@
 #include "MMA3/MMAConfig.h"
 #include "Engine/Texture2D.h"
 #include "ImageUtils.h"
+#include "MMA3/Widgets/MainMenu/MapDetailsWidget.h"
 #include "MMA3/Widgets/WidgetUtils.h"
 #include "Kismet/GameplayStatics.h"
 
@@ -30,6 +31,8 @@ void ULevelSelectionWidget::NativeConstruct() {
 	LevelsScrollBox->OnMapButtonPressedEvent.AddDynamic(this, &ULevelSelectionWidget::OnMapSelected);
 
 	OnBlueprintReady.AddDynamic(this, &ULevelSelectionWidget::EventBlueprintReady);
+
+	EditButton->OnClicked.AddDynamic(this, &ULevelSelectionWidget::OnEditButtonPressed);
 }
 
 void ULevelSelectionWidget::EventBlueprintReady() {
@@ -102,4 +105,11 @@ void ULevelSelectionWidget::RefreshMaps(EMapListType p_MapRefreshType) {
 		l_Cell->SetData(m_Maps[l_i]);
 	}
 
+};
+
+void ULevelSelectionWidget::OnEditButtonPressed() {
+	UMapDetailsWidget::Instance->SetVisibility(ESlateVisibility::Visible);
+	this->SetVisibility(ESlateVisibility::Collapsed);
+
+	UMapDetailsWidget::Instance->SetMap(LevelsScrollBox->SelectedCell->GetData());
 };

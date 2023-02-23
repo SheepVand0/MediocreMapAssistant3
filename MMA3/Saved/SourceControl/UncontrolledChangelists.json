@@ -5,13 +5,30 @@
 			"guid": "00000000000000000000000000000000",
 			"description": "Default Uncontrolled Changelist",
 			"files": [
-				"C:/Users/user/Documents/GitHub/MediocreMapAssistant3/MMA3/Content/Blueprints/Widgets/MainMenu/BP_LevelSelectionWidget.uasset",
-				"C:/Users/user/Documents/GitHub/MediocreMapAssistant3/MMA3/Content/Blueprints/Widgets/MainMenu/SubComponents/BP_MapCell.uasset",
-				"C:/Users/user/Documents/GitHub/MediocreMapAssistant3/MMA3/Content/Levels/M_Main.umap",
-				"C:/Users/user/Documents/GitHub/MediocreMapAssistant3/MMA3/Content/Blueprints/BP_Controller.uasset",
 				"C:/Users/user/Documents/GitHub/MediocreMapAssistant3/MMA3/Content/Blueprints/Widgets/MainMenu/BP_MapDetailWidget.uasset",
-				"C:/Users/user/Documents/GitHub/MediocreMapAssistant3/MMA3/Content/Assets/Materials/M_Rounded.uasset",
-				"C:/Users/user/Documents/GitHub/MediocreMapAssistant3/MMA3/Content/Blueprints/Widgets/MainMenu/BP_MapCell.uasset"
+				"C:/Users/user/Documents/GitHub/MediocreMapAssistant3/MMA3/Content/Levels/M_Main.umap",
+				"C:/Users/user/Documents/GitHub/MediocreMapAssistant3/MMA3/Content/Assets/Materials/Mapping/MF_Grid.uasset",
+				"C:/Users/user/Documents/GitHub/MediocreMapAssistant3/MMA3/Content/Assets/Materials/Mapping/M_Grid.uasset",
+				"C:/Users/user/Documents/GitHub/MediocreMapAssistant3/MMA3/Content/Assets/Materials/Mapping/M_BpmGrid.uasset",
+				"C:/Users/user/Documents/GitHub/MediocreMapAssistant3/MMA3/Content/Assets/Materials/Mapping/M_MappingPawn.uasset",
+				"C:/Users/user/Documents/GitHub/MediocreMapAssistant3/MMA3/Content/Assets/Materials/Mapping/M_MappingPawnInstance.uasset",
+				"C:/Users/user/Documents/GitHub/MediocreMapAssistant3/MMA3/Content/Blueprints/WindowsKeys.uasset",
+				"C:/Users/user/Documents/GitHub/MediocreMapAssistant3/MMA3/Content/Blueprints/WindowsMappingContext.uasset",
+				"C:/Users/user/Documents/GitHub/MediocreMapAssistant3/MMA3/Content/Blueprints/Inputs/IA_AxisInput.uasset",
+				"C:/Users/user/Documents/GitHub/MediocreMapAssistant3/MMA3/Content/Assets/Meshes/FbxScene_NoteBody.uasset",
+				"C:/Users/user/Documents/GitHub/MediocreMapAssistant3/MMA3/Content/Assets/FbxScene_NoteBody.uasset",
+				"C:/Users/user/Documents/GitHub/MediocreMapAssistant3/MMA3/Content/Assets/Meshes/Cube.uasset",
+				"C:/Users/user/Documents/GitHub/MediocreMapAssistant3/MMA3/Content/Assets/Meshes/NoteBody.uasset",
+				"C:/Users/user/Documents/GitHub/MediocreMapAssistant3/MMA3/Content/Assets/Materials/Mapping/M_Note.uasset",
+				"C:/Users/user/Documents/GitHub/MediocreMapAssistant3/MMA3/Content/Assets/Materials/Functions/MF_Noise.uasset",
+				"C:/Users/user/Documents/GitHub/MediocreMapAssistant3/MMA3/Content/Assets/Materials/Mapping/M_NoteInstance.uasset",
+				"C:/Users/user/Documents/GitHub/MediocreMapAssistant3/MMA3/Content/Assets/Meshes/NoteBody_Cylinder.uasset",
+				"C:/Users/user/Documents/GitHub/MediocreMapAssistant3/MMA3/Content/Assets/Meshes/NoteBody_Cube.uasset",
+				"C:/Users/user/Documents/GitHub/MediocreMapAssistant3/MMA3/Content/Assets/Meshes/Material.uasset",
+				"C:/Users/user/Documents/GitHub/MediocreMapAssistant3/MMA3/Content/Assets/Materials/Mapping/M_Arrow.uasset",
+				"C:/Users/user/Documents/GitHub/MediocreMapAssistant3/MMA3/Content/Assets/Materials/Mapping/M_Spectator.uasset",
+				"C:/Users/user/Documents/GitHub/MediocreMapAssistant3/MMA3/Content/Blueprints/Inputs/IA_Move.uasset",
+				"C:/Users/user/Documents/GitHub/MediocreMapAssistant3/MMA3/Content/Blueprints/Inputs/IA_Default.uasset"
 			]
 		}
 	]

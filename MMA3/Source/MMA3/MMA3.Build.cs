@@ -8,9 +8,9 @@ public class MMA3 : ModuleRules
 	{
 		PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
 
-		PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore", "UMG", "Slate", "SlateCore", "RuntimeAudioImporter", "VaRest"});
+        PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore", "UMG", "Slate", "SlateCore", "RuntimeAudioImporter", "VaRest", "ProceduralMeshComponent" });
 
-		PrivateDependencyModuleNames.AddRange(new string[] { "VaRest", "RuntimeAudioImporter" });
+        PrivateDependencyModuleNames.AddRange(new string[] { "VaRest", "RuntimeAudioImporter" });
 
         //PublicIncludePaths.AddRange(new string[] { "VaRest/Public", "VaRest/Classes" });
         //PublicIncludePaths.AddRange(new string[] { "RuntimeAudioImporter/Public", "RuntimeAudioImporter/Classes" });

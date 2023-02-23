@@ -15,10 +15,14 @@
 #include "MMA3/Widgets/Structures.h"
 #include "Components/Image.h"
 #include "ImageUtils.h"
+#include "C:/UE/UE5_1_1/UE_5.1/Engine/Plugins/Marketplace/RuntimeAudioImporter/Source/RuntimeAudioImporter/Public/RuntimeAudioImporterLibrary.h"
+#include "C:/UE/UE5_1_1/UE_5.1/Engine/Plugins/Marketplace/RuntimeAudioImporter/Source/RuntimeAudioImporter/Public/RuntimeAudioImporterTypes.h"
+#include "C:/UE/UE5_1_1/UE_5.1/Engine/Plugins/Marketplace/RuntimeAudioImporter/Source/RuntimeAudioImporter/Public/Sound/ImportedSoundWave.h"
 #include "MapDetailsWidget.generated.h"
 
-DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnNeedToAddDifficultyBeatmaps)
-DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnDifficultySelected, FString, SerializedDifficulty)
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnNeedToAddDifficultyBeatmaps);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnDifficultySelected, FString, SerializedDifficulty);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnMapCellsFinishedToBeAdd);
 
 UCLASS()
 class MMA3_API UMapDifficultyCell : public UUserWidget {
@@ -27,20 +31,29 @@ class MMA3_API UMapDifficultyCell : public UUserWidget {
 
 private:
 
+	virtual void NativeConstruct() override;
+
 	UPROPERTY()
 		UMapDetailsWidget* ParentReference;
 
-	UPROPERTY()
-		class UMapButton* Difficulty;
+	UPROPERTY(meta  = (BindWidget))
+		class UCustomButton* Difficulty;
+
+	UPROPERTY(meta = (BindWidget))
+		class UCustomTextBlock* DifficultyText;
 
 	//////////////////////////////////////////////////
 
 	UPROPERTY()
 		FString SerializedDifficulty;
 
+	UFUNCTION()
+		void OnClicked();
+
 public:
 
-	void SetData(UMapDetailsWidget* p_ParentReference, FString p_Difficulty);
+	UFUNCTION(BlueprintCallable)
+		void SetMapInfo(UMapDetailsWidget* p_ParentReference, FString p_Difficulty);
 
 	FString GetDifficulty();
 
@@ -57,6 +70,8 @@ class MMA3_API UMapDetailsWidget : public UUserWidget
 public:
 
 	virtual void NativeConstruct() override;
+
+	static UMapDetailsWidget* Instance;
 
 	UPROPERTY()
 		FMapInfo m_Info;
@@ -126,7 +141,7 @@ public:
 	UPROPERTY(EditAnywhere, meta = (BindWidget))
 		class UCustomSpinBox* COffsetSlider;
 
-	UPROPERTY(EditAnywhere, meta = (BindWidget))
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, meta = (BindWidget))
 		class UCustomScrollBox* CDifficultyList;
 
 	UPROPERTY(EditAnywhere, meta = (BindWidget))
@@ -160,6 +175,12 @@ public:
 	UPROPERTY(BlueprintAssignable)
 		FOnDifficultySelected EventOnDifficultySelected;
 
+	UPROPERTY()
+		URuntimeAudioImporterLibrary* RuntimeAudioImporter;
+
+	UFUNCTION(BlueprintCallable)
+		void OnMapCellsFnisihedToBeAddCallback();
+
 	UFUNCTION()
 		void SetMap(FMapInfo p_Map);
 
@@ -175,4 +196,15 @@ public:
 	UFUNCTION()
 		void OnDifficultySelected(FString SerializedDifficulty);
 
+	UFUNCTION()
+		FMapDifficulty GetDifficultyByMapAndMode(FString p_Difficulty, FString p_Mode);
+
+	UFUNCTION()
+		void OnEditButtonClicked();
+
+	UFUNCTION()
+		void FinishedLoadingAudio(URuntimeAudioImporterLibrary* p_Importer, UImportedSoundWave* p_ImportedSoundWave, ETranscodingStatus p_Status);
+
 };
+
+UMapDetailsWidget* UMapDetailsWidget::Instance = nullptr;

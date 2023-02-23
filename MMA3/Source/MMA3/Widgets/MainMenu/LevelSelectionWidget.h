@@ -11,14 +11,15 @@
 #include "Blueprint/WidgetBlueprintLibrary.h"
 #include "Components/Image.h"
 #include "MMA3/Widgets/Components/MapList.h"
-#include "C:\Program Files\Epic Games\UE_5.1\Engine\Plugins\Marketplace\VaRestPlugin\Source\VaRest\Public\VaRestSubsystem.h"
-#include "C:\Program Files\Epic Games\UE_5.1\Engine\Plugins\Marketplace\VaRestPlugin\Source\VaRest\Public\VaRestJsonObject.h"
-#include "C:\Program Files\Epic Games\UE_5.1\Engine\Plugins\Marketplace\VaRestPlugin\Source\VaRest\Public\VaRestJsonValue.h"
+#include "MMA3/Widgets/Components/CustomButton.h"
+#include "C:\UE\UE5_1_1\UE_5.1\Engine\Plugins\Marketplace\VaRestPlugin\Source\VaRest\Public\VaRestSubsystem.h"
+#include "C:\UE\UE5_1_1\UE_5.1\Engine\Plugins\Marketplace\VaRestPlugin\Source\VaRest\Public\VaRestJsonObject.h"
+#include "C:\UE\UE5_1_1\UE_5.1\Engine\Plugins\Marketplace\VaRestPlugin\Source\VaRest\Public\VaRestJsonValue.h"
 #include "Components/VerticalBox.h"
 #include "LevelSelectionWidget.generated.h"
 
-DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnMapCellNeedToBeAdded)
-DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnBlueprintIsReady)
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnMapCellNeedToBeAdded);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnBlueprintIsReady);
 
 /**
  *
@@ -102,6 +103,9 @@ public:
 
 	UFUNCTION()
 		void OnMapSelected();
+
+	UFUNCTION()
+		void OnEditButtonPressed();
 
 };
 

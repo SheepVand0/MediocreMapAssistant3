@@ -6,6 +6,7 @@
 #include "GameFramework/Actor.h"
 #include "Blueprint/UserWidget.h"
 #include "MMA3/Widgets/MainMenu/LevelSelectionWidget.h"
+#include "MMA3/Widgets/MainMenu/MapDetailsWidget.h"
 #include "C_Controller.generated.h"
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnReady);
@@ -23,13 +24,31 @@ public:
 		ULevelSelectionWidget* m_MapSelectionWidget;
 
 	UPROPERTY(EditAnywhere)
+		UMapDetailsWidget* m_MapDetailsWidget;
+
+	UPROPERTY(EditAnywhere)
 		FOnReady OnControllerReady;
 
 	UPROPERTY(EditAnywhere)
 		APlayerController* PlayerControllerReference;
 
 	UPROPERTY()
+		USceneComponent* BeatCellsRoot;
+
+	UPROPERTY()
 		FString CurrentScene = "MainMenu";
+
+	UPROPERTY()
+		FMapData CurrentMapData;
+
+	UPROPERTY()
+		float PlayingTime;
+
+	UPROPERTY()
+		bool Playing;
+
+	UFUNCTION()
+		void GenerateGrid(FMapInfo p_Info);
 
 protected:
 	// Called when the game starts or when spawned

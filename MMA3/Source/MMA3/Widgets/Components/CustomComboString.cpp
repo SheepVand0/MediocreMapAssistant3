@@ -23,9 +23,10 @@ UCustomComboString::UCustomComboString() {
 
 	/////////////////////////////////////////////////////////////////////////////
 
+	/*ItemStyle.SelectedTextColor = FColor::White;
+	FSlateFontInfo l_NewFont = FSlateFontInfo("Font'/Game/Assets/Fonts/Teko/F_Teko.F_Teko'", 20);*/
 	ItemStyle.SelectedTextColor = FColor::White;
-	FSlateFontInfo l_NewFont = FSlateFontInfo("Font'/Game/Assets/Fonts/Teko/F_Teko.F_Teko'", 20);
-	Font = l_NewFont;
+	ItemStyle.TextColor = FColor::White;
 
 	/////////////////////////////////////////////////////////////////////////////
 

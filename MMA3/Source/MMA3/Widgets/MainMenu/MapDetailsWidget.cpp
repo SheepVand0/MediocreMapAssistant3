@@ -2,14 +2,26 @@
 
 
 #include "MapDetailsWidget.h"
+#include "Kismet/GameplayStatics.h"
+#include "MMA3/Core/C_Controller.h"
 
-void UMapDifficultyCell::SetData(UMapDetailsWidget* p_ParentReference, FString p_Difficulty) {
+
+void UMapDifficultyCell::NativeConstruct() {
+	Difficulty->OnClicked.AddDynamic(this, &UMapDifficultyCell::OnClicked);
+}
+
+void UMapDifficultyCell::SetMapInfo(UMapDetailsWidget* p_ParentReference, FString p_Difficulty) {
 	ParentReference = p_ParentReference;
 	SerializedDifficulty = p_Difficulty;
+	DifficultyText->SetText(FText::FromString(p_Difficulty));
 }
 
 FString UMapDifficultyCell::GetDifficulty() {
 	return SerializedDifficulty;
+}
+
+void UMapDifficultyCell::OnClicked() {
+	ParentReference->EventOnDifficultySelected.Broadcast(SerializedDifficulty);
 }
 
 /////////////////////////////////////////////////////////////
@@ -17,6 +29,12 @@ FString UMapDifficultyCell::GetDifficulty() {
 
 void UMapDetailsWidget::NativeConstruct() {
 	EventOnDifficultySelected.AddDynamic(this, &UMapDetailsWidget::OnDifficultySelected);
+	CEditButton->OnClicked.AddDynamic(this, &UMapDetailsWidget::OnEditButtonClicked);
+	RuntimeAudioImporter = URuntimeAudioImporterLibrary::CreateRuntimeAudioImporter();
+
+	Instance = this;
+
+	SetVisibility(ESlateVisibility::Collapsed);
 }
 
 void UMapDetailsWidget::SetMap(FMapInfo p_Map) {
@@ -29,6 +47,9 @@ void UMapDetailsWidget::SetMap(FMapInfo p_Map) {
 	Mapper->SetText(FText::FromString(p_Map.SongMapper));
 	SongPath->SetText(FText::FromString(p_Map.AudioFileName));
 	CoverFile->SetText(FText::FromString(p_Map.CoverImageFileName));
+	BPM->SetValue(p_Map.BPM);
+	PreviewDuration->SetValue(p_Map.PreviewDuration);
+	PreviewTime->SetValue(p_Map.PreviewStartTime);
 
 	UpdateMapList("Standard");
 
@@ -43,15 +64,15 @@ void UMapDetailsWidget::SetDifficultyPropertiesEnable(bool p_Enable) {
 	NinetyModeButton->SetIsEnabled(p_Enable);
 	LightshowModeButton->SetIsEnabled(p_Enable);
 	CMapDifficulty->SetIsEnabled(p_Enable);
-	CNJSSlider->SetIsEnabled(p_Enable);
-	COffsetSlider->SetIsEnabled(p_Enable);
+	CNJSSlider->bEnableSlider = p_Enable;
+	COffsetSlider->bEnableSlider = p_Enable;
 	CDifficultyList->SetIsEnabled(p_Enable);
 	CEditButton->SetIsEnabled(p_Enable);
-	BeatmapVersion->SetIsEnabled(p_Enable);
 }
 
 void UMapDetailsWidget::UpdateMapList(FString p_Mode) {
 
+	m_SelectedMode = p_Mode;
 	FDifficultyBeatmapSet l_SelectedSet;
 	for (int l_i = 0; l_i < m_Info.DifficultyBeatmapSets.Num(); l_i++) {
 		if (m_Info.DifficultyBeatmapSets[l_i].Name != p_Mode) continue;
@@ -66,18 +87,18 @@ void UMapDetailsWidget::UpdateMapList(FString p_Mode) {
 
 	CDifficultyList->ClearChildren();
 
-	bool l_NeedAdd = (ListBeatmapDifficultiesSerialized.Num() == 0) == false;
-	SetDifficultyPropertiesEnable(l_NeedAdd);
+	bool l_IsZero = ListBeatmapDifficultiesSerialized.Num() == 0;
 
-	if (l_NeedAdd) {
-		OnNeedToAddDifficultyBeatmaps.Broadcast();
+	if (l_IsZero)
+		SetDifficultyPropertiesEnable(false);
 
-		for (int l_i = 0; l_i < ListBeatmapDifficultiesSerialized.Num(); l_i++) {
-			UMapDifficultyCell* l_Cell = Cast<UMapDifficultyCell>(CDifficultyList->GetChildAt(l_i));
-			if (l_Cell == nullptr) continue;
-			l_Cell->SetData(this, ListBeatmapDifficultiesSerialized[l_i]);
-		}
-	}
+	OnNeedToAddDifficultyBeatmaps.Broadcast();
+
+}
+
+void UMapDetailsWidget::OnMapCellsFnisihedToBeAddCallback() {
+	if (ListBeatmapDifficultiesSerialized.Num() > 0)
+		OnDifficultySelected(ListBeatmapDifficultiesSerialized[0]);
 }
 
 void UMapDetailsWidget::UpdateCover() {
@@ -86,7 +107,6 @@ void UMapDetailsWidget::UpdateCover() {
 	m_Info.Cover = FImageUtils::ImportFileAsTexture2D(*l_Path);
 
 	if (m_Info.Cover != nullptr) {
-
 		CoverPreview->SetBrushFromTexture(m_Info.Cover);
 		CoverNotFound->SetVisibility(ESlateVisibility::Collapsed);
 	}
@@ -96,7 +116,59 @@ void UMapDetailsWidget::UpdateCover() {
 }
 
 void UMapDetailsWidget::OnDifficultySelected(FString SerializedDifficulty) {
+	//GEngine->AddOnScreenDebugMessage(1, 10.0f, FColor::White, FString(SerializedDifficulty));
 	SetDifficultyPropertiesEnable(true);
+	FMapDifficulty l_Difficulty = GetDifficultyByMapAndMode(SerializedDifficulty, m_SelectedMode);
 
+	/*GEngine->AddOnScreenDebugMessage(2, 10.0f, FColor::White, FString(FString::SanitizeFloat(l_Difficulty.NoteJumpMovementSpeed)));
+	GEngine->AddOnScreenDebugMessage(3, 10.0f, FColor::White, FString(FString::SanitizeFloat(l_Difficulty.NoteJumpStartBeatOffset)));*/
+	CMapDifficulty->SetSelectedOption(SerializedDifficulty);
+	CNJSSlider->SetValue(l_Difficulty.NoteJumpMovementSpeed);
+	COffsetSlider->SetValue(l_Difficulty.NoteJumpStartBeatOffset);
+	CDifficultyLabel->SetText(FText::FromString(l_Difficulty.DifficultyLabel));
+}
 
+FMapDifficulty UMapDetailsWidget::GetDifficultyByMapAndMode(FString p_Difficulty, FString p_Mode) {
+	FMapDifficulty l_Difficulty;
+	bool l_Finished = false;
+	//GEngine->AddOnScreenDebugMessage(4, 10.0f, FColor::Green, FString::SanitizeFloat(ListBeatmapDifficultiesSerialized.Num()));;
+	for (int l_i = 0; l_i < m_Info.DifficultyBeatmapSets.Num(); l_i++) {
+		//GEngine->AddOnScreenDebugMessage(4, 1.0f, FColor::White, FString(p_Mode + " / " + m_Info.DifficultyBeatmapSets[l_i].Name));
+		if (m_Info.DifficultyBeatmapSets[l_i].Name != p_Mode) continue;
+
+		TArray<FMapDifficulty> l_DifficultyList = m_Info.DifficultyBeatmapSets[l_i].DifficultyBeatmaps;
+
+		for (int l_i1 = 0; l_i1 < l_DifficultyList.Num(); l_i1++) {
+			GEngine->AddOnScreenDebugMessage(4, 1.0f, FColor::White, FString(p_Difficulty + " / " + l_DifficultyList[l_i1].Difficulty));
+			if (l_DifficultyList[l_i1].Difficulty != p_Difficulty) continue;
+
+			l_Finished = true;
+
+			l_Difficulty = m_Info.DifficultyBeatmapSets[l_i].DifficultyBeatmaps[l_i1];
+		}
+	}
+
+	//GEngine->AddOnScreenDebugMessage(4, 1.0f, FColor::White, FString(l_Finished ? "True" : "False"));
+	if (l_Finished == false) return FMapDifficulty{};
+
+	return l_Difficulty;
+}
+
+void UMapDetailsWidget::OnEditButtonClicked() {
+	GEngine->AddOnScreenDebugMessage(0, 10.0f, FColor::White, FString(m_Info.MapPath + "\\" + m_Info.AudioFileName));
+	if (m_Info.Song == nullptr) {
+		RuntimeAudioImporter->OnResult.AddDynamic(this, &UMapDetailsWidget::FinishedLoadingAudio);
+		RuntimeAudioImporter->ImportAudioFromFile(m_Info.MapPath + "\\" + m_Info.AudioFileName, EAudioFormat::OggVorbis);
+	}
+}
+
+void UMapDetailsWidget::FinishedLoadingAudio(URuntimeAudioImporterLibrary* p_Importer, UImportedSoundWave* p_ImportedSoundWave, ETranscodingStatus p_Status) {
+	if (p_ImportedSoundWave == nullptr) { UE_LOG(LogTemp, Error, TEXT("Sound File not found")); return; }
+	//PlaySound(p_ImportedSoundWave);
+	m_Info.Song = p_ImportedSoundWave;
+	RuntimeAudioImporter->OnResult.RemoveAll(this);
+	AC_Controller* l_Controller = Cast<AC_Controller>(UGameplayStatics::GetActorOfClass(GetWorld(), AC_Controller::StaticClass()));
+	l_Controller->GenerateGrid(m_Info);
+	SetVisibility(ESlateVisibility::Collapsed);
+	l_Controller->CurrentScene = "Editing";
 }

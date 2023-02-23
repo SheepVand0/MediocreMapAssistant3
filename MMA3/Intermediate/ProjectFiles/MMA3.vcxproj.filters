@@ -324,13 +324,49 @@
     <ClInclude Include="..\..\Source\MMA3\MMAConfig.h">
       <Filter>Source\MMA3</Filter>
     </ClInclude>
+    <ClCompile Include="..\..\Source\MMA3\VaRestJsonObjectUtils.cpp">
+      <Filter>Source\MMA3</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\MMA3\VaRestJsonObjectUtils.h">
+      <Filter>Source\MMA3</Filter>
+    </ClInclude>
     <Filter Include="Source\MMA3\Core">
       <UniqueIdentifier>{E0DF19FD-AC27-3828-AAC3-4C696778D7AB}</UniqueIdentifier>
     </Filter>
+    <ClCompile Include="..\..\Source\MMA3\Core\BeatCell.cpp">
+      <Filter>Source\MMA3\Core</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\MMA3\Core\BeatCell.h">
+      <Filter>Source\MMA3\Core</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\MMA3\Core\BeatmapUtils.cpp">
+      <Filter>Source\MMA3\Core</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\MMA3\Core\BeatmapUtils.h">
+      <Filter>Source\MMA3\Core</Filter>
+    </ClInclude>
     <ClCompile Include="..\..\Source\MMA3\Core\C_Controller.cpp">
       <Filter>Source\MMA3\Core</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\MMA3\Core\C_Controller.h">
+      <Filter>Source\MMA3\Core</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\MMA3\Core\C_MapperPawn.cpp">
+      <Filter>Source\MMA3\Core</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\MMA3\Core\C_MapperPawn.h">
+      <Filter>Source\MMA3\Core</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\MMA3\Core\C_Note.cpp">
+      <Filter>Source\MMA3\Core</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\MMA3\Core\C_Note.h">
+      <Filter>Source\MMA3\Core</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\MMA3\Core\ObjectFinder.cpp">
+      <Filter>Source\MMA3\Core</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\MMA3\Core\ObjectFinder.h">
       <Filter>Source\MMA3\Core</Filter>
     </ClInclude>
     <Filter Include="Source\MMA3\Widgets">
