@@ -173,6 +173,9 @@ public:
 	UPROPERTY()
 		int Direction;
 
+	UPROPERTY()
+		int Angle;
+
 };
 
 USTRUCT()
@@ -342,4 +345,6 @@ public:
 
 	UPROPERTY()
 		FMapCustomData CustomData;
+
+	void FromJson(FString p_Json);
 };

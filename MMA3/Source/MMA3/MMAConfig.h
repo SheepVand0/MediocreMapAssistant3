@@ -25,6 +25,12 @@ public:
 	UPROPERTY(EditAnywhere)
 		FString GamePath = FString("C:\\Users\\user\\Desktop\\BS1.18.3\\BSLegacyLauncher\\Installed Versions\\Beat Saber 1.26.0");
 
+	UPROPERTY(EditAnywhere)
+		FColor LeftEditorColor = FColor(0.2f, 0, 0);
+
+	UPROPERTY(EditAnywhere)
+		FColor RightEditorColor = FColor(0, 0, 0.2f);
+
 };
 
 UMMAConfig* UMMAConfig::Instance = nullptr;

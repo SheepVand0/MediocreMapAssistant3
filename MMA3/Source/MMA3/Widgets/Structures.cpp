@@ -75,5 +75,41 @@ void FMapInfo::FromJson(FString p_Json, FString p_MapPath) {
 
 		DifficultyBeatmapSets.Add(l_BeatmapSet);
 	}
+}
 
+void FMapData::FromJson(FString p_Json) {
+	UVaRestJsonObject* l_Object = GEngine->GetEngineSubsystem<UVaRestSubsystem>()->ConstructVaRestJsonObject();
+
+	l_Object->DecodeJson(p_Json);
+
+	Version = l_Object->GetStringField("_version");
+	Notes.Empty();
+	if (Version == "2.2.0" || Version == "2.5.0") {
+		TArray<UVaRestJsonValue*> l_Notes = VaRestJsonObjectUtils::GetValueArrayField(l_Object, "_notes");
+
+		for (int l_i = 0; l_i < l_Notes.Num(); l_i++) {
+			UVaRestJsonObject* l_IndexNote = l_Notes[l_i]->AsObject();
+			FNoteData l_Note;
+			l_Note.Beat = l_IndexNote->GetNumberField("_time");
+			l_Note.Line = l_IndexNote->GetIntegerField("_lineIndex");
+			l_Note.Layer = l_IndexNote->GetIntegerField("_lineLayer");
+			l_Note.Type = l_IndexNote->GetIntegerField("_type");
+			l_Note.Direction = l_IndexNote->GetIntegerField("_cutDirection");
+			Notes.Add(l_Note);
+		}
+	}
+	else if (Version == "3.0.0") {
+		TArray<UVaRestJsonValue*> l_Notes = VaRestJsonObjectUtils::GetValueArrayField(l_Object, "_notes");
+
+		for (int l_i = 0; l_i < l_Notes.Num(); l_i++) {
+			UVaRestJsonObject* l_IndexNote = l_Notes[l_i]->AsObject();
+			FNoteData l_Note;
+			l_Note.Beat = l_IndexNote->GetNumberField("b");
+			l_Note.Line = l_IndexNote->GetIntegerField("x");
+			l_Note.Layer = l_IndexNote->GetIntegerField("y");
+			l_Note.Type = l_IndexNote->GetIntegerField("c");
+			l_Note.Direction = l_IndexNote->GetIntegerField("d");
+			l_Note.Angle = l_IndexNote->GetIntegerField("a");
+		}
+	}
 }

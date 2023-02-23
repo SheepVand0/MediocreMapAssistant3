@@ -106,7 +106,6 @@ public:
 
 	UFUNCTION()
 		void OnEditButtonPressed();
-
 };
 
 ULevelSelectionWidget* ULevelSelectionWidget::Instance = nullptr;

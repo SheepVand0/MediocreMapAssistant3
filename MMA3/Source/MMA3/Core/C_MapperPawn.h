@@ -5,6 +5,8 @@
 #include "CoreMinimal.h"
 #include "GameFramework/FloatingPawnMovement.h"
 #include "Camera/CameraComponent.h"
+#include "C_Controller.h"
+#include "Kismet/GameplayStatics.h"
 #include "C_MapperPawn.generated.h"
 
 /**
@@ -19,6 +21,8 @@ public:
 
 	AC_MapperPawn();
 
+	virtual void BeginPlay() override;
+
 	UPROPERTY()
 		UFloatingPawnMovement* PawnMovement;
 
@@ -27,6 +31,9 @@ public:
 
 	UPROPERTY()
 		UStaticMeshComponent* SphereMeshComponent;
+
+	UPROPERTY()
+		AC_Controller* ControllerReference;
 
 	UPROPERTY()
 		bool IsRightClickPressed;
@@ -62,5 +69,8 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 		void RightClickedReleased();
+
+	UFUNCTION()
+		void PlayStop();
 
 };

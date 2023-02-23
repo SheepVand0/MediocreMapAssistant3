@@ -12,25 +12,28 @@ AC_Note::AC_Note()
 	ConstructorHelpers::FObjectFinder<UMaterialInstance>l_CubeMat(TEXT("/Script/Engine.MaterialInstanceConstant'/Game/Assets/Materials/Mapping/M_NoteInstance.M_NoteInstance'"));
 	ConstructorHelpers::FObjectFinder<UStaticMesh>l_Cube(TEXT("/Script/Engine.StaticMesh'/Game/Assets/Meshes/NoteBody_Cube.NoteBody_Cube'"));
 	ConstructorHelpers::FObjectFinder<UStaticMesh>l_Arrow(TEXT("/Script/Engine.StaticMesh'/Game/Assets/Meshes/NoteBody_Cylinder.NoteBody_Cylinder'"));
+	ConstructorHelpers::FObjectFinder<UStaticMesh>l_Dot(TEXT("/Script/Engine.StaticMesh'/Game/Assets/Meshes/NoteBody_Cylinder_001.NoteBody_Cylinder_001'"));
 
 	CubeMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Cube"));
 	SetRootComponent(CubeMesh);
 	CubeMesh->SetStaticMesh(l_Cube.Object);
 	CubeMesh->SetMaterial(0, l_CubeMat.Object);
 
+	ArrowMesh = l_Arrow.Object;
+	DotMesh = l_Dot.Object;
+
 	Arrow = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Arrow"));
 	Arrow->SetupAttachment(CubeMesh);
 	Arrow->SetStaticMesh(l_Arrow.Object);
-	Arrow->SetRelativeScale3D(FVector(4, 1, 1));
+	Arrow->SetRelativeScale3D(FVector(1, 1, 1));
 
-	SetActorScale3D(FVector(0.22f, 0.22f, 0.22f));
+	SetActorScale3D(FVector(0.2f, 0.2f, 0.2f));
 }
 
 // Called when the game starts or when spawned
 void AC_Note::BeginPlay()
 {
 	Super::BeginPlay();
-
 }
 
 // Called every frame
@@ -43,10 +46,30 @@ void AC_Note::Tick(float DeltaTime)
 void AC_Note::SetNoteData(float p_Beat, int p_ColorType, int p_Line, int p_Layer, int p_Direction) {
 	Beat = p_Beat;
 	ColorType = p_ColorType;
-	Line = p_Layer;
+	Line = p_Line;
 	Layer = p_Layer;
 	Direction = p_Direction;
-	SetActorLocation(FVector(Line, Beat, Layer));
+	ABeatCell* l_Cell = Cast<ABeatCell>(UGameplayStatics::GetActorOfClass(GetWorld(), ABeatCell::StaticClass()));
+	AttachToActor(l_Cell, FAttachmentTransformRules(EAttachmentRule::KeepWorld, false));
+	SetActorLocation(FVector((Line * 25) - 50 + (25/2), Beat * 100, Layer * 25 + (25/2)));
+	if (p_Direction == 1) {
+		Arrow->SetStaticMesh(DotMesh);
+	}
+	else {
+		SetActorRotation(FRotator(0, 0, (Direction - 2) * 45));
+	}
+	if (UGameplayStatics::DoesSaveGameExist(MMA_SAVE_GAME_SLOT_NAME, 0)) {
+		UMMAConfig* l_Config = Cast<UMMAConfig>(UGameplayStatics::LoadGameFromSlot(MMA_SAVE_GAME_SLOT_NAME, 0));
+
+		UMaterialInstanceDynamic* l_Dynamic = UMaterialInstanceDynamic::Create(CubeMesh->GetMaterial(0), this);
+		if (ColorType == 1) {
+			l_Dynamic->SetVectorParameterValue(FName("NoteColor"), FVector4(l_Config->LeftEditorColor.R, l_Config->LeftEditorColor.G, l_Config->LeftEditorColor.B, 1));
+		}
+		else if (ColorType == 2) {
+			l_Dynamic->SetVectorParameterValue(FName("NoteColor"), FVector4(l_Config->RightEditorColor.R, l_Config->RightEditorColor.G, l_Config->RightEditorColor.B, 1));
+		}
+		CubeMesh->SetMaterial(0, l_Dynamic);
+	}
 }
 
 void AC_Note::SetNoodleData(float p_Beat, int p_ColorType, int p_Line, int p_Layer, int p_Direction, FDefaultNoodleExtensionsData p_Data) {

@@ -7,9 +7,12 @@
 #include "Blueprint/UserWidget.h"
 #include "MMA3/Widgets/MainMenu/LevelSelectionWidget.h"
 #include "MMA3/Widgets/MainMenu/MapDetailsWidget.h"
+#include "Components/AudioComponent.h"
+#include "BeatCell.h"
 #include "C_Controller.generated.h"
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnReady);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnTimeUpdated, float, Time);
 
 UCLASS()
 class MMA3_API AC_Controller : public AActor
@@ -29,11 +32,17 @@ public:
 	UPROPERTY(EditAnywhere)
 		FOnReady OnControllerReady;
 
+	UPROPERTY(BlueprintAssignable)
+		FOnTimeUpdated OnTimeUpdated;
+
 	UPROPERTY(EditAnywhere)
 		APlayerController* PlayerControllerReference;
 
 	UPROPERTY()
-		USceneComponent* BeatCellsRoot;
+		ABeatCell* BeatCells;
+
+	UPROPERTY()
+		UAudioComponent* AudioComponent;
 
 	UPROPERTY()
 		FString CurrentScene = "MainMenu";
@@ -45,10 +54,31 @@ public:
 		float PlayingTime;
 
 	UPROPERTY()
+		float StartedPlayTime;
+
+	UPROPERTY()
 		bool Playing;
 
+	UPROPERTY()
+		FMapInfo MapData;
+
+	UPROPERTY()
+		FMapData MapContent;
+
+	UPROPERTY()
+		float ActorTime;
+
 	UFUNCTION()
-		void GenerateGrid(FMapInfo p_Info);
+		void Play();
+
+	UFUNCTION()
+		void Stop();
+
+	UFUNCTION()
+		void GenerateGrid(FMapInfo p_Info, FString p_Diff, FString p_Mode);
+
+	UFUNCTION()
+		void SpawnNotes();
 
 protected:
 	// Called when the game starts or when spawned

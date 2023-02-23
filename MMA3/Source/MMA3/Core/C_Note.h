@@ -5,6 +5,9 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include "MMA3/Widgets/Structures.h"
+#include "BeatCell.h"
+#include "Kismet/GameplayStatics.h"
+#include "MMA3/MMAConfig.h"
 #include "C_Note.generated.h"
 
 UCLASS()
@@ -42,6 +45,12 @@ public:
 
 	UPROPERTY()
 		TArray<float> CoordinatesTimes;
+
+	UPROPERTY()
+		UStaticMesh* ArrowMesh;
+
+	UPROPERTY()
+		UStaticMesh* DotMesh;
 
 	UPROPERTY()
 		float Beat;

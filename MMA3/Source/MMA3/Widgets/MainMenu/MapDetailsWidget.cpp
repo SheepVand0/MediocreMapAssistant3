@@ -119,10 +119,20 @@ void UMapDetailsWidget::OnDifficultySelected(FString SerializedDifficulty) {
 	//GEngine->AddOnScreenDebugMessage(1, 10.0f, FColor::White, FString(SerializedDifficulty));
 	SetDifficultyPropertiesEnable(true);
 	FMapDifficulty l_Difficulty = GetDifficultyByMapAndMode(SerializedDifficulty, m_SelectedMode);
+	m_SelectedDifficulty = l_Difficulty;
 
 	/*GEngine->AddOnScreenDebugMessage(2, 10.0f, FColor::White, FString(FString::SanitizeFloat(l_Difficulty.NoteJumpMovementSpeed)));
 	GEngine->AddOnScreenDebugMessage(3, 10.0f, FColor::White, FString(FString::SanitizeFloat(l_Difficulty.NoteJumpStartBeatOffset)));*/
-	CMapDifficulty->SetSelectedOption(SerializedDifficulty);
+	bool l_Found = false;
+	for (int l_i = 0; l_i < CMapDifficulty->GetOptionCount(); l_i++) {
+		if (CMapDifficulty->GetOptionAtIndex(l_i) == SerializedDifficulty) {
+			CMapDifficulty->SetSelectedIndex(l_i);
+			l_Found = true;
+			break;
+		}
+	}
+	if (!l_Found)
+		CMapDifficulty->SetSelectedOption(SerializedDifficulty);
 	CNJSSlider->SetValue(l_Difficulty.NoteJumpMovementSpeed);
 	COffsetSlider->SetValue(l_Difficulty.NoteJumpStartBeatOffset);
 	CDifficultyLabel->SetText(FText::FromString(l_Difficulty.DifficultyLabel));
@@ -139,7 +149,7 @@ FMapDifficulty UMapDetailsWidget::GetDifficultyByMapAndMode(FString p_Difficulty
 		TArray<FMapDifficulty> l_DifficultyList = m_Info.DifficultyBeatmapSets[l_i].DifficultyBeatmaps;
 
 		for (int l_i1 = 0; l_i1 < l_DifficultyList.Num(); l_i1++) {
-			GEngine->AddOnScreenDebugMessage(4, 1.0f, FColor::White, FString(p_Difficulty + " / " + l_DifficultyList[l_i1].Difficulty));
+			//GEngine->AddOnScreenDebugMessage(4, 1.0f, FColor::White, FString(p_Difficulty + " / " + l_DifficultyList[l_i1].Difficulty));
 			if (l_DifficultyList[l_i1].Difficulty != p_Difficulty) continue;
 
 			l_Finished = true;
@@ -155,7 +165,7 @@ FMapDifficulty UMapDetailsWidget::GetDifficultyByMapAndMode(FString p_Difficulty
 }
 
 void UMapDetailsWidget::OnEditButtonClicked() {
-	GEngine->AddOnScreenDebugMessage(0, 10.0f, FColor::White, FString(m_Info.MapPath + "\\" + m_Info.AudioFileName));
+	//GEngine->AddOnScreenDebugMessage(0, 10.0f, FColor::White, FString(m_Info.MapPath + "\\" + m_Info.AudioFileName));
 	if (m_Info.Song == nullptr) {
 		RuntimeAudioImporter->OnResult.AddDynamic(this, &UMapDetailsWidget::FinishedLoadingAudio);
 		RuntimeAudioImporter->ImportAudioFromFile(m_Info.MapPath + "\\" + m_Info.AudioFileName, EAudioFormat::OggVorbis);
@@ -168,7 +178,7 @@ void UMapDetailsWidget::FinishedLoadingAudio(URuntimeAudioImporterLibrary* p_Imp
 	m_Info.Song = p_ImportedSoundWave;
 	RuntimeAudioImporter->OnResult.RemoveAll(this);
 	AC_Controller* l_Controller = Cast<AC_Controller>(UGameplayStatics::GetActorOfClass(GetWorld(), AC_Controller::StaticClass()));
-	l_Controller->GenerateGrid(m_Info);
+	l_Controller->GenerateGrid(m_Info, m_SelectedDifficulty.Difficulty, m_SelectedMode);
 	SetVisibility(ESlateVisibility::Collapsed);
 	l_Controller->CurrentScene = "Editing";
 }

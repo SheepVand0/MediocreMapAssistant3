@@ -44,6 +44,12 @@ void AC_MapperPawn::SetupPlayerInputComponent(UInputComponent* PlayerInputCompon
 
 	PlayerInputComponent->BindAxis("LookX", this, &AC_MapperPawn::LookX);
 	PlayerInputComponent->BindAxis("LookY", this, &AC_MapperPawn::LookY);
+
+	PlayerInputComponent->BindAction("Play", IE_Pressed, this, &AC_MapperPawn::PlayStop);
+}
+
+void AC_MapperPawn::BeginPlay() {
+	Super::BeginPlay();
 }
 
 void AC_MapperPawn::MoveForward(float p_Value) {
@@ -108,4 +114,11 @@ void AC_MapperPawn::RightClickedReleased() {
 	IsRightClickPressed = false;
 	APlayerController* l_Controller = Cast<APlayerController>(GetController());
 	if (l_Controller != nullptr) l_Controller->bShowMouseCursor = true;
+}
+
+void AC_MapperPawn::PlayStop() {
+	if (ControllerReference == nullptr) ControllerReference = Cast<AC_Controller>(UGameplayStatics::GetActorOfClass(GetWorld(), AC_Controller::StaticClass()));;
+
+	if (!ControllerReference->Playing) ControllerReference->Play();
+	else ControllerReference->Stop();
 }

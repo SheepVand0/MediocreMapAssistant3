@@ -81,7 +81,9 @@ void ULevelSelectionWidget::RefreshMaps(EMapListType p_MapRefreshType) {
 
 	FString l_Path = UMMAConfig::Instance->GamePath + "\\Beat Saber_Data" + (p_MapRefreshType == EMapListType::WIP ? "\\CustomWIPLevels" : "\\CustomLevels");
 
-	//GEngine->AddOnScreenDebugMessage(0, 10.0f, FColor::White, l_Path);
+	//GEngine->
+
+	(0, 10.0f, FColor::White, l_Path);
 
 	FDirectoryVisitor l_Visitor;
 
