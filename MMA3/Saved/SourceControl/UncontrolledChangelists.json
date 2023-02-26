@@ -25,6 +25,8 @@
 				"C:/Users/user/Documents/GitHub/MediocreMapAssistant3/MMA3/Content/Assets/Sounds/HitSounds/HitSoundb.uasset",
 				"C:/Users/user/Documents/GitHub/MediocreMapAssistant3/MMA3/Content/Assets/Meshes/Bomb.uasset",
 				"C:/Users/user/Documents/GitHub/MediocreMapAssistant3/MMA3/Content/Assets/Materials/Mapping/M_Bomb.uasset",
+				"C:/Users/user/Documents/GitHub/MediocreMapAssistant3/MMA3/Content/Assets/Materials/Mapping/M_MappingGrid.uasset",
+				"C:/Users/user/Documents/GitHub/MediocreMapAssistant3/MMA3/Content/Assets/Meshes/MappingGridPlane.uasset",
 				"C:/Users/user/Documents/GitHub/MediocreMapAssistant3/MMA3/Content/Blueprints/WindowsKeys.uasset",
 				"C:/Users/user/Documents/GitHub/MediocreMapAssistant3/MMA3/Content/Blueprints/WindowsMappingContext.uasset",
 				"C:/Users/user/Documents/GitHub/MediocreMapAssistant3/MMA3/Content/Assets/FbxScene_NoteBody.uasset",

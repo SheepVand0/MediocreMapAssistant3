@@ -51,9 +51,6 @@ public:
 		UStaticMeshComponent* Arrow;
 
 	UPROPERTY()
-		UAudioComponent* HitSoundAudioComponent;
-
-	UPROPERTY()
 		bool IsFake;
 
 	UPROPERTY()

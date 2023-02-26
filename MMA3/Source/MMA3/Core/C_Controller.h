@@ -47,6 +47,9 @@ public:
 		UStaticMeshComponent* TimeMarkerCube;
 
 	UPROPERTY()
+		UStaticMeshComponent* MappingGrid;
+
+	UPROPERTY()
 		ABeatCell* BeatCells;
 
 	UPROPERTY()
@@ -63,6 +66,12 @@ public:
 
 	UPROPERTY()
 		UStaticMesh* DotMesh;
+
+	UPROPERTY()
+		UMaterialInstance* BombMaterial;
+
+	UPROPERTY()
+		USoundWave* HitSound;
 
 	UPROPERTY()
 		float PlayingTime;
@@ -90,6 +99,12 @@ public:
 
 	UFUNCTION()
 		void GenerateGrid(FMapInfo p_Info, FString p_Diff, FString p_Mode);
+
+	UFUNCTION()
+		void AddTime(float p_Time);
+
+	UFUNCTION()
+		void UpdateBeatGrid();
 
 	static AC_Controller* Instance;
 

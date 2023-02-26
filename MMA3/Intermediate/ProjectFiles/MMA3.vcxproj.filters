@@ -357,6 +357,12 @@
     <ClInclude Include="..\..\Source\MMA3\Core\C_MapperPawn.h">
       <Filter>Source\MMA3\Core</Filter>
     </ClInclude>
+    <ClCompile Include="..\..\Source\MMA3\Core\C_MappingTool.cpp">
+      <Filter>Source\MMA3\Core</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\MMA3\Core\C_MappingTool.h">
+      <Filter>Source\MMA3\Core</Filter>
+    </ClInclude>
     <ClCompile Include="..\..\Source\MMA3\Core\C_Note.cpp">
       <Filter>Source\MMA3\Core</Filter>
     </ClCompile>

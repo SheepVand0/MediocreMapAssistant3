@@ -7,6 +7,7 @@
 #include "Camera/CameraComponent.h"
 #include "C_Controller.h"
 #include "Kismet/GameplayStatics.h"
+#include "C_MappingTool.h"
 #include "C_MapperPawn.generated.h"
 
 /**
@@ -39,7 +40,13 @@ public:
 		bool IsRightClickPressed;
 
 	UPROPERTY()
+		AC_MappingTool* CurrentTool;
+
+	UPROPERTY()
 		float Speed;
+
+	UPROPERTY()
+		float PawnSpeed = 300;
 
 	virtual void SetupPlayerInputComponent(UInputComponent* PlayerInputComponent) override;
 
@@ -59,10 +66,7 @@ public:
 		void LookY(float p_Value);
 
 	UFUNCTION(BlueprintCallable)
-		void SpeedUp();
-
-	UFUNCTION(BlueprintCallable)
-		void SpeedDown();
+		void ChangeSpeed(float Value);
 
 	UFUNCTION(BlueprintCallable)
 		void RightClickedPressed();
@@ -72,5 +76,8 @@ public:
 
 	UFUNCTION()
 		void PlayStop();
+
+	UFUNCTION()
+		void SelectTool(TSubclassOf<AC_MappingTool> p_Tool);
 
 };

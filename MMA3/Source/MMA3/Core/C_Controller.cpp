@@ -14,13 +14,18 @@ AC_Controller::AC_Controller()
 
 	ConstructorHelpers::FObjectFinder<UStaticMesh>l_Cube(TEXT("/Script/Engine.StaticMesh'/Engine/BasicShapes/Cube.Cube'"));
 	ConstructorHelpers::FObjectFinder<UStaticMesh>l_Bomb(TEXT("/Script/Engine.StaticMesh'/Game/Assets/Meshes/Bomb.Bomb'"));
-	ConstructorHelpers::FObjectFinder<UStaticMesh>l_Dot(TEXT("/Script/Engine.StaticMesh'/Game/Assets/Meshes/NoteBody_Cylinder.NoteBody_Cylinder'"));
+	ConstructorHelpers::FObjectFinder<UStaticMesh>l_Dot(TEXT("/Script/Engine.StaticMesh'/Game/Assets/Meshes/NoteBody_Cylinder_001.NoteBody_Cylinder_001'"));
+	ConstructorHelpers::FObjectFinder<UStaticMesh>l_MappingGridMesh(TEXT("/Script/Engine.StaticMesh'/Game/Assets/Meshes/MappingGridPlane.MappingGridPlane'"));
 	ConstructorHelpers::FObjectFinder<UMaterialInstance>l_CubeMat(TEXT("/Script/Engine.MaterialInstanceConstant'/Game/Assets/Materials/Mapping/M_BasicWhiteShape.M_BasicWhiteShape'"));
+	ConstructorHelpers::FObjectFinder<UMaterialInstance>l_BombMat(TEXT("/Script/Engine.MaterialInstanceConstant'/Game/Assets/Materials/Mapping/M_Bomb.M_Bomb'"));
+	ConstructorHelpers::FObjectFinder<USoundWave> l_HitSound(TEXT("/Script/Engine.SoundWave'/Game/Assets/Sounds/HitSounds/HitSoundb.HitSoundb'"));
 
 	AudioComponent = CreateDefaultSubobject<UAudioComponent>(TEXT("Audio"));
 
 	PlayingTime = 0;
 	ActorTime = 0;
+
+	HitSound = l_HitSound.Object;
 
 	TimeMarkerCube = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Cube"));
 	TimeMarkerCube->SetStaticMesh(l_Cube.Object);
@@ -31,6 +36,10 @@ AC_Controller::AC_Controller()
 
 	BombMesh = l_Bomb.Object;
 	DotMesh = l_Dot.Object;
+
+
+	MappingGrid = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Mapping Grid"));
+	MappingGrid->SetStaticMesh(l_MappingGridMesh.Object);
 }
 
 // Called when the game starts or when spawned
@@ -59,12 +68,9 @@ void AC_Controller::Tick(float DeltaTime)
 	}
 
 	if (Playing) {
-		auto l_RootPos = BeatCells->GetActorLocation();
-		PlayingTime += ((ActorTime - StartedPlayTime) - PlayingTime);
-		BeatCells->SetActorLocation(FVector(l_RootPos.X, (PlayingTime * -100) * (MapData.BPM / 60), l_RootPos.Z));
+		PlayingTime += (ActorTime - StartedPlayTime - PlayingTime);
+		UpdateBeatGrid();
 		OnTimeUpdated.Broadcast(PlayingTime);
-		GEngine->AddOnScreenDebugMessage(1, 10, FColor::White, FString::SanitizeFloat(PlayingTime));
-		GEngine->AddOnScreenDebugMessage(2, 10, FColor::White, FString::SanitizeFloat(ActorTime));
 	}
 }
 
@@ -105,7 +111,7 @@ void AC_Controller::Play() {
 	if (PlayingTime >= MapData.Song->Duration) return;
 	Playing = true;
 	if (PlayingTime < 0) PlayingTime = 0;
-	StartedPlayTime = ActorTime;
+	StartedPlayTime = ActorTime - PlayingTime;
 	AudioComponent->Sound = MapData.Song;
 	AudioComponent->Play(PlayingTime);
 }
@@ -114,4 +120,28 @@ void AC_Controller::Stop() {
 	if (!Playing) return;
 	Playing = false;
 	AudioComponent->Stop();
+}
+
+void AC_Controller::AddTime(float p_Value) {
+	if (BeatCells == nullptr) return;
+	if (Playing) return;
+	if (PlayingTime + p_Value < 0) {
+		PlayingTime = 0;
+		UpdateBeatGrid();
+		return;
+	}
+
+	if (PlayingTime + p_Value > MapData.Song->GetDuration()) {
+		PlayingTime = MapData.Song->GetDuration();
+		UpdateBeatGrid();
+		return;
+	}
+
+	PlayingTime += p_Value;
+	UpdateBeatGrid();
+}
+
+void AC_Controller::UpdateBeatGrid() {
+	auto l_RootPos = BeatCells->GetActorLocation();
+	BeatCells->SetActorLocation(FVector(l_RootPos.X, (PlayingTime * -100) * (MapData.BPM / 60), l_RootPos.Z));
 }

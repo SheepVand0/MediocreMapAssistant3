@@ -9,7 +9,7 @@ AC_MapperPawn::AC_MapperPawn() {
 	SetRootComponent(Root);
 
 	PawnMovement = CreateDefaultSubobject<UFloatingPawnMovement>(TEXT("Movement"));
-	PawnMovement->MaxSpeed = 300;
+	PawnMovement->MaxSpeed = PawnSpeed;
 
 	SphereMeshComponent = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Sphere"));
 	SphereMeshComponent->SetupAttachment(Root);
@@ -36,8 +36,7 @@ void AC_MapperPawn::SetupPlayerInputComponent(UInputComponent* PlayerInputCompon
 	PlayerInputComponent->BindAxis("MoveUp", this, &AC_MapperPawn::MoveUp);
 	PlayerInputComponent->BindAxis("MoveDown", this, &AC_MapperPawn::MoveUp);
 
-	PlayerInputComponent->BindAction("ScrollUp", IE_Pressed, this, &AC_MapperPawn::SpeedUp);
-	PlayerInputComponent->BindAction("ScrollDown", IE_Pressed, this, &AC_MapperPawn::SpeedDown);
+	PlayerInputComponent->BindAxis("CursorPrecision", this, &AC_MapperPawn::ChangeSpeed);
 
 	PlayerInputComponent->BindAction("RightClickPressed", IE_Pressed, this, &AC_MapperPawn::RightClickedPressed);
 	PlayerInputComponent->BindAction("RightClickPressed", IE_Released, this, &AC_MapperPawn::RightClickedReleased);
@@ -94,14 +93,18 @@ void AC_MapperPawn::LookY(float p_Value) {
 	AddControllerPitchInput(p_Value);
 }
 
-void AC_MapperPawn::SpeedUp() {
-	if (Speed >= 2 || !IsRightClickPressed) return;
-	Speed += 0.05f;
-}
+void AC_MapperPawn::ChangeSpeed(float p_Value) {
+	if (p_Value == 0.0f) return;
 
-void AC_MapperPawn::SpeedDown() {
-	if (Speed == 0 || !IsRightClickPressed) return;
-	Speed -= 0.05f;
+	if (!IsRightClickPressed) {
+		if (AC_Controller::Instance != nullptr)
+			AC_Controller::Instance->AddTime(p_Value * 0.1f);
+		return;
+	}
+	Speed += p_Value * 0.1f;
+	if (Speed < 0.2f) Speed = 0;
+	if (Speed > 4) Speed = 4;
+	PawnMovement->MaxSpeed = PawnSpeed * Speed;
 }
 
 void AC_MapperPawn::RightClickedPressed() {
@@ -119,6 +122,11 @@ void AC_MapperPawn::RightClickedReleased() {
 void AC_MapperPawn::PlayStop() {
 	if (ControllerReference == nullptr) ControllerReference = Cast<AC_Controller>(UGameplayStatics::GetActorOfClass(GetWorld(), AC_Controller::StaticClass()));;
 
+	if (IsRightClickPressed) return;
+
 	if (!ControllerReference->Playing) ControllerReference->Play();
 	else ControllerReference->Stop();
+}
+void AC_MapperPawn::SelectTool(TSubclassOf<AC_MappingTool> p_Tool) {
+
 }

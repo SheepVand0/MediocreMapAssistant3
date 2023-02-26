@@ -76,10 +76,15 @@ void ULevelSelectionWidget::OnMapSelected() {
 }
 
 void ULevelSelectionWidget::RefreshMaps(EMapListType p_MapRefreshType) {
-
 	m_Maps.Empty();
 
-	FString l_Path = UMMAConfig::Instance->GamePath + "\\Beat Saber_Data" + (p_MapRefreshType == EMapListType::WIP ? "\\CustomWIPLevels" : "\\CustomLevels");
+	UMMAConfig* l_Conf = UMMAConfig::Instance;
+	if (l_Conf == nullptr) {
+		l_Conf = Cast<UMMAConfig>(UGameplayStatics::LoadGameFromSlot(MMA_SAVE_GAME_SLOT_NAME, 0));
+	}
+	if (l_Conf == nullptr) return;
+	FString l_GamePath = "C:\\Users\\user\\Desktop\\BS1.18.3\\BSLegacyLauncher\\Installed Versions\\Beat Saber 1.26.0";
+	FString l_Path = l_GamePath + "\\Beat Saber_Data" + (p_MapRefreshType == EMapListType::WIP ? "\\CustomWIPLevels" : "\\CustomLevels");
 
 	FDirectoryVisitor l_Visitor;
 
@@ -101,7 +106,6 @@ void ULevelSelectionWidget::RefreshMaps(EMapListType p_MapRefreshType) {
 		l_Cell->m_ListReference = LevelsScrollBox;
 		l_Cell->SetData(m_Maps[l_i]);
 	}
-
 };
 
 void ULevelSelectionWidget::OnEditButtonPressed() {
