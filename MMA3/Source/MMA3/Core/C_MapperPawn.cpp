@@ -23,6 +23,8 @@ AC_MapperPawn::AC_MapperPawn() {
 
 	IsRightClickPressed = false;
 	Speed = 1;
+
+	EventsBound = false;
 }
 
 void AC_MapperPawn::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent) {
@@ -49,6 +51,46 @@ void AC_MapperPawn::SetupPlayerInputComponent(UInputComponent* PlayerInputCompon
 
 void AC_MapperPawn::BeginPlay() {
 	Super::BeginPlay();
+	SelectTool(AC_NoteTool::StaticClass());
+}
+
+void AC_MapperPawn::Tick(float DeltaTime) {
+	Super::Tick(DeltaTime);
+
+	if (!EventsBound) {
+		if (AC_Controller::Instance == nullptr) return;
+
+		EventsBound = true;
+	}
+
+	if (CurrentTool == nullptr) return;
+
+	APlayerController* l_PlayerController = Cast<APlayerController>(GetController());
+	FVector l_Position;
+	FVector l_Direction;
+	l_PlayerController->DeprojectMousePositionToWorld(l_Position, l_Direction);
+
+	FHitResult l_Result;
+	UKismetSystemLibrary::LineTraceSingle(
+		GetWorld(),
+		GetActorLocation(),
+		GetActorLocation() + (l_Direction * 1000),
+		TraceTypeQuery1,
+		true,
+		TArray<AActor*>(),
+		EDrawDebugTrace::None,
+		l_Result,
+		true);
+
+	AC_Controller* l_Controller = Cast<AC_Controller>(l_Result.GetActor());
+	if (l_Controller == nullptr) return;
+
+	if (l_Controller->MappingGrid == l_Result.GetComponent()) {
+		int l_X = FMath::Floor(l_Result.ImpactPoint.X / 25) * 25;
+		int l_Z = FMath::Floor(l_Result.ImpactPoint.Z / 25) * 25;
+
+		CurrentTool->SetActorLocation(FVector(l_X, l_Result.ImpactPoint.Z, l_Z));
+	}
 }
 
 void AC_MapperPawn::MoveForward(float p_Value) {
@@ -119,6 +161,12 @@ void AC_MapperPawn::RightClickedReleased() {
 	if (l_Controller != nullptr) l_Controller->bShowMouseCursor = true;
 }
 
+void AC_MapperPawn::OnLeftClickUsed() {
+	if (CurrentTool == nullptr) return;
+
+	CurrentTool->OnUse(CurrentTool->GetActorLocation());
+}
+
 void AC_MapperPawn::PlayStop() {
 	if (ControllerReference == nullptr) ControllerReference = Cast<AC_Controller>(UGameplayStatics::GetActorOfClass(GetWorld(), AC_Controller::StaticClass()));;
 
@@ -127,6 +175,15 @@ void AC_MapperPawn::PlayStop() {
 	if (!ControllerReference->Playing) ControllerReference->Play();
 	else ControllerReference->Stop();
 }
+
 void AC_MapperPawn::SelectTool(TSubclassOf<AC_MappingTool> p_Tool) {
+	if (CurrentTool != nullptr) {
+		CurrentTool->Destroy();
+	}
+
+	CurrentTool = Cast<AC_MappingTool>(GetWorld()->SpawnActor(p_Tool));
+}
+
+void AC_MapperPawn::OnCursorMovedOnOject() {
 
 }

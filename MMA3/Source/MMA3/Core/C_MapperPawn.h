@@ -8,6 +8,8 @@
 #include "C_Controller.h"
 #include "Kismet/GameplayStatics.h"
 #include "C_MappingTool.h"
+#include "Tools/C_NoteTool.h"
+#include "Engine/GameViewportClient.h"
 #include "C_MapperPawn.generated.h"
 
 /**
@@ -23,6 +25,8 @@ public:
 	AC_MapperPawn();
 
 	virtual void BeginPlay() override;
+
+	virtual void Tick(float DeltaTime) override;
 
 	UPROPERTY()
 		UFloatingPawnMovement* PawnMovement;
@@ -47,6 +51,8 @@ public:
 
 	UPROPERTY()
 		float PawnSpeed = 300;
+
+	bool EventsBound;
 
 	virtual void SetupPlayerInputComponent(UInputComponent* PlayerInputComponent) override;
 
@@ -75,9 +81,14 @@ public:
 		void RightClickedReleased();
 
 	UFUNCTION()
+		void OnLeftClickUsed();
+
+	UFUNCTION()
 		void PlayStop();
 
 	UFUNCTION()
 		void SelectTool(TSubclassOf<AC_MappingTool> p_Tool);
 
+	UFUNCTION()
+		void OnCursorMovedOnOject();
 };

@@ -39,15 +39,32 @@ void AC_ObjectsSpawner::Tick(float DeltaTime)
 
 void AC_ObjectsSpawner::SpawnObjects() {
 	AC_Controller* l_Controller = AC_Controller::Instance;
+
 	TArray <AActor*> l_Notes;
 	UGameplayStatics::GetAllActorsOfClass(l_Controller->GetWorld(), AC_Note::StaticClass(), l_Notes);
 	for (int l_i = 0; l_i < l_Notes.Num(); l_i++) {
 		l_Notes[l_i]->Destroy();
 	}
 
+	TArray<AActor*> l_Walls;
+	UGameplayStatics::GetAllActorsOfClass(l_Controller->GetWorld(), AC_Wall::StaticClass(), l_Walls);
+	for (int l_i = 0; l_i < l_Walls.Num(); l_i++) {
+		l_Walls[l_i]->Destroy();
+	}
+
+	ABeatCell* l_BeatCell = l_Controller->BeatCells;
+
 	for (int l_i = 0; l_i < l_Controller->MapContent.Notes.Num(); l_i++) {
 		auto l_Note = Cast<AC_Note>(l_Controller->GetWorld()->SpawnActor(AC_Note::StaticClass()));
 		FNoteData l_Current = l_Controller->MapContent.Notes[l_i];
 		l_Note->SetNoteData(l_Current.Beat, l_Current.Type, l_Current.Line, l_Current.Layer, l_Current.Direction);
+		l_Note->AttachToActor(l_BeatCell, FAttachmentTransformRules(EAttachmentRule::KeepWorld, false));
+	}
+
+	for (int l_i = 0; l_i < l_Controller->MapContent.Walls.Num(); l_i++) {
+		auto l_Wall = Cast<AC_Wall>(l_Controller->GetWorld()->SpawnActor(AC_Wall::StaticClass()));
+		FWallData l_Current = l_Controller->MapContent.Walls[l_i];
+		l_Wall->SetData(l_Current.Beat, l_Current.Type, l_Current.Line, l_Current.Width, l_Current.Duration);
+		l_Wall->AttachToActor(l_BeatCell, FAttachmentTransformRules(EAttachmentRule::KeepWorld, false));
 	}
 }

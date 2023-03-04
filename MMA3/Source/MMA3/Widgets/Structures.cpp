@@ -84,8 +84,10 @@ void FMapData::FromJson(FString p_Json) {
 
 	Version = l_Object->GetStringField("_version");
 	Notes.Empty();
+	Walls.Empty();
 	if (Version == "2.2.0" || Version == "2.5.0") {
 		TArray<UVaRestJsonValue*> l_Notes = VaRestJsonObjectUtils::GetValueArrayField(l_Object, "_notes");
+		TArray<UVaRestJsonValue*> l_Walls = VaRestJsonObjectUtils::GetValueArrayField(l_Object, "_obstacles");
 
 		for (int l_i = 0; l_i < l_Notes.Num(); l_i++) {
 			UVaRestJsonObject* l_IndexNote = l_Notes[l_i]->AsObject();
@@ -96,6 +98,17 @@ void FMapData::FromJson(FString p_Json) {
 			l_Note.Type = l_IndexNote->GetIntegerField("_type");
 			l_Note.Direction = l_IndexNote->GetIntegerField("_cutDirection");
 			Notes.Add(l_Note);
+		}
+
+		for (int l_i = 0; l_i < l_Walls.Num(); l_i++) {
+			UVaRestJsonObject* l_IndexWall = l_Walls[l_i]->AsObject();
+			FWallData l_Wall;
+			l_Wall.Beat = l_IndexWall->GetNumberField("_time");
+			l_Wall.Line = l_IndexWall->GetIntegerField("_lineIndex");
+			l_Wall.Type = l_IndexWall->GetIntegerField("_type");
+			l_Wall.Duration = l_IndexWall->GetNumberField("_duration");
+			l_Wall.Width = l_IndexWall->GetIntegerField("_width");
+			Walls.Add(l_Wall);
 		}
 	}
 	else if (Version == "3.0.0") {

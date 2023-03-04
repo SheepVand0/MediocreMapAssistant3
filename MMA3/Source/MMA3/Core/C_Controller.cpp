@@ -19,6 +19,7 @@ AC_Controller::AC_Controller()
 	ConstructorHelpers::FObjectFinder<UMaterialInstance>l_CubeMat(TEXT("/Script/Engine.MaterialInstanceConstant'/Game/Assets/Materials/Mapping/M_BasicWhiteShape.M_BasicWhiteShape'"));
 	ConstructorHelpers::FObjectFinder<UMaterialInstance>l_BombMat(TEXT("/Script/Engine.MaterialInstanceConstant'/Game/Assets/Materials/Mapping/M_Bomb.M_Bomb'"));
 	ConstructorHelpers::FObjectFinder<USoundWave> l_HitSound(TEXT("/Script/Engine.SoundWave'/Game/Assets/Sounds/HitSounds/HitSoundb.HitSoundb'"));
+	ConstructorHelpers::FObjectFinder<UMaterialInstance> l_WallMaterial(TEXT("/Script/Engine.Material'/Game/Assets/Materials/M_Obstacle.M_Obstacle'"));
 
 	AudioComponent = CreateDefaultSubobject<UAudioComponent>(TEXT("Audio"));
 
@@ -37,9 +38,10 @@ AC_Controller::AC_Controller()
 	BombMesh = l_Bomb.Object;
 	DotMesh = l_Dot.Object;
 
-
 	MappingGrid = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Mapping Grid"));
 	MappingGrid->SetStaticMesh(l_MappingGridMesh.Object);
+
+	WallMaterial = l_WallMaterial.Object;
 }
 
 // Called when the game starts or when spawned

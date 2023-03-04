@@ -7,6 +7,7 @@
 #include "C_Controller.h"
 #include "Kismet/GameplayStatics.h"
 #include "C_Note.h"
+#include "C_Wall.h"
 #include "C_ObjectsSpawner.generated.h"
 
 UCLASS()

@@ -74,8 +74,6 @@ void AC_Note::SetNoteData(float p_Beat, int p_ColorType, int p_Line, int p_Layer
 	Line = p_Line;
 	Layer = p_Layer;
 	Direction = p_Direction;
-	ABeatCell* l_Cell = Cast<ABeatCell>(UGameplayStatics::GetActorOfClass(GetWorld(), ABeatCell::StaticClass()));
-	AttachToActor(l_Cell, FAttachmentTransformRules(EAttachmentRule::KeepWorld, false));
 	SetActorLocation(FVector(75 - (Line * 25) - 50 + (25/2), Beat * 100, Layer * 25 + (25/2)));
 	if (ColorType == 3) {
 		Arrow->SetVisibility(false);

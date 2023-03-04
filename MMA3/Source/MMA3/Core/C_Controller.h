@@ -68,6 +68,12 @@ public:
 		UStaticMesh* DotMesh;
 
 	UPROPERTY()
+		UStaticMesh* CubeMesh;
+
+	UPROPERTY()
+		UMaterialInstance* WallMaterial;
+
+	UPROPERTY()
 		UMaterialInstance* BombMaterial;
 
 	UPROPERTY()

@@ -274,6 +274,20 @@ struct MMA3_API FWallData {
 
 public:
 
+	UPROPERTY()
+		float Beat;
+
+	UPROPERTY()
+		int Line;
+
+	UPROPERTY()
+		int Type;
+
+	UPROPERTY()
+		float Duration;
+
+	UPROPERTY()
+		int Width;
 };
 
 USTRUCT()

@@ -375,11 +375,26 @@
     <ClInclude Include="..\..\Source\MMA3\Core\C_ObjectsSpawner.h">
       <Filter>Source\MMA3\Core</Filter>
     </ClInclude>
+    <ClCompile Include="..\..\Source\MMA3\Core\C_Wall.cpp">
+      <Filter>Source\MMA3\Core</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\MMA3\Core\C_Wall.h">
+      <Filter>Source\MMA3\Core</Filter>
+    </ClInclude>
     <ClCompile Include="..\..\Source\MMA3\Core\ObjectFinder.cpp">
       <Filter>Source\MMA3\Core</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\MMA3\Core\ObjectFinder.h">
       <Filter>Source\MMA3\Core</Filter>
+    </ClInclude>
+    <Filter Include="Source\MMA3\Core\Tools">
+      <UniqueIdentifier>{2A7E56EA-6357-32F4-9F44-845E004123D3}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\MMA3\Core\Tools\C_NoteTool.cpp">
+      <Filter>Source\MMA3\Core\Tools</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\MMA3\Core\Tools\C_NoteTool.h">
+      <Filter>Source\MMA3\Core\Tools</Filter>
     </ClInclude>
     <Filter Include="Source\MMA3\Widgets">
       <UniqueIdentifier>{869E9E89-8CFC-3D43-823E-2B16D2E14BE2}</UniqueIdentifier>

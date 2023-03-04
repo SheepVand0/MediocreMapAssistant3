@@ -31,13 +31,20 @@ void AC_MappingTool::Tick(float DeltaTime)
 }
 
 UMappingSubTool* AC_MappingTool::GetSelectedSubTool() {
-	return nullptr;
+	if (SubTools.Num() == 0)
+		return nullptr;
+
+	if (!SubTools.IsValidIndex(SelectedSubToolIndex)) return nullptr;
+
+	return SubTools[SelectedSubToolIndex];
 }
 
 void AC_MappingTool::OnUse(FVector p_Position) {
+	auto l_SubTool = GetSelectedSubTool();
+	if (l_SubTool == nullptr) return;
 
+	l_SubTool->OnUse(p_Position);
 }
-
 
 UStaticMesh* UMappingSubTool::GetToolMesh() {
 	return ToolMesh;
