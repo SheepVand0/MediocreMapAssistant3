@@ -12,6 +12,9 @@ ABeatCell::ABeatCell()
 	Material = l_Mat.Object;
 
 	Beats = CreateDefaultSubobject<UProceduralMeshComponent>(TEXT("Beats"));
+	Beats->ComponentTags.Add("MappingGrid");
+
+	Tags.Add("MappingGrid");
 }
 
 // Called when the game starts or when spawned
@@ -53,6 +56,7 @@ void ABeatCell::SetLength(float p_Length) {
 	TArray<FProcMeshTangent> l_Tangents;
 	l_Tangents.Init(FProcMeshTangent(0, -1, 0), 4);
 
-	Beats->CreateMeshSection_LinearColor(0, l_Vertices, l_Triangles, l_Normals, l_UV0, TArray<FLinearColor>(), l_Tangents, false);
+	Beats->CreateMeshSection_LinearColor(0, l_Vertices, l_Triangles, l_Normals, l_UV0, TArray<FLinearColor>(), l_Tangents, true);
+	Beats->bUseComplexAsSimpleCollision = true;
 	Beats->SetMaterial(0, Material);
 }

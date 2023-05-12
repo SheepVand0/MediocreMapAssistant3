@@ -10,7 +10,7 @@ AC_Wall::AC_Wall()
 	PrimaryActorTick.bCanEverTick = true;
 
 	ConstructorHelpers::FObjectFinder<UStaticMesh>l_Cube(TEXT("/Script/Engine.StaticMesh'/Game/Assets/Meshes/Wall.Wall'"));
-	ConstructorHelpers::FObjectFinder<UMaterial>l_ObstacleMat(TEXT("/Script/Engine.Material'/Game/Assets/Materials/Mapping/M_Obstacle.M_Obstacle'"));
+	ConstructorHelpers::FObjectFinder<UMaterial>l_ObstacleMat(TEXT("/Script/Engine.Material'/Game/Assets/Materials/Mapping/M_Wall.M_Wall'"));
 
 	WallMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Wall Mesh"));
 	WallMesh->SetStaticMesh(l_Cube.Object);
@@ -41,5 +41,5 @@ void AC_Wall::SetData(float p_Beat, int p_Type, int p_X, int p_Width,  float p_L
 
 	SetActorLocation(FVector(75 - (l_X * 25) - 50 + (25 / 2), p_Beat * 100, l_Y * 25 + (25 / 2)));
 
-	WallMesh->SetRelativeScale3D(FVector((float)p_Width / 2, p_Length / (AC_Controller::Instance->MapData.BPM / 60), l_Height / 4));
+
 }

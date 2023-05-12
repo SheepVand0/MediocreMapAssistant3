@@ -17,11 +17,6 @@ AC_MappingTool::AC_MappingTool()
 void AC_MappingTool::BeginPlay()
 {
 	Super::BeginPlay();
-
-	if (GetSelectedSubTool() != nullptr) {
-		if (GetSelectedSubTool()->GetToolMesh() != nullptr)
-			ToolMeshComp->SetStaticMesh(GetSelectedSubTool()->GetToolMesh());
-	}
 }
 
 // Called every frame
@@ -31,12 +26,15 @@ void AC_MappingTool::Tick(float DeltaTime)
 }
 
 UMappingSubTool* AC_MappingTool::GetSelectedSubTool() {
-	if (SubTools.Num() == 0)
-		return nullptr;
+	return CurrentSubTool;
+}
 
-	if (!SubTools.IsValidIndex(SelectedSubToolIndex)) return nullptr;
+void AC_MappingTool::SelectSubTool(int p_Index) {
+	if (!SubTools.IsValidIndex(p_Index)) return;
 
-	return SubTools[SelectedSubToolIndex];
+	CurrentSubTool = SubTools[p_Index];
+
+	Update();
 }
 
 void AC_MappingTool::OnUse(FVector p_Position) {
@@ -46,11 +44,47 @@ void AC_MappingTool::OnUse(FVector p_Position) {
 	l_SubTool->OnUse(p_Position);
 }
 
+void AC_MappingTool::Update() {
+
+	UMappingSubTool* l_MappingSubTool = GetSelectedSubTool();
+	if (l_MappingSubTool == nullptr) return;
+
+	UStaticMesh* l_ToolMesh = l_MappingSubTool->GetToolMesh();
+
+	UMaterialInterface* l_ToolMaterial = l_MappingSubTool->GetToolMaterial();
+
+	if (l_ToolMesh != nullptr)
+		ToolMeshComp->SetStaticMesh(l_ToolMesh);
+
+	if (l_ToolMaterial != nullptr)
+		ToolMeshComp->SetMaterial(0, l_ToolMaterial);
+
+	ToolMeshComp->SetRelativeLocation(l_MappingSubTool->GetCustomPosition());
+	ToolMeshComp->SetRelativeRotation(l_MappingSubTool->GetCustomRotation());
+	ToolMeshComp->SetRelativeScale3D(l_MappingSubTool->GetCustomScale());
+}
+
 UStaticMesh* UMappingSubTool::GetToolMesh() {
 	return ToolMesh;
+}
+
+UMaterialInterface* UMappingSubTool::GetToolMaterial() {
+	return ToolMaterial;
 }
 
 void UMappingSubTool::OnUse(FVector p_Position) {
 	std::string l_ExceptionText = "OnUse method not overrided on tool";
 	throw new std::exception(l_ExceptionText.c_str());
+}
+
+FVector UMappingSubTool::GetCustomPosition() {
+	return CustomPosition;
+}
+
+FRotator UMappingSubTool::GetCustomRotation() {
+	return CustomRotation;
+}
+
+FVector UMappingSubTool::GetCustomScale() {
+	return CustomScale;
 }

@@ -40,7 +40,15 @@ protected:
 		TArray<UMappingSubTool*> SubTools;
 
 	UPROPERTY()
+		UMappingSubTool* CurrentSubTool;
+
+	UPROPERTY()
 		int SelectedSubToolIndex;
+
+public:
+
+	UFUNCTION()
+		void SelectSubTool(int p_Index);
 
 public:
 	// Called every frame
@@ -49,6 +57,8 @@ public:
 	virtual void OnUse(FVector p_Position);
 
 	UMappingSubTool* GetSelectedSubTool();
+
+	void Update();
 
 };
 
@@ -65,10 +75,30 @@ protected:
 	UPROPERTY()
 		UStaticMesh* ToolMesh;
 
+	UPROPERTY()
+		UMaterialInterface* ToolMaterial;
+
+	UPROPERTY()
+		FVector CustomPosition;
+
+	UPROPERTY()
+		FRotator CustomRotation;
+
+	UPROPERTY()
+		FVector CustomScale;
+
 public:
 
-	UStaticMesh* GetToolMesh();
+	virtual UStaticMesh* GetToolMesh();
+
+	virtual UMaterialInterface* GetToolMaterial();
 
 	virtual void OnUse(FVector p_Position);
+
+	virtual FVector GetCustomPosition();
+
+	virtual FRotator GetCustomRotation();
+
+	virtual FVector GetCustomScale();
 
 };

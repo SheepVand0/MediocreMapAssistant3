@@ -10,6 +10,7 @@
 #include "C_MappingTool.h"
 #include "Tools/C_NoteTool.h"
 #include "Engine/GameViewportClient.h"
+#include "Components/PrimitiveComponent.h"
 #include "C_MapperPawn.generated.h"
 
 /**
@@ -51,6 +52,9 @@ public:
 
 	UPROPERTY()
 		float PawnSpeed = 300;
+
+	UPROPERTY()
+		float MappingDivision = 4;
 
 	bool EventsBound;
 

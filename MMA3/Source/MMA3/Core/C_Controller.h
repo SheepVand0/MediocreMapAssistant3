@@ -43,10 +43,10 @@ public:
 	UPROPERTY(EditAnywhere)
 		APlayerController* PlayerControllerReference;
 
-	UPROPERTY()
+	UPROPERTY(EditAnywhere)
 		UStaticMeshComponent* TimeMarkerCube;
 
-	UPROPERTY()
+	UPROPERTY(EditAnywhere)
 		UStaticMeshComponent* MappingGrid;
 
 	UPROPERTY()
@@ -71,7 +71,7 @@ public:
 		UStaticMesh* CubeMesh;
 
 	UPROPERTY()
-		UMaterialInstance* WallMaterial;
+		UMaterialInterface* WallMaterial;
 
 	UPROPERTY()
 		UMaterialInstance* BombMaterial;

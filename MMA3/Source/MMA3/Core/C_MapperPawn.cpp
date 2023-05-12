@@ -69,27 +69,29 @@ void AC_MapperPawn::Tick(float DeltaTime) {
 	FVector l_Position;
 	FVector l_Direction;
 	l_PlayerController->DeprojectMousePositionToWorld(l_Position, l_Direction);
+	l_Position = l_Position + FVector(0, 0, 10);
 
 	FHitResult l_Result;
 	UKismetSystemLibrary::LineTraceSingle(
 		GetWorld(),
-		GetActorLocation(),
+		l_Position,
 		GetActorLocation() + (l_Direction * 1000),
 		TraceTypeQuery1,
-		true,
+		false,
 		TArray<AActor*>(),
 		EDrawDebugTrace::None,
 		l_Result,
-		true);
+		false, FLinearColor::Red, FLinearColor::Green, 1.0f);
 
-	AC_Controller* l_Controller = Cast<AC_Controller>(l_Result.GetActor());
-	if (l_Controller == nullptr) return;
+	if (l_Result.GetActor() == nullptr) return;
 
-	if (l_Controller->MappingGrid == l_Result.GetComponent()) {
-		int l_X = FMath::Floor(l_Result.ImpactPoint.X / 25) * 25;
-		int l_Z = FMath::Floor(l_Result.ImpactPoint.Z / 25) * 25;
+	//GEngine->AddOnScreenDebugMessage(1, 1.0f, FColor::Green, FString("Controller"));
 
-		CurrentTool->SetActorLocation(FVector(l_X, l_Result.ImpactPoint.Z, l_Z));
+	if (l_Result.GetComponent()->ComponentHasTag("MappingGrid") && CurrentTool != nullptr) {
+		int l_X = (FMath::Floor(l_Result.ImpactPoint.X / 25) * 25) + (25/2);
+		int l_Z = FMath::Floor(l_Result.ImpactPoint.Z / 25) * 25 + (25/2);
+
+		CurrentTool->SetActorLocation(FVector(l_X, l_Result.ImpactPoint.Y, l_Z));
 	}
 }
 
@@ -140,7 +142,7 @@ void AC_MapperPawn::ChangeSpeed(float p_Value) {
 
 	if (!IsRightClickPressed) {
 		if (AC_Controller::Instance != nullptr)
-			AC_Controller::Instance->AddTime(p_Value * 0.1f);
+			AC_Controller::Instance->AddTime(100/(MappingDivision/4));
 		return;
 	}
 	Speed += p_Value * 0.1f;
@@ -182,6 +184,7 @@ void AC_MapperPawn::SelectTool(TSubclassOf<AC_MappingTool> p_Tool) {
 	}
 
 	CurrentTool = Cast<AC_MappingTool>(GetWorld()->SpawnActor(p_Tool));
+	CurrentTool->SelectSubTool(0);
 }
 
 void AC_MapperPawn::OnCursorMovedOnOject() {

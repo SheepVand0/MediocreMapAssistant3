@@ -17,7 +17,7 @@ public:
 	AC_Wall();
 
 	UPROPERTY()
-		UStaticMeshComponent* WallMesh;
+		UProceduralMeshComponent* WallMesh;
 
 	UPROPERTY()
 		float Beat;

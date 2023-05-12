@@ -16,6 +16,39 @@ class MMA3_API AC_NoteTool : public AC_MappingTool
 
 public:
 
+	AC_NoteTool();
+
 	virtual void OnUse(FVector p_Position) override;
 
+};
+
+UCLASS()
+class MMA3_API USubNoteTool : public UMappingSubTool {
+
+	GENERATED_BODY()
+
+public:
+
+	USubNoteTool();
+
+	UPROPERTY()
+		int Type;
+
+	UPROPERTY()
+		UStaticMesh* NoteToolMesh;
+
+	UPROPERTY()
+		UMaterialInterface* NoteMaterial;
+
+	UPROPERTY()
+		UMaterialInterface* BombMaterial;
+
+	UPROPERTY()
+		UStaticMesh* BombToolMesh;
+
+	virtual void OnUse(FVector p_Position) override;
+
+	virtual UStaticMesh* GetToolMesh() override;
+
+	virtual UMaterialInterface* GetToolMaterial() override;
 };
