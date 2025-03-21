@@ -84,46 +84,46 @@ public:
 	FMapInfo();
 
 	UPROPERTY()
-		FString SongName;
+	FString SongName;
 
 	UPROPERTY()
-		FString SongSubName;
+	FString SongSubName;
 
 	UPROPERTY()
-		FString SongAuthor;
+	FString SongAuthor;
 
 	UPROPERTY()
-		FString SongMapper;
+	FString SongMapper;
 
 	UPROPERTY()
-		FString MapPath;
+	FString MapPath;
 
 	UPROPERTY()
-		FString AudioFileName;
+	FString AudioFileName;
 
 	UPROPERTY()
 		float BPM;
 
 	UPROPERTY()
-		float PreviewStartTime;
+	float PreviewStartTime;
 
 	UPROPERTY()
-		float PreviewDuration;
+	float PreviewDuration;
 
 	UPROPERTY()
-		FString CoverImageFileName;
+	FString CoverImageFileName;
 
 	UPROPERTY()
-		FString EnvironmentName;
+	FString EnvironmentName;
 
 	UPROPERTY()
-		TArray<FDifficultyBeatmapSet> DifficultyBeatmapSets;
+	TArray<FDifficultyBeatmapSet> DifficultyBeatmapSets;
 
 	UPROPERTY()
-		USoundWave* Song;
+	USoundWave* Song;
 
 	UPROPERTY()
-		UTexture2D* Cover = nullptr;
+	UTexture2D* Cover = nullptr;
 
 	FString GetJson();
 

@@ -20,6 +20,8 @@ AC_Controller::AC_Controller()
 	ConstructorHelpers::FObjectFinder<UMaterialInstance>l_BombMat(TEXT("/Script/Engine.MaterialInstanceConstant'/Game/Assets/Materials/Mapping/M_Bomb.M_Bomb'"));
 	ConstructorHelpers::FObjectFinder<USoundWave> l_HitSound(TEXT("/Script/Engine.SoundWave'/Game/Assets/Sounds/HitSounds/HitSoundb.HitSoundb'"));
 	ConstructorHelpers::FObjectFinder<UMaterial> l_WallMaterial(TEXT("/Script/Engine.Material'/Game/Assets/Materials/Mapping/M_Obstacle.M_Obstacle'"));
+	ConstructorHelpers::FObjectFinder<UMaterialInstance>l_NoteMaterial(TEXT("/Script/Engine.MaterialInstanceConstant'/Game/Assets/Materials/Mapping/M_NoteInstance.M_NoteInstance'"));
+
 
 	AudioComponent = CreateDefaultSubobject<UAudioComponent>(TEXT("Audio"));
 
@@ -35,6 +37,7 @@ AC_Controller::AC_Controller()
 
 	Instance = this;
 
+	GlobalNoteMaterial = l_NoteMaterial.Object;
 	BombMesh = l_Bomb.Object;
 	DotMesh = l_Dot.Object;
 
@@ -57,6 +60,8 @@ void AC_Controller::BeginPlay()
 		UGameplayStatics::SaveGameToSlot(UGameplayStatics::CreateSaveGameObject(UMMAConfig::StaticClass()), MMA_SAVE_GAME_SLOT_NAME, 0);
 	}
 	UMMAConfig::Instance = Cast<UMMAConfig>(UGameplayStatics::LoadGameFromSlot(MMA_SAVE_GAME_SLOT_NAME, 0));
+
+	UpdateNotesMaterial();
 }
 
 void AC_Controller::Tick(float DeltaTime)
@@ -156,7 +161,7 @@ void AC_Controller::AddTime(float p_Value) {
 		return;
 	}
 
-	if (PlayingTime + p_Value > SongDuration) {
+	if (PlayingTime + p_Value > SongDuration && p_Value > 0) {
 		PlayingTime = SongDuration;
 		UpdateBeatGrid();
 		return;
@@ -167,12 +172,59 @@ void AC_Controller::AddTime(float p_Value) {
 }
 
 void AC_Controller::UpdateBeatGrid() {
-	//auto l_RootPos = BeatCells->GetActorLocation();
-	//BeatCells->SetActorLocation(FVector(l_RootPos.X, (PlayingTime * -100) * (MapData.BPM / 60), l_RootPos.Z));
 	float l_CurrentPosition = TimeMarkerCube->GetComponentLocation().Y;
 	float l_YPosition = (PlayingTime * 100) * (MapData.BPM / 60);
 	FVector l_NewPos = FVector(0, l_YPosition, 0);
 	TimeMarkerCube->SetWorldLocation(l_NewPos);
 	MappingGrid->SetWorldLocation(l_NewPos);
 	OnNeedToUpdateMapperPawnPosition.Broadcast(l_YPosition - l_CurrentPosition);
+}
+
+void AC_Controller::UpdateNotesMaterial()
+{
+	if (UMMAConfig::Instance == nullptr) return;
+
+	if (LeftNoteMaterial)
+		delete LeftNoteMaterial;
+
+	if (RightNoteMaterial)
+		delete RightNoteMaterial;
+
+	if (PassedLeftNoteMaterial)
+		delete PassedLeftNoteMaterial;
+
+	if (PassedRightNoteMaterial)
+		delete PassedRightNoteMaterial;
+
+	FLinearColor l_LeftColor = UMMAConfig::Instance->LeftEditorColor;
+	FLinearColor l_RightColor = UMMAConfig::Instance->RightEditorColor;
+
+	UMaterialInstanceDynamic* l_LeftNoteMaterial = UMaterialInstanceDynamic::Create(GlobalNoteMaterial, this);
+	l_LeftNoteMaterial->SetVectorParameterValue("NoteColor", l_LeftColor);
+	LeftNoteMaterial = l_LeftNoteMaterial;
+
+	UMaterialInstanceDynamic* l_RightNoteMaterial = UMaterialInstanceDynamic::Create(GlobalNoteMaterial, this);
+	l_RightNoteMaterial->SetVectorParameterValue("NoteColor", l_RightColor);
+	RightNoteMaterial = l_RightNoteMaterial;
+
+	UMaterialInstanceDynamic* l_PassedLeftNoteMaterial = UMaterialInstanceDynamic::Create(GlobalNoteMaterial, this);
+	l_PassedLeftNoteMaterial->SetVectorParameterValue("NoteColor", l_LeftColor);
+	l_PassedLeftNoteMaterial->SetScalarParameterValue("OpacityMultiplier", .5f);
+	PassedLeftNoteMaterial = l_PassedLeftNoteMaterial;
+
+	UMaterialInstanceDynamic* l_PassedRightNoteMaterial = UMaterialInstanceDynamic::Create(GlobalNoteMaterial, this);
+	l_PassedRightNoteMaterial->SetVectorParameterValue("NoteColor", l_RightColor);
+	l_PassedRightNoteMaterial->SetScalarParameterValue("OpacityMultiplier", .5f);
+	PassedRightNoteMaterial = l_PassedRightNoteMaterial;
+
+}
+
+float AC_Controller::GetBeat()
+{
+	return (PlayingTime / 60.f) * MapData.BPM;
+}
+
+float AC_Controller::GetPlayTime()
+{
+	return PlayingTime;
 }

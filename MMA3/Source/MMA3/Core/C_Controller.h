@@ -80,13 +80,22 @@ public:
 
 	UMaterialInterface* WallMaterial;
 
+	UMaterialInterface* GlobalNoteMaterial;
+	UMaterialInterface* RightNoteMaterial;
+	UMaterialInterface* LeftNoteMaterial;
+	UMaterialInterface* PassedRightNoteMaterial;
+	UMaterialInterface* PassedLeftNoteMaterial;
 
 	UMaterialInstance* BombMaterial;
 
 	USoundWave* HitSound;
 
+
 	UPROPERTY()
-		float PlayingTime;
+	/// <summary>
+	/// In sec
+	/// </summary>
+	float PlayingTime;
 
 	UPROPERTY()
 		float StartedPlayTime;
@@ -104,23 +113,32 @@ public:
 		FMapData MapContent;
 
 	UPROPERTY()
-		float ActorTime;
+	float ActorTime;
 
 	UFUNCTION()
-		void Play();
+	void Play();
 
 	UFUNCTION()
-		void Stop();
+	void Stop();
 
 	UFUNCTION()
-		void GenerateGrid(FMapInfo p_Info, FString p_Diff, FString p_Mode);
+	void GenerateGrid(FMapInfo p_Info, FString p_Diff, FString p_Mode);
 
 	UFUNCTION()
-		void AddTime(float p_Time);
+	void AddTime(float p_Time);
 
 	UFUNCTION()
-		void UpdateBeatGrid();
+	void UpdateBeatGrid();
 
+	UFUNCTION()
+	void UpdateNotesMaterial();
+
+	UFUNCTION()
+	float GetBeat();
+
+	UFUNCTION()
+	float GetPlayTime();
+		
 	static AC_Controller* Instance;
 
 protected:
