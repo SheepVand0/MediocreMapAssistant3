@@ -3,8 +3,9 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "C:\UE\UE5_1_1\UE_5.1\Engine\Plugins\Marketplace\VaRestPlugin\Source\VaRest\Public\VaRestJsonValue.h"
-#include "C:\UE\UE5_1_1\UE_5.1\Engine\Plugins\Marketplace\VaRestPlugin\Source\VaRest\Public\VaRestSubsystem.h"
+#include "VaRest\Public\VaRestJsonValue.h"
+#include "VaRest\Public\VaRestSubsystem.h"
+#include "MMA3/FastLog.h"
 #include "Structures.generated.h"
 
 /**

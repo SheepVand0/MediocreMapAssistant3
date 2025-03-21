@@ -13,7 +13,7 @@
 *.res
 *.old
 *.exp
-
+*.bin
 
 MMA3/Binaries/*
 Intermediate/*

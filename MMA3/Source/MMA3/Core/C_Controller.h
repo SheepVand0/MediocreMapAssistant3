@@ -14,7 +14,9 @@
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnReady);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnTimeUpdated, float, Time);
-DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnNeedToAddBeatmapsObjects);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnNeedToAddBeatmapsObjects, FMapData, mapContent, ABeatCell*, beatCells);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnNeedToUpdateMapperPawnPosition, float, YPosition);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnNeedToResetMapperPawnTransform);
 
 UCLASS()
 class MMA3_API AC_Controller : public AActor
@@ -40,7 +42,13 @@ public:
 	UPROPERTY(BlueprintAssignable)
 		FOnNeedToAddBeatmapsObjects OnNeedToAddBeatmapObjects;
 
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(BlueprintAssignable)
+		FOnNeedToUpdateMapperPawnPosition OnNeedToUpdateMapperPawnPosition;
+
+	UPROPERTY(BlueprintAssignable)
+		FOnNeedToResetMapperPawnTransform OnNeedToResetMapperPawnTransform;
+
+	UPROPERTY()
 		APlayerController* PlayerControllerReference;
 
 	UPROPERTY(EditAnywhere)
@@ -61,23 +69,21 @@ public:
 	UPROPERTY()
 		FMapData CurrentMapData;
 
-	UPROPERTY()
-		UStaticMesh* BombMesh;
+	UStaticMesh* BombMesh;
 
-	UPROPERTY()
-		UStaticMesh* DotMesh;
 
-	UPROPERTY()
-		UStaticMesh* CubeMesh;
+	UStaticMesh* DotMesh;
 
-	UPROPERTY()
-		UMaterialInterface* WallMaterial;
 
-	UPROPERTY()
-		UMaterialInstance* BombMaterial;
+	UStaticMesh* CubeMesh;
 
-	UPROPERTY()
-		USoundWave* HitSound;
+
+	UMaterialInterface* WallMaterial;
+
+
+	UMaterialInstance* BombMaterial;
+
+	USoundWave* HitSound;
 
 	UPROPERTY()
 		float PlayingTime;
@@ -87,6 +93,9 @@ public:
 
 	UPROPERTY()
 		bool Playing;
+
+	UPROPERTY()
+		float SongDuration;
 
 	UPROPERTY()
 		FMapInfo MapData;

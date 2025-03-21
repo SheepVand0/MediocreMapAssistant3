@@ -13,6 +13,10 @@
 #include "Components/PrimitiveComponent.h"
 #include "C_MapperPawn.generated.h"
 
+
+#define DEFAULT_PAWN_POSITION FVector(200, 200, 200)
+#define DEFAULT_PAWN_ROTATION FRotator(0, -30.f, -130.f)
+
 /**
  *
  */
@@ -20,6 +24,13 @@ UCLASS()
 class MMA3_API AC_MapperPawn : public APawn
 {
 	GENERATED_BODY()
+
+protected:
+
+	APlayerController* PlayerControllerReference;
+
+	UFUNCTION()
+	void ResetTransform();
 
 public:
 
@@ -79,13 +90,13 @@ public:
 		void ChangeSpeed(float Value);
 
 	UFUNCTION(BlueprintCallable)
-		void RightClickedPressed();
-
-	UFUNCTION(BlueprintCallable)
-		void RightClickedReleased();
+		void RightClickValue(float value);
 
 	UFUNCTION()
 		void OnLeftClickUsed();
+
+	UFUNCTION()
+		void OnNeedToUpdatePosition(float y);
 
 	UFUNCTION()
 		void PlayStop();

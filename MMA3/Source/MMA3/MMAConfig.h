@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/SaveGame.h"
+#include "Kismet/GameplayStatics.h"
 #include "MMAConfig.generated.h"
 
 #define MMA_SAVE_GAME_SLOT_NAME FString("MMA3Config")
@@ -22,14 +23,32 @@ public:
 
 	static UMMAConfig* Instance;
 
-	UPROPERTY(EditAnywhere)
-		FString GamePath = FString("C:\\Users\\user\\Desktop\\BS1.18.3\\BSLegacyLauncher\\Installed Versions\\Beat Saber 1.26.0");
+	UFUNCTION(BlueprintCallable)
+	static UMMAConfig* LoadConfig() {
+		bool l_SaveGameExists = UGameplayStatics::DoesSaveGameExist(MMA_SAVE_GAME_SLOT_NAME, 0);
+		if (l_SaveGameExists) {
+			Instance = Cast<UMMAConfig>(UGameplayStatics::LoadGameFromSlot(MMA_SAVE_GAME_SLOT_NAME, 0));
+		}
+		else {
+			Instance = Cast<UMMAConfig>(UGameplayStatics::CreateSaveGameObject(UMMAConfig::StaticClass()));
+			UGameplayStatics::SaveGameToSlot(Instance, MMA_SAVE_GAME_SLOT_NAME, 0);
+		}
+		return Instance;
+	}
 
-	UPROPERTY(EditAnywhere)
-		FColor LeftEditorColor = FColor(0.2f, 0, 0);
+	UFUNCTION(BlueprintCallable)
+	static void SaveConfig(UMMAConfig* x) {
+		UGameplayStatics::SaveGameToSlot(x, MMA_SAVE_GAME_SLOT_NAME, 0);
+	}
 
-	UPROPERTY(EditAnywhere)
-		FColor RightEditorColor = FColor(0, 0, 0.2f);
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		FString GamePath = FString("C:\\Users\\lphel\\BSManager\\BSInstances\\1.39.1");
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		FLinearColor LeftEditorColor = FLinearColor(0.8f, 0, 0);
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		FLinearColor RightEditorColor = FLinearColor(0, 0.5f, 0.8f);
 
 };
 

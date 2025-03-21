@@ -15,9 +15,12 @@
 #include "MMA3/Widgets/Structures.h"
 #include "Components/Image.h"
 #include "ImageUtils.h"
-#include "C:/UE/UE5_1_1/UE_5.1/Engine/Plugins/Marketplace/RuntimeAudioImporter/Source/RuntimeAudioImporter/Public/RuntimeAudioImporterLibrary.h"
-#include "C:/UE/UE5_1_1/UE_5.1/Engine/Plugins/Marketplace/RuntimeAudioImporter/Source/RuntimeAudioImporter/Public/RuntimeAudioImporterTypes.h"
-#include "C:/UE/UE5_1_1/UE_5.1/Engine/Plugins/Marketplace/RuntimeAudioImporter/Source/RuntimeAudioImporter/Public/Sound/ImportedSoundWave.h"
+#include "RuntimeAudioImporter\Public\RuntimeAudioImporterLibrary.h"
+#include "RuntimeAudioImporter\Public\RuntimeAudioImporterTypes.h"
+#include "RuntimeAudioImporter\Public\Sound\ImportedSoundWave.h"
+#include "MMA3/EditorLibrary.h"
+#include "MMA3/Misc/SActionPtr.h"
+#include "MMA3/EditorLibrary.h"
 #include "MapDetailsWidget.generated.h"
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnNeedToAddDifficultyBeatmaps);
@@ -53,9 +56,10 @@ private:
 public:
 
 	UFUNCTION(BlueprintCallable)
-		void SetMapInfo(UMapDetailsWidget* p_ParentReference, FString p_Difficulty);
+		void SetDifficulty(UMapDetailsWidget* p_ParentReference, FString p_Difficulty);
 
-	FString GetDifficulty();
+	UFUNCTION(BlueprintPure)
+		FString GetDifficulty();
 
 };
 
@@ -72,15 +76,17 @@ public:
 	virtual void NativeConstruct() override;
 
 	static UMapDetailsWidget* Instance;
+	
+	UPROPERTY()
+		FMapInfo Info;
 
 	UPROPERTY()
-		FMapInfo m_Info;
-
-	UPROPERTY()
-		FString m_SelectedMode;
+		FString SelectedMode;
 
 	UPROPERTY()
 		FMapDifficulty m_SelectedDifficulty;
+
+////////////////////////////////////////////////////////////////
 
 	UPROPERTY(EditAnywhere, meta =(BindWidget))
 		class UCustomEditableTextBox* MapName;
@@ -175,8 +181,8 @@ public:
 	UPROPERTY(BlueprintAssignable)
 		FOnDifficultySelected EventOnDifficultySelected;
 
-	UPROPERTY()
-		URuntimeAudioImporterLibrary* RuntimeAudioImporter;
+	UPROPERTY(BlueprintAssignable)
+		FOnMapCellsFinishedToBeAdd OnMapCellsFinished;
 
 	UFUNCTION(BlueprintCallable)
 		void OnMapCellsFnisihedToBeAddCallback();
@@ -188,7 +194,7 @@ public:
 		void UpdateCover();
 
 	UFUNCTION()
-		void UpdateMapList(FString p_Mode);
+		void UpdateDifficultyList(FString p_Mode);
 
 	UFUNCTION()
 		void SetDifficultyPropertiesEnable(bool p_Enable);
@@ -197,13 +203,10 @@ public:
 		void OnDifficultySelected(FString SerializedDifficulty);
 
 	UFUNCTION()
-		FMapDifficulty GetDifficultyByMapAndMode(FString p_Difficulty, FString p_Mode);
-
-	UFUNCTION()
 		void OnEditButtonClicked();
 
 	UFUNCTION()
-		void FinishedLoadingAudio(URuntimeAudioImporterLibrary* p_Importer, UImportedSoundWave* p_ImportedSoundWave, ETranscodingStatus p_Status);
+		void FinishedLoadingAudio(URuntimeAudioImporterLibrary* Importer, UImportedSoundWave* ImportedSoundWave, ERuntimeImportStatus Status);
 
 };
 

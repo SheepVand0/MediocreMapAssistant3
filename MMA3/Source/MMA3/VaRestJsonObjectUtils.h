@@ -3,8 +3,8 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "C:\UE\UE5_1_1\UE_5.1\Engine\Plugins\Marketplace\VaRestPlugin\Source\VaRest\Public\VaRestJsonObject.h"
-#include "C:\UE\UE5_1_1\UE_5.1\Engine\Plugins\Marketplace\VaRestPlugin\Source\VaRest\Public\VaRestJsonValue.h"
+#include "VaRest\Public\VaRestJsonObject.h"
+#include "VaRest\Public\VaRestJsonValue.h"
 
 /**
  *

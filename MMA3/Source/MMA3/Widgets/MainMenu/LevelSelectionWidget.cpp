@@ -14,15 +14,7 @@ void ULevelSelectionWidget::NativeConstruct() {
 
 	//return;
 
-	if (UMMAConfig::Instance == nullptr) {
-		bool l_SaveGameExists = UGameplayStatics::DoesSaveGameExist(MMA_SAVE_GAME_SLOT_NAME, 0);
-
-		if (l_SaveGameExists) { UMMAConfig::Instance = (UMMAConfig*)UGameplayStatics::LoadGameFromSlot(MMA_SAVE_GAME_SLOT_NAME, 0); }
-		else {
-			UMMAConfig::Instance = (UMMAConfig*)UGameplayStatics::CreateSaveGameObject(UMMAConfig::StaticClass());
-			UGameplayStatics::SaveGameToSlot(UMMAConfig::Instance, MMA_SAVE_GAME_SLOT_NAME, 0);
-		}
-	}
+	UMMAConfig::LoadConfig();
 
 	ULevelSelectionWidget::Instance = this;
 
@@ -40,6 +32,8 @@ void ULevelSelectionWidget::EventBlueprintReady() {
 }
 
 void ULevelSelectionWidget::OnMapSelected() {
+	if (LevelsScrollBox->SelectedCell == nullptr) return;
+
 	MapDetailsBox->SetVisibility(ESlateVisibility::Visible);
 	FMapInfo l_Info = LevelsScrollBox->SelectedCell->GetData();
 	SongName->SetText(FText::FromString(l_Info.SongName));
@@ -56,7 +50,7 @@ void ULevelSelectionWidget::OnMapSelected() {
 
 		//GEngine->AddOnScreenDebugMessage(2, 10.0f, FColor::White, FString(l_FilePath));
 
-		//if (!l_FileManager.FileExists(*l_FilePath)) return;
+		if (!l_FileManager.FileExists(*l_FilePath)) return;
 
 		l_Info.Cover = FImageUtils::ImportFileAsTexture2D(*l_FilePath);
 	}
@@ -75,15 +69,17 @@ void ULevelSelectionWidget::OnMapSelected() {
 	CoverPreview->SetBrush(l_Brush);
 }
 
+void ULevelSelectionWidget::OnSettingsButtonPressed() {
+
+}
+
 void ULevelSelectionWidget::RefreshMaps(EMapListType p_MapRefreshType) {
 	m_Maps.Empty();
 
-	UMMAConfig* l_Conf = UMMAConfig::Instance;
-	if (l_Conf == nullptr) {
-		l_Conf = Cast<UMMAConfig>(UGameplayStatics::LoadGameFromSlot(MMA_SAVE_GAME_SLOT_NAME, 0));
-	}
+	UMMAConfig* l_Conf = UMMAConfig::LoadConfig();
 	if (l_Conf == nullptr) return;
-	FString l_GamePath = "C:\\Users\\user\\Desktop\\BS1.18.3\\BSLegacyLauncher\\Installed Versions\\Beat Saber 1.26.0";
+
+	FString l_GamePath = l_Conf->GamePath;
 	FString l_Path = l_GamePath + "\\Beat Saber_Data" + (p_MapRefreshType == EMapListType::WIP ? "\\CustomWIPLevels" : "\\CustomLevels");
 
 	FDirectoryVisitor l_Visitor;

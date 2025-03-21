@@ -39,6 +39,8 @@ void FMapInfo::FromJson(FString p_Json, FString p_MapPath) {
 	CoverImageFileName = VaRestJsonObjectUtils::GetStringField(l_Object, "_coverImageFileName");
 	EnvironmentName = VaRestJsonObjectUtils::GetStringField(l_Object, "_environmentName");
 	BPM = VaRestJsonObjectUtils::GetNumberField(l_Object, "_beatsPerMinute");
+	PreviewStartTime = VaRestJsonObjectUtils::GetNumberField(l_Object, "_previewStartTime");
+	PreviewDuration = VaRestJsonObjectUtils::GetNumberField(l_Object, "_previewDuration");
 
 	TArray<UVaRestJsonValue*> l_DifficultyBeatmapSets = VaRestJsonObjectUtils::GetValueArrayField(l_Object, "_difficultyBeatmapSets");
 
@@ -57,16 +59,17 @@ void FMapInfo::FromJson(FString p_Json, FString p_MapPath) {
 			l_Difficulty.DifficultyRank = VaRestJsonObjectUtils::GetIntegerField(l_BeatmapDifficultyObject, "_difficultyRank");
 			l_Difficulty.NoteJumpMovementSpeed = VaRestJsonObjectUtils::GetNumberField(l_BeatmapDifficultyObject, "_noteJumpMovementSpeed");
 			l_Difficulty.NoteJumpStartBeatOffset = VaRestJsonObjectUtils::GetNumberField(l_BeatmapDifficultyObject, "_noteJumpStartBeatOffset");
+			l_Difficulty.BeatmapFileName = VaRestJsonObjectUtils::GetStringField(l_BeatmapDifficultyObject, "_beatmapFilename");
 
 			UVaRestJsonValue* l_CustomDataValue = l_BeatmapDifficultyObject->GetField("_customData");
 			if (l_CustomDataValue == nullptr) continue;
 			UVaRestJsonObject* l_CustomData = l_CustomDataValue->AsObject();
 
-			l_Difficulty.DifficultyLabel = VaRestJsonObjectUtils::GetStringField(l_BeatmapDifficultyObject, "_difficultyLabel");
-			l_Difficulty.Requirements = VaRestJsonObjectUtils::GetStringArrayField(l_BeatmapDifficultyObject, "_requirements");
-			l_Difficulty.Warnings = VaRestJsonObjectUtils::GetStringArrayField(l_BeatmapDifficultyObject, "_warnings");
-			l_Difficulty.Informations = VaRestJsonObjectUtils::GetStringArrayField(l_BeatmapDifficultyObject, "_information");
-			l_Difficulty.Suggestions = VaRestJsonObjectUtils::GetStringArrayField(l_BeatmapDifficultyObject, "_suggestions");
+			l_Difficulty.DifficultyLabel = VaRestJsonObjectUtils::GetStringField(l_CustomData, "_difficultyLabel");
+			l_Difficulty.Requirements = VaRestJsonObjectUtils::GetStringArrayField(l_CustomData, "_requirements");
+			l_Difficulty.Warnings = VaRestJsonObjectUtils::GetStringArrayField(l_CustomData, "_warnings");
+			l_Difficulty.Informations = VaRestJsonObjectUtils::GetStringArrayField(l_CustomData, "_information");
+			l_Difficulty.Suggestions = VaRestJsonObjectUtils::GetStringArrayField(l_CustomData, "_suggestions");
 
 			l_Difficulties.Add(l_Difficulty);
 		}
@@ -82,10 +85,15 @@ void FMapData::FromJson(FString p_Json) {
 
 	l_Object->DecodeJson(p_Json);
 
-	Version = l_Object->GetStringField("_version");
+	if (l_Object->HasField("_version"))
+		Version = l_Object->GetStringField("_version");
+	else
+		Version = l_Object->GetStringField("version");
+
 	Notes.Empty();
 	Walls.Empty();
-	if (Version == "2.2.0" || Version == "2.5.0") {
+	if (Version[0] == '2') {
+		PRINT_STRING(0, FColor::Cyan, FString("Version is 2.2.0 or 2.5.0"));
 		TArray<UVaRestJsonValue*> l_Notes = VaRestJsonObjectUtils::GetValueArrayField(l_Object, "_notes");
 		TArray<UVaRestJsonValue*> l_Walls = VaRestJsonObjectUtils::GetValueArrayField(l_Object, "_obstacles");
 
@@ -111,8 +119,10 @@ void FMapData::FromJson(FString p_Json) {
 			Walls.Add(l_Wall);
 		}
 	}
-	else if (Version == "3.0.0") {
-		TArray<UVaRestJsonValue*> l_Notes = VaRestJsonObjectUtils::GetValueArrayField(l_Object, "_notes");
+	else if (Version[0] == '3') {
+		PRINT_STRING(0, FColor::Yellow, TEXT("Version is 3"));
+
+		TArray<UVaRestJsonValue*> l_Notes = VaRestJsonObjectUtils::GetValueArrayField(l_Object, "colorNotes");
 
 		for (int l_i = 0; l_i < l_Notes.Num(); l_i++) {
 			UVaRestJsonObject* l_IndexNote = l_Notes[l_i]->AsObject();
@@ -123,6 +133,9 @@ void FMapData::FromJson(FString p_Json) {
 			l_Note.Type = l_IndexNote->GetIntegerField("c");
 			l_Note.Direction = l_IndexNote->GetIntegerField("d");
 			l_Note.Angle = l_IndexNote->GetIntegerField("a");
+			Notes.Add(l_Note);
 		}
+
+
 	}
 }

@@ -18,7 +18,6 @@ void UMapCell::SetData(FMapInfo p_Info) {
 }
 
 void UMapCell::SetSelected() {
-	GEngine->AddOnScreenDebugMessage(1, 10.0f, FColor::White, FString("Pressed"));
 	m_ListReference->SelectedCell = this;
 	m_ListReference->OnMapButtonPressedEvent.Broadcast();
 	CButton->WidgetStyle.SetNormal(CButton->m_PressedBrush);

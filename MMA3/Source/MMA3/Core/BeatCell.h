@@ -4,7 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
-#include "C:/UE/UE5_1_1/UE_5.1/Engine/Plugins/Runtime/ProceduralMeshComponent/Source/ProceduralMeshComponent/Public/ProceduralMeshComponent.h"
+#include "ProceduralMeshComponent.h"
 #include "BeatCell.generated.h"
 
 UCLASS()
@@ -29,8 +29,10 @@ public:
 
 	void SetLength(float p_Length);
 
-	UProceduralMeshComponent* Beats;
+	UPROPERTY()
+		UProceduralMeshComponent* Beats;
 
-	UMaterialInstance* Material;
+	UPROPERTY()
+		UMaterialInstance* Material;
 
 };

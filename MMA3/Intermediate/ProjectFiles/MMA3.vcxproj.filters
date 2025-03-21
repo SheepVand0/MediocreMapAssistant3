@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <None Include="..\..\MMA3.uproject" />
@@ -27,282 +27,27 @@
     <None Include="..\..\Config\DefaultInput.ini">
       <Filter>Config</Filter>
     </None>
-    <Filter Include="Config\HoloLens">
-      <UniqueIdentifier>{4C8DD267-CDE7-336F-8602-F5F485D22BAB}</UniqueIdentifier>
-    </Filter>
-    <None Include="..\..\Config\HoloLens\HoloLensEngine.ini">
-      <Filter>Config\HoloLens</Filter>
-    </None>
-    <Filter Include="Plugins">
-      <UniqueIdentifier>{BB38096A-B391-30DC-A0D4-4F3EA6B44507}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Plugins\RuntimeAudioImporter">
-      <UniqueIdentifier>{12298974-62D2-3C42-86DB-390F23F86BFC}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Plugins\RuntimeAudioImporter\Source">
-      <UniqueIdentifier>{D13BF81E-35C4-3A53-9EBA-2529FCBB428C}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Plugins\RuntimeAudioImporter\Source\RuntimeAudioImporterEditor">
-      <UniqueIdentifier>{AE774F94-B840-3171-9F32-BD36C2ADF204}</UniqueIdentifier>
-    </Filter>
-    <None Include="..\..\Plugins\RuntimeAudioImporter\Source\RuntimeAudioImporterEditor\RuntimeAudioImporterEditor.Build.cs">
-      <Filter>Plugins\RuntimeAudioImporter\Source\RuntimeAudioImporterEditor</Filter>
-    </None>
-    <Filter Include="Plugins\RuntimeAudioImporter\Source\RuntimeAudioImporterEditor\Private">
-      <UniqueIdentifier>{2200ED56-B69A-3C31-967F-E3621D03C0DE}</UniqueIdentifier>
-    </Filter>
-    <ClCompile Include="..\..\Plugins\RuntimeAudioImporter\Source\RuntimeAudioImporterEditor\Private\PreImportedSoundFactory.cpp">
-      <Filter>Plugins\RuntimeAudioImporter\Source\RuntimeAudioImporterEditor\Private</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Plugins\RuntimeAudioImporter\Source\RuntimeAudioImporterEditor\Private\RuntimeAudioImporterEditor.cpp">
-      <Filter>Plugins\RuntimeAudioImporter\Source\RuntimeAudioImporterEditor\Private</Filter>
-    </ClCompile>
-    <Filter Include="Plugins\RuntimeAudioImporter\Source\RuntimeAudioImporterEditor\Public">
-      <UniqueIdentifier>{1CB63269-7D26-3AFD-8812-D2D00A7703AF}</UniqueIdentifier>
-    </Filter>
-    <ClInclude Include="..\..\Plugins\RuntimeAudioImporter\Source\RuntimeAudioImporterEditor\Public\PreImportedSoundFactory.h">
-      <Filter>Plugins\RuntimeAudioImporter\Source\RuntimeAudioImporterEditor\Public</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Plugins\RuntimeAudioImporter\Source\RuntimeAudioImporterEditor\Public\RuntimeAudioImporterEditor.h">
-      <Filter>Plugins\RuntimeAudioImporter\Source\RuntimeAudioImporterEditor\Public</Filter>
-    </ClInclude>
-    <None Include="..\..\Plugins\RuntimeAudioImporter\RuntimeAudioImporter.uplugin">
-      <Filter>Plugins\RuntimeAudioImporter</Filter>
-    </None>
-    <Filter Include="Plugins\RuntimeAudioImporter\Resources">
-      <UniqueIdentifier>{4993C175-DB94-3FA6-B0E8-4B93B2DE77E3}</UniqueIdentifier>
-    </Filter>
-    <None Include="..\..\Plugins\RuntimeAudioImporter\Resources\Icon128.png">
-      <Filter>Plugins\RuntimeAudioImporter\Resources</Filter>
-    </None>
-    <Filter Include="Plugins\VaRestPlugin">
-      <UniqueIdentifier>{ECA303EA-4A42-392E-858F-713E2940B6C5}</UniqueIdentifier>
-    </Filter>
-    <None Include="..\..\Plugins\VaRestPlugin\VaRest.uplugin">
-      <Filter>Plugins\VaRestPlugin</Filter>
-    </None>
-    <Filter Include="Plugins\VaRestPlugin\Config">
-      <UniqueIdentifier>{A973B7D4-B247-36A7-99E9-658861379882}</UniqueIdentifier>
-    </Filter>
-    <None Include="..\..\Plugins\VaRestPlugin\Config\BaseVaRest.ini">
-      <Filter>Plugins\VaRestPlugin\Config</Filter>
-    </None>
-    <None Include="..\..\Plugins\VaRestPlugin\Config\DefaultVaRest.ini">
-      <Filter>Plugins\VaRestPlugin\Config</Filter>
-    </None>
-    <Filter Include="Plugins\VaRestPlugin\Resources">
-      <UniqueIdentifier>{241DCE30-C731-3E2A-99A0-E0814E899120}</UniqueIdentifier>
-    </Filter>
-    <None Include="..\..\Plugins\VaRestPlugin\Resources\Icon128.png">
-      <Filter>Plugins\VaRestPlugin\Resources</Filter>
-    </None>
-    <Filter Include="Plugins\RuntimeAudioImporter\Source\RuntimeAudioImporter">
-      <UniqueIdentifier>{304DD8B3-A3A4-3A9B-AF34-01C42EB11210}</UniqueIdentifier>
-    </Filter>
-    <None Include="..\..\Plugins\RuntimeAudioImporter\Source\RuntimeAudioImporter\RuntimeAudioImporter.Build.cs">
-      <Filter>Plugins\RuntimeAudioImporter\Source\RuntimeAudioImporter</Filter>
-    </None>
-    <Filter Include="Plugins\RuntimeAudioImporter\Source\RuntimeAudioImporter\Private">
-      <UniqueIdentifier>{0BFAEEE0-6177-3EDF-B98C-0C8D37A66910}</UniqueIdentifier>
-    </Filter>
-    <ClCompile Include="..\..\Plugins\RuntimeAudioImporter\Source\RuntimeAudioImporter\Private\PreImportedSoundAsset.cpp">
-      <Filter>Plugins\RuntimeAudioImporter\Source\RuntimeAudioImporter\Private</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Plugins\RuntimeAudioImporter\Source\RuntimeAudioImporter\Private\RuntimeAudioImporter.cpp">
-      <Filter>Plugins\RuntimeAudioImporter\Source\RuntimeAudioImporter\Private</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Plugins\RuntimeAudioImporter\Source\RuntimeAudioImporter\Private\RuntimeAudioImporterLibrary.cpp">
-      <Filter>Plugins\RuntimeAudioImporter\Source\RuntimeAudioImporter\Private</Filter>
-    </ClCompile>
-    <Filter Include="Plugins\RuntimeAudioImporter\Source\RuntimeAudioImporter\Private\MetaSound">
-      <UniqueIdentifier>{DBA6968F-0A77-3DE1-9911-31B39A336D8F}</UniqueIdentifier>
-    </Filter>
-    <ClCompile Include="..\..\Plugins\RuntimeAudioImporter\Source\RuntimeAudioImporter\Private\MetaSound\MetasoundImportedWave.cpp">
-      <Filter>Plugins\RuntimeAudioImporter\Source\RuntimeAudioImporter\Private\MetaSound</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Plugins\RuntimeAudioImporter\Source\RuntimeAudioImporter\Private\MetaSound\MetasoundImportedWaveToWaveAssetNode.cpp">
-      <Filter>Plugins\RuntimeAudioImporter\Source\RuntimeAudioImporter\Private\MetaSound</Filter>
-    </ClCompile>
-    <Filter Include="Plugins\RuntimeAudioImporter\Source\RuntimeAudioImporter\Private\Sound">
-      <UniqueIdentifier>{6CF30925-2D48-3CA5-BF9C-C2F780CD201C}</UniqueIdentifier>
-    </Filter>
-    <ClCompile Include="..\..\Plugins\RuntimeAudioImporter\Source\RuntimeAudioImporter\Private\Sound\CapturableSoundWave.cpp">
-      <Filter>Plugins\RuntimeAudioImporter\Source\RuntimeAudioImporter\Private\Sound</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Plugins\RuntimeAudioImporter\Source\RuntimeAudioImporter\Private\Sound\ImportedSoundWave.cpp">
-      <Filter>Plugins\RuntimeAudioImporter\Source\RuntimeAudioImporter\Private\Sound</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Plugins\RuntimeAudioImporter\Source\RuntimeAudioImporter\Private\Sound\StreamingSoundWave.cpp">
-      <Filter>Plugins\RuntimeAudioImporter\Source\RuntimeAudioImporter\Private\Sound</Filter>
-    </ClCompile>
-    <Filter Include="Plugins\RuntimeAudioImporter\Source\RuntimeAudioImporter\Private\Transcoders">
-      <UniqueIdentifier>{BFD7258C-7D9E-37A6-81BD-F13B69055921}</UniqueIdentifier>
-    </Filter>
-    <ClCompile Include="..\..\Plugins\RuntimeAudioImporter\Source\RuntimeAudioImporter\Private\Transcoders\FlacTranscoder.cpp">
-      <Filter>Plugins\RuntimeAudioImporter\Source\RuntimeAudioImporter\Private\Transcoders</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Plugins\RuntimeAudioImporter\Source\RuntimeAudioImporter\Private\Transcoders\MP3Transcoder.cpp">
-      <Filter>Plugins\RuntimeAudioImporter\Source\RuntimeAudioImporter\Private\Transcoders</Filter>
-    </ClCompile>
-    <ClInclude Include="..\..\Plugins\RuntimeAudioImporter\Source\RuntimeAudioImporter\Private\Transcoders\TranscodersIncludes.h">
-      <Filter>Plugins\RuntimeAudioImporter\Source\RuntimeAudioImporter\Private\Transcoders</Filter>
-    </ClInclude>
-    <ClCompile Include="..\..\Plugins\RuntimeAudioImporter\Source\RuntimeAudioImporter\Private\Transcoders\VorbisTranscoder.cpp">
-      <Filter>Plugins\RuntimeAudioImporter\Source\RuntimeAudioImporter\Private\Transcoders</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Plugins\RuntimeAudioImporter\Source\RuntimeAudioImporter\Private\Transcoders\WAVTranscoder.cpp">
-      <Filter>Plugins\RuntimeAudioImporter\Source\RuntimeAudioImporter\Private\Transcoders</Filter>
-    </ClCompile>
-    <Filter Include="Plugins\RuntimeAudioImporter\Source\RuntimeAudioImporter\Public">
-      <UniqueIdentifier>{32E7CE76-3883-3AEA-8D3D-77CCDC605645}</UniqueIdentifier>
-    </Filter>
-    <ClInclude Include="..\..\Plugins\RuntimeAudioImporter\Source\RuntimeAudioImporter\Public\PreImportedSoundAsset.h">
-      <Filter>Plugins\RuntimeAudioImporter\Source\RuntimeAudioImporter\Public</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Plugins\RuntimeAudioImporter\Source\RuntimeAudioImporter\Public\RuntimeAudioImporter.h">
-      <Filter>Plugins\RuntimeAudioImporter\Source\RuntimeAudioImporter\Public</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Plugins\RuntimeAudioImporter\Source\RuntimeAudioImporter\Public\RuntimeAudioImporterDefines.h">
-      <Filter>Plugins\RuntimeAudioImporter\Source\RuntimeAudioImporter\Public</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Plugins\RuntimeAudioImporter\Source\RuntimeAudioImporter\Public\RuntimeAudioImporterLibrary.h">
-      <Filter>Plugins\RuntimeAudioImporter\Source\RuntimeAudioImporter\Public</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Plugins\RuntimeAudioImporter\Source\RuntimeAudioImporter\Public\RuntimeAudioImporterTypes.h">
-      <Filter>Plugins\RuntimeAudioImporter\Source\RuntimeAudioImporter\Public</Filter>
-    </ClInclude>
-    <Filter Include="Plugins\RuntimeAudioImporter\Source\RuntimeAudioImporter\Public\MetaSound">
-      <UniqueIdentifier>{4BA4BD12-F6FB-3896-AB4E-AF47CBD0D53C}</UniqueIdentifier>
-    </Filter>
-    <ClInclude Include="..\..\Plugins\RuntimeAudioImporter\Source\RuntimeAudioImporter\Public\MetaSound\MetasoundImportedWave.h">
-      <Filter>Plugins\RuntimeAudioImporter\Source\RuntimeAudioImporter\Public\MetaSound</Filter>
-    </ClInclude>
-    <Filter Include="Plugins\RuntimeAudioImporter\Source\RuntimeAudioImporter\Public\Sound">
-      <UniqueIdentifier>{F7BDAC61-7D6F-371E-AB86-C4A8920CA6D6}</UniqueIdentifier>
-    </Filter>
-    <ClInclude Include="..\..\Plugins\RuntimeAudioImporter\Source\RuntimeAudioImporter\Public\Sound\CapturableSoundWave.h">
-      <Filter>Plugins\RuntimeAudioImporter\Source\RuntimeAudioImporter\Public\Sound</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Plugins\RuntimeAudioImporter\Source\RuntimeAudioImporter\Public\Sound\ImportedSoundWave.h">
-      <Filter>Plugins\RuntimeAudioImporter\Source\RuntimeAudioImporter\Public\Sound</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Plugins\RuntimeAudioImporter\Source\RuntimeAudioImporter\Public\Sound\StreamingSoundWave.h">
-      <Filter>Plugins\RuntimeAudioImporter\Source\RuntimeAudioImporter\Public\Sound</Filter>
-    </ClInclude>
-    <Filter Include="Plugins\RuntimeAudioImporter\Source\RuntimeAudioImporter\Public\Transcoders">
-      <UniqueIdentifier>{1D9F90CF-B056-39CD-922B-61D4A71066E8}</UniqueIdentifier>
-    </Filter>
-    <ClInclude Include="..\..\Plugins\RuntimeAudioImporter\Source\RuntimeAudioImporter\Public\Transcoders\FlacTranscoder.h">
-      <Filter>Plugins\RuntimeAudioImporter\Source\RuntimeAudioImporter\Public\Transcoders</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Plugins\RuntimeAudioImporter\Source\RuntimeAudioImporter\Public\Transcoders\MP3Transcoder.h">
-      <Filter>Plugins\RuntimeAudioImporter\Source\RuntimeAudioImporter\Public\Transcoders</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Plugins\RuntimeAudioImporter\Source\RuntimeAudioImporter\Public\Transcoders\RAWTranscoder.h">
-      <Filter>Plugins\RuntimeAudioImporter\Source\RuntimeAudioImporter\Public\Transcoders</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Plugins\RuntimeAudioImporter\Source\RuntimeAudioImporter\Public\Transcoders\VorbisTranscoder.h">
-      <Filter>Plugins\RuntimeAudioImporter\Source\RuntimeAudioImporter\Public\Transcoders</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Plugins\RuntimeAudioImporter\Source\RuntimeAudioImporter\Public\Transcoders\WAVTranscoder.h">
-      <Filter>Plugins\RuntimeAudioImporter\Source\RuntimeAudioImporter\Public\Transcoders</Filter>
-    </ClInclude>
-    <Filter Include="Plugins\VaRestPlugin\Source">
-      <UniqueIdentifier>{1BE2E377-7E25-3A4B-8390-81EAB7F69909}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Plugins\VaRestPlugin\Source\VaRestEditor">
-      <UniqueIdentifier>{FBEBAEC4-37A2-3126-9A7D-094CF5C46243}</UniqueIdentifier>
-    </Filter>
-    <None Include="..\..\Plugins\VaRestPlugin\Source\VaRestEditor\VaRestEditor.Build.cs">
-      <Filter>Plugins\VaRestPlugin\Source\VaRestEditor</Filter>
-    </None>
-    <Filter Include="Plugins\VaRestPlugin\Source\VaRestEditor\Private">
-      <UniqueIdentifier>{9F1E6682-2268-3852-A8FB-40204233A658}</UniqueIdentifier>
-    </Filter>
-    <ClCompile Include="..\..\Plugins\VaRestPlugin\Source\VaRestEditor\Private\VaRestEditor.cpp">
-      <Filter>Plugins\VaRestPlugin\Source\VaRestEditor\Private</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Plugins\VaRestPlugin\Source\VaRestEditor\Private\VaRest_BreakJson.cpp">
-      <Filter>Plugins\VaRestPlugin\Source\VaRestEditor\Private</Filter>
-    </ClCompile>
-    <Filter Include="Plugins\VaRestPlugin\Source\VaRestEditor\Public">
-      <UniqueIdentifier>{4FBD5269-73FC-3589-A6F9-FE2162C12D3B}</UniqueIdentifier>
-    </Filter>
-    <ClInclude Include="..\..\Plugins\VaRestPlugin\Source\VaRestEditor\Public\VaRestEditor.h">
-      <Filter>Plugins\VaRestPlugin\Source\VaRestEditor\Public</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Plugins\VaRestPlugin\Source\VaRestEditor\Public\VaRest_BreakJson.h">
-      <Filter>Plugins\VaRestPlugin\Source\VaRestEditor\Public</Filter>
-    </ClInclude>
-    <Filter Include="Plugins\VaRestPlugin\Source\VaRest">
-      <UniqueIdentifier>{B16AA51E-8709-38EC-B4C8-F50739CC7C43}</UniqueIdentifier>
-    </Filter>
-    <None Include="..\..\Plugins\VaRestPlugin\Source\VaRest\VaRest.Build.cs">
-      <Filter>Plugins\VaRestPlugin\Source\VaRest</Filter>
-    </None>
-    <Filter Include="Plugins\VaRestPlugin\Source\VaRest\Private">
-      <UniqueIdentifier>{DE0AF2FE-096B-330A-9E4E-972DBBB132B0}</UniqueIdentifier>
-    </Filter>
-    <ClCompile Include="..\..\Plugins\VaRestPlugin\Source\VaRest\Private\VaRest.cpp">
-      <Filter>Plugins\VaRestPlugin\Source\VaRest\Private</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Plugins\VaRestPlugin\Source\VaRest\Private\VaRestJsonObject.cpp">
-      <Filter>Plugins\VaRestPlugin\Source\VaRest\Private</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Plugins\VaRestPlugin\Source\VaRest\Private\VaRestJsonParser.cpp">
-      <Filter>Plugins\VaRestPlugin\Source\VaRest\Private</Filter>
-    </ClCompile>
-    <ClInclude Include="..\..\Plugins\VaRestPlugin\Source\VaRest\Private\VaRestJsonParser.h">
-      <Filter>Plugins\VaRestPlugin\Source\VaRest\Private</Filter>
-    </ClInclude>
-    <ClCompile Include="..\..\Plugins\VaRestPlugin\Source\VaRest\Private\VaRestJsonValue.cpp">
-      <Filter>Plugins\VaRestPlugin\Source\VaRest\Private</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Plugins\VaRestPlugin\Source\VaRest\Private\VaRestLibrary.cpp">
-      <Filter>Plugins\VaRestPlugin\Source\VaRest\Private</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Plugins\VaRestPlugin\Source\VaRest\Private\VaRestRequestJSON.cpp">
-      <Filter>Plugins\VaRestPlugin\Source\VaRest\Private</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Plugins\VaRestPlugin\Source\VaRest\Private\VaRestSettings.cpp">
-      <Filter>Plugins\VaRestPlugin\Source\VaRest\Private</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Plugins\VaRestPlugin\Source\VaRest\Private\VaRestSubsystem.cpp">
-      <Filter>Plugins\VaRestPlugin\Source\VaRest\Private</Filter>
-    </ClCompile>
-    <Filter Include="Plugins\VaRestPlugin\Source\VaRest\Public">
-      <UniqueIdentifier>{E0222B04-4EEF-3B1C-89C6-5C979E067CA6}</UniqueIdentifier>
-    </Filter>
-    <ClInclude Include="..\..\Plugins\VaRestPlugin\Source\VaRest\Public\VaRest.h">
-      <Filter>Plugins\VaRestPlugin\Source\VaRest\Public</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Plugins\VaRestPlugin\Source\VaRest\Public\VaRestDefines.h">
-      <Filter>Plugins\VaRestPlugin\Source\VaRest\Public</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Plugins\VaRestPlugin\Source\VaRest\Public\VaRestJsonObject.h">
-      <Filter>Plugins\VaRestPlugin\Source\VaRest\Public</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Plugins\VaRestPlugin\Source\VaRest\Public\VaRestJsonValue.h">
-      <Filter>Plugins\VaRestPlugin\Source\VaRest\Public</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Plugins\VaRestPlugin\Source\VaRest\Public\VaRestLibrary.h">
-      <Filter>Plugins\VaRestPlugin\Source\VaRest\Public</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Plugins\VaRestPlugin\Source\VaRest\Public\VaRestRequestJSON.h">
-      <Filter>Plugins\VaRestPlugin\Source\VaRest\Public</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Plugins\VaRestPlugin\Source\VaRest\Public\VaRestSettings.h">
-      <Filter>Plugins\VaRestPlugin\Source\VaRest\Public</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Plugins\VaRestPlugin\Source\VaRest\Public\VaRestSubsystem.h">
-      <Filter>Plugins\VaRestPlugin\Source\VaRest\Public</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Plugins\VaRestPlugin\Source\VaRest\Public\VaRestTypes.h">
-      <Filter>Plugins\VaRestPlugin\Source\VaRest\Public</Filter>
-    </ClInclude>
     <Filter Include="Source\MMA3">
       <UniqueIdentifier>{2AAFD189-2263-3AEC-82BA-0E9E464D9E8C}</UniqueIdentifier>
     </Filter>
+    <ClCompile Include="..\..\Source\MMA3\EditorLibrary.cpp">
+      <Filter>Source\MMA3</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\MMA3\EditorLibrary.h">
+      <Filter>Source\MMA3</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\MMA3\FastAnimator.cpp">
+      <Filter>Source\MMA3</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\MMA3\FastAnimator.h">
+      <Filter>Source\MMA3</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\MMA3\FastLog.cpp">
+      <Filter>Source\MMA3</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\MMA3\FastLog.h">
+      <Filter>Source\MMA3</Filter>
+    </ClInclude>
     <None Include="..\..\Source\MMA3\MMA3.Build.cs">
       <Filter>Source\MMA3</Filter>
     </None>
@@ -357,6 +102,18 @@
     <ClInclude Include="..\..\Source\MMA3\Core\C_MapperPawn.h">
       <Filter>Source\MMA3\Core</Filter>
     </ClInclude>
+    <ClCompile Include="..\..\Source\MMA3\Core\C_MappingCell.cpp">
+      <Filter>Source\MMA3\Core</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\MMA3\Core\C_MappingCell.h">
+      <Filter>Source\MMA3\Core</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\MMA3\Core\C_MappingGrid.cpp">
+      <Filter>Source\MMA3\Core</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\MMA3\Core\C_MappingGrid.h">
+      <Filter>Source\MMA3\Core</Filter>
+    </ClInclude>
     <ClCompile Include="..\..\Source\MMA3\Core\C_MappingTool.cpp">
       <Filter>Source\MMA3\Core</Filter>
     </ClCompile>
@@ -396,6 +153,15 @@
     <ClInclude Include="..\..\Source\MMA3\Core\Tools\C_NoteTool.h">
       <Filter>Source\MMA3\Core\Tools</Filter>
     </ClInclude>
+    <Filter Include="Source\MMA3\Misc">
+      <UniqueIdentifier>{AF4773D2-46D6-34F5-AE1A-664992BE9E42}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\MMA3\Misc\SActionPtr.cpp">
+      <Filter>Source\MMA3\Misc</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\MMA3\Misc\SActionPtr.h">
+      <Filter>Source\MMA3\Misc</Filter>
+    </ClInclude>
     <Filter Include="Source\MMA3\Widgets">
       <UniqueIdentifier>{869E9E89-8CFC-3D43-823E-2B16D2E14BE2}</UniqueIdentifier>
     </Filter>
@@ -409,6 +175,12 @@
       <Filter>Source\MMA3\Widgets</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\MMA3\Widgets\Structures.h">
+      <Filter>Source\MMA3\Widgets</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\MMA3\Widgets\ViewsController.cpp">
+      <Filter>Source\MMA3\Widgets</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\MMA3\Widgets\ViewsController.h">
       <Filter>Source\MMA3\Widgets</Filter>
     </ClInclude>
     <ClCompile Include="..\..\Source\MMA3\Widgets\WidgetUtils.cpp">
@@ -494,6 +266,15 @@
     </ClCompile>
     <ClInclude Include="..\..\Source\MMA3\Widgets\MainMenu\MapDetailsWidget.h">
       <Filter>Source\MMA3\Widgets\MainMenu</Filter>
+    </ClInclude>
+    <Filter Include="Source\MMA3\Widgets\MainMenu\Settings">
+      <UniqueIdentifier>{FDBF7C52-F91E-373C-9EEB-6DD544571AC5}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\MMA3\Widgets\MainMenu\Settings\MainSettings.cpp">
+      <Filter>Source\MMA3\Widgets\MainMenu\Settings</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\MMA3\Widgets\MainMenu\Settings\MainSettings.h">
+      <Filter>Source\MMA3\Widgets\MainMenu\Settings</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

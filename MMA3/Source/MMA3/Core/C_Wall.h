@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include "C_Controller.h"
+#include "ProceduralMeshComponent.h"
 #include "C_Wall.generated.h"
 
 UCLASS()
@@ -26,7 +27,7 @@ public:
 		int Line;
 
 	UPROPERTY()
-		int Layer;
+		int Type;
 
 	UPROPERTY()
 		int Width;
@@ -37,7 +38,9 @@ public:
 	UPROPERTY()
 		float Length;
 
-	void SetData(float p_Beat, int p_Type, int p_X, int p_Width, float p_Length);
+	void SetData(float beat, int type, int x, int width, float length);
+
+	void BuildMesh();
 
 protected:
 	// Called when the game starts or when spawned

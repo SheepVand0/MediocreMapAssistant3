@@ -46,26 +46,20 @@ AC_Note::AC_Note()
 }
 
 AC_Note::~AC_Note() {
-	AC_Controller::Instance->OnTimeUpdated.RemoveAll(this);
 }
 
 // Called when the game starts or when spawned
 void AC_Note::BeginPlay()
 {
 	Super::BeginPlay();
+
+	AC_Controller::Instance->OnTimeUpdated.AddDynamic(this, &AC_Note::OnTimeUpdated);
 }
 
 // Called every frame
 void AC_Note::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
-	if (!Binded) {
-		if (AC_Controller::Instance != nullptr) {
-			AC_Controller::Instance->OnTimeUpdated.AddDynamic(this, &AC_Note::OnTimeUpdated);
-			Binded = true;
-		}
-	}
 }
 
 void AC_Note::SetNoteData(float p_Beat, int p_ColorType, int p_Line, int p_Layer, int p_Direction) {
@@ -92,10 +86,11 @@ void AC_Note::SetNoteData(float p_Beat, int p_ColorType, int p_Line, int p_Layer
 		UMMAConfig* l_Config = Cast<UMMAConfig>(UGameplayStatics::LoadGameFromSlot(MMA_SAVE_GAME_SLOT_NAME, 0));
 
 		UMaterialInstanceDynamic* l_Dynamic = UMaterialInstanceDynamic::Create(CubeMesh->GetMaterial(0), this);
-		if (ColorType == 1) {
+		if (ColorType == 0) {
 			l_Dynamic->SetVectorParameterValue(FName("NoteColor"), FVector4(l_Config->LeftEditorColor.R, l_Config->LeftEditorColor.G, l_Config->LeftEditorColor.B, 1));
 		}
-		else if (ColorType == 2) {
+		else if (ColorType == 1) {
+			PRINT_STRING(1, FColor::Blue, TEXT("Changing right note color"));
 			l_Dynamic->SetVectorParameterValue(FName("NoteColor"), FVector4(l_Config->RightEditorColor.R, l_Config->RightEditorColor.G, l_Config->RightEditorColor.B, 1));
 		}
 		CubeMesh->SetMaterial(0, l_Dynamic);
@@ -107,15 +102,10 @@ void AC_Note::SetNoodleData(float p_Beat, int p_ColorType, int p_Line, int p_Lay
 }
 
 void AC_Note::OnTimeUpdated(float p_Time) {
-	return;
 	if (p_Time < Beat && p_Time > Beat - 0.05f && !PlayedSound) {
 		PlayedSound = true;
 		if (AC_Controller::Instance->Playing) {
 			UGameplayStatics::PlaySound2D(GetWorld(), AC_Controller::Instance->HitSound, 0.8f);
 		}
-	}
-
-	if (p_Time > Beat) {
-		PlayedSound = false;
 	}
 }

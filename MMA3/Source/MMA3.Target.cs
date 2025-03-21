@@ -5,10 +5,11 @@ using System.Collections.Generic;
 
 public class MMA3Target : TargetRules
 {
-	public MMA3Target( TargetInfo Target) : base(Target)
+	public MMA3Target(TargetInfo Target) : base(Target)
 	{
 		Type = TargetType.Game;
-		DefaultBuildSettings = BuildSettingsVersion.V2;
-		ExtraModuleNames.AddRange( new string[] { "MMA3" } );
+		DefaultBuildSettings = BuildSettingsVersion.Latest;
+		IncludeOrderVersion = EngineIncludeOrderVersion.Latest;
+		ExtraModuleNames.Add("MMA3");
 	}
 }

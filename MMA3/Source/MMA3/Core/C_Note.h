@@ -37,8 +37,10 @@ public:
 
 	void SetNoodleData(float p_Beat, int p_ColorType, int p_Line, int p_Layer, int p_Direction, FDefaultNoodleExtensionsData p_Data);
 
+	UPROPERTY()
 	bool PlayedSound;
 
+	UPROPERTY()
 	bool Binded;
 
 	UFUNCTION()

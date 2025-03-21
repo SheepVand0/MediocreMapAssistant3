@@ -3,7 +3,14 @@
 
 #include "C_MapperPawn.h"
 
+void AC_MapperPawn::ResetTransform()
+{
+	SetActorLocation(DEFAULT_PAWN_POSITION);
+	SetActorRotation(DEFAULT_PAWN_ROTATION);
+}
+
 AC_MapperPawn::AC_MapperPawn() {
+	PrimaryActorTick.bCanEverTick = true;
 
 	Root = CreateDefaultSubobject<USceneComponent>(TEXT("Root"));
 	SetRootComponent(Root);
@@ -40,8 +47,7 @@ void AC_MapperPawn::SetupPlayerInputComponent(UInputComponent* PlayerInputCompon
 
 	PlayerInputComponent->BindAxis("CursorPrecision", this, &AC_MapperPawn::ChangeSpeed);
 
-	PlayerInputComponent->BindAction("RightClickPressed", IE_Pressed, this, &AC_MapperPawn::RightClickedPressed);
-	PlayerInputComponent->BindAction("RightClickPressed", IE_Released, this, &AC_MapperPawn::RightClickedReleased);
+	PlayerInputComponent->BindAxis("LookControl", this, &AC_MapperPawn::RightClickValue);
 
 	PlayerInputComponent->BindAxis("LookX", this, &AC_MapperPawn::LookX);
 	PlayerInputComponent->BindAxis("LookY", this, &AC_MapperPawn::LookY);
@@ -52,16 +58,13 @@ void AC_MapperPawn::SetupPlayerInputComponent(UInputComponent* PlayerInputCompon
 void AC_MapperPawn::BeginPlay() {
 	Super::BeginPlay();
 	SelectTool(AC_NoteTool::StaticClass());
+
+	AC_Controller::Instance->OnNeedToUpdateMapperPawnPosition.AddDynamic(this, &AC_MapperPawn::OnNeedToUpdatePosition);
+	AC_Controller::Instance->OnNeedToResetMapperPawnTransform.AddDynamic(this, &AC_MapperPawn::ResetTransform);
 }
 
 void AC_MapperPawn::Tick(float DeltaTime) {
 	Super::Tick(DeltaTime);
-
-	if (!EventsBound) {
-		if (AC_Controller::Instance == nullptr) return;
-
-		EventsBound = true;
-	}
 
 	if (CurrentTool == nullptr) return;
 
@@ -85,7 +88,7 @@ void AC_MapperPawn::Tick(float DeltaTime) {
 
 	if (l_Result.GetActor() == nullptr) return;
 
-	//GEngine->AddOnScreenDebugMessage(1, 1.0f, FColor::Green, FString("Controller"));
+	
 
 	if (l_Result.GetComponent()->ComponentHasTag("MappingGrid") && CurrentTool != nullptr) {
 		int l_X = (FMath::Floor(l_Result.ImpactPoint.X / 25) * 25) + (25/2);
@@ -151,22 +154,32 @@ void AC_MapperPawn::ChangeSpeed(float p_Value) {
 	PawnMovement->MaxSpeed = PawnSpeed * Speed;
 }
 
-void AC_MapperPawn::RightClickedPressed() {
-	IsRightClickPressed = true;
-	APlayerController* l_Controller = Cast<APlayerController>(GetController());
-	if (l_Controller != nullptr) l_Controller->bShowMouseCursor = false;
-}
+void AC_MapperPawn::RightClickValue(float value) {
+	if (PlayerControllerReference == nullptr)
+		PlayerControllerReference = Cast<APlayerController>(GetController());
 
-void AC_MapperPawn::RightClickedReleased() {
-	IsRightClickPressed = false;
-	APlayerController* l_Controller = Cast<APlayerController>(GetController());
-	if (l_Controller != nullptr) l_Controller->bShowMouseCursor = true;
+	if (PlayerControllerReference == nullptr) return;
+
+	if (value > 0.5f) {
+		IsRightClickPressed = true;
+		PlayerControllerReference->bShowMouseCursor = false;
+	}
+	else {
+		IsRightClickPressed = false;
+		PlayerControllerReference->bShowMouseCursor = true;
+	}
 }
 
 void AC_MapperPawn::OnLeftClickUsed() {
 	if (CurrentTool == nullptr) return;
 
 	CurrentTool->OnUse(CurrentTool->GetActorLocation());
+}
+
+void AC_MapperPawn::OnNeedToUpdatePosition(float y) {
+	auto l_Position = GetActorLocation();
+	l_Position += FVector(0, y, 0);
+	SetActorLocation(l_Position);
 }
 
 void AC_MapperPawn::PlayStop() {

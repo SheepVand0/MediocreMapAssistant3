@@ -4,10 +4,10 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
-#include "C_Controller.h"
 #include "Kismet/GameplayStatics.h"
 #include "C_Note.h"
 #include "C_Wall.h"
+#include "MMA3/Core/C_Controller.h"
 #include "C_ObjectsSpawner.generated.h"
 
 UCLASS()
@@ -28,8 +28,6 @@ public:
 	virtual void Tick(float DeltaTime) override;
 
 	UFUNCTION()
-		void SpawnObjects();
-
-	bool BindedEvent;
+		void SpawnObjects(FMapData map, ABeatCell* beatCell);
 
 };

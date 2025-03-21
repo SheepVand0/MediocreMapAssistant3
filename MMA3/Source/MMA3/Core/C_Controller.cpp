@@ -44,6 +44,8 @@ AC_Controller::AC_Controller()
 	MappingGrid->ComponentTags.Add("MappingGrid");
 
 	WallMaterial = l_WallMaterial.Object;
+
+	Instance = this;
 }
 
 // Called when the game starts or when spawned
@@ -84,8 +86,23 @@ void AC_Controller::GenerateGrid(FMapInfo p_Info, FString p_Diff, FString p_Mode
 	MapData = p_Info;
 
 	FString l_MapData;
-	FFileHelper::LoadFileToString(l_MapData, *FString(p_Info.MapPath + "\\" + p_Diff + p_Mode + ".dat"));
+	FMapDifficulty l_Difficulty;
+	for (int l_i = 0; l_i < MapData.DifficultyBeatmapSets.Num(); l_i++) {
+		if (MapData.DifficultyBeatmapSets[l_i].Name == p_Mode) {
+			for (int l_i1 = 0; l_i1 < MapData.DifficultyBeatmapSets[l_i].DifficultyBeatmaps.Num(); l_i1++) {
+				auto l_Diff = MapData.DifficultyBeatmapSets[l_i].DifficultyBeatmaps[l_i1];
+				if (l_Diff.Difficulty == p_Diff) {
+					l_Difficulty = l_Diff;
+				}
+			}
+			break;
+		}
+	}
+
+	FFileHelper::LoadFileToString(l_MapData, *FString(p_Info.MapPath + "\\" + l_Difficulty.BeatmapFileName));
 	MapContent.FromJson(l_MapData);
+	SongDuration = p_Info.Song->Duration;
+	//UE_LOG(LogTemp, Display, TEXT("Notes count: %f"), MapContent.Notes.Num());
 
 	TArray < AActor*, FDefaultAllocator> l_Actors;
 	UGameplayStatics::GetAllActorsOfClass(GetWorld(), ABeatCell::StaticClass(), l_Actors);
@@ -99,7 +116,9 @@ void AC_Controller::GenerateGrid(FMapInfo p_Info, FString p_Diff, FString p_Mode
 	UE_LOG(LogTemp, Display, TEXT("Is BeatCount null ? %s"), (l_RoundedBeatCount == NULL ? TEXT("True") : TEXT("False")));
 	UWorld* l_World = GetWorld();
 
-	BeatCells = l_World->SpawnActor<ABeatCell>();
+	if (BeatCells == nullptr)
+		BeatCells = l_World->SpawnActor<ABeatCell>();
+
 	BeatCells->SetActorLocation(GetActorLocation());
 	BeatCells->SetLength(l_RoundedBeatCount);
 
@@ -107,7 +126,9 @@ void AC_Controller::GenerateGrid(FMapInfo p_Info, FString p_Diff, FString p_Mode
 	////////////////////////////////////////////////////////////////////////////////////////////
 	// Note spawning
 
-	OnNeedToAddBeatmapObjects.Broadcast();
+	OnNeedToAddBeatmapObjects.Broadcast(MapContent, BeatCells);
+
+	OnNeedToResetMapperPawnTransform.Broadcast();
 }
 
 void AC_Controller::Play() {
@@ -135,8 +156,8 @@ void AC_Controller::AddTime(float p_Value) {
 		return;
 	}
 
-	if (PlayingTime + p_Value > MapData.Song->GetDuration()) {
-		PlayingTime = MapData.Song->GetDuration();
+	if (PlayingTime + p_Value > SongDuration) {
+		PlayingTime = SongDuration;
 		UpdateBeatGrid();
 		return;
 	}
@@ -146,6 +167,12 @@ void AC_Controller::AddTime(float p_Value) {
 }
 
 void AC_Controller::UpdateBeatGrid() {
-	auto l_RootPos = BeatCells->GetActorLocation();
-	BeatCells->SetActorLocation(FVector(l_RootPos.X, (PlayingTime * -100) * (MapData.BPM / 60), l_RootPos.Z));
+	//auto l_RootPos = BeatCells->GetActorLocation();
+	//BeatCells->SetActorLocation(FVector(l_RootPos.X, (PlayingTime * -100) * (MapData.BPM / 60), l_RootPos.Z));
+	float l_CurrentPosition = TimeMarkerCube->GetComponentLocation().Y;
+	float l_YPosition = (PlayingTime * 100) * (MapData.BPM / 60);
+	FVector l_NewPos = FVector(0, l_YPosition, 0);
+	TimeMarkerCube->SetWorldLocation(l_NewPos);
+	MappingGrid->SetWorldLocation(l_NewPos);
+	OnNeedToUpdateMapperPawnPosition.Broadcast(l_YPosition - l_CurrentPosition);
 }
