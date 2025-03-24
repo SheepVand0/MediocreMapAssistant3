@@ -61,6 +61,12 @@ void AC_Note::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 	
+	if (!AC_Controller::Instance) {
+		UE_LOG(LogExit, Error, TEXT("Controller Instance is null"));
+
+		exit(-1);
+	}
+
 	ActorBeat = AC_Controller::Instance->GetBeat();
 	
 	if (ActorBeat > LastActorBeat) {

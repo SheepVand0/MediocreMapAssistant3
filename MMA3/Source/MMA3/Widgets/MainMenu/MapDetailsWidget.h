@@ -21,6 +21,8 @@
 #include "MMA3/EditorLibrary.h"
 #include "MMA3/Misc/SActionPtr.h"
 #include "MMA3/EditorLibrary.h"
+#include "AudioDevice.h"
+#include "Sound/SoundWave.h"
 #include "MapDetailsWidget.generated.h"
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnNeedToAddDifficultyBeatmaps);

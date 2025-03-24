@@ -41,6 +41,7 @@ protected:
 		Callback = callback;
 		RuntimeAudioImporter->OnResult.AddDynamic(this, &AEditorLibrary::OnAudioLoaded);
 		RuntimeAudioImporter->ImportAudioFromFile(path, format);
+		
 	}
 
 public:

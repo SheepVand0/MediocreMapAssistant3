@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "VaRest\Public\VaRestJsonValue.h"
 #include "VaRest\Public\VaRestSubsystem.h"
+#include "RuntimeAudioImporter/Public/Sound/ImportedSoundWave.h"
 #include "MMA3/FastLog.h"
 #include "Structures.generated.h"
 
@@ -120,7 +121,7 @@ public:
 	TArray<FDifficultyBeatmapSet> DifficultyBeatmapSets;
 
 	UPROPERTY()
-	USoundWave* Song;
+	UImportedSoundWave* Song;
 
 	UPROPERTY()
 	UTexture2D* Cover = nullptr;

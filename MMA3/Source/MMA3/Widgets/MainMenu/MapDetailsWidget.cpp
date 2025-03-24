@@ -4,6 +4,7 @@
 #include "MapDetailsWidget.h"
 #include "Kismet/GameplayStatics.h"
 #include "MMA3/Core/C_Controller.h"
+#include <AudioDecompress.h>
 
 /////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////
@@ -156,11 +157,33 @@ void UMapDetailsWidget::FinishedLoadingAudio(URuntimeAudioImporterLibrary* Impor
 		GEngine->AddOnScreenDebugMessage(3, 1, FColor::Red, FString("Error Loading Audio"));
 		return;
 	}
-	//PlaySound(p_ImportedSoundWave);
+	ImportedSoundWave->OnGeneratePCMData;
 	Info.Song = ImportedSoundWave;
+
+	/// TODO : Move audio load in other class
+	/*if (Info.Song->Imported == nullptr)
+	{
+		FAudioDevice* l_AudioDevice = GEngine->GetMainAudioDeviceRaw();
+		if (l_AudioDevice)
+		{
+			
+			EDecompressionType DecompressionType = Info.Song->DecompressionType;
+			Info.Song->DecompressionType = DTYPE_Native;
+
+			if (Info.Song->InitAudioResource(Info.Song->GetRuntimeFormat()) &&
+				(Info.Song->DecompressionType != DTYPE_RealTime || Info.Song->CachedRealtimeFirstBuffer == nullptr))
+			{
+				FAsyncAudioDecompress l_Decompress(Info.Song, 1, l_AudioDevice);
+				l_Decompress.StartSynchronousTask();
+			}
+
+			Info.Song->DecompressionType = DecompressionType;
+		}
+	}*/
+
 	GEngine->AddOnScreenDebugMessage(0, 10, FColor::White, FString("Editing"));
 	AC_Controller* l_Controller = Cast<AC_Controller>(UGameplayStatics::GetActorOfClass(GetWorld(), AC_Controller::StaticClass()));
 	l_Controller->GenerateGrid(Info, m_SelectedDifficulty.Difficulty, SelectedMode);
 	SetVisibility(ESlateVisibility::Collapsed);
-	l_Controller->CurrentScene = "Editing";
+	l_Controller->SetCurrentScene("Editing");
 }

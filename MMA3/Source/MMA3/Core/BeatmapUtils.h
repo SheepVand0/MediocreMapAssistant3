@@ -14,7 +14,7 @@ public:
 	~BeatmapUtils();
 
 	static float CalculateBeatCount(float p_SongDuration, float p_BPM) {
-		return p_SongDuration * p_BPM;
+		return (p_SongDuration / 60.f) * p_BPM;
 	}
 
 };

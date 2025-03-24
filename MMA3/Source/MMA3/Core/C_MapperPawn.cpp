@@ -187,7 +187,7 @@ void AC_MapperPawn::PlayStop() {
 
 	if (IsRightClickPressed) return;
 
-	if (!ControllerReference->Playing) ControllerReference->Play();
+	if (!ControllerReference->IsPlaying()) ControllerReference->Play();
 	else ControllerReference->Stop();
 }
 

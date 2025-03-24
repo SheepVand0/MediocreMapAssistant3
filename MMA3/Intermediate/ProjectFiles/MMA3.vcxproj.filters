@@ -27,6 +27,12 @@
     <None Include="..\..\Config\DefaultInput.ini">
       <Filter>Config</Filter>
     </None>
+    <Filter Include="Config\HoloLens">
+      <UniqueIdentifier>{4C8DD267-CDE7-336F-8602-F5F485D22BAB}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Config\HoloLens\HoloLensEngine.ini">
+      <Filter>Config\HoloLens</Filter>
+    </None>
     <Filter Include="Source\MMA3">
       <UniqueIdentifier>{2AAFD189-2263-3AEC-82BA-0E9E464D9E8C}</UniqueIdentifier>
     </Filter>
@@ -138,10 +144,22 @@
     <ClInclude Include="..\..\Source\MMA3\Core\C_Wall.h">
       <Filter>Source\MMA3\Core</Filter>
     </ClInclude>
+    <ClCompile Include="..\..\Source\MMA3\Core\EnvironmentSpectrograms.cpp">
+      <Filter>Source\MMA3\Core</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\MMA3\Core\EnvironmentSpectrograms.h">
+      <Filter>Source\MMA3\Core</Filter>
+    </ClInclude>
     <ClCompile Include="..\..\Source\MMA3\Core\ObjectFinder.cpp">
       <Filter>Source\MMA3\Core</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\MMA3\Core\ObjectFinder.h">
+      <Filter>Source\MMA3\Core</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\MMA3\Core\RenderWaveForm.cpp">
+      <Filter>Source\MMA3\Core</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\MMA3\Core\RenderWaveForm.h">
       <Filter>Source\MMA3\Core</Filter>
     </ClInclude>
     <Filter Include="Source\MMA3\Core\Tools">
@@ -251,6 +269,15 @@
     </ClCompile>
     <ClInclude Include="..\..\Source\MMA3\Widgets\Components\MapList.h">
       <Filter>Source\MMA3\Widgets\Components</Filter>
+    </ClInclude>
+    <Filter Include="Source\MMA3\Widgets\EditMode">
+      <UniqueIdentifier>{04830965-16B4-39E1-B03B-F814116CEB01}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\MMA3\Widgets\EditMode\EditModeWidget.cpp">
+      <Filter>Source\MMA3\Widgets\EditMode</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\MMA3\Widgets\EditMode\EditModeWidget.h">
+      <Filter>Source\MMA3\Widgets\EditMode</Filter>
     </ClInclude>
     <Filter Include="Source\MMA3\Widgets\MainMenu">
       <UniqueIdentifier>{C86DE05F-3523-36E0-92EE-C4F2C5FBA474}</UniqueIdentifier>

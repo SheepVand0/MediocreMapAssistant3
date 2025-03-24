@@ -9,16 +9,14 @@ public class MMA3 : ModuleRules
 		PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
 	
 		PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore", "VaRest", 
-			"RuntimeAudioImporter", "ProceduralMeshComponent", "Slate", "SlateCore", "UMG" });
+			"RuntimeAudioImporter", "ProceduralMeshComponent", "Slate", "SlateCore", "UMG", "VorbisAudioDecoder" });
 
-		PrivateDependencyModuleNames.AddRange(new string[] {  });
+        PrivateDependencyModuleNames.AddRange(new string[] { "Kiss_FFT" });
+        PublicDependencyModuleNames.Add("Kiss_FFT");
 
-		//Uncomment if you are using Slate UI
-		PrivateDependencyModuleNames.AddRange(new string[] { });
-		
-		// Uncomment if you are using online features
-		// PrivateDependencyModuleNames.Add("OnlineSubsystem");
+        // Uncomment if you are using online features
+        // PrivateDependencyModuleNames.Add("OnlineSubsystem");
 
-		// To include OnlineSubsystemSteam, add it to the plugins section in your uproject file with the Enabled attribute set to true
-	}
+        // To include OnlineSubsystemSteam, add it to the plugins section in your uproject file with the Enabled attribute set to true
+    }
 }
