@@ -103,7 +103,7 @@ public:
 	FString AudioFileName;
 
 	UPROPERTY()
-		float BPM;
+	float BPM;
 
 	UPROPERTY()
 	float PreviewStartTime;
@@ -122,6 +122,15 @@ public:
 
 	UPROPERTY()
 	UImportedSoundWave* Song;
+
+	UPROPERTY()
+	/// <summary>
+	/// Used for visualization
+	/// </summary>
+	TArray<uint8> SongPCMData;
+
+	UPROPERTY()
+	int32 NeededSamples;
 
 	UPROPERTY()
 	UTexture2D* Cover = nullptr;

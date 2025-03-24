@@ -13,38 +13,23 @@
 
 // All code of this class is stolen from MMA2
 
-void URenderWaveform::CalculateFrequencySpectrum(UImportedSoundWave* InSoundWaveRef, const float InStartTime, const float InDuration, TArray<float>& OutFrequencies)
+void URenderWaveform::CalculateFrequencySpectrum(UImportedSoundWave* InSoundWaveRef, TArray<uint8> pcmData, int32 sampleRate, const float InStartTime, const float InDuration, TArray<float>& OutFrequencies)
 {
 	// Clear the Array before continuing
 	OutFrequencies.Empty();
 
-	uint32 l_SampleRate = GEngine->GetMainAudioDevice()->GetSampleRate();
+	UE_LOG(LogTemp, Display, TEXT("Window 1"));
 
 	uint16 NumChannels = InSoundWaveRef->NumChannels;
-	uint32 SampleRate = l_SampleRate;
+	int32 SampleRate = sampleRate;
 
-	//TArray<uint8> l_RawPCMData = InSoundWaveRef->RawData;
-	//bool l_Success = InSoundWaveRef->GetPCMBuffer()
-	bool l_Success = false;
-
-	return;
-
-	if (!l_Success) {
-
-		/*int l_SamplesNeeded = SampleRate;
-		uint8* l_Data = new uint8[l_SamplesNeeded];
-		InSoundWaveRef->GeneratePCMData(l_Data, l_SamplesNeeded);
-		l_RawPCMData = TArray<uint8>(l_Data, l_SamplesNeeded);
-		l_Success = l_Data == nullptr;*/
-		UE_LOG(LogTemp, Error, TEXT("Cannot get PCM data!"));
-		return;
-	}
+	TArray<uint8> l_RawPCMData = pcmData;
 
 	// Make sure the Number of Channels is correct
 	if (NumChannels > 0 && NumChannels <= 2)
 	{
 		// Check if we actually have a Buffer to work with
-		if (l_Success)
+		if (l_RawPCMData.Num() > 0)
 		{
 			// The first sample is just the StartTime * SampleRate
 			int32 FirstSample = SampleRate * InStartTime;
@@ -53,7 +38,8 @@ void URenderWaveform::CalculateFrequencySpectrum(UImportedSoundWave* InSoundWave
 			int32 LastSample = SampleRate * (InStartTime + InDuration);
 
 			// Get Maximum amount of samples in this Sound
-			const int32 SampleCount = InSoundWaveRef->RawPCMDataSize / (2 * NumChannels);
+			const int32 SampleCount = pcmData.Num() / (2 * NumChannels);
+			//UE_LOG(LogTemp, Display, TEXT("Sample Count : %d"), SampleCount);
 
 			// An early check if we can create a Sample window
 			FirstSample = FMath::Min(SampleCount, FirstSample);
@@ -68,16 +54,12 @@ void URenderWaveform::CalculateFrequencySpectrum(UImportedSoundWave* InSoundWave
 				return;
 			}
 
-			UE_LOG(LogTemp, Error, TEXT("Doin 1"));
-
 			// Shift the window enough so that we get a PowerOfTwo. FFT works better with that
 			int32 PoT = 2;
 
 			while (SamplesToRead > PoT) {
 				PoT *= 2;
 			}
-
-			UE_LOG(LogTemp, Error, TEXT("Doin 2"));
 
 			// Now we have a good PowerOfTwo to work with
 			SamplesToRead = PoT;
@@ -92,9 +74,7 @@ void URenderWaveform::CalculateFrequencySpectrum(UImportedSoundWave* InSoundWave
 			// alloc once and forget, should probably move to a init/deinit func
 			static kiss_fftnd_cfg STF = kiss_fftnd_alloc(Dims, 1, 0, nullptr, nullptr);
 
-			int16* SamplePtr = reinterpret_cast<int16*>(/*InSoundWaveRef->CachedRealtimeFirstBuffer*/  InSoundWaveRef->RawPCMData);
-
-			UE_LOG(LogTemp, Error, TEXT("Doin 3"));
+			int16* SamplePtr = reinterpret_cast<int16*>(l_RawPCMData.GetData());
 
 			// Allocate space in the Buffer and Output Arrays for all the data that FFT returns
 			for (int32 ChannelIndex = 0; ChannelIndex < NumChannels; ChannelIndex++)
@@ -108,12 +88,8 @@ void URenderWaveform::CalculateFrequencySpectrum(UImportedSoundWave* InSoundWave
 
 			float precomputeMultiplier = 2.f * PI / (SamplesToRead - 1);
 
-			UE_LOG(LogTemp, Error, TEXT("Doin 4"));
-
 			for (int32 SampleIndex = 0; SampleIndex < SamplesToRead; SampleIndex++)
 			{
-				UE_LOG(LogTemp, Display, TEXT("Doin math, sample index : %d"), SampleIndex);
-
 				float rMult = 0.f;
 				if (SamplePtr != NULL && (SampleIndex + FirstSample < SampleCount))
 				{
@@ -162,14 +138,14 @@ void URenderWaveform::CalculateFrequencySpectrum(UImportedSoundWave* InSoundWave
 					}
 				}
 
-				/*if (bNormalizeOutputToDb)
+				if (false)
 				{
 					OutFrequencies[SampleIndex] = FMath::LogX(10, ChannelSum / NumChannels) * 10;
 				}
 				else
-				{*/
-				OutFrequencies[SampleIndex] = ChannelSum / NumChannels;
-				//}
+				{
+					OutFrequencies[SampleIndex] = ChannelSum / NumChannels;
+				}
 			}
 
 			// Make sure to free up the FFT stuff
@@ -182,24 +158,26 @@ void URenderWaveform::CalculateFrequencySpectrum(UImportedSoundWave* InSoundWave
 			}
 		}
 		else {
-			//UE_LOG(LogTemp, Error, TEXT("InSoundVisData.PCMData is a nullptr!"));
+			UE_LOG(LogTemp, Error, TEXT("Cannot get PCMData!"));
 			//PrintError(TEXT("InSoundVisData.PCMData is a nullptr!"));
 		}
 	}
 	else {
 		//PrintError(TEXT("Number of Channels is < 0!"));
 	}
+
+
+	UE_LOG(LogTemp, Display, TEXT("Window 2"));
 }
 
 
-void URenderWaveform::RenderWaveform(UImportedSoundWave* InSoundWaveRef, UProceduralMeshComponent* Mesh, float InSongPosition, int SizeX) {
+void URenderWaveform::RenderWaveform(UImportedSoundWave* InSoundWaveRef, TArray<uint8> pcmData, int32 samplesRate, UProceduralMeshComponent* Mesh, float InSongPosition, int SizeX) {
 	if (!IsValid(InSoundWaveRef)) {
 		return;
 	}
 	if (!IsValid(Mesh)) {
 		return;
 	}
-
 
 	int nbVert = Mesh->GetProcMeshSection(0)->ProcVertexBuffer.Num();
 	bool valid;
@@ -228,13 +206,13 @@ void URenderWaveform::RenderWaveform(UImportedSoundWave* InSoundWaveRef, UProced
 		TArray<float> results;
 
 		if (valid) {
-			CalculateFrequencySpectrum(InSoundWaveRef, startTime, duration, results);
+			CalculateFrequencySpectrum(InSoundWaveRef, pcmData, samplesRate, startTime, duration, results);
 		}
 
-		PRINT_STRING(0, FColor::Red, FString::SanitizeFloat(results.Num()));
+		UE_LOG(LogTemp, Warning, TEXT("Freq count : %d"), results.Num());
 
-		for (int l_i = 0; l_i < results.Num(); l_i++)
-			UE_LOG(LogTemp, Display, TEXT("Frequency spectrum [%d] : %f"), l_i, results[l_i]);
+		/*for (int l_i = 0; l_i < results.Num(); l_i++)
+			UE_LOG(LogTemp, Display, TEXT("Frequency spectrum [%d] : %f"), l_i, results[l_i]);*/
 
 		TArray<float> l_SpectrogramsValue;
 		for (size_t j = 0; j < 64; ++j) {
@@ -266,7 +244,6 @@ void URenderWaveform::RenderWaveform(UImportedSoundWave* InSoundWaveRef, UProced
 			}
 		}
 	}
-
 
 	Mesh->UpdateMeshSection_LinearColor(0, Vertices, Normals, UV0, VertexColors, Tangents);
 

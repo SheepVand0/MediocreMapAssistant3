@@ -57,6 +57,12 @@ AC_Controller::AC_Controller()
 	Instance = this;
 }
 
+int32 AC_Controller::OnGeneratePCMAudio(TArray<uint8>& outPCM, int32 samplesGenerated)
+{
+
+	return int32();
+}
+
 // Called when the game starts or when spawned
 void AC_Controller::BeginPlay()
 {
@@ -94,7 +100,7 @@ void AC_Controller::Tick(float DeltaTime)
 		UpdateBeatGrid();
 		OnTimeUpdated.Broadcast(PlayingTime);
 
-		URenderWaveform::RenderWaveform(MapInfo.Song, WaveformMesh, PlayingTime, 100);
+		URenderWaveform::RenderWaveform(MapInfo.Song, MapInfo.SongPCMData, MapInfo.NeededSamples, WaveformMesh, PlayingTime, 100);
 		//UE_LOG(LogTemp, Warning, TEXT("Vertex count : %d, %f"), WaveformMesh->GetProcMeshSection(0)->ProcVertexBuffer.Num(), PlayingTime);
 	}
 
