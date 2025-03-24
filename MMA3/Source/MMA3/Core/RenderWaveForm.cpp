@@ -13,32 +13,28 @@
 
 // All code of this class is stolen from MMA2
 
-void URenderWaveform::CalculateFrequencySpectrum(UImportedSoundWave* InSoundWaveRef, TArray<uint8> pcmData, int32 sampleRate, const float InStartTime, const float InDuration, TArray<float>& OutFrequencies)
+void URenderWaveform::CalculateFrequencySpectrum(UImportedSoundWave* InSoundWaveRef, uint8* pcmData, int32 pcmDataCount, int32 sampleRate, const float InStartTime, const float InDuration, TArray<float>& OutFrequencies)
 {
 	// Clear the Array before continuing
 	OutFrequencies.Empty();
 
-	UE_LOG(LogTemp, Display, TEXT("Window 1"));
-
 	uint16 NumChannels = InSoundWaveRef->NumChannels;
 	int32 SampleRate = sampleRate;
-
-	TArray<uint8> l_RawPCMData = pcmData;
 
 	// Make sure the Number of Channels is correct
 	if (NumChannels > 0 && NumChannels <= 2)
 	{
 		// Check if we actually have a Buffer to work with
-		if (l_RawPCMData.Num() > 0)
+		if (pcmDataCount > 0)
 		{
 			// The first sample is just the StartTime * SampleRate
-			int32 FirstSample = SampleRate * InStartTime;
+			int32 FirstSample = SampleRate * (InStartTime / 60);
 
 			// The last sample is the SampleRate times (StartTime plus the Duration)
-			int32 LastSample = SampleRate * (InStartTime + InDuration);
+			int32 LastSample = SampleRate * ((InStartTime / 60) + InDuration);
 
 			// Get Maximum amount of samples in this Sound
-			const int32 SampleCount = pcmData.Num() / (2 * NumChannels);
+			const int32 SampleCount = pcmDataCount / (2 * NumChannels);
 			//UE_LOG(LogTemp, Display, TEXT("Sample Count : %d"), SampleCount);
 
 			// An early check if we can create a Sample window
@@ -74,7 +70,8 @@ void URenderWaveform::CalculateFrequencySpectrum(UImportedSoundWave* InSoundWave
 			// alloc once and forget, should probably move to a init/deinit func
 			static kiss_fftnd_cfg STF = kiss_fftnd_alloc(Dims, 1, 0, nullptr, nullptr);
 
-			int16* SamplePtr = reinterpret_cast<int16*>(l_RawPCMData.GetData());
+			uint8* l_PCMData = pcmData;
+			int16* SamplePtr = reinterpret_cast<int16*>(l_PCMData);
 
 			// Allocate space in the Buffer and Output Arrays for all the data that FFT returns
 			for (int32 ChannelIndex = 0; ChannelIndex < NumChannels; ChannelIndex++)
@@ -91,14 +88,15 @@ void URenderWaveform::CalculateFrequencySpectrum(UImportedSoundWave* InSoundWave
 			for (int32 SampleIndex = 0; SampleIndex < SamplesToRead; SampleIndex++)
 			{
 				float rMult = 0.f;
-				if (SamplePtr != NULL && (SampleIndex + FirstSample < SampleCount))
+
+				if (SamplePtr != nullptr && (SampleIndex + FirstSample < SampleCount))
 				{
 					rMult = 0.5f * (1.f - FMath::Cos(precomputeMultiplier * SampleIndex));
 				}
 				for (int32 ChannelIndex = 0; ChannelIndex < NumChannels; ChannelIndex++)
 				{
 					// Make sure the Point is Valid and we don't go out of bounds
-					if (SamplePtr != NULL && (SampleIndex + FirstSample < SampleCount))
+					if (SamplePtr != nullptr && (SampleIndex + FirstSample < SampleCount))
 					{
 						// Use Window function to get a better result for the Data (Hann Window)
 						Buffer[ChannelIndex][SampleIndex].r = rMult * (*SamplePtr);
@@ -145,17 +143,21 @@ void URenderWaveform::CalculateFrequencySpectrum(UImportedSoundWave* InSoundWave
 				else
 				{
 					OutFrequencies[SampleIndex] = ChannelSum / NumChannels;
+					
 				}
 			}
 
 			// Make sure to free up the FFT stuff
-			// KISS_FFT_FREE(STF);
+			// KISS_FFT_FREE(STF)
 
 			for (int32 ChannelIndex = 0; ChannelIndex < NumChannels; ++ChannelIndex)
 			{
-				KISS_FFT_FREE(Buffer[ChannelIndex]);
-				KISS_FFT_FREE(Output[ChannelIndex]);
+				if (Buffer[ChannelIndex])
+					KISS_FFT_FREE(Buffer[ChannelIndex]);
+				if (Output[ChannelIndex])
+					KISS_FFT_FREE(Output[ChannelIndex]);
 			}
+
 		}
 		else {
 			UE_LOG(LogTemp, Error, TEXT("Cannot get PCMData!"));
@@ -166,12 +168,10 @@ void URenderWaveform::CalculateFrequencySpectrum(UImportedSoundWave* InSoundWave
 		//PrintError(TEXT("Number of Channels is < 0!"));
 	}
 
-
-	UE_LOG(LogTemp, Display, TEXT("Window 2"));
 }
 
 
-void URenderWaveform::RenderWaveform(UImportedSoundWave* InSoundWaveRef, TArray<uint8> pcmData, int32 samplesRate, UProceduralMeshComponent* Mesh, float InSongPosition, int SizeX) {
+void URenderWaveform::RenderWaveform(UImportedSoundWave* InSoundWaveRef, uint8* pcmData, int32 pcmDataCount, int32 samplesRate, UProceduralMeshComponent* Mesh, float InSongPosition, int SizeX) {
 	if (!IsValid(InSoundWaveRef)) {
 		return;
 	}
@@ -206,10 +206,9 @@ void URenderWaveform::RenderWaveform(UImportedSoundWave* InSoundWaveRef, TArray<
 		TArray<float> results;
 
 		if (valid) {
-			CalculateFrequencySpectrum(InSoundWaveRef, pcmData, samplesRate, startTime, duration, results);
+			CalculateFrequencySpectrum(InSoundWaveRef, pcmData, pcmDataCount, samplesRate, startTime, duration, results);
 		}
 
-		UE_LOG(LogTemp, Warning, TEXT("Freq count : %d"), results.Num());
 
 		/*for (int l_i = 0; l_i < results.Num(); l_i++)
 			UE_LOG(LogTemp, Display, TEXT("Frequency spectrum [%d] : %f"), l_i, results[l_i]);*/

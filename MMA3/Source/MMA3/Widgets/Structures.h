@@ -123,11 +123,13 @@ public:
 	UPROPERTY()
 	UImportedSoundWave* Song;
 
-	UPROPERTY()
 	/// <summary>
 	/// Used for visualization
 	/// </summary>
-	TArray<uint8> SongPCMData;
+	uint8* SongPCMData;
+	
+	UPROPERTY()
+	int32 PCMNumberOfValues;
 
 	UPROPERTY()
 	int32 NeededSamples;

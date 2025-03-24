@@ -162,7 +162,10 @@ void UMapDetailsWidget::FinishedLoadingAudio(URuntimeAudioImporterLibrary* Impor
 	Info.Song = ImportedSoundWave;
 	int l_Samples = GEngine->GetMainAudioDevice().GetAudioDevice()->GetSampleRate();
 
-	Info.NeededSamples = ImportedSoundWave->OnGeneratePCMAudio(Info.SongPCMData, l_Samples);
+	TArray<uint8> l_SongPCMData;
+	Info.NeededSamples = ImportedSoundWave->OnGeneratePCMAudio(l_SongPCMData, l_Samples);
+	Info.SongPCMData = l_SongPCMData.GetData();
+	Info.PCMNumberOfValues = l_SongPCMData.Num();
 
 	/// TODO : Move audio load in other class
 

@@ -92,6 +92,11 @@ void AC_Note::Tick(float DeltaTime)
 		//}
 	}
 
+	if (!this) {
+		UE_LOG(LogExit, Error, TEXT("This is null (AC_Note)"));
+		exit(-1);
+	}
+
 	LastActorBeat = ActorBeat;
 }
 

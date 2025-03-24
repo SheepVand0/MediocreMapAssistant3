@@ -15,10 +15,10 @@ class MMA3_API URenderWaveform : public UBlueprintFunctionLibrary
 {
 public:
 	// Code stolen from MMA2
-	static void CalculateFrequencySpectrum(UImportedSoundWave* InSoundWaveRef, TArray<uint8> pcmData, int32 samplesRate, const float InStartTime, const float InDuration, TArray<float>& OutFrequencies);
+	static void CalculateFrequencySpectrum(UImportedSoundWave* InSoundWaveRef, uint8* pcmData, int32 pcmDataCount, int32 samplesRate, const float InStartTime, const float InDuration, TArray<float>& OutFrequencies);
 
 	UFUNCTION(BlueprintCallable, meta = (DisplayName = "Render Spectrogram"), Category = "Render Spectrogram")
-	static void RenderWaveform(UImportedSoundWave* InSoundWaveRef, TArray<uint8> pcmData, int32 samplesRate, UProceduralMeshComponent* Mesh, float InSongPosition, int SizeX);
+	static void RenderWaveform(UImportedSoundWave* InSoundWaveRef, uint8* pcmData, int32 pcmDataCount, int32 samplesRate, UProceduralMeshComponent* Mesh, float InSongPosition, int SizeX);
 
 	UFUNCTION(BlueprintCallable, meta = (DisplayName = "Generate Spectrogram Mesh"), Category = "Render Spectrogram")
 	static void GenerateSpectrogramMesh(UProceduralMeshComponent* Mesh, int SizeX, int SizeY);

@@ -8,11 +8,11 @@ AEnvironmentSpectrograms::AEnvironmentSpectrograms()
 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
-	ConstructorHelpers::FObjectFinder<UStaticMesh>l_Mesh(TEXT("StaticMesh'/Game/Meshes/Cube.Cube'"));
-	ConstructorHelpers::FObjectFinder<UMaterial>l_Mat(TEXT("Material'/Game/Materials/M_structure_mat.M_structure_mat'"));
+	ConstructorHelpers::FObjectFinder<UStaticMesh>l_Mesh(TEXT("/Script/Engine.StaticMesh'/Game/Assets/Meshes/Shape_Cube.Shape_Cube'"));
+	ConstructorHelpers::FObjectFinder<UMaterialInstance>l_Mat(TEXT("/Script/Engine.MaterialInstanceConstant'/Game/Assets/Materials/Mapping/M_BasicWhiteShape.M_BasicWhiteShape'"));
 
 	m_CubeMesh = l_Mesh.Object;
-	m_CubeMaterial = l_Mat.Object;
+	m_CubeMaterial = (UMaterial*)l_Mat.Object;
 
 	m_RootComponent = CreateDefaultSubobject<USceneComponent>(TEXT("Root"));
 	SetRootComponent(m_RootComponent);
