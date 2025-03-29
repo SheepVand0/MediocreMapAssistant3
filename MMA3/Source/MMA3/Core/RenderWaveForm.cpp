@@ -170,6 +170,36 @@ void URenderWaveform::CalculateFrequencySpectrum(UImportedSoundWave* InSoundWave
 
 }
 
+TArray<float> URenderWaveform::CalculateFrequencySpectrum2(UImportedSoundWave* sound, TArrayView<float, signed long long> pcmData, int32 sampleRate, float startTime, float duration)
+{
+
+	int32 l_FirstSample = (startTime / 60) * sampleRate;
+	int32 l_LastSample = (startTime + duration) / 60 * sampleRate;
+
+	int32 l_TotalSampleCount = pcmData.Num() * (sound->GetDuration() / 60);
+
+	int32 l_ChannelsNum = sound->GetNumOfChannels();
+
+	TArray<float> l_Result;
+
+	UE_LOG(LogTemp, Display, TEXT("First sample %d"), l_FirstSample);
+
+	for (int l_Channel = 0; l_Channel < l_ChannelsNum; l_Channel++) {
+
+		float l_Sum = 0;
+
+		for (int l_Sample = 0; l_Sample < l_LastSample; l_Sample++) {
+
+			l_Sum += pcmData[(l_Sample) * l_Channel];
+		}
+
+		l_Result.Add(l_Sum);
+
+	}
+
+	return l_Result;
+}
+
 
 void URenderWaveform::RenderWaveform(UImportedSoundWave* InSoundWaveRef, uint8* pcmData, int32 pcmDataCount, int32 samplesRate, UProceduralMeshComponent* Mesh, float InSongPosition, int SizeX) {
 	if (!IsValid(InSoundWaveRef)) {
@@ -206,7 +236,8 @@ void URenderWaveform::RenderWaveform(UImportedSoundWave* InSoundWaveRef, uint8* 
 		TArray<float> results;
 
 		if (valid) {
-			CalculateFrequencySpectrum(InSoundWaveRef, pcmData, pcmDataCount, samplesRate, startTime, duration, results);
+			//CalculateFrequencySpectrum(InSoundWaveRef, pcmData, pcmDataCount, samplesRate, startTime, duration, results);
+			results = CalculateFrequencySpectrum2(InSoundWaveRef, InSoundWaveRef->GetPCMBuffer().PCMData.GetView(), samplesRate, startTime, duration);
 		}
 
 
@@ -238,7 +269,7 @@ void URenderWaveform::RenderWaveform(UImportedSoundWave* InSoundWaveRef, uint8* 
 				for (int l_i = 0; l_i < AEnvironmentSpectrograms::s_Instances.Num(); l_i++) {
 					AEnvironmentSpectrograms* l_Item = AEnvironmentSpectrograms::s_Instances[l_i];
 					l_Item->SetCurrentFrequency(l_SpectrogramsValue);
-					UE_LOG(LogTemp, Warning, TEXT("Number of Spectrograms found : %d"), AEnvironmentSpectrograms::s_Instances.Num())
+					//UE_LOG(LogTemp, Warning, TEXT("Number of Spectrograms found : %d"), AEnvironmentSpectrograms::s_Instances.Num())
 				}
 			}
 		}

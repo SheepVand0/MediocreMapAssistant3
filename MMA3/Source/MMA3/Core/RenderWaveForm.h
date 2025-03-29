@@ -17,6 +17,17 @@ public:
 	// Code stolen from MMA2
 	static void CalculateFrequencySpectrum(UImportedSoundWave* InSoundWaveRef, uint8* pcmData, int32 pcmDataCount, int32 samplesRate, const float InStartTime, const float InDuration, TArray<float>& OutFrequencies);
 
+	/// <summary>
+	/// 
+	/// </summary>
+	/// <param name="sound"></param>
+	/// <param name="pcmData"></param>
+	/// <param name="sampleRate"></param>
+	/// <param name="startTime">In sec</param>
+	/// <param name="duration">In sec</param>
+	/// <returns></returns>
+	static TArray<float> CalculateFrequencySpectrum2(UImportedSoundWave* sound, TArrayView<float, signed long long> pcmData, int32 sampleRate, float startTime, float duration);
+
 	UFUNCTION(BlueprintCallable, meta = (DisplayName = "Render Spectrogram"), Category = "Render Spectrogram")
 	static void RenderWaveform(UImportedSoundWave* InSoundWaveRef, uint8* pcmData, int32 pcmDataCount, int32 samplesRate, UProceduralMeshComponent* Mesh, float InSongPosition, int SizeX);
 
