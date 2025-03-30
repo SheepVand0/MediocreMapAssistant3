@@ -143,7 +143,7 @@ void AC_Controller::GenerateGrid(FMapInfo p_Info, FString p_Diff, FString p_Mode
 	BeatCells->SetActorLocation(GetActorLocation());
 	BeatCells->SetLength(l_RoundedBeatCount);
 
-	URenderWaveform::GenerateSpectrogramMesh(WaveformMesh, 100, (MapInfo.BPM / 60) * 1000);
+	URenderWaveform::GenerateSpectrogramMesh(WaveformMesh, 64, 160);
 
 	////////////////////////////////////////////////////////////////////////////////////////////
 	// Note spawning

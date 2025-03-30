@@ -167,6 +167,10 @@ void UMapDetailsWidget::FinishedLoadingAudio(URuntimeAudioImporterLibrary* Impor
 	Info.SongPCMData = l_SongPCMData.GetData();
 	Info.PCMNumberOfValues = l_SongPCMData.Num();
 
+	TArrayView<float> l_PCMDataView = ImportedSoundWave->GetPCMBuffer().PCMData.GetView();
+	UE_LOG(LogTemp, Display, TEXT("PCM Data count: %d"), l_PCMDataView.Num());
+	UE_LOG(LogTemp, Display, TEXT("PCM Data middle value: %f"), l_PCMDataView[l_PCMDataView.Num() / 2]);
+
 	/// TODO : Move audio load in other class
 
 	GEngine->AddOnScreenDebugMessage(0, 10, FColor::White, FString("Editing"));

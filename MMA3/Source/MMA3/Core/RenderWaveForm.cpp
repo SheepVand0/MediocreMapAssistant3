@@ -13,28 +13,30 @@
 
 // All code of this class is stolen from MMA2
 
-void URenderWaveform::CalculateFrequencySpectrum(UImportedSoundWave* InSoundWaveRef, uint8* pcmData, int32 pcmDataCount, int32 sampleRate, const float InStartTime, const float InDuration, TArray<float>& OutFrequencies)
+void URenderWaveform::CalculateFrequencySpectrum(UImportedSoundWave* InSoundWaveRef, const float InStartTime, const float InDuration, TArray<float>& OutFrequencies)
 {
 	// Clear the Array before continuing
 	OutFrequencies.Empty();
 
 	uint16 NumChannels = InSoundWaveRef->NumChannels;
-	int32 SampleRate = sampleRate;
+	int32 SampleRate = InSoundWaveRef->GetSampleRate();
 
 	// Make sure the Number of Channels is correct
 	if (NumChannels > 0 && NumChannels <= 2)
 	{
+		TArrayView<float, signed long long> l_PCMData = InSoundWaveRef->GetPCMBuffer().PCMData.GetView();
+		
 		// Check if we actually have a Buffer to work with
-		if (pcmDataCount > 0)
+		if (l_PCMData.Num() > 0)
 		{
 			// The first sample is just the StartTime * SampleRate
-			int32 FirstSample = SampleRate * (InStartTime / 60);
+			int32 FirstSample = SampleRate * (InStartTime);
 
 			// The last sample is the SampleRate times (StartTime plus the Duration)
-			int32 LastSample = SampleRate * ((InStartTime / 60) + InDuration);
+			int32 LastSample = SampleRate * ((InStartTime) + InDuration);
 
 			// Get Maximum amount of samples in this Sound
-			const int32 SampleCount = pcmDataCount / (2 * NumChannels);
+			const int32 SampleCount = l_PCMData.Num() / (2 * NumChannels);
 			//UE_LOG(LogTemp, Display, TEXT("Sample Count : %d"), SampleCount);
 
 			// An early check if we can create a Sample window
@@ -70,8 +72,8 @@ void URenderWaveform::CalculateFrequencySpectrum(UImportedSoundWave* InSoundWave
 			// alloc once and forget, should probably move to a init/deinit func
 			static kiss_fftnd_cfg STF = kiss_fftnd_alloc(Dims, 1, 0, nullptr, nullptr);
 
-			uint8* l_PCMData = pcmData;
-			int16* SamplePtr = reinterpret_cast<int16*>(l_PCMData);
+			//int16* SamplePtr = reinterpret_cast<int16*>(l_PCMData);
+			float* SamplePtr = l_PCMData.GetData();
 
 			// Allocate space in the Buffer and Output Arrays for all the data that FFT returns
 			for (int32 ChannelIndex = 0; ChannelIndex < NumChannels; ChannelIndex++)
@@ -172,30 +174,58 @@ void URenderWaveform::CalculateFrequencySpectrum(UImportedSoundWave* InSoundWave
 
 TArray<float> URenderWaveform::CalculateFrequencySpectrum2(UImportedSoundWave* sound, TArrayView<float, signed long long> pcmData, int32 sampleRate, float startTime, float duration)
 {
+	int32 l_FrameRate = sampleRate / sound->NumChannels;
+	int32 l_FirstFrame = FMath::Max((startTime) * l_FrameRate, 0);
+	
+	int32 l_TotalFrameCount = l_FrameRate * sound->GetDuration();
 
-	int32 l_FirstSample = (startTime / 60) * sampleRate;
-	int32 l_LastSample = (startTime + duration) / 60 * sampleRate;
-
-	int32 l_TotalSampleCount = pcmData.Num() * (sound->GetDuration() / 60);
+	int32 l_LastFrame = FMath::Min((startTime + duration) * l_FrameRate, l_TotalFrameCount);
 
 	int32 l_ChannelsNum = sound->GetNumOfChannels();
+	int32 l_LastIndex = l_FirstFrame + ((duration * l_FrameRate) * l_ChannelsNum);
 
 	TArray<float> l_Result;
-
-	UE_LOG(LogTemp, Display, TEXT("First sample %d"), l_FirstSample);
-
-	for (int l_Channel = 0; l_Channel < l_ChannelsNum; l_Channel++) {
+	int l_LastSign = 0;
+	int32 l_LastSignChangeSample = 0;
+	
+	/*for (int l_i = l_FirstSample; l_i < l_LastSample; l_i += sound->NumChannels) {
 
 		float l_Sum = 0;
 
-		for (int l_Sample = 0; l_Sample < l_LastSample; l_Sample++) {
+		for (int l_c = 0; l_c < sound->NumChannels; l_c++) {
+			l_Sum += pcmData[l_i + l_c];
+		}
 
-			l_Sum += pcmData[(l_Sample) * l_Channel];
+		if (l_LastSign == 0)
+			l_LastSign = l_Sum;
+
+		if (l_LastSign < 0 && l_Sum > 0) {
+			l_LastSign = 1;
+		}
+
+		if (l_Sum < 0 && l_LastSign > 0) {
+			l_LastSign = -1;
+			
+			if (l_i != l_LastSignChangeSample) {
+				l_Frequencies.Add(((float)sampleRate / (l_i - l_LastSignChangeSample)));
+			}
+			l_LastSignChangeSample = l_i;
+		}
+	}*/
+
+	for (int l_Frame = l_FirstFrame; l_Frame < l_LastFrame; l_Frame += l_ChannelsNum) {
+		float l_Sum = 0;
+
+		for (int l_Channel = 0; l_Channel < l_ChannelsNum; l_Channel++) {
+			
+			float l_Value = FMath::Abs(pcmData[l_Frame + l_Channel]);
+			l_Sum += l_Value;
 		}
 
 		l_Result.Add(l_Sum);
-
 	}
+
+	l_Result.Sort();
 
 	return l_Result;
 }
@@ -224,8 +254,8 @@ void URenderWaveform::RenderWaveform(UImportedSoundWave* InSoundWaveRef, uint8* 
 	VertexColors.AddDefaulted(nbVert);
 	Tangents.Init(FProcMeshTangent(1.0f, 0.0f, 0.0f), nbVert);
 
+	float duration = (1 / 64.f);
 	for (size_t i = 0; i < 160; ++i) {
-		float duration = (1 / 64.f);
 		float startTime = duration * i + InSongPosition;
 
 		valid = true;
@@ -236,44 +266,42 @@ void URenderWaveform::RenderWaveform(UImportedSoundWave* InSoundWaveRef, uint8* 
 		TArray<float> results;
 
 		if (valid) {
-			//CalculateFrequencySpectrum(InSoundWaveRef, pcmData, pcmDataCount, samplesRate, startTime, duration, results);
-			results = CalculateFrequencySpectrum2(InSoundWaveRef, InSoundWaveRef->GetPCMBuffer().PCMData.GetView(), samplesRate, startTime, duration);
+			CalculateFrequencySpectrum(InSoundWaveRef, startTime, duration, results);
+			/*results = CalculateFrequencySpectrum2(
+				InSoundWaveRef, 
+				InSoundWaveRef->GetPCMBuffer().PCMData.GetView(), 
+				InSoundWaveRef->GetSampleRate(), 
+				startTime, 
+				duration);*/
 		}
 
+		//for (int l_i = 0; l_i < results.Num(); l_i++)
+		//	UE_LOG(LogTemp, Display, TEXT("Frequency spectrum [%d] : %f"), l_i, results[l_i]);
 
-		/*for (int l_i = 0; l_i < results.Num(); l_i++)
-			UE_LOG(LogTemp, Display, TEXT("Frequency spectrum [%d] : %f"), l_i, results[l_i]);*/
+		TArray<float> l_SpectrogramsValue = TArray<float>();
+		
 
-		TArray<float> l_SpectrogramsValue;
 		for (size_t j = 0; j < 64; ++j) {
 			float height;
 
-			if (valid && results.Num() > (j * 8.f)) height = results[j * 8.f] / 50000.f;
+			if (valid && results.Num() > (j * 8.f)) height = results[j * 8.f] / 500/*/ 5000.f*/;
 			else height = 0;
 
 			if (Vertices.IsValidIndex(To1D(i, j, SizeX))) {
 				Vertices[To1D(i, j, SizeX)] = FVector(i, j, height * 2.f);
-				VertexColors[To1D(i, j, SizeX)] = FLinearColor(height * 0.1f, 0.0f, 0);
+				VertexColors[To1D(i, j, SizeX)] = FLinearColor(height, 0.0f, 0);
 				l_SpectrogramsValue.Add(height);
 			}
+		}
 
-			if (i == 0) {
-				/*if (m_SpectrogramsActors.Num() == 0) {
-					TArray<AActor*> l_FoundActors;
-					TSubclassOf<AEnvironmentSpectrograms> l_Class;
-					UGameplayStatics::GetAllActorsOfClass(Mesh->GetWorld(), l_Class, l_FoundActors);
-					m_SpectrogramsActors = l_FoundActors;
-					UE_LOG(LogTemp, Warning, TEXT("Number of Spectrograms found : %d"), m_SpectrogramsActors.Num())
-				}*/
-
-				for (int l_i = 0; l_i < AEnvironmentSpectrograms::s_Instances.Num(); l_i++) {
-					AEnvironmentSpectrograms* l_Item = AEnvironmentSpectrograms::s_Instances[l_i];
-					l_Item->SetCurrentFrequency(l_SpectrogramsValue);
-					//UE_LOG(LogTemp, Warning, TEXT("Number of Spectrograms found : %d"), AEnvironmentSpectrograms::s_Instances.Num())
-				}
-			}
+		for (int l_i = 0; l_i < AEnvironmentSpectrograms::s_Instances.Num(); l_i++) {
+			AEnvironmentSpectrograms* l_Item = AEnvironmentSpectrograms::s_Instances[l_i];
+			l_Item->SetCurrentFrequency(l_SpectrogramsValue);
+			//UE_LOG(LogTemp, Warning, TEXT("Number of Spectrograms found : %d"), AEnvironmentSpectrograms::s_Instances.Num())
 		}
 	}
+
+	
 
 	Mesh->UpdateMeshSection_LinearColor(0, Vertices, Normals, UV0, VertexColors, Tangents);
 

@@ -75,6 +75,12 @@ void AC_Note::Tick(float DeltaTime)
 		}
 	}
 
+	if (!AC_Controller::Instance->PassedLeftNoteMaterial || 
+		!AC_Controller::Instance->PassedRightNoteMaterial || 
+		!AC_Controller::Instance->RightNoteMaterial || 
+		!AC_Controller::Instance->LeftNoteMaterial)
+		return;
+
 	if (Beat < AC_Controller::Instance->GetBeat() && ColorType != 3) {
 		//if (!(CubeMesh->GetMaterial(0)->GetName()[0] != 'P')) {
 			if (ColorType == 0)

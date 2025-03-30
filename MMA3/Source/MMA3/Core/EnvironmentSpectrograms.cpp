@@ -57,9 +57,9 @@ void AEnvironmentSpectrograms::OnConstruction(const FTransform& p_Transform) {
 
 void AEnvironmentSpectrograms::SetCurrentFrequency(TArray<float> p_Values) {
 	for (int l_i = 0; l_i < m_Spectrograms.Num(); l_i++) {
-		if (p_Values.IsValidIndex(l_i * 2) == false) continue;
+		if (p_Values.IsValidIndex(l_i) == false) continue;
 
-		m_Spectrograms[l_i]->SetRelativeScale3D(FVector(1, 1, 5 + p_Values[l_i * 2] * 0.25f));
+		m_Spectrograms[l_i]->SetRelativeScale3D(FVector(1 + (p_Values[l_i]), 1, 1));
 	}
 }
 

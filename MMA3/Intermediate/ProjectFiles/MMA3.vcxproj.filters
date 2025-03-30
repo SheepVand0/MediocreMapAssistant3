@@ -75,6 +75,12 @@
     <ClInclude Include="..\..\Source\MMA3\MMAConfig.h">
       <Filter>Source\MMA3</Filter>
     </ClInclude>
+    <ClCompile Include="..\..\Source\MMA3\PlaneGenerator.cpp">
+      <Filter>Source\MMA3</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\MMA3\PlaneGenerator.h">
+      <Filter>Source\MMA3</Filter>
+    </ClInclude>
     <ClCompile Include="..\..\Source\MMA3\VaRestJsonObjectUtils.cpp">
       <Filter>Source\MMA3</Filter>
     </ClCompile>

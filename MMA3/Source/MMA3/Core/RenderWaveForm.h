@@ -15,7 +15,7 @@ class MMA3_API URenderWaveform : public UBlueprintFunctionLibrary
 {
 public:
 	// Code stolen from MMA2
-	static void CalculateFrequencySpectrum(UImportedSoundWave* InSoundWaveRef, uint8* pcmData, int32 pcmDataCount, int32 samplesRate, const float InStartTime, const float InDuration, TArray<float>& OutFrequencies);
+	static void CalculateFrequencySpectrum(UImportedSoundWave* InSoundWaveRef, const float InStartTime, const float InDuration, TArray<float>& OutFrequencies);
 
 	/// <summary>
 	/// 
