@@ -21,7 +21,7 @@ AC_Controller::AC_Controller()
 	ConstructorHelpers::FObjectFinder<USoundWave> l_HitSound(TEXT("/Script/Engine.SoundWave'/Game/Assets/Sounds/HitSounds/HitSoundb.HitSoundb'"));
 	ConstructorHelpers::FObjectFinder<UMaterial> l_WallMaterial(TEXT("/Script/Engine.Material'/Game/Assets/Materials/Mapping/M_Obstacle.M_Obstacle'"));
 	ConstructorHelpers::FObjectFinder<UMaterialInstance>l_NoteMaterial(TEXT("/Script/Engine.MaterialInstanceConstant'/Game/Assets/Materials/Mapping/M_NoteInstance.M_NoteInstance'"));
-	ConstructorHelpers::FObjectFinder<UMaterial>l_WaveformMaterial(TEXT("/Script/Engine.Material'/Game/Assets/Materials/Waveform/M_SimpleMat.M_SimpleMat'"));
+	ConstructorHelpers::FObjectFinder<UMaterial>l_SoundVisMaterial(TEXT("/Script/Engine.MaterialInstanceConstant'/Game/Assets/Materials/Waveform/M_VertexColored.M_VertexColored'"));
 
 	AudioComponent = CreateDefaultSubobject<UAudioComponent>(TEXT("Audio"));
 
@@ -46,13 +46,15 @@ AC_Controller::AC_Controller()
 	MappingGrid->SetCollisionObjectType(ECC_WorldStatic);
 	MappingGrid->ComponentTags.Add("MappingGrid");
 
-	WaveformMaterial = l_WaveformMaterial.Object;
+	SoundvisMaterial = l_SoundVisMaterial.Object;
 
-	WaveformMesh = CreateDefaultSubobject<UProceduralMeshComponent>(TEXT("Waveform Mesh"));
-	WaveformMesh->SetupAttachment(TimeMarkerCube);
-	WaveformMesh->SetMaterial(0, WaveformMaterial);
+	SoundVisMesh = CreateDefaultSubobject<UProceduralMeshComponent>(TEXT("SoundVisMesh Mesh"));
+	SoundVisMesh->SetupAttachment(TimeMarkerCube);
+	SoundVisMesh->SetMaterial(0, SoundvisMaterial);
 
 	WallMaterial = l_WallMaterial.Object;
+
+	URenderSoundVisualization::GenerateVisMesh(SoundVisMesh, 150, 150, 2*.4f, 20, SoundVisVertices, SoundVisVertexColors);
 
 	Instance = this;
 }
@@ -94,7 +96,8 @@ void AC_Controller::Tick(float DeltaTime)
 		UpdateBeatGrid();
 		OnTimeUpdated.Broadcast(PlayingTime);
 
-		URenderWaveform::RenderWaveform(MapInfo.Song, MapInfo.SongPCMData, MapInfo.PCMNumberOfValues, MapInfo.NeededSamples, WaveformMesh, PlayingTime, 100);
+		URenderSoundVisualization::RenderSoundVis(SoundVisMesh, MapInfo.Song, SoundVisVertices, SoundVisVertexColors, PlayingTime, 10, 150, 150);
+		//URenderWaveform::RenderWaveform(MapInfo.Song, MapInfo.SongPCMData, MapInfo.PCMNumberOfValues, MapInfo.NeededSamples, SoundVisMesh, PlayingTime, 100);
 		//UE_LOG(LogTemp, Warning, TEXT("Vertex count : %d, %f"), WaveformMesh->GetProcMeshSection(0)->ProcVertexBuffer.Num(), PlayingTime);
 	}
 
@@ -142,8 +145,6 @@ void AC_Controller::GenerateGrid(FMapInfo p_Info, FString p_Diff, FString p_Mode
 
 	BeatCells->SetActorLocation(GetActorLocation());
 	BeatCells->SetLength(l_RoundedBeatCount);
-
-	URenderWaveform::GenerateSpectrogramMesh(WaveformMesh, 64, 160);
 
 	////////////////////////////////////////////////////////////////////////////////////////////
 	// Note spawning

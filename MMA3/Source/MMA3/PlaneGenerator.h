@@ -16,6 +16,7 @@ public:
 	// Sets default values for this actor's properties
 	APlaneGenerator();
 
+	UPROPERTY(BlueprintReadOnly, EditAnywhere)
 	UProceduralMeshComponent* PlaneMesh;
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)

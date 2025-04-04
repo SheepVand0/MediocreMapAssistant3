@@ -36,3 +36,19 @@ public:
 
 	static int To1D(int x, int y, int sizeX);
 };
+
+class MMA3_API URenderSoundVisualization : public UBlueprintFunctionLibrary 
+{
+
+public:
+
+	static void GenerateVisMesh(UProceduralMeshComponent* mesh, int verticesX, int verticesY, float sizeXMultiplier, float sizeYMultiplier, TArray<FVector>& outVertices, TArray<FLinearColor>& outVertexColors);
+
+	static float GetMaxAmpForDuration(UImportedSoundWave* sound, float startTime, float duration);
+
+	static TArray<float> GetFrequenciesForDuration(UImportedSoundWave* sound, float startTime, float duration);
+
+	static int GetIndexFromCoordinate(int x, int y, int sizeY);
+
+	static void RenderSoundVis(UProceduralMeshComponent* mesh, UImportedSoundWave* sound, TArray<FVector> meshVertices, TArray<FLinearColor> meshVertexColors, float time, float duration, int subDivisionsX, int subDivisionsY);
+};

@@ -55,8 +55,14 @@ protected:
 	UPROPERTY(EditAnywhere)
 	UStaticMeshComponent* MappingGrid;
 
-	UPROPERTY(EditAnywhere)
-	UProceduralMeshComponent* WaveformMesh;
+	UPROPERTY(BlueprintReadOnly, EditAnywhere)
+	UProceduralMeshComponent* SoundVisMesh;
+
+	UPROPERTY(BlueprintReadOnly)
+	TArray<FVector> SoundVisVertices;
+
+	UPROPERTY(BlueprintReadOnly)
+	TArray<FLinearColor> SoundVisVertexColors;
 
 	UPROPERTY()
 	ABeatCell* BeatCells;
@@ -126,7 +132,7 @@ public:
 	UMaterialInterface* PassedLeftNoteMaterial;
 	UMaterialInstance* BombMaterial;
 
-	UMaterialInterface* WaveformMaterial;
+	UMaterialInterface* SoundvisMaterial;
 
 	USoundWave* HitSound;
 

@@ -362,3 +362,156 @@ int URenderWaveform::To1D(int x, int y, int sizeX)
 {
 	return (sizeX * y) + x;
 }
+
+void URenderSoundVisualization::GenerateVisMesh(UProceduralMeshComponent* mesh, int verticesX, int verticesY, float sizeXMultiplier, float sizeYMultiplier, TArray<FVector>& outVertices, TArray<FLinearColor>& outVertexColors)
+{
+	TArray<FVector> l_Vertices;
+	TArray<int> l_Triangles;
+	TArray<FLinearColor> l_VertexColor;
+
+	//l_Vertices.Add(FVector(0, 0, 0));
+	//l_Vertices.Add(FVector(0, sizeYMultiplier, 0));
+
+	for (int l_x = 0; l_x < verticesX; l_x++) {
+		for (int l_y = 0; l_y < verticesY; l_y++) {
+			l_Vertices.Add(FVector(l_x * sizeXMultiplier, l_y * sizeYMultiplier, 0));
+			l_VertexColor.Add(FLinearColor::Black);
+			//l_VertexColor.Add(FLinearColor(FMath::RandRange(0.f, 1.f), FMath::RandRange(0.f, 1.f), FMath::RandRange(0.f, 1.f)));
+		}
+	}
+
+	for (int l_x = 0; l_x < verticesX - 1; l_x ++) {
+		for (int l_y = 0; l_y < verticesY - 1; l_y++) {
+			int l_BottomLeftIndex = l_y * verticesY + l_x;
+			int l_BottomRightIndex = l_y * verticesY + l_x + 1;
+			int l_TopLeftIndex = (l_y + 1) * verticesY + l_x;
+			int l_TopRightIndex = (l_y + 1) * verticesY + l_x + 1;
+
+			FVector l_BottomLeftVertice = l_Vertices[l_BottomLeftIndex];
+			FVector l_BottomRightVertice = l_Vertices[l_BottomRightIndex];
+			FVector l_TopLeftVertice = l_Vertices[l_TopLeftIndex];
+			FVector l_TopRightVertice = l_Vertices[l_TopRightIndex];
+
+			// First square triangle
+			l_Triangles.Add(l_BottomLeftIndex);
+			l_Triangles.Add(l_BottomRightIndex);
+			l_Triangles.Add(l_TopLeftIndex);
+
+			// Second square triangle
+			l_Triangles.Add(l_TopRightIndex);
+			l_Triangles.Add(l_BottomRightIndex);
+			l_Triangles.Add(l_TopLeftIndex);
+
+		}
+	}
+
+	mesh->CreateMeshSection_LinearColor(0, l_Vertices, l_Triangles, TArray<FVector>(), TArray<FVector2D>(), l_VertexColor, TArray<FProcMeshTangent>(), false);
+
+	outVertices = l_Vertices;
+	outVertexColors = l_VertexColor;
+}
+
+float URenderSoundVisualization::GetMaxAmpForDuration(UImportedSoundWave* sound, float startTime, float duration)
+{
+	int32 l_SampleRate = sound->GetSampleRate();
+
+	int32 l_StartSample = l_SampleRate * startTime * sound->NumChannels;
+	int32 l_EndSample = l_StartSample + (l_SampleRate * duration * sound->NumChannels);
+
+	float l_Result = 0;
+
+	TArrayView<float, signed long long> l_PCMData = sound->GetPCMBuffer().PCMData.GetView();
+
+	for (int l_i = l_StartSample; l_i < l_EndSample; l_i++) {
+		float l_Sample = l_PCMData[l_i];
+
+		l_Result = FMath::Max(l_Result, l_Sample);
+	}
+
+	return l_Result;
+}
+
+TArray<float> URenderSoundVisualization::GetFrequenciesForDuration(UImportedSoundWave* sound, float startTime, float duration)
+{
+	int32 l_SampleRate = sound->GetSampleRate();
+
+	int32 l_StartSample = l_SampleRate * startTime;
+	int32 l_EndSample = l_StartSample + (l_SampleRate * duration);
+
+	TArray<float> l_Frequencies;
+
+	TArrayView<float, signed long long> l_PCMData = sound->GetPCMBuffer().PCMData.GetView();
+
+	int l_LastSign = 0;
+	int32 l_LastSignChangeSample = 0;
+
+	for (int l_i = l_StartSample; l_i < l_EndSample; l_i += sound->NumChannels) {
+
+		float l_Sum = 0;
+
+		for (int l_c = 0; l_c < sound->NumChannels; l_c++) {
+			l_Sum += l_PCMData[l_i + l_c];
+		}
+
+		if (l_LastSign == 0)
+			l_LastSign = l_Sum;
+
+		if (l_LastSign < 0 && l_Sum > 0) {
+			l_LastSign = 1;
+		}
+
+		if (l_Sum < 0 && l_LastSign > 0) {
+			l_LastSign = -1;
+
+			if (l_i != l_LastSignChangeSample) {
+				l_Frequencies.Add(((float)l_SampleRate / (l_i - l_LastSignChangeSample)));
+			}
+			l_LastSignChangeSample = l_i;
+		}
+	}
+
+	return l_Frequencies;
+}
+
+int URenderSoundVisualization::GetIndexFromCoordinate(int x, int y, int sizeY)
+{
+	return y * sizeY + x;
+}
+
+void URenderSoundVisualization::RenderSoundVis(UProceduralMeshComponent* mesh, UImportedSoundWave* sound, TArray<FVector> meshVertices, TArray<FLinearColor> meshVertexColors, float time, float duration, int subDivisionsX, int subDivisionsY)
+{
+
+	float l_ItDuration = duration / subDivisionsX;
+	TArray<FLinearColor> l_VertexColor;
+	l_VertexColor.AddZeroed(meshVertexColors.Num());
+
+
+	for (int l_i = 0; l_i < subDivisionsX; l_i++) {
+
+		float l_Math = time + (l_i * l_ItDuration);
+		float l_Amp = GetMaxAmpForDuration(sound, l_Math, l_ItDuration);
+		TArray<float> l_Frequencies = GetFrequenciesForDuration(sound, l_Math, l_ItDuration);
+
+		float l_AmpConv = subDivisionsY * l_Amp;
+
+		for (int l_y = 0; l_y < subDivisionsY; l_y++) {
+			int l_Index = GetIndexFromCoordinate(l_i, l_y, subDivisionsY);
+
+			float l_Math2 = (float)l_y / subDivisionsY;
+			int l_Sub = 0;
+			if (l_y == 0)
+				l_Sub = 0;
+			else
+				l_Sub = 1;
+
+			//UE_LOG(LogTemp, Display, TEXT("Math 2 : %f"), (l_Frequencies.Num() - l_Sub) * l_Math2);
+			//UE_LOG(LogTemp, Display, TEXT("Freq Num : %d"), l_Frequencies.Num());
+
+			if (l_y < l_AmpConv) {
+				l_VertexColor[l_Index] = FLinearColor(l_Amp, l_Frequencies[(l_Frequencies.Num()) * l_Math2] / 20000, 0);
+			}
+		}
+	}
+
+	mesh->UpdateMeshSection_LinearColor(0, meshVertices, TArray<FVector>(), TArray<FVector2D>(), l_VertexColor, TArray<FProcMeshTangent>());
+}
