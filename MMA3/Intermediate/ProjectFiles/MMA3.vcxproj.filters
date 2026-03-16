@@ -1,0 +1,387 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <None Include="..\..\MMA3.uproject" />
+    <Filter Include="Source">
+      <UniqueIdentifier>{F31BBDD1-B3E8-3BCC-9652-680E16935819}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\MMA3.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <None Include="..\..\Source\MMA3Editor.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <None Include="..\..\.vsconfig" />
+    <None Include="..\..\test_see - Copie.dat" />
+    <None Include="..\..\test_see.dat" />
+    <Filter Include="Config">
+      <UniqueIdentifier>{FA535FFB-25E1-3D20-B416-52F9BE21E06E}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Config\DefaultEditor.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultEngine.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultGame.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultInput.ini">
+      <Filter>Config</Filter>
+    </None>
+    <Filter Include="Config\HoloLens">
+      <UniqueIdentifier>{4C8DD267-CDE7-336F-8602-F5F485D22BAB}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Config\HoloLens\HoloLensEngine.ini">
+      <Filter>Config\HoloLens</Filter>
+    </None>
+    <Filter Include="Source\MMA3">
+      <UniqueIdentifier>{2AAFD189-2263-3AEC-82BA-0E9E464D9E8C}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\MMA3\EditorLibrary.cpp">
+      <Filter>Source\MMA3</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\MMA3\EditorLibrary.h">
+      <Filter>Source\MMA3</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\MMA3\FastLog.cpp">
+      <Filter>Source\MMA3</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\MMA3\FastLog.h">
+      <Filter>Source\MMA3</Filter>
+    </ClInclude>
+    <None Include="..\..\Source\MMA3\MMA3.Build.cs">
+      <Filter>Source\MMA3</Filter>
+    </None>
+    <ClCompile Include="..\..\Source\MMA3\MMA3.cpp">
+      <Filter>Source\MMA3</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\MMA3\MMA3.h">
+      <Filter>Source\MMA3</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\MMA3\MMA3GameModeBase.cpp">
+      <Filter>Source\MMA3</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\MMA3\MMA3GameModeBase.h">
+      <Filter>Source\MMA3</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\MMA3\MMAConfig.cpp">
+      <Filter>Source\MMA3</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\MMA3\MMAConfig.h">
+      <Filter>Source\MMA3</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\MMA3\PlaneGenerator.cpp">
+      <Filter>Source\MMA3</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\MMA3\PlaneGenerator.h">
+      <Filter>Source\MMA3</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\MMA3\VaRestJsonObjectUtils.cpp">
+      <Filter>Source\MMA3</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\MMA3\VaRestJsonObjectUtils.h">
+      <Filter>Source\MMA3</Filter>
+    </ClInclude>
+    <Filter Include="Source\MMA3\Core">
+      <UniqueIdentifier>{E0DF19FD-AC27-3828-AAC3-4C696778D7AB}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\MMA3\Core\BeatmapUtils.cpp">
+      <Filter>Source\MMA3\Core</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\MMA3\Core\BeatmapUtils.h">
+      <Filter>Source\MMA3\Core</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\MMA3\Core\CHistory.cpp">
+      <Filter>Source\MMA3\Core</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\MMA3\Core\CHistory.h">
+      <Filter>Source\MMA3\Core</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\MMA3\Core\CObjectsSpawner.cpp">
+      <Filter>Source\MMA3\Core</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\MMA3\Core\CObjectsSpawner.h">
+      <Filter>Source\MMA3\Core</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\MMA3\Core\ObjectFinder.cpp">
+      <Filter>Source\MMA3\Core</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\MMA3\Core\ObjectFinder.h">
+      <Filter>Source\MMA3\Core</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\MMA3\Core\Structures.cpp">
+      <Filter>Source\MMA3\Core</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\MMA3\Core\Structures.h">
+      <Filter>Source\MMA3\Core</Filter>
+    </ClInclude>
+    <Filter Include="Source\MMA3\Core\BeatmapObjects">
+      <UniqueIdentifier>{311F271E-AD47-3B19-8E03-B90C4A53D9AD}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\MMA3\Core\BeatmapObjects\CArc.cpp">
+      <Filter>Source\MMA3\Core\BeatmapObjects</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\MMA3\Core\BeatmapObjects\CArc.h">
+      <Filter>Source\MMA3\Core\BeatmapObjects</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\MMA3\Core\BeatmapObjects\CNote.cpp">
+      <Filter>Source\MMA3\Core\BeatmapObjects</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\MMA3\Core\BeatmapObjects\CNote.h">
+      <Filter>Source\MMA3\Core\BeatmapObjects</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\MMA3\Core\BeatmapObjects\CWall.cpp">
+      <Filter>Source\MMA3\Core\BeatmapObjects</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\MMA3\Core\BeatmapObjects\CWall.h">
+      <Filter>Source\MMA3\Core\BeatmapObjects</Filter>
+    </ClInclude>
+    <Filter Include="Source\MMA3\Core\Controller">
+      <UniqueIdentifier>{D0FBB0D0-08BE-31D9-B373-B1370B6D519D}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\MMA3\Core\Controller\CController.cpp">
+      <Filter>Source\MMA3\Core\Controller</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\MMA3\Core\Controller\CController.h">
+      <Filter>Source\MMA3\Core\Controller</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\MMA3\Core\Controller\CControllerDefaults.cpp">
+      <Filter>Source\MMA3\Core\Controller</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\MMA3\Core\Controller\CControllerGet.cpp">
+      <Filter>Source\MMA3\Core\Controller</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\MMA3\Core\Controller\CControllerGrid.cpp">
+      <Filter>Source\MMA3\Core\Controller</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\MMA3\Core\Controller\CControllerMaterials.cpp">
+      <Filter>Source\MMA3\Core\Controller</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\MMA3\Core\Controller\CControllerPlay.cpp">
+      <Filter>Source\MMA3\Core\Controller</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\MMA3\Core\Controller\CControllerSave.cpp">
+      <Filter>Source\MMA3\Core\Controller</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\MMA3\Core\Controller\CControllerUtils.cpp">
+      <Filter>Source\MMA3\Core\Controller</Filter>
+    </ClCompile>
+    <Filter Include="Source\MMA3\Core\MapperPawn">
+      <UniqueIdentifier>{731491F6-E196-3827-9587-6629847533DB}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\MMA3\Core\MapperPawn\CMapperPawn.cpp">
+      <Filter>Source\MMA3\Core\MapperPawn</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\MMA3\Core\MapperPawn\CMapperPawn.h">
+      <Filter>Source\MMA3\Core\MapperPawn</Filter>
+    </ClInclude>
+    <Filter Include="Source\MMA3\Core\Mapping">
+      <UniqueIdentifier>{6F5FA1C5-332D-3882-BB30-347A750686D0}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\MMA3\Core\Mapping\BeatCell.cpp">
+      <Filter>Source\MMA3\Core\Mapping</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\MMA3\Core\Mapping\BeatCell.h">
+      <Filter>Source\MMA3\Core\Mapping</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\MMA3\Core\Mapping\CMappingCell.cpp">
+      <Filter>Source\MMA3\Core\Mapping</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\MMA3\Core\Mapping\CMappingCell.h">
+      <Filter>Source\MMA3\Core\Mapping</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\MMA3\Core\Mapping\CMappingGrid.cpp">
+      <Filter>Source\MMA3\Core\Mapping</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\MMA3\Core\Mapping\CMappingGrid.h">
+      <Filter>Source\MMA3\Core\Mapping</Filter>
+    </ClInclude>
+    <Filter Include="Source\MMA3\Core\SoundVisualization">
+      <UniqueIdentifier>{B2AE1235-CACB-3922-81ED-151076844227}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\MMA3\Core\SoundVisualization\EnvironmentSpectrograms.cpp">
+      <Filter>Source\MMA3\Core\SoundVisualization</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\MMA3\Core\SoundVisualization\EnvironmentSpectrograms.h">
+      <Filter>Source\MMA3\Core\SoundVisualization</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\MMA3\Core\SoundVisualization\RenderWaveForm.cpp">
+      <Filter>Source\MMA3\Core\SoundVisualization</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\MMA3\Core\SoundVisualization\RenderWaveForm.h">
+      <Filter>Source\MMA3\Core\SoundVisualization</Filter>
+    </ClInclude>
+    <Filter Include="Source\MMA3\Core\Tools">
+      <UniqueIdentifier>{2A7E56EA-6357-32F4-9F44-845E004123D3}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\MMA3\Core\Tools\CMappingTool.cpp">
+      <Filter>Source\MMA3\Core\Tools</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\MMA3\Core\Tools\CMappingTool.h">
+      <Filter>Source\MMA3\Core\Tools</Filter>
+    </ClInclude>
+    <Filter Include="Source\MMA3\Core\Tools\Note">
+      <UniqueIdentifier>{FA5585CC-4D43-3AAD-B616-A282F3501FA8}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\MMA3\Core\Tools\Note\CNoteTool.cpp">
+      <Filter>Source\MMA3\Core\Tools\Note</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\MMA3\Core\Tools\Note\CNoteTool.h">
+      <Filter>Source\MMA3\Core\Tools\Note</Filter>
+    </ClInclude>
+    <Filter Include="Source\MMA3\Core\Tools\Wall">
+      <UniqueIdentifier>{F533F5E9-E32F-3EC2-8A34-7EBA99A4AE07}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\MMA3\Core\Tools\Wall\CWallTool.cpp">
+      <Filter>Source\MMA3\Core\Tools\Wall</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\MMA3\Core\Tools\Wall\CWallTool.h">
+      <Filter>Source\MMA3\Core\Tools\Wall</Filter>
+    </ClInclude>
+    <Filter Include="Source\MMA3\Misc">
+      <UniqueIdentifier>{AF4773D2-46D6-34F5-AE1A-664992BE9E42}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\MMA3\Misc\CVaRestHelper.cpp">
+      <Filter>Source\MMA3\Misc</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\MMA3\Misc\CVaRestHelper.h">
+      <Filter>Source\MMA3\Misc</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\MMA3\Misc\FastAnimator.cpp">
+      <Filter>Source\MMA3\Misc</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\MMA3\Misc\FastAnimator.h">
+      <Filter>Source\MMA3\Misc</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\MMA3\Misc\SActionPtr.cpp">
+      <Filter>Source\MMA3\Misc</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\MMA3\Misc\SActionPtr.h">
+      <Filter>Source\MMA3\Misc</Filter>
+    </ClInclude>
+    <Filter Include="Source\MMA3\Widgets">
+      <UniqueIdentifier>{869E9E89-8CFC-3D43-823E-2B16D2E14BE2}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\MMA3\Widgets\Enums.cpp">
+      <Filter>Source\MMA3\Widgets</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\MMA3\Widgets\Enums.h">
+      <Filter>Source\MMA3\Widgets</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\MMA3\Widgets\ViewsController.cpp">
+      <Filter>Source\MMA3\Widgets</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\MMA3\Widgets\ViewsController.h">
+      <Filter>Source\MMA3\Widgets</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\MMA3\Widgets\WidgetUtils.cpp">
+      <Filter>Source\MMA3\Widgets</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\MMA3\Widgets\WidgetUtils.h">
+      <Filter>Source\MMA3\Widgets</Filter>
+    </ClInclude>
+    <Filter Include="Source\MMA3\Widgets\Components">
+      <UniqueIdentifier>{A29F9AF4-832A-32D2-B33E-7D180DD5B77E}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\MMA3\Widgets\Components\CustomBackground.cpp">
+      <Filter>Source\MMA3\Widgets\Components</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\MMA3\Widgets\Components\CustomBackground.h">
+      <Filter>Source\MMA3\Widgets\Components</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\MMA3\Widgets\Components\CustomButton.cpp">
+      <Filter>Source\MMA3\Widgets\Components</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\MMA3\Widgets\Components\CustomButton.h">
+      <Filter>Source\MMA3\Widgets\Components</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\MMA3\Widgets\Components\CustomComboString.cpp">
+      <Filter>Source\MMA3\Widgets\Components</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\MMA3\Widgets\Components\CustomComboString.h">
+      <Filter>Source\MMA3\Widgets\Components</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\MMA3\Widgets\Components\CustomEditableTextBox.cpp">
+      <Filter>Source\MMA3\Widgets\Components</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\MMA3\Widgets\Components\CustomEditableTextBox.h">
+      <Filter>Source\MMA3\Widgets\Components</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\MMA3\Widgets\Components\CustomScrollBox.cpp">
+      <Filter>Source\MMA3\Widgets\Components</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\MMA3\Widgets\Components\CustomScrollBox.h">
+      <Filter>Source\MMA3\Widgets\Components</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\MMA3\Widgets\Components\CustomSlider.cpp">
+      <Filter>Source\MMA3\Widgets\Components</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\MMA3\Widgets\Components\CustomSlider.h">
+      <Filter>Source\MMA3\Widgets\Components</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\MMA3\Widgets\Components\CustomSpinBox.cpp">
+      <Filter>Source\MMA3\Widgets\Components</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\MMA3\Widgets\Components\CustomSpinBox.h">
+      <Filter>Source\MMA3\Widgets\Components</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\MMA3\Widgets\Components\CustomTextBlock.cpp">
+      <Filter>Source\MMA3\Widgets\Components</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\MMA3\Widgets\Components\CustomTextBlock.h">
+      <Filter>Source\MMA3\Widgets\Components</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\MMA3\Widgets\Components\MapButton.cpp">
+      <Filter>Source\MMA3\Widgets\Components</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\MMA3\Widgets\Components\MapButton.h">
+      <Filter>Source\MMA3\Widgets\Components</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\MMA3\Widgets\Components\MapList.cpp">
+      <Filter>Source\MMA3\Widgets\Components</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\MMA3\Widgets\Components\MapList.h">
+      <Filter>Source\MMA3\Widgets\Components</Filter>
+    </ClInclude>
+    <Filter Include="Source\MMA3\Widgets\EditMode">
+      <UniqueIdentifier>{04830965-16B4-39E1-B03B-F814116CEB01}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\MMA3\Widgets\EditMode\CWJumpEditor.cpp">
+      <Filter>Source\MMA3\Widgets\EditMode</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\MMA3\Widgets\EditMode\CWJumpEditor.h">
+      <Filter>Source\MMA3\Widgets\EditMode</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\MMA3\Widgets\EditMode\EditModeWidget.cpp">
+      <Filter>Source\MMA3\Widgets\EditMode</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\MMA3\Widgets\EditMode\EditModeWidget.h">
+      <Filter>Source\MMA3\Widgets\EditMode</Filter>
+    </ClInclude>
+    <Filter Include="Source\MMA3\Widgets\MainMenu">
+      <UniqueIdentifier>{C86DE05F-3523-36E0-92EE-C4F2C5FBA474}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\MMA3\Widgets\MainMenu\LevelSelectionWidget.cpp">
+      <Filter>Source\MMA3\Widgets\MainMenu</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\MMA3\Widgets\MainMenu\LevelSelectionWidget.h">
+      <Filter>Source\MMA3\Widgets\MainMenu</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\MMA3\Widgets\MainMenu\MapDetailsWidget.cpp">
+      <Filter>Source\MMA3\Widgets\MainMenu</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\MMA3\Widgets\MainMenu\MapDetailsWidget.h">
+      <Filter>Source\MMA3\Widgets\MainMenu</Filter>
+    </ClInclude>
+    <Filter Include="Source\MMA3\Widgets\MainMenu\Settings">
+      <UniqueIdentifier>{FDBF7C52-F91E-373C-9EEB-6DD544571AC5}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\MMA3\Widgets\MainMenu\Settings\MainSettings.cpp">
+      <Filter>Source\MMA3\Widgets\MainMenu\Settings</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\MMA3\Widgets\MainMenu\Settings\MainSettings.h">
+      <Filter>Source\MMA3\Widgets\MainMenu\Settings</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,43 @@
+﻿{
+	"_version": "2.1.0",
+	"_songName": "(TikTok Song) nya Arigato",
+	"_songSubName": "",
+	"_songAuthorName": "Leat'eq",
+	"_levelAuthorName": "Shewep",
+	"_beatsPerMinute": 204,
+	"_previewStartTime": 12,
+	"_previewDuration": 10,
+	"_songTimeOffset": 0,
+	"_shuffle": 0,
+	"_shufflePeriod": 0.5,
+	"_coverImageFilename": "cover.png",
+	"_songFilename": "song.ogg",
+	"_environmentName": "DefaultEnvironment",
+	"_allDirectionsEnvironmentName": "GlassDesertEnvironment",
+	"_environmentNames": [],
+	"_colorSchemes": [],
+	"_difficultyBeatmapSets": [
+		{
+			"_beatmapCharacteristicName": "Standard",
+			"_difficultyBeatmaps": [
+				{
+					"_difficulty": "ExpertPlus",
+					"_difficultyRank": 9,
+					"_noteJumpMovementSpeed": 22,
+					"_noteJumpStartBeatOffset": -0.60900002717971802,
+					"_beatmapFileName": "ExpertPlusStandard.dat",
+					"_beatmapColorSchemeIdx": 0,
+					"_environmentNameIdx": 0,
+					"_customData":
+					{
+						"_difficultyLabel": "ALIGATO",
+						"_requirements": [],
+						"_warnings": [],
+						"_informations": [],
+						"_suggestions": []
+					}
+				}
+			]
+		}
+	]
+}
