@@ -29,7 +29,7 @@ class MMA3_API UCWJumpEditor : public UUserWidget
 
 protected:
 
-	TArray<FNoteData*> LerpJumpUnique(float beat, float div, int startIndex, float& outEndBeat, int& outLastIndex);
+	TArray<FNoteData*> LerpJumpUnique(float beat, float div, int startIndex, bool allowVisionBlock, float& outEndBeat, int& outLastIndex);
 
 public:
 

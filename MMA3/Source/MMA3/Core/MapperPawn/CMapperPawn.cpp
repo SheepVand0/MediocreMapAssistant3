@@ -279,9 +279,9 @@ void ACMapperPawn::SetToolDirection()
 		else
 			l_Angle -= (45 + l_Mod);
 	}
-
-
-	ToolAngle = l_Angle % 360;
+	
+	ToolAngle = (l_Angle + 360) % 360;
+	
 	
 	/*if (GetMappingController()->GetMapData()) {
 		FNoteData* l_LastNote = GetMappingController()->GetLastSameColorNote(GetMappingController()->GetBeat(), l_Tool->Type);
@@ -299,8 +299,11 @@ void ACMapperPawn::SetToolDirection()
 		}
 	}*/
 
-	l_Tool->Direction = ACNote::CutDirectionFromAngle(l_Angle);
-	//UE_LOG(LogTemp, Display, TEXT("Angle: %d"), l_Tool->Direction);
+	l_Tool->Direction = ACNote::CutDirectionFromAngle(ToolAngle);
+	
+	//UE_LOG(LogTemp, Display, TEXT("Angle pre: %lf"), ToolAngle);
+	//UE_LOG(LogTemp, Display, TEXT("Angle post: %d"), l_Tool->Direction);
+	
 	l_Tool->SetActorRotation(FRotator(0, -90, l_Angle));
 
 	LastToolDirection = ToolDirection;
@@ -317,7 +320,7 @@ void ACMapperPawn::InputTool(float x)
 			l_NoteTool = Cast<ACNoteTool>(CurrentTool);
 		}
 
-		switch ((int)x) {
+		switch (static_cast<int>(x)) {
 		case 1:
 			l_NoteTool->Type = 0;
 			break;
@@ -326,6 +329,7 @@ void ACMapperPawn::InputTool(float x)
 			break;
 		case 3:
 			l_NoteTool->Type = 3;
+		default:
 			break;
 		}
 

@@ -41,7 +41,7 @@ protected:
 
 	bool IsPreview;
 
-	void UpdateNoteMaterial();
+	void UpdateNoteMaterial(bool isSelected = false);
 
 	TObjectPtr<UMaterialInterface> NoteMaterial;
 
@@ -52,7 +52,6 @@ protected:
 public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
-
 
 	FNoteData* NoteData;
 

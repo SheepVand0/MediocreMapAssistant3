@@ -69,7 +69,7 @@ UMaterialInterface* ACNoteTool::GetToolMaterial() {
 
 	UMaterialInstance* l_Material = nullptr;
 	if (Type != 3) {
-		 l_Material = GetMappingController()->UpdateNoteMaterial(NoteMaterial, Type, true);
+		 l_Material = GetMappingController()->UpdateNoteMaterial(NoteMaterial, Type, true, false);
 	}
 	else {
 		l_Material = GetMappingController()->BombMaterial;

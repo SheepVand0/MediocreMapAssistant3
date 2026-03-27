@@ -248,7 +248,7 @@ public:
 	void UpdateBeatGrid();
 
 	UFUNCTION()
-	UMaterialInstance* UpdateNoteMaterial(UMaterialInterface* noteMaterial, int type, bool passed);
+	UMaterialInstance* UpdateNoteMaterial(UMaterialInterface* noteMaterial, int type, bool passed, bool isSelected);
 
 	UFUNCTION()
 	void SetCurrentScene(FString sceneName);

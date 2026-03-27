@@ -1,6 +1,10 @@
 # Visual Studio 2015 user specific files
 .vs/
 
+# Rider specific files
+.idea/
+.Rider/
+
 # Compiled Object files
 *.slo
 *.lo
@@ -98,3 +102,5 @@ DerivedDataCache/*
 MMA3/Intermediate/ProjectFiles/UE5.vcxproj
 MMA3/Saved/Logs/MMA3.log
 MMA3/Saved/SaveGames/MMA3Config.sav
+
+UpgradeLog.htm

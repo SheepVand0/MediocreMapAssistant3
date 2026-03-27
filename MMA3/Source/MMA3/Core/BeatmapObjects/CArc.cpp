@@ -62,7 +62,7 @@ void ACArc::SetData(FArcData arc)
 
 void ACArc::UpdateMaterial()
 {
-	UMaterialInstance* l_Mat = GetMappingController()->UpdateNoteMaterial(OriginalMaterial, ArcData.Color, false);
+	UMaterialInstance* l_Mat = GetMappingController()->UpdateNoteMaterial(OriginalMaterial, ArcData.Color, false, false);
 	ArcMesh->SetMaterial(0, l_Mat);
 }
 

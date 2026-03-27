@@ -65,13 +65,21 @@ FPattern UCWJumpEditor::CreateJump(int color, float startBeat, float endBeat, fl
 	return *l_Pattern;
 }
 
-TArray<FNoteData*> UCWJumpEditor::LerpJumpUnique(float beat, float div, int startIndex, float& outEndBeat, int& outLastIndex)
+TArray<FNoteData*> UCWJumpEditor::LerpJumpUnique(float beat, float div, int startIndex, bool allowVisionBlock, float& outEndBeat, int& outLastIndex)
 {
+	//UE_LOG(LogTemp, Display, TEXT("FOUND BEAT: %f"), beat);
+	
 	TArray<FNoteData*> l_Preview;
 
 	auto l_MapContent = GetMappingController()->MapContent;
-
-	TArray<int> l_Notes = GetMappingController()->GetAllNotesIndexInSectionExclusive(beat, beat + (1.f/div), startIndex);
+	
+	TArray<int> l_Notes = GetMappingController()->GetAllNotesIndexInSectionInclusive(beat, (1.f/div), startIndex);
+	
+	/*for (int x = 0; x < l_Notes.Num();x++)
+	{
+		UE_LOG(LogTemp, Display, TEXT("INDEX: %d, value: %f"), x, l_MapContent->_notes[l_Notes[x]]->Beat);
+	}*/
+		
 	if (l_Notes.Num() == 0) return l_Preview;
 
 	if (!l_Notes.IsEmpty()) {
@@ -86,9 +94,9 @@ TArray<FNoteData*> UCWJumpEditor::LerpJumpUnique(float beat, float div, int star
 
 	UE_LOG(LogTemp, Display, TEXT("Notes pattern count: %d"), l_Notes.Num());
 
-	for (int x = 0; x < l_ItCount; x++) {
+	for (int x = 0; x <= l_ItCount; x++) {
 		for (int n = 0; n < l_Notes.Num(); n++) {
-			float l_Beat = beat + (1.f / div) + (x * (1.f / div));
+			float l_Beat = beat + (1.f / div) + (static_cast<float>(x) * (1.f / div));
 
 			FNoteData* l_Note = l_MapContent->_notes[l_Notes[n]];
 			FNoteData* l_Next = l_MapContent->_notes[FMath::Clamp(l_Notes.Last() + 1 + n, 0, l_MapContent->_notes.Num() - 1)];
@@ -96,17 +104,54 @@ TArray<FNoteData*> UCWJumpEditor::LerpJumpUnique(float beat, float div, int star
 
 			FNoteData* l_New = new FNoteData();
 			l_New->Beat = l_Beat + FloatMod(l_Note->Beat, 1.f / div);
-			l_New->Line = l_Note->Line + (int)((l_Next->Line - l_Note->Line) * ((float)x / (l_ItCount)));
-			l_New->Layer = l_Note->Layer + (int)((l_Next->Layer - l_Note->Layer) * ((float)x / (l_ItCount)));
+			
+			float l_Percentage = (static_cast<float>(x) / (l_ItCount));
+			l_New->Line = l_Note->Line + static_cast<int>((l_Next->Line - l_Note->Line) * l_Percentage);
+			l_New->Layer = l_Note->Layer + static_cast<int>((l_Next->Layer - l_Note->Layer) * l_Percentage);
+			
+			if (!allowVisionBlock)
+			{
+				if (l_New->Layer == 1 && l_New->Line >= 1 && l_New->Line <= 2)
+				{
+					float l_XDist = FMath::Abs(l_New->Line - l_Note->Line);
+					float l_YDist = FMath::Abs(l_New->Layer - l_Note->Layer);
+					
+					float l_PercentageRelative = l_Percentage - 0.5f;
+					if (!l_PercentageRelative)
+					{
+						l_PercentageRelative = 1.f;
+					}
+					
+					if (l_XDist <= l_YDist)
+					{
+						do
+						{
+							l_New->Line += l_PercentageRelative/(FMath::Abs(l_PercentageRelative));
+						} while (l_New->Line >= 1 && l_New->Line <= 2);
+					} else
+					{
+						l_New->Layer += l_PercentageRelative/(FMath::Abs(l_PercentageRelative));
+					}
+				}
+			}
+			
+			l_New->Type = l_Note->Type;
 
 			float l_Angle = *ACNote::RotationByCutDirection.Find(l_Note->Direction);
 			float l_NextAngle = *ACNote::RotationByCutDirection.Find(l_Next->Direction);
-			float l_NewDir = l_Angle + ((l_NextAngle - l_Angle) * ((float)x / l_ItCount));
-			int l_FixedNewDire = l_NewDir - (int)l_NewDir % 45;
+			float l_NewDir = 0;
+			
+			float l_Sub = l_NextAngle - l_Angle;
+			UE_LOG(LogTemp, Display, TEXT("SUB ANGLE: %f"), l_Sub);
+			
+			if (l_Sub >= -180 && l_Sub <= 180)
+				l_NewDir = l_Angle + ((l_NextAngle - l_Angle) * l_Percentage);
+			else
+				l_NewDir = l_Angle - ((360 - (l_NextAngle - l_Angle)) * l_Percentage);
+				
+			int l_FixedNewDire = ((static_cast<int>(l_NewDir / 45) * 45) + 360) % 360;
 
 			l_New->Direction = ACNote::CutDirectionFromAngle(l_FixedNewDire);
-
-			l_New->Type = l_Note->Type;
 
 			l_Preview.Add(l_New);
 		}
@@ -123,13 +168,12 @@ FPattern UCWJumpEditor::CreateJumpWithLerp(int color, float startBeat, float end
 	float l_OutBeat = startBeat;
 	int l_Index = 0;
 	TArray<FNoteData*> l_Final;
-	int i = 0;
 	while (l_OutBeat < endBeat) {
-		TArray<FNoteData*> l_Result = LerpJumpUnique(l_OutBeat, div, l_Index, l_OutBeat, l_Index);
+		TArray<FNoteData*> l_Result = LerpJumpUnique(l_OutBeat, div, l_Index, false, l_OutBeat, l_Index);
 
-		if (l_Result.IsEmpty()) {
+		/*if (l_Result.IsEmpty()) {
 			return FPattern({});
-		}
+		}*/
 
 		for (int x = 0; x < l_Result.Num(); x++) {
 			if (l_Result[x]->Beat <= endBeat) {
@@ -140,8 +184,8 @@ FPattern UCWJumpEditor::CreateJumpWithLerp(int color, float startBeat, float end
 			}
 		}
 
-		if (l_OutBeat == startBeat) 
-			return FPattern({});
+		/*if (l_OutBeat == startBeat) 
+			return FPattern({});*/
 	}
 
 	//ClearCurrentPattern();
@@ -160,11 +204,14 @@ void UCWJumpEditor::ClearCurrentPattern()
 
 		DisplayedNotes.Empty();
 
-		for (auto x = 0; x < CurrentPattern->Notes.Num(); x++) {
-			free(CurrentPattern->Notes[x]);
-		}
+		/*for (auto x = 0; x < CurrentPattern->Notes.Num(); x++) {
+			if (CurrentPattern->Notes[x])
+			{
+				free(CurrentPattern->Notes[x]);
+			}
+		}*/
 
-		free(CurrentPattern);
+		//free(CurrentPattern);
 		CurrentPattern = nullptr;
 	}
 }
