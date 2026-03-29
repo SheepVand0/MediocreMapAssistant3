@@ -13,6 +13,9 @@ ACNoteTool::ACNoteTool() {
 	ArrowMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Arrow Mesh"));
 	ArrowMesh->SetStaticMesh(l_ArrowMesh.Object);
 	ArrowMesh->SetupAttachment(ToolMeshComp);
+	ArrowMesh->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+
+	ToolMeshComp->SetCollisionEnabled(ECollisionEnabled::NoCollision);
 
 	DotMesh = l_DotMesh.Object;
 

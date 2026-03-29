@@ -239,6 +239,27 @@ void ACObjectsSpawner::DestroyObjects()
 	LastControllerBeat = 0.f;
 }
 
+void ACObjectsSpawner::RemoveNote(int32 index) {
+
+	if (DisplayedNotes.Contains(index)) {
+		DisplayedNotes.Find(index)->Get()->Destroy();
+		DisplayedNotes.Remove(index);
+		TMap<int32, TObjectPtr<ACNote>> l_Array = DisplayedNotes;
+		DisplayedNotes.Empty();
+		TArray<int32> l_Keys;
+		l_Array.GetKeys(l_Keys);
+		for (auto x : l_Keys) {
+			if (x > index) {
+				DisplayedNotes.Add(x - 1, l_Array.Find(x)->Get());
+			}
+			else {
+				DisplayedNotes.Add(x, l_Array.Find(x)->Get());
+			}
+		}
+	}
+
+}
+
 template<class t_ObjectType, typename t_StructType>
 inline t_ObjectType* ACObjectsSpawner::SpawnObject(t_StructType* objectData, ABeatCell* beatCell)
 {

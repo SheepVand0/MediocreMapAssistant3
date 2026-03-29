@@ -398,14 +398,19 @@ void ACMapperPawn::InputDelete()
 	}
 
 	if (ACNote* l_Note = Cast<ACNote>(AimedActor)) {
-		GetMappingController()->MapContent->_notes.Remove(l_Note->NoteData);
-		GetObjectsSpawner()->SpawnObjects(GetMappingController()->MapContent, GetMappingController()->GetBeatCell(), 0.0f, 0.0f);
-		GetMappingController()->UpdateBeatGrid();
+
+		int32 l_Index;
+		GetMappingController()->MapContent->_notes.Find(l_Note->NoteData, l_Index);
+		GetMappingController()->MapContent->_notes.RemoveAt(l_Index);
+		GetObjectsSpawner()->RemoveNote(l_Index);
+		//GetObjectsSpawner()->DestroyObjects();
+		//GetObjectsSpawner()->SpawnObjects(GetMappingController()->MapContent, GetMappingController()->GetBeatCell(), 0.0f, 0.0f);
+		//GetMappingController()->UpdateBeatGrid();
 	}
 	else if (ACWall* l_Wall = Cast<ACWall>(AimedActor)) {
 		GetMappingController()->MapContent->_walls.Remove(l_Wall->WallData);
-		GetObjectsSpawner()->SpawnObjects(GetMappingController()->MapContent, GetMappingController()->GetBeatCell(), 0.0f, 0.0f);
-		GetMappingController()->UpdateBeatGrid();
+		//GetObjectsSpawner()->SpawnObjects(GetMappingController()->MapContent, GetMappingController()->GetBeatCell(), 0.0f, 0.0f);
+		//GetMappingController()->UpdateBeatGrid();
 	}
 }
 

@@ -44,6 +44,8 @@ public:
 	UFUNCTION()
 	void DestroyObjects();
 
+	void RemoveNote(int32 index);
+
 	template<class t_ObjectType, typename t_StructType>
 	t_ObjectType* SpawnObject(t_StructType* objectData, ABeatCell* beatCell);
 

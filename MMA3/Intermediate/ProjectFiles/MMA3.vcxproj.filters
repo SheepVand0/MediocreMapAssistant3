@@ -12,6 +12,7 @@
       <Filter>Source</Filter>
     </None>
     <None Include="..\..\.vsconfig" />
+    <None Include="..\..\MMA3.uproject.DotSettings.user" />
     <None Include="..\..\test_see - Copie.dat" />
     <None Include="..\..\test_see.dat" />
     <Filter Include="Config">

@@ -93,17 +93,20 @@ TArray<FNoteData*> UCWJumpEditor::LerpJumpUnique(float beat, float div, int star
 	float l_ItCount = ((l_EndBeat - (1.f / div)) - (beat + (1.f/div))) * div;
 
 	UE_LOG(LogTemp, Display, TEXT("Notes pattern count: %d"), l_Notes.Num());
+	//UE_LOG(LogTemp, Display, TEXT("BEAT: %f"), beat);
 
 	for (int x = 0; x <= l_ItCount; x++) {
 		for (int n = 0; n < l_Notes.Num(); n++) {
 			float l_Beat = beat + (1.f / div) + (static_cast<float>(x) * (1.f / div));
+
+			UE_LOG(LogTemp, Display, TEXT("Iteration: %d, beat calculated: %f"), x, l_Beat);
 
 			FNoteData* l_Note = l_MapContent->_notes[l_Notes[n]];
 			FNoteData* l_Next = l_MapContent->_notes[FMath::Clamp(l_Notes.Last() + 1 + n, 0, l_MapContent->_notes.Num() - 1)];
 			//UE_LOG(LogTemp, Display, TEXT("Next note index: %d"), FMath::Clamp(l_Notes.Last() + n, 0, l_MapContent->_notes.Num() - 1));
 
 			FNoteData* l_New = new FNoteData();
-			l_New->Beat = l_Beat + FloatMod(l_Note->Beat, 1.f / div);
+			l_New->Beat = l_Beat + (l_Note->Beat - beat);
 			
 			float l_Percentage = (static_cast<float>(x) / (l_ItCount));
 			l_New->Line = l_Note->Line + static_cast<int>((l_Next->Line - l_Note->Line) * l_Percentage);
