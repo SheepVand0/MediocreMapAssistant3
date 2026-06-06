@@ -38,6 +38,39 @@ void ACController::SortMapContent()
 		});
 }
 
+void ACController::AddNoteToSelection(ACNote* note)
+{
+	if (!SelectedNotes.Contains(note->NoteData))
+	{
+		SelectedNotes.Add(note->NoteData);
+		note->bIsSelected = true;
+	}
+}
+
+void ACController::RemoveToSelection(ACNote* note)
+{
+	if (SelectedNotes.Contains(note->NoteData))
+	{
+		SelectedNotes.Remove(note->NoteData);
+		note->bIsSelected = false;
+	}
+}
+
+void ACController::ClearSelection()
+{
+	SelectedNotes.Empty();
+	
+	ResetCurrent();
+}
+
+void ACController::BroadcastNotePassed(FNoteData* noteData)
+{
+	if (UniqueNotePassedCallback)
+	{
+		UniqueNotePassedCallback->Invoke(noteData);
+	}	
+}
+
 void ACController::SetMap(FMapInfo* mapInfo, FString difficulty, FString mode) {
 	if (mapInfo->Song == nullptr) { 
 		UE_LOG(LogScript, Error, TEXT("Song is not valid")); 

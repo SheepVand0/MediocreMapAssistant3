@@ -8,7 +8,10 @@
 #include "MMA3/Misc/CVaRestHelper.h"
 #include "MMA3/Core/BeatmapObjects/CNote.h"
 #include "MMA3/Core/CObjectsSpawner.h"
+#include "MMA3/Widgets/Components/CustomSpinBox.h"
 #include "CWJumpEditor.generated.h"
+
+#define PI_ON_TWO UE_PI / 2.f
 
 struct FPattern : public FJsonDataObject {
 
@@ -17,6 +20,14 @@ public:
 
 	TArray<FNoteData*> Notes;
 
+};
+
+UENUM(BlueprintType)
+enum class EPercentageMethod : uint8
+{
+	Linear = 0,
+	Pow = 1,
+	Sin = 2
 };
 
 /**
@@ -29,14 +40,22 @@ class MMA3_API UCWJumpEditor : public UUserWidget
 
 protected:
 
+	UPROPERTY(EditAnywhere, meta = (BindWidget)) class UCustomSpinBox* ExponentSpinBox;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) EPercentageMethod PercentageMethod = EPercentageMethod::Linear;
+	
 	TArray<FNoteData*> LerpJumpUnique(float beat, float div, int startIndex, bool allowVisionBlock, float& outEndBeat, int& outLastIndex);
 
+	float ApplyMethod(float percentage, EPercentageMethod method);
+	
+	UFUNCTION(BlueprintCallable) static EPercentageMethod StringToPercentageMethod(const FString& value);
+	
 public:
 
 	TArray<ACNote*> DisplayedNotes;
 
 	FPattern* CurrentPattern;
-
+	
 
 	FPattern CreateJump(int color, float startBeat, float endBeat, float div);
 
@@ -47,8 +66,6 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 	void UpdateNotesPreview();
-
-public:
 
 	UFUNCTION(BlueprintCallable)
 	void CreateJumpFromSelection(int color, float div);

@@ -29,37 +29,34 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-	UPROPERTY()
-		FString ToolId;
-
-	UPROPERTY()
-		UStaticMeshComponent* ToolMeshComp;
-
-	UPROPERTY()
-		UStaticMesh* ToolMesh;
-
-	UPROPERTY()
-	UStaticMesh* ArrowStaticMesh;
-
-	UPROPERTY()
-		UMaterialInterface* ToolMaterial;
-
-	UPROPERTY()
-		FVector CustomPosition;
-
-	UPROPERTY()
-		FRotator CustomRotation;
-
-	UPROPERTY()
-		FVector CustomScale;
-
+	virtual void OnUpdateUse(const FVector& position);
+	virtual void OnUpdate(const FVector& position);
+	
+	UPROPERTY() FString ToolId;
+	UPROPERTY() UStaticMeshComponent* ToolMeshComp;
+	UPROPERTY() UStaticMesh* ToolMesh;
+	UPROPERTY() UStaticMesh* ArrowStaticMesh;
+	UPROPERTY() UMaterialInterface* ToolMaterial;
+	UPROPERTY() FVector CustomPosition;
+	UPROPERTY() FRotator CustomRotation;
+	UPROPERTY() FVector CustomScale;
+	UPROPERTY() bool bInstantUse;
+	
+	bool bIsUsing = false;
+	
 public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
-	virtual void OnUse(FVector position);
-
-	void Update();
+	virtual void OnFinishUsing(FVector position);
+	
+	virtual void OnStartUsing(FVector position);
+	
+	void StartUsing(const FVector& position);
+	
+	void UpdateUse(FVector position);
+	
+	virtual void Update();
 
 	virtual UStaticMesh* GetToolMesh();
 
@@ -70,5 +67,7 @@ public:
 	virtual FRotator GetCustomRotation();
 
 	virtual FVector GetCustomScale();
-
+	
+	bool IsUsing();
+	
 };

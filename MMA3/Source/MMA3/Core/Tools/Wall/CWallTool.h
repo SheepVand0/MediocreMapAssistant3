@@ -20,7 +20,7 @@ public:
 	ACWallTool();
 
 	virtual void Tick(float deltaTime) override;
-
+	
 protected:
 
 	TObjectPtr<ACWall> TempWall;
@@ -31,12 +31,14 @@ protected:
 
 	void UpdateWallLocation();
 
+	virtual void OnUpdate(const FVector& position) override;
+	
 public:
 
 	virtual UStaticMesh* GetToolMesh() override;
 
 	virtual UMaterialInterface* GetToolMaterial() override;
 
-	virtual void OnUse(FVector location) override;
+	virtual void OnFinishUsing(FVector location) override;
 
 };

@@ -5,19 +5,19 @@
 
 ACWallTool::ACWallTool()
 {
-	
+	bInstantUse = false;	
 }
 
 void ACWallTool::Tick(float deltaTime)
 {
 	Super::Tick(deltaTime);
 
+	/// TODO: Rewrite (doesn't work well)
 	if (IsPlacing) {
 		if (GetMappingController()->GetBeat() - LastBeat != 0) {
 			float l_Duration = GetMappingController()->GetBeat() - TempWall->WallData->Beat;
 
 			TempWall->WallData->Duration = l_Duration;
-			UE_LOG(LogTemp, Display, TEXT("Wall Duration: %f"), l_Duration);
 		}
 
 		int l_LineIndex = 3 - ((GetActorLocation().X + 25 + 13) / 25) + 1;
@@ -51,6 +51,13 @@ void ACWallTool::UpdateWallLocation()
 	TempWall->SetActorLocation(l_Pos);
 }
 
+void ACWallTool::OnUpdate(const FVector& position)
+{
+	Super::OnUpdate(position);
+	
+	SetActorLocation(position);
+}
+
 UStaticMesh* ACWallTool::GetToolMesh()
 {
 	return nullptr;
@@ -61,7 +68,7 @@ UMaterialInterface* ACWallTool::GetToolMaterial()
 	return nullptr;
 }
 
-void ACWallTool::OnUse(FVector location)
+void ACWallTool::OnFinishUsing(FVector location)
 {
 	PrimaryActorTick.bCanEverTick = true;
 

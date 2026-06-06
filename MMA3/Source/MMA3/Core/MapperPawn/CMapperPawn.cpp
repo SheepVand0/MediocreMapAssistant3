@@ -4,6 +4,7 @@
 #include "CMapperPawn.h"
 #include "MMA3/Core/Tools/Wall/CWallTool.h"
 #include "MMA3/Core/Controller/CController.h"
+#include "MMA3/Core/Tools/CSelectionTool.h"
 
 void ACMapperPawn::ResetTransform()
 {
@@ -147,7 +148,7 @@ void ACMapperPawn::Tick(float DeltaTime) {
 			l_Result,
 			false, FLinearColor::Red, FLinearColor::Green, 1.0f);
 
-		if (l_Result.GetActor() == nullptr) {
+		if (l_Result.GetActor() == nullptr && !IsLeftAltPressed) {
 			AimedActor = nullptr;
 			return;
 		}
@@ -158,7 +159,7 @@ void ACMapperPawn::Tick(float DeltaTime) {
 		CursorPosX = l_X;
 		CursorPosZ = l_Z;
 
-		if (IsLeftAltPressed) {
+		if (IsLeftAltPressed && AimedActor) {
 			ACNote* l_Note = Cast<ACNote>(AimedActor);
 			if (l_Note) {
 				int l_PreX = l_Note->NoteData->Line;
@@ -175,11 +176,15 @@ void ACMapperPawn::Tick(float DeltaTime) {
 		else {
 			AimedActor = l_Result.GetActor();
 		}
+		
 
 		if (l_Result.GetComponent()) {
 			if (l_Result.GetComponent()->ComponentHasTag("MappingGrid") && CurrentTool != nullptr) {
-
-				CurrentTool->SetActorLocation(FVector(l_X, l_Result.ImpactPoint.Y, l_Z));
+				const FVector target = FVector(l_X, l_Result.ImpactPoint.Y, l_Z);
+				
+				CurrentTool->UpdateUse(target);
+				
+				TargetLocation = target;
 			}
 		}
 	}
@@ -374,13 +379,10 @@ void ACMapperPawn::InputDelete()
 
 	if (GetMappingController()->SelectionEndBPM != GetMappingController()->SelectionFirstBPM) {
 
-		for (int x = 0; x < GetMappingController()->MapContent->_notes.Num(); x++) {
-			float l_B = GetMappingController()->MapContent->_notes[x]->Beat;
-
-			if (l_B <= GetMappingController()->SelectionEndBPM && l_B >= GetMappingController()->SelectionFirstBPM) {
-				GetMappingController()->MapContent->_notes.RemoveAt(x);
-				x--;
-			}
+		auto selectedNotes = GetMappingController()->GetSelectedNotes();
+		for (int x = 0; x < selectedNotes.Num(); x++) {
+			GetMappingController()->MapContent->_notes.RemoveAt(x);
+			x--;
 		}
 
 		for (int x = 0; x < GetMappingController()->MapContent->_walls.Num(); x++) {
@@ -391,7 +393,8 @@ void ACMapperPawn::InputDelete()
 				x--;
 			}
 		}
-
+		
+		GetMappingController()->ClearSelection();
 		GetMappingController()->ResetCurrent();
 
 		return;
@@ -416,8 +419,12 @@ void ACMapperPawn::InputDelete()
 
 void ACMapperPawn::InputUnSelect()
 {
-	GetMappingController()->SelectionFirstBPM = 0.f;
-	GetMappingController()->SelectionEndBPM = 0.f;
+	GetMappingController()->ClearSelection();
+}
+
+void ACMapperPawn::FinishedSelection()
+{
+	SelectTool(ACNoteTool::StaticClass());
 }
 
 void ACMapperPawn::RightClickValue(float value) {
@@ -464,25 +471,17 @@ void ACMapperPawn::OnLeftClickUsed() {
 
 	if (!GetMappingController()->GetMapData()) return;
 
-	UE_LOG(LogTemp, Display, TEXT("clicked"));
-
-	if (IsSelecting) {
-		IsSelecting = false;
-		return;
-	}
-
 	if (IsLeftCtrlPressed) {
-		if (IsSelecting) {
-			IsSelecting = false;
-		}
-		else {
-			IsSelecting = true;
-			GetMappingController()->SelectionFirstBPM = GetMappingController()->GetBeat();
+		SelectTool(ACSelectionTool::StaticClass());
+		if (ACSelectionTool* selectionTool = Cast<ACSelectionTool>(CurrentTool))
+		{
+			selectionTool->StartUsing(TargetLocation);
+			selectionTool->OnFinishedSelection.AddDynamic(this, &ACMapperPawn::FinishedSelection);
 		}
 	}
 	else {
 		if (CurrentTool) {
-			CurrentTool->OnUse(CurrentTool->GetActorLocation());
+			CurrentTool->StartUsing(CurrentTool->GetActorLocation());
 
 			UpdateLastNoteData();
 		}
@@ -492,52 +491,61 @@ void ACMapperPawn::OnLeftClickUsed() {
 
 void ACMapperPawn::IncreaseSpeed()
 {
-	if (!GetMappingController()->GetMapData()) return;
-
-	if (IsRightClickPressed) {
-		Speed *= 1.1f;
-		if (Speed > 4)
-			Speed = 4;
-	}
-	else if (IsLeftCtrlPressed)
-	{
-		GetConfig()->MappingDivisions[SelectedMappingDivisionIndex] *= 2;
-		if (GetConfig()->MappingDivisions[SelectedMappingDivisionIndex] > 128) {
-			GetConfig()->MappingDivisions[SelectedMappingDivisionIndex] = 128;
-		}
-		UMMAConfig::SaveConfig(GetConfig());
-		GetMappingController()->EditModeWidget->UpdateSelectedMappingDivision();
-	}
-	else
-	{
-		if (!GetMappingController()->IsPlaying()) {
-			float l_Time = GetMappingController()->BeatToTime(GetMappingController()->GetBeat() + (1.f / GetConfig()->MappingDivisions[SelectedMappingDivisionIndex]));
-			GetMappingController()->SetTime(l_Time);
-		}
-	}
+	ChangeSpeed(false);
 }
 
 void ACMapperPawn::DecreaseSpeed()
 {
-	if (!GetMappingController()->GetMapData()) return;
+	ChangeSpeed(true);
+}
 
+void ACMapperPawn::ChangeSpeed(bool decrease)
+{
+	if (!GetMappingController()->GetMapData()) return;
+	
+	int multiplier = decrease ? -1 : 1;
+	
 	if (IsRightClickPressed) {
-		Speed *= 0.9f;
+		Speed *= decrease ? 0.9f : 1.1f;
+		
 		if (Speed < 0.5f)
 			Speed = 0.5f;
+		else if (Speed > 4)
+			Speed = 4;
+		
 	}
 	else if (IsLeftCtrlPressed) {
-		GetConfig()->MappingDivisions[SelectedMappingDivisionIndex] /= 2;
-		if (GetConfig()->MappingDivisions[SelectedMappingDivisionIndex] <= 1) {
-			GetConfig()->MappingDivisions[SelectedMappingDivisionIndex] = 1;
+		if (decrease)
+		{
+			GetConfig()->MappingDivisions[SelectedMappingDivisionIndex] /= 2;
+			if (GetConfig()->MappingDivisions[SelectedMappingDivisionIndex] <= 1) {
+				GetConfig()->MappingDivisions[SelectedMappingDivisionIndex] = 1;
+			}
+		} else
+		{
+			GetConfig()->MappingDivisions[SelectedMappingDivisionIndex] *= 2;
+			if (GetConfig()->MappingDivisions[SelectedMappingDivisionIndex] > 128) {
+				GetConfig()->MappingDivisions[SelectedMappingDivisionIndex] = 128;
+			}
 		}
+		
 		UMMAConfig::SaveConfig(GetConfig());
 		GetMappingController()->EditModeWidget->UpdateSelectedMappingDivision();
+	}
+	else if (IsLeftAltPressed)
+	{
+		if (ACNote* note = Cast<ACNote>(AimedActor))
+		{
+			int rot = ACNote::RotationByCutDirection[note->NoteData->Direction];
+			rot += 45 * multiplier;
+			note->NoteData->Direction = ACNote::CutDirectionFromAngle(rot);
+			note->SetData(note->NoteData);
+		}
 	}
 	else
 	{
 		if (!GetMappingController()->IsPlaying()) {
-			float l_Time = GetMappingController()->BeatToTime(GetMappingController()->GetBeat() - (1.f / GetConfig()->MappingDivisions[SelectedMappingDivisionIndex]));
+			float l_Time = GetMappingController()->BeatToTime(GetMappingController()->GetBeat() + ((1.f / GetConfig()->MappingDivisions[SelectedMappingDivisionIndex]) * multiplier));
 			GetMappingController()->SetTime(l_Time);
 		}
 	}

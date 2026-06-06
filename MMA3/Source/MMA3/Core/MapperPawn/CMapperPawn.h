@@ -92,7 +92,9 @@ protected:
 	FVector LastToolDirection;
 
 	FNoteData* LastNoteDirection;
-
+	
+	FVector TargetLocation;
+	
 	UFUNCTION()
 	void ResetTransform();
 
@@ -146,7 +148,9 @@ protected:
 
 	UFUNCTION()
 	void InputUnSelect();
-
+	
+	UFUNCTION() void FinishedSelection();
+	
 /////////////////////////////////////////////////////////////////////////////
 /// Actions
 
@@ -160,7 +164,7 @@ protected:
 
 	UFUNCTION()
 	void SwitchPrecision();
-
+	
 public:
 
 	ACMapperPawn();
@@ -193,17 +197,15 @@ public:
 /////////////////////////////////////////////////////////////////////////////
 /// Actions
 
-	UFUNCTION()
-	void IncreaseSpeed();
+	UFUNCTION() void IncreaseSpeed();
 
-	UFUNCTION()
-	void DecreaseSpeed();
+	UFUNCTION() void DecreaseSpeed();
+	
+	UFUNCTION() void ChangeSpeed(bool decrease);
+	
+	UFUNCTION() void PlayStop();
 
-	UFUNCTION()
-	void PlayStop();
-
-	UFUNCTION()
-	void SelectTool(TSubclassOf<ACMappingTool> p_Tool);
+	UFUNCTION() void SelectTool(TSubclassOf<ACMappingTool> p_Tool);
 
 	void UpdateLastNoteData();
 

@@ -20,6 +20,7 @@
 #include "MMA3/Core/CHistory.h"
 #include "CController.generated.h"
 
+class ACNote;
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnReady);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnTimeUpdated, float, Time);
 //DECLARE_DYNAMIC_MULTICAST_DELEGATE_FourParams(FOnNeedToAddBeatmapsObjects, FMapData, mapContent, ABeatCell*, beatCells, float, beat, float, renderDistance);
@@ -27,6 +28,7 @@ DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnNeedToDestroyBeatmapObjects);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnNeedToUpdateMapperPawnPosition, float, YPosition);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnNeedToResetMapperPawnTransform);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnNeedToCreateWidgets);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnPauseDelegate);
 
 #define SOUND_VIS_VERTICES_X 192
 #define SOUND_VIS_VERTICES_Y 64
@@ -58,20 +60,11 @@ protected:
 
 public:
 
-	UPROPERTY(EditAnywhere)
-	ULevelSelectionWidget* LevelSelectionWidget;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	UEditModeWidget* EditModeWidget;
-
-	UPROPERTY(BlueprintAssignable)
-	FOnNeedToCreateWidgets OnNeedToCreateWidgets;
-
-	UPROPERTY(EditAnywhere)
-	UMapDetailsWidget* MapDetailsWidget;
-
-	UPROPERTY(EditAnywhere)
-	UMainSettings* MainSettingsWidget;
+	UPROPERTY(EditAnywhere) ULevelSelectionWidget* LevelSelectionWidget;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite) UEditModeWidget* EditModeWidget;
+	UPROPERTY(BlueprintAssignable) FOnNeedToCreateWidgets OnNeedToCreateWidgets;
+	UPROPERTY(EditAnywhere) UMapDetailsWidget* MapDetailsWidget;
+	UPROPERTY(EditAnywhere) UMainSettings* MainSettingsWidget;
 
 protected:
 
@@ -129,6 +122,8 @@ protected:
 	UPROPERTY()
 	float LastPlayingTime;
 
+	TArray<FNoteData*> SelectedNotes;
+	
 	UFUNCTION()
 	void WidgetTimeSliderChanged(float newValue);
 
@@ -150,7 +145,7 @@ public:
 
 	UPROPERTY(BlueprintAssignable)
 	FOnTimeUpdated OnTimeUpdated;
-
+	
 	//UPROPERTY(BlueprintAssignable)
 	//FOnNeedToAddBeatmapsObjects OnNeedToAddBeatmapObjects;
 
@@ -171,6 +166,10 @@ public:
 	UPROPERTY(BlueprintAssignable)
 	FOnNeedToResetMapperPawnTransform OnNeedToResetMapperPawnTransform;
 
+	UPROPERTY(BlueprintAssignable) FOnPauseDelegate OnPauseEvent;
+	
+	SActionPtrBase<void, FNoteData*>* UniqueNotePassedCallback;
+	
 	UPROPERTY()
 	TObjectPtr<UStaticMesh> BombMesh;
 	UPROPERTY()
@@ -217,11 +216,9 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	float SelectionEndBPM;
 
-	UFUNCTION()
-	void Play();
+	UFUNCTION() void Play();
 
-	UFUNCTION()
-	void Stop();
+	UFUNCTION() void Stop();
 
 	//UFUNCTION()
 	void SetMap(FMapInfo* info, FString diff, FString mode);
@@ -265,6 +262,12 @@ public:
 	UFUNCTION()
 	void SortMapContent();
 
+	UFUNCTION() void AddNoteToSelection(ACNote* note);
+	UFUNCTION() void RemoveToSelection(ACNote* note);
+	UFUNCTION() void ClearSelection();
+	
+	void BroadcastNotePassed(FNoteData* noteData);
+	
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -304,7 +307,7 @@ public:
 
 	TArray<FNoteData*> GetSelectedNotes();
 
-	FNoteData* GetLastSameColorNote(FNoteData* current);
+	FNoteData* GetLastSameColorNote(FNoteData* current) const;
 
 	FNoteData* GetLastSameColorNote(float beat, int type);
 

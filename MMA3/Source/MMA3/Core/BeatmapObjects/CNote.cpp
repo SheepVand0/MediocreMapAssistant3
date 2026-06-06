@@ -3,6 +3,8 @@
 
 #include "CNote.h"
 
+#include "MMA3/Core/Controller/CController.h"
+
 TMap<int, int> ACNote::RotationByCutDirection;
 
 // Sets default values
@@ -62,10 +64,14 @@ void ACNote::Tick(float DeltaTime)
 
 	ActorBeat = GetMappingController()->GetBeat();
 
-	bool isSelected = NoteData->Beat <= GetMappingController()->SelectionEndBPM && NoteData->Beat >=
-		GetMappingController()->SelectionFirstBPM && !IsPreview && GetMappingController()->SelectionFirstBPM !=
-		GetMappingController()->SelectionEndBPM;
-
+	TArray<FNoteData*> selection = GetMappingController()->GetSelectedNotes(); 
+	
+	if (!bIsSelected && selection.Num())
+	{
+		bIsSelected = selection.Contains(NoteData);
+	}
+	
+	bool isSelected = bIsSelected;
 
 	if (ActorBeat > LastActorBeat)
 	{
@@ -73,6 +79,7 @@ void ACNote::Tick(float DeltaTime)
 			!Passed)
 		{
 			GetMappingController()->PlayHitSound();
+			GetMappingController()->BroadcastNotePassed(NoteData);
 		}
 	}
 

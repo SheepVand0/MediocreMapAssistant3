@@ -5,11 +5,6 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include "MMA3/Core/Structures.h"
-#include "MMA3/Core/Mapping/BeatCell.h"
-#include "Kismet/GameplayStatics.h"
-#include "MMA3/MMAConfig.h"
-#include "MMA3/Core/Controller/CController.h"
-#include "MMA3/MMA3.h"
 #include "CNote.generated.h"
 
 UCLASS()
@@ -65,6 +60,8 @@ public:
 
 	float ActorBeat;
 
+	bool bIsSelected;
+	
 	void SetData(FNoteData* noteData);
 
 	void SetPreview();

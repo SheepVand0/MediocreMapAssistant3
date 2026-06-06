@@ -78,8 +78,8 @@
 			{
 				"FileVersion": 3,
 				"Version": 1,
-				"VersionName": "0.1",
-				"FriendlyName": "Environment Query Editor (Experimental)",
+				"VersionName": "1.0",
+				"FriendlyName": "Environment Query Editor",
 				"Description": "Allows editing of Environment Query assets, which are used by the AI to collect data about the environment/world",
 				"Category": "AI",
 				"CreatedBy": "Epic Games, Inc.",
@@ -89,7 +89,6 @@
 				"SupportURL": "",
 				"EnabledByDefault": true,
 				"CanContainContent": false,
-				"IsBetaVersion": true,
 				"Modules": [
 					{
 						"Name": "EnvironmentQueryEditor",
@@ -110,8 +109,8 @@
 			"Descriptor": 
 			{
 				"FileVersion": 3,
-				"Version": 30099,
-				"VersionName": "3.0.99",
+				"Version": 30100,
+				"VersionName": "3.1.0",
 				"FriendlyName": "Animation Compression Library",
 				"Description": "Use the Animation Compression Library (ACL) to compress AnimSequences.",
 				"Category": "Animation",
@@ -137,12 +136,252 @@
 			}
 		},
 		{
+			"File": "../../../Engine/Plugins/Animation/ControlRig/ControlRig.uplugin",
+			"Descriptor": 
+			{
+				"FileVersion": 3,
+				"Version": 1,
+				"VersionName": "1.0",
+				"FriendlyName": "Control Rig",
+				"Description": "Framework for animation driven by user controls.",
+				"Category": "Animation",
+				"CreatedBy": "Epic Games, Inc.",
+				"CreatedByURL": "https://epicgames.com",
+				"DocsURL": "",
+				"MarketplaceURL": "",
+				"SupportURL": "",
+				"EnabledByDefault": true,
+				"CanContainContent": true,
+				"Modules": [
+					{
+						"Name": "ControlRig",
+						"Type": "Runtime",
+						"LoadingPhase": "PreDefault"
+					},
+					{
+						"Name": "ControlRigDeveloper",
+						"Type": "UncookedOnly",
+						"LoadingPhase": "PreDefault"
+					},
+					{
+						"Name": "ControlRigEditor",
+						"Type": "Editor",
+						"LoadingPhase": "PostEngineInit"
+					}
+				],
+				"Plugins": [
+					{
+						"Name": "RigVM",
+						"Enabled": true
+					},
+					{
+						"Name": "PythonScriptPlugin",
+						"Enabled": true,
+						"TargetAllowList": [
+							"Editor"
+						]
+					},
+					{
+						"Name": "LevelSequenceEditor",
+						"Enabled": true
+					},
+					{
+						"Name": "PropertyAccessEditor",
+						"Enabled": true
+					},
+					{
+						"Name": "SequencerScripting",
+						"Enabled": true
+					},
+					{
+						"Name": "TweeningUtils",
+						"Enabled": true
+					}
+				]
+			}
+		},
+		{
+			"File": "../../../Engine/Plugins/Animation/DeformerGraph/DeformerGraph.uplugin",
+			"Descriptor": 
+			{
+				"FileVersion": 3,
+				"Version": 1,
+				"VersionName": "0.9",
+				"FriendlyName": "Deformer Graph",
+				"Description": "Editor for creating GPU mesh deformation graphs",
+				"Category": "Animation",
+				"CreatedBy": "Epic Games, Inc.",
+				"CreatedByURL": "https://epicgames.com",
+				"DocsURL": "",
+				"MarketplaceURL": "",
+				"SupportURL": "",
+				"EnabledByDefault": false,
+				"CanContainContent": true,
+				"IsBetaVersion": true,
+				"Modules": [
+					{
+						"Name": "OptimusSettings",
+						"Type": "Runtime",
+						"LoadingPhase": "PostConfigInit"
+					},
+					{
+						"Name": "OptimusCore",
+						"Type": "Runtime",
+						"LoadingPhase": "PreDefault"
+					},
+					{
+						"Name": "OptimusDeveloper",
+						"Type": "UncookedOnly",
+						"LoadingPhase": "PreDefault"
+					},
+					{
+						"Name": "OptimusEditor",
+						"Type": "Editor",
+						"LoadingPhase": "PostEngineInit"
+					}
+				],
+				"Plugins": [
+					{
+						"Name": "ComputeFramework",
+						"Enabled": true
+					},
+					{
+						"Name": "ControlRig",
+						"Enabled": true
+					}
+				]
+			}
+		},
+		{
+			"File": "../../../Engine/Plugins/Animation/RigLogic/RigLogic.uplugin",
+			"Descriptor": 
+			{
+				"FileVersion": 3,
+				"Version": 0,
+				"VersionName": "10.2.7",
+				"FriendlyName": "RigLogic Plugin v10.3.0",
+				"Description": "RigLogic Plugin for Facial Animation v10.3.0",
+				"Category": "Animation",
+				"CreatedBy": "Epic Games, Inc.",
+				"CreatedByURL": "https://epicgames.com",
+				"DocsURL": "",
+				"MarketplaceURL": "",
+				"SupportURL": "",
+				"CanContainContent": true,
+				"Modules": [
+					{
+						"Name": "RigLogicLib",
+						"Type": "Runtime",
+						"LoadingPhase": "PreDefault"
+					},
+					{
+						"Name": "RigLogicLibTest",
+						"Type": "Runtime",
+						"LoadingPhase": "PreDefault",
+						"PlatformAllowList": [
+							"Win64"
+						]
+					},
+					{
+						"Name": "RigLogicModule",
+						"Type": "Runtime",
+						"LoadingPhase": "Default"
+					},
+					{
+						"Name": "RigLogicDeveloper",
+						"Type": "UncookedOnly",
+						"LoadingPhase": "PreDefault"
+					},
+					{
+						"Name": "RigLogicEditor",
+						"Type": "Editor",
+						"LoadingPhase": "Default",
+						"PlatformAllowList": [
+							"Win64"
+						]
+					}
+				],
+				"Plugins": [
+					{
+						"Name": "ControlRig",
+						"Enabled": true
+					}
+				]
+			}
+		},
+		{
+			"File": "../../../Engine/Plugins/Animation/SkeletalMeshModelingTools/SkeletalMeshModelingTools.uplugin",
+			"Descriptor": 
+			{
+				"FileVersion": 3,
+				"Version": 1,
+				"VersionName": "1.0",
+				"FriendlyName": "Skeletal Mesh Editing Tools",
+				"Description": "Create skeletons, paint skin weights and edit skeletal meshes.",
+				"Category": "Animation",
+				"CreatedBy": "Epic Games, Inc.",
+				"CreatedByURL": "https://epicgames.com/",
+				"DocsURL": "",
+				"MarketplaceURL": "",
+				"SupportURL": "",
+				"EnabledByDefault": true,
+				"CanContainContent": true,
+				"Modules": [
+					{
+						"Name": "SkeletalMeshModelingTools",
+						"Type": "Editor",
+						"LoadingPhase": "Default"
+					}
+				],
+				"Plugins": [
+					{
+						"Name": "ModelingToolsEditorMode",
+						"Enabled": true,
+						"TargetAllowList": [
+							"Editor"
+						]
+					}
+				]
+			}
+		},
+		{
+			"File": "../../../Engine/Plugins/Animation/TweeningUtils/TweeningUtils.uplugin",
+			"Descriptor": 
+			{
+				"FileVersion": 3,
+				"Version": 1,
+				"VersionName": "1.0",
+				"FriendlyName": "Tweening Utils",
+				"Description": "Algorithms and widgets useful for inbetweening.",
+				"Category": "Animation",
+				"CreatedBy": "Epic Games, Inc.",
+				"CreatedByURL": "https://epicgames.com",
+				"DocsURL": "",
+				"MarketplaceURL": "",
+				"SupportURL": "",
+				"EnabledByDefault": true,
+				"CanContainContent": true,
+				"Modules": [
+					{
+						"Name": "TweeningUtils",
+						"Type": "Runtime",
+						"LoadingPhase": "Default"
+					},
+					{
+						"Name": "TweeningUtilsEditor",
+						"Type": "Editor",
+						"LoadingPhase": "Default"
+					}
+				]
+			}
+		},
+		{
 			"File": "../../../Engine/Plugins/Bridge/Bridge.uplugin",
 			"Descriptor": 
 			{
 				"FileVersion": 3,
-				"Version": 47,
-				"VersionName": "2024.0.7",
+				"Version": 50,
+				"VersionName": "2025.0.1",
 				"FriendlyName": "Bridge",
 				"Description": "Megascans Link for Quixel Bridge.",
 				"Category": "Editor",
@@ -151,14 +390,9 @@
 				"DocsURL": "https://help.quixel.com/hc/en-us/sections/360005846137-Quixel-Bridge-for-Unreal-Engine-5",
 				"MarketplaceURL": "",
 				"SupportURL": "support@quixel.com",
-				"EngineVersion": "5.4.0",
+				"EngineVersion": "5.6.0",
 				"EnabledByDefault": true,
 				"CanContainContent": true,
-				"SupportedTargetPlatforms": [
-					"Win64",
-					"Mac",
-					"Linux"
-				],
 				"Modules": [
 					{
 						"Name": "Bridge",
@@ -187,7 +421,39 @@
 						"Enabled": true
 					},
 					{
-						"Name": "MetaHumanProjectUtilities",
+						"Name": "MetaHumanSDK",
+						"Enabled": true
+					}
+				]
+			}
+		},
+		{
+			"File": "../../../Engine/Plugins/Cameras/EngineCameras/EngineCameras.uplugin",
+			"Descriptor": 
+			{
+				"FileVersion": 3,
+				"Version": 1,
+				"VersionName": "0.1",
+				"FriendlyName": "Engine Cameras",
+				"Description": "Default engine camera shakes and animations",
+				"Category": "Cameras",
+				"CreatedBy": "Epic Games, Inc.",
+				"CreatedByURL": "https://epicgames.com",
+				"DocsURL": "",
+				"MarketplaceURL": "",
+				"SupportURL": "",
+				"EnabledByDefault": true,
+				"CanContainContent": false,
+				"Modules": [
+					{
+						"Name": "EngineCameras",
+						"Type": "Runtime",
+						"LoadingPhase": "PreDefault"
+					}
+				],
+				"Plugins": [
+					{
+						"Name": "TemplateSequence",
 						"Enabled": true
 					}
 				]
@@ -211,14 +477,35 @@
 				"EnabledByDefault": true,
 				"CanContainContent": true,
 				"IsBetaVersion": true,
+				"SupportedPrograms": [
+					"ChaosVisualDebugger"
+				],
 				"Modules": [
 					{
 						"Name": "ChaosVD",
-						"Type": "Editor",
+						"Type": "EditorAndProgram",
+						"LoadingPhase": "Default"
+					},
+					{
+						"Name": "ChaosVDBlueprint",
+						"Type": "RuntimeAndProgram",
+						"LoadingPhase": "Default"
+					},
+					{
+						"Name": "ChaosVDBuiltInExtensions",
+						"Type": "EditorAndProgram",
 						"LoadingPhase": "Default"
 					}
 				],
 				"Plugins": [
+					{
+						"Name": "EditorDataStorage",
+						"Enabled": true
+					},
+					{
+						"Name": "EditorDataStorageFeatures",
+						"Enabled": true
+					},
 					{
 						"Name": "GeometryProcessing",
 						"Enabled": true
@@ -284,6 +571,43 @@
 				"Plugins": [
 					{
 						"Name": "SignificanceManager",
+						"Enabled": true
+					}
+				]
+			}
+		},
+		{
+			"File": "../../../Engine/Plugins/Developer/NamingTokens/NamingTokens.uplugin",
+			"Descriptor": 
+			{
+				"FileVersion": 3,
+				"Version": 1,
+				"VersionName": "1.0",
+				"FriendlyName": "NamingTokens",
+				"Description": "Define tokens which can be recognized during string evaluation.",
+				"Category": "Editor",
+				"CreatedBy": "Epic Games, Inc.",
+				"CreatedByURL": "http://epicgames.com",
+				"DocsURL": "",
+				"MarketplaceURL": "",
+				"SupportURL": "",
+				"CanContainContent": true,
+				"IsExperimentalVersion": true,
+				"Modules": [
+					{
+						"Name": "NamingTokens",
+						"Type": "Runtime",
+						"LoadingPhase": "Default"
+					},
+					{
+						"Name": "NamingTokensUncookedOnly",
+						"Type": "UncookedOnly",
+						"LoadingPhase": "Default"
+					}
+				],
+				"Plugins": [
+					{
+						"Name": "EngineAssetDefinitions",
 						"Enabled": true
 					}
 				]
@@ -364,6 +688,12 @@
 						"Type": "UncookedOnly",
 						"LoadingPhase": "PreDefault"
 					}
+				],
+				"Plugins": [
+					{
+						"Name": "ContentBrowserAssetDataSource",
+						"Enabled": true
+					}
 				]
 			}
 		},
@@ -394,6 +724,128 @@
 			}
 		},
 		{
+			"File": "../../../Engine/Plugins/Editor/ColorGrading/ColorGrading.uplugin",
+			"Descriptor": 
+			{
+				"FileVersion": 3,
+				"Version": 1,
+				"VersionName": "1.0",
+				"FriendlyName": "Color Grading",
+				"Description": "Adds a panel with detailed color grading controls",
+				"Category": "Misc",
+				"CreatedBy": "Epic Games, Inc.",
+				"CreatedByURL": "https://epicgames.com",
+				"DocsURL": "",
+				"MarketplaceURL": "",
+				"SupportURL": "",
+				"EnabledByDefault": true,
+				"CanContainContent": false,
+				"Modules": [
+					{
+						"Name": "ColorGradingEditor",
+						"Type": "Editor",
+						"LoadingPhase": "Default"
+					}
+				],
+				"Plugins": [
+					{
+						"Name": "ObjectMixer",
+						"Enabled": true
+					}
+				]
+			}
+		},
+		{
+			"File": "../../../Engine/Plugins/Editor/ContentBrowser/ContentBrowserAssetDataSource/ContentBrowserAssetDataSource.uplugin",
+			"Descriptor": 
+			{
+				"FileVersion": 3,
+				"Version": 1,
+				"VersionName": "1.0",
+				"FriendlyName": "Content Browser - Asset Data Source",
+				"Description": "Data Source plugin providing Asset Data to the Content Browser",
+				"Category": "Content Browser",
+				"CreatedBy": "Epic Games, Inc.",
+				"CreatedByURL": "https://epicgames.com",
+				"DocsURL": "",
+				"MarketplaceURL": "",
+				"SupportURL": "",
+				"EnabledByDefault": true,
+				"CanContainContent": false,
+				"SupportedPrograms": [
+					"LiveLinkHub"
+				],
+				"Modules": [
+					{
+						"Name": "ContentBrowserAssetDataSource",
+						"Type": "Editor",
+						"LoadingPhase": "Default",
+						"ProgramAllowList": [
+							"LiveLinkHub"
+						]
+					}
+				]
+			}
+		},
+		{
+			"File": "../../../Engine/Plugins/Editor/CurveEditorTools/CurveEditorTools.uplugin",
+			"Descriptor": 
+			{
+				"FileVersion": 3,
+				"Version": 1,
+				"VersionName": "1.0",
+				"FriendlyName": "Curve Editor Tools",
+				"Description": "This provides a default set of editing tools for the Curve Editor.",
+				"Category": "Editor",
+				"CreatedBy": "Epic Games, Inc.",
+				"CreatedByURL": "https://epicgames.com",
+				"DocsURL": "",
+				"MarketplaceURL": "",
+				"SupportURL": "",
+				"EnabledByDefault": true,
+				"CanContainContent": false,
+				"Modules": [
+					{
+						"Name": "CurveEditorTools",
+						"Type": "Editor",
+						"LoadingPhase": "Default"
+					}
+				],
+				"Plugins": [
+					{
+						"Name": "TweeningUtils",
+						"Enabled": true
+					}
+				]
+			}
+		},
+		{
+			"File": "../../../Engine/Plugins/Editor/DataValidation/DataValidation.uplugin",
+			"Descriptor": 
+			{
+				"FileVersion": 3,
+				"Version": 1,
+				"VersionName": "1.0",
+				"FriendlyName": "Data Validation",
+				"Description": "Editor UI and utilities for running data validation",
+				"Category": "Editor",
+				"CreatedBy": "Epic Games, Inc.",
+				"CreatedByURL": "https://epicgames.com",
+				"DocsURL": "",
+				"MarketplaceURL": "",
+				"SupportURL": "",
+				"EnabledByDefault": true,
+				"CanContainContent": false,
+				"Modules": [
+					{
+						"Name": "DataValidation",
+						"Type": "Editor",
+						"LoadingPhase": "PreDefault"
+					}
+				]
+			}
+		},
+		{
 			"File": "../../../Engine/Plugins/Editor/EditorScriptingUtilities/EditorScriptingUtilities.uplugin",
 			"Descriptor": 
 			{
@@ -416,6 +868,32 @@
 						"Name": "EditorScriptingUtilities",
 						"Type": "Editor",
 						"LoadingPhase": "Default"
+					}
+				]
+			}
+		},
+		{
+			"File": "../../../Engine/Plugins/Editor/EngineAssetDefinitions/EngineAssetDefinitions.uplugin",
+			"Descriptor": 
+			{
+				"FileVersion": 3,
+				"Version": 1,
+				"VersionName": "1.0",
+				"FriendlyName": "Engine Asset Definitions",
+				"Description": "",
+				"Category": "Other",
+				"CreatedBy": "Epic Games, Inc.",
+				"CreatedByURL": "http://epicgames.com",
+				"DocsURL": "",
+				"MarketplaceURL": "",
+				"SupportURL": "",
+				"EnabledByDefault": true,
+				"CanContainContent": false,
+				"Modules": [
+					{
+						"Name": "EngineAssetDefinitions",
+						"Type": "Editor",
+						"LoadingPhase": "PostEngineInit"
 					}
 				]
 			}
@@ -549,36 +1027,6 @@
 			}
 		},
 		{
-			"File": "../../../Engine/Plugins/Editor/ProxyLODPlugin/ProxyLODPlugin.uplugin",
-			"Descriptor": 
-			{
-				"FileVersion": 3,
-				"Version": 1,
-				"VersionName": "0.1",
-				"FriendlyName": "Proxy LOD Plugin (Experimental)",
-				"Description": "A plugin to generate Proxy LOD systems.",
-				"Category": "Editor",
-				"CreatedBy": "Epic Games, Inc.",
-				"CreatedByURL": "https://epicgames.com",
-				"DocsURL": "",
-				"MarketplaceURL": "",
-				"SupportURL": "",
-				"EnabledByDefault": false,
-				"CanContainContent": false,
-				"IsBetaVersion": true,
-				"Modules": [
-					{
-						"Name": "ProxyLODMeshReduction",
-						"Type": "Editor",
-						"LoadingPhase": "Default",
-						"PlatformAllowList": [
-							"Win64"
-						]
-					}
-				]
-			}
-		},
-		{
 			"File": "../../../Engine/Plugins/Editor/SpeedTreeImporter/SpeedTreeImporter.uplugin",
 			"Descriptor": 
 			{
@@ -600,6 +1048,39 @@
 						"Name": "SpeedTreeImporter",
 						"Type": "Editor",
 						"LoadingPhase": "Default"
+					}
+				]
+			}
+		},
+		{
+			"File": "../../../Engine/Plugins/Editor/UMGWidgetPreview/UMGWidgetPreview.uplugin",
+			"Descriptor": 
+			{
+				"FileVersion": 3,
+				"Version": 1,
+				"VersionName": "1.0",
+				"FriendlyName": "UMG Widget Preview",
+				"Description": "Quickly preview and debug UMG widgets without running PIE.",
+				"Category": "UI",
+				"CreatedBy": "Epic Games, Inc.",
+				"CreatedByURL": "https://epicgames.com",
+				"DocsURL": "",
+				"MarketplaceURL": "",
+				"SupportURL": "",
+				"EnabledByDefault": true,
+				"CanContainContent": true,
+				"IsExperimentalVersion": true,
+				"Modules": [
+					{
+						"Name": "UMGWidgetPreview",
+						"Type": "Editor",
+						"LoadingPhase": "Default"
+					}
+				],
+				"Plugins": [
+					{
+						"Name": "DataValidation",
+						"Enabled": true
 					}
 				]
 			}
@@ -694,6 +1175,12 @@
 						"Type": "Editor",
 						"LoadingPhase": "Default"
 					}
+				],
+				"Plugins": [
+					{
+						"Name": "DataValidation",
+						"Enabled": true
+					}
 				]
 			}
 		},
@@ -777,6 +1264,10 @@
 							"Linux",
 							"Mac"
 						]
+					},
+					{
+						"Name": "InterchangeAssets",
+						"Enabled": true
 					}
 				]
 			}
@@ -847,38 +1338,6 @@
 			}
 		},
 		{
-			"File": "../../../Engine/Plugins/Experimental/AutomationUtils/AutomationUtils.uplugin",
-			"Descriptor": 
-			{
-				"FileVersion": 3,
-				"Version": 1,
-				"VersionName": "0.1",
-				"FriendlyName": "Automation Utilities",
-				"Description": "Tools and Utilities for Automation purposes",
-				"Category": "Testing",
-				"CreatedBy": "Epic Games, Inc.",
-				"CreatedByURL": "https://epicgames.com",
-				"DocsURL": "",
-				"MarketplaceURL": "",
-				"SupportURL": "",
-				"EnabledByDefault": true,
-				"CanContainContent": false,
-				"IsBetaVersion": true,
-				"Modules": [
-					{
-						"Name": "AutomationUtils",
-						"Type": "Runtime",
-						"LoadingPhase": "Default"
-					},
-					{
-						"Name": "AutomationUtilsEditor",
-						"Type": "Editor",
-						"LoadingPhase": "Default"
-					}
-				]
-			}
-		},
-		{
 			"File": "../../../Engine/Plugins/Experimental/BackChannel/BackChannel.uplugin",
 			"Descriptor": 
 			{
@@ -900,6 +1359,44 @@
 						"Name": "BackChannel",
 						"Type": "RuntimeNoCommandlet",
 						"LoadingPhase": "Default"
+					}
+				]
+			}
+		},
+		{
+			"File": "../../../Engine/Plugins/Experimental/ChaosCaching/ChaosCaching.uplugin",
+			"Descriptor": 
+			{
+				"FileVersion": 3,
+				"Version": 1,
+				"VersionName": "1.0",
+				"FriendlyName": "ChaosCaching",
+				"Description": "Chaos Cache asset support for recording and playing back physics simulations",
+				"Category": "Physics",
+				"CreatedBy": "Epic Games, Inc.",
+				"CreatedByURL": "https://epicgames.com",
+				"DocsURL": "",
+				"MarketplaceURL": "",
+				"SupportURL": "",
+				"EnabledByDefault": false,
+				"CanContainContent": true,
+				"IsExperimentalVersion": true,
+				"Modules": [
+					{
+						"Name": "ChaosCaching",
+						"Type": "Runtime",
+						"LoadingPhase": "PreDefault"
+					},
+					{
+						"Name": "ChaosCachingEditor",
+						"Type": "Editor",
+						"LoadingPhase": "PreDefault"
+					}
+				],
+				"Plugins": [
+					{
+						"Name": "Takes",
+						"Enabled": true
 					}
 				]
 			}
@@ -1041,6 +1538,33 @@
 			}
 		},
 		{
+			"File": "../../../Engine/Plugins/Experimental/Compositing/CompositeCore/CompositeCore.uplugin",
+			"Descriptor": 
+			{
+				"FileVersion": 3,
+				"Version": 1,
+				"VersionName": "1.0",
+				"FriendlyName": "CompositeCore",
+				"Description": "Extensible core plugin for real-time compositing, with a default (holdout) composite pipeline through post-processing.",
+				"Category": "Compositing",
+				"CreatedBy": "Epic Games, Inc.",
+				"CreatedByURL": "https://epicgames.com",
+				"DocsURL": "",
+				"MarketplaceURL": "",
+				"SupportURL": "",
+				"EnabledByDefault": false,
+				"CanContainContent": false,
+				"IsExperimentalVersion": true,
+				"Modules": [
+					{
+						"Name": "CompositeCore",
+						"Type": "Runtime",
+						"LoadingPhase": "PostConfigInit"
+					}
+				]
+			}
+		},
+		{
 			"File": "../../../Engine/Plugins/Experimental/Dataflow/Dataflow.uplugin",
 			"Descriptor": 
 			{
@@ -1057,17 +1581,16 @@
 				"SupportURL": "",
 				"EnabledByDefault": true,
 				"CanContainContent": true,
-				"IsBetaVersion": true,
 				"IsExperimentalVersion": true,
 				"Modules": [
 					{
 						"Name": "DataflowEditor",
 						"Type": "Editor",
-						"LoadingPhase": "Default"
+						"LoadingPhase": "PostDefault"
 					},
 					{
 						"Name": "DataflowAssetTools",
-						"Type": "Editor",
+						"Type": "Runtime",
 						"LoadingPhase": "Default"
 					},
 					{
@@ -1099,7 +1622,135 @@
 					},
 					{
 						"Name": "MeshModelingToolsetExp",
+						"Enabled": true,
+						"TargetAllowList": [
+							"Editor"
+						]
+					},
+					{
+						"Name": "ChaosCaching",
 						"Enabled": true
+					},
+					{
+						"Name": "GeometryCache",
+						"Enabled": true
+					},
+					{
+						"Name": "EditorDataStorage",
+						"Enabled": true
+					},
+					{
+						"Name": "EditorDataStorageFeatures",
+						"Enabled": true
+					}
+				]
+			}
+		},
+		{
+			"File": "../../../Engine/Plugins/Experimental/EditorDataStorageFeatures/EditorDataStorageFeatures.uplugin",
+			"Descriptor": 
+			{
+				"FileVersion": 3,
+				"Version": 1,
+				"VersionName": "0.1",
+				"FriendlyName": "TEDS: Editor Data Storage Features",
+				"Description": "Experimental UI Features for the Editor, built on TEDS: Editor Data Storage.",
+				"Category": "Editor",
+				"CreatedBy": "Epic Games, Inc.",
+				"CreatedByURL": "http://epicgames.com",
+				"DocsURL": "",
+				"MarketplaceURL": "",
+				"SupportURL": "",
+				"CanContainContent": true,
+				"IsExperimentalVersion": true,
+				"SupportedPrograms": [
+					"ChaosVisualDebugger"
+				],
+				"Modules": [
+					{
+						"Name": "TedsAlerts",
+						"Type": "Editor",
+						"LoadingPhase": "Default"
+					},
+					{
+						"Name": "TedsAssetData",
+						"Type": "Editor",
+						"LoadingPhase": "Default"
+					},
+					{
+						"Name": "TedsContentBrowser",
+						"Type": "Editor",
+						"LoadingPhase": "Default"
+					},
+					{
+						"Name": "TedsDebugger",
+						"Type": "Editor",
+						"LoadingPhase": "Default"
+					},
+					{
+						"Name": "TedsOutliner",
+						"Type": "Editor",
+						"LoadingPhase": "Default"
+					},
+					{
+						"Name": "TedsPropertyEditor",
+						"Type": "Editor",
+						"LoadingPhase": "Default"
+					},
+					{
+						"Name": "TedsQueryStack",
+						"Type": "Editor",
+						"LoadingPhase": "Default"
+					},
+					{
+						"Name": "TedsRevisionControl",
+						"Type": "Editor",
+						"LoadingPhase": "Default"
+					},
+					{
+						"Name": "TedsSettings",
+						"Type": "Editor",
+						"LoadingPhase": "Default"
+					},
+					{
+						"Name": "TedsTableViewer",
+						"Type": "Editor",
+						"LoadingPhase": "Default"
+					}
+				]
+			}
+		},
+		{
+			"File": "../../../Engine/Plugins/Experimental/EditorDataStorage/EditorDataStorage.uplugin",
+			"Descriptor": 
+			{
+				"FileVersion": 3,
+				"Version": 1,
+				"VersionName": "0.1",
+				"FriendlyName": "TEDS: Editor Data Storage",
+				"Description": "A central extendable data storage for editors and their corresponding data with support for viewing and editing through a collection of widgets.",
+				"Category": "Editor",
+				"CreatedBy": "Epic Games, Inc.",
+				"CreatedByURL": "http://epicgames.com",
+				"DocsURL": "",
+				"MarketplaceURL": "",
+				"SupportURL": "",
+				"EnabledByDefault": true,
+				"CanContainContent": true,
+				"IsExperimentalVersion": true,
+				"SupportedPrograms": [
+					"ChaosVisualDebugger"
+				],
+				"Modules": [
+					{
+						"Name": "TedsCore",
+						"Type": "EditorAndProgram",
+						"LoadingPhase": "Default"
+					},
+					{
+						"Name": "TedsUI",
+						"Type": "Editor",
+						"LoadingPhase": "Default"
 					}
 				]
 			}
@@ -1175,6 +1826,11 @@
 						"Name": "GeometryCollectionNodes",
 						"Type": "Runtime",
 						"LoadingPhase": "Default"
+					},
+					{
+						"Name": "GeometryCollectionDepNodes",
+						"Type": "Runtime",
+						"LoadingPhase": "Default"
 					}
 				],
 				"Plugins": [
@@ -1199,8 +1855,88 @@
 						"Enabled": true
 					},
 					{
+						"Name": "GeometryDataflow",
+						"Enabled": true
+					},
+					{
 						"Name": "Fracture",
 						"Enabled": true
+					}
+				]
+			}
+		},
+		{
+			"File": "../../../Engine/Plugins/Experimental/GeometryDataflow/GeometryDataflow.uplugin",
+			"Descriptor": 
+			{
+				"FileVersion": 3,
+				"Version": 1,
+				"VersionName": "0.1",
+				"FriendlyName": "Geometry Dataflow Nodes",
+				"Description": "Geometry Processing in Dataflow.",
+				"Category": "Geometry",
+				"CreatedBy": "Epic Games, Inc.",
+				"CreatedByURL": "https://epicgames.com",
+				"DocsURL": "",
+				"MarketplaceURL": "",
+				"SupportURL": "",
+				"EnabledByDefault": false,
+				"CanContainContent": true,
+				"IsBetaVersion": true,
+				"Modules": [
+					{
+						"Name": "GeometryDataflowNodes",
+						"Type": "Runtime",
+						"LoadingPhase": "Default"
+					}
+				],
+				"Plugins": [
+					{
+						"Name": "Dataflow",
+						"Enabled": true
+					},
+					{
+						"Name": "GeometryProcessing",
+						"Enabled": true
+					}
+				]
+			}
+		},
+		{
+			"File": "../../../Engine/Plugins/Experimental/LevelSequenceNavigatorBridge/LevelSequenceNavigatorBridge.uplugin",
+			"Descriptor": 
+			{
+				"FileVersion": 3,
+				"Version": 1,
+				"VersionName": "1.0",
+				"FriendlyName": "Level Sequence Navigator Bridge",
+				"Description": "Sequence Navigator Bridge for Level Sequences",
+				"Category": "Animation",
+				"CreatedBy": "Epic Games, Inc.",
+				"CreatedByURL": "https://epicgames.com",
+				"DocsURL": "",
+				"MarketplaceURL": "",
+				"SupportURL": "",
+				"EnabledByDefault": true,
+				"CanContainContent": false,
+				"IsExperimentalVersion": true,
+				"Modules": [
+					{
+						"Name": "LevelSequenceNavigatorBridge",
+						"Type": "Editor",
+						"LoadingPhase": "PostDefault"
+					}
+				],
+				"Plugins": [
+					{
+						"Name": "LevelSequenceEditor",
+						"Enabled": true,
+						"Optional": true
+					},
+					{
+						"Name": "SequenceNavigator",
+						"Enabled": true,
+						"Optional": true
 					}
 				]
 			}
@@ -1233,119 +1969,18 @@
 						"Type": "Runtime",
 						"LoadingPhase": "Default"
 					}
-				],
-				"Plugins": [
-					{
-						"Name": "StructUtils",
-						"Enabled": true
-					}
 				]
 			}
 		},
 		{
-			"File": "../../../Engine/Plugins/Experimental/MeshModelingToolsetExp/MeshModelingToolsetExp.uplugin",
-			"Descriptor": 
-			{
-				"FileVersion": 3,
-				"Version": 1,
-				"VersionName": "0.1",
-				"FriendlyName": "Experimental Mesh Modeling Toolset",
-				"Description": "A set of experimental modules implementing 3D mesh creation and editing based on the Interactive Tools Framework",
-				"Category": "Other",
-				"CreatedBy": "Epic Games, Inc.",
-				"CreatedByURL": "https://epicgames.com",
-				"DocsURL": "",
-				"MarketplaceURL": "",
-				"SupportURL": "",
-				"CanContainContent": true,
-				"IsExperimentalVersion": true,
-				"Modules": [
-					{
-						"Name": "MeshModelingToolsExp",
-						"Type": "Runtime",
-						"LoadingPhase": "Default"
-					},
-					{
-						"Name": "MeshModelingToolsEditorOnlyExp",
-						"Type": "Editor",
-						"LoadingPhase": "Default"
-					},
-					{
-						"Name": "GeometryProcessingAdapters",
-						"Type": "Editor",
-						"LoadingPhase": "Default",
-						"PlatformAllowList": [
-							"Win64"
-						]
-					},
-					{
-						"Name": "ModelingEditorUI",
-						"Type": "Editor",
-						"LoadingPhase": "Default"
-					},
-					{
-						"Name": "SkeletalMeshModifiers",
-						"Type": "Editor",
-						"LoadingPhase": "Default"
-					}
-				],
-				"Plugins": [
-					{
-						"Name": "MeshModelingToolset",
-						"Enabled": true
-					},
-					{
-						"Name": "GeometryProcessing",
-						"Enabled": true
-					},
-					{
-						"Name": "ProxyLODPlugin",
-						"Enabled": true
-					}
-				]
-			}
-		},
-		{
-			"File": "../../../Engine/Plugins/Experimental/MetaHuman/MetaHumanProjectUtilities/MetaHumanProjectUtilities.uplugin",
+			"File": "../../../Engine/Plugins/Experimental/NFORDenoise/NFORDenoise.uplugin",
 			"Descriptor": 
 			{
 				"FileVersion": 3,
 				"Version": 1,
 				"VersionName": "1.0",
-				"FriendlyName": "MetaHuman Project Utilities",
-				"Description": "Utilities for managing and editing MetaHumans within a project.",
-				"Category": "Editor",
-				"CreatedBy": "Epic Games, Inc.",
-				"CreatedByURL": "https://epicgames.com",
-				"DocsURL": "",
-				"MarketplaceURL": "",
-				"SupportURL": "",
-				"CanContainContent": true,
-				"IsExperimentalVersion": true,
-				"Modules": [
-					{
-						"Name": "MetaHumanProjectUtilities",
-						"Type": "Editor",
-						"LoadingPhase": "Default"
-					}
-				],
-				"Plugins": [
-					{
-						"Name": "EditorScriptingUtilities",
-						"Enabled": true
-					}
-				]
-			}
-		},
-		{
-			"File": "../../../Engine/Plugins/Experimental/OpenImageDenoise/OpenImageDenoise.uplugin",
-			"Descriptor": 
-			{
-				"FileVersion": 3,
-				"Version": 1,
-				"VersionName": "1.0",
-				"FriendlyName": "OpenImageDenoise",
-				"Description": "Denoising engine for the Unreal Path Tracer based on Intel's OpenImageDenoise library.",
+				"FriendlyName": "NFORDenoise",
+				"Description": "Spatial-temporal denoising engine for the Unreal Path Tracer (mainly used with MRQ). It denoises each pixel based on the surrounding patches in space and time in all directions. The algorithm is mainly inspired by Nonlinearly Weighted First-order Regression (NFOR) for Denoising Monte Carlo Renderings.",
 				"Category": "Denoising",
 				"CreatedBy": "Epic Games, Inc.",
 				"CreatedByURL": "https://epicgames.com",
@@ -1354,13 +1989,19 @@
 				"SupportURL": "",
 				"EnabledByDefault": true,
 				"CanContainContent": false,
+				"IsExperimentalVersion": true,
+				"SupportedTargetPlatforms": [
+					"Win64",
+					"Linux"
+				],
 				"Modules": [
 					{
-						"Name": "OpenImageDenoise",
+						"Name": "NFORDenoise",
 						"Type": "RuntimeAndProgram",
-						"LoadingPhase": "Default",
+						"LoadingPhase": "PostConfigInit",
 						"PlatformAllowList": [
-							"Win64"
+							"Win64",
+							"Linux"
 						]
 					}
 				]
@@ -1418,7 +2059,8 @@
 				"CanContainContent": false,
 				"SupportedPrograms": [
 					"UnrealPak",
-					"UnrealPakEx"
+					"UnrealPakEx",
+					"IasTool"
 				],
 				"Modules": [
 					{
@@ -1438,7 +2080,8 @@
 						],
 						"ProgramAllowList": [
 							"UnrealPak",
-							"UnrealPakEx"
+							"UnrealPakEx",
+							"IasTool"
 						]
 					},
 					{
@@ -1458,7 +2101,7 @@
 						]
 					},
 					{
-						"Name": "PlatformCryptoOpenSSL",
+						"Name": "PlatformCryptoContext",
 						"Type": "RuntimeAndProgram",
 						"LoadingPhase": "EarliestPossible",
 						"PlatformAllowList": [
@@ -1522,60 +2165,27 @@
 			}
 		},
 		{
-			"File": "../../../Engine/Plugins/Experimental/StructUtils/StructUtils.uplugin",
+			"File": "../../../Engine/Plugins/Experimental/RuntimeTelemetry/RuntimeTelemetry.uplugin",
 			"Descriptor": 
 			{
 				"FileVersion": 3,
 				"Version": 1,
-				"VersionName": "0.1",
-				"FriendlyName": "Struct Utils",
-				"Description": "Experimental Struct Utilities supplying InstancedStruct type",
-				"Category": "Gameplay",
+				"VersionName": "1.0",
+				"FriendlyName": "Editor Telemetry",
+				"Description": "Plugin that emits common telemetry events from the Editor",
+				"Category": "Telemetry",
 				"CreatedBy": "Epic Games, Inc.",
 				"CreatedByURL": "https://epicgames.com",
 				"DocsURL": "",
 				"MarketplaceURL": "",
 				"SupportURL": "",
-				"EnabledByDefault": false,
+				"EnabledByDefault": true,
 				"CanContainContent": false,
-				"IsExperimentalVersion": true,
-				"SupportedPrograms": [
-					"LiveLinkHub"
-				],
 				"Modules": [
 					{
-						"Name": "StructUtils",
-						"Type": "Runtime",
-						"LoadingPhase": "PreDefault",
-						"ProgramAllowList": [
-							"LiveLinkHub"
-						]
-					},
-					{
-						"Name": "StructUtilsEngine",
-						"Type": "Runtime",
-						"LoadingPhase": "Default"
-					},
-					{
-						"Name": "StructUtilsEditor",
-						"Type": "Editor",
-						"LoadingPhase": "Default"
-					},
-					{
-						"Name": "StructUtilsNodes",
-						"Type": "UncookedOnly",
-						"LoadingPhase": "Default"
-					},
-					{
-						"Name": "StructUtilsTestSuite",
-						"Type": "UncookedOnly",
-						"LoadingPhase": "Default"
-					}
-				],
-				"Plugins": [
-					{
-						"Name": "PropertyAccessEditor",
-						"Enabled": true
+						"Name": "RuntimeTelemetry",
+						"Type": "RuntimeAndProgram",
+						"LoadingPhase": "PostConfigInit"
 					}
 				]
 			}
@@ -1613,38 +2223,140 @@
 			}
 		},
 		{
+			"File": "../../../Engine/Plugins/FX/Cascade/Cascade.uplugin",
+			"Descriptor": 
+			{
+				"FileVersion": 3,
+				"Version": 1,
+				"VersionName": "1.0",
+				"FriendlyName": "Cascade Editor",
+				"Description": "Editor for (legacy) Cascade effect systems. Cascade assets can still run in a game with this plugin disabled.",
+				"Category": "FX",
+				"CreatedBy": "Epic Games, Inc.",
+				"CreatedByURL": "https://epicgames.com",
+				"DocsURL": "",
+				"MarketplaceURL": "",
+				"SupportURL": "",
+				"EnabledByDefault": true,
+				"CanContainContent": true,
+				"Modules": [
+					{
+						"Name": "Cascade",
+						"Type": "Editor",
+						"LoadingPhase": "Default"
+					}
+				]
+			}
+		},
+		{
+			"File": "../../../Engine/Plugins/FX/Niagara/Niagara.uplugin",
+			"Descriptor": 
+			{
+				"FileVersion": 3,
+				"Version": 1,
+				"VersionName": "1.0",
+				"FriendlyName": "Niagara",
+				"Description": "Niagara effect systems.",
+				"Category": "FX",
+				"CreatedBy": "Epic Games, Inc.",
+				"CreatedByURL": "https://epicgames.com",
+				"DocsURL": "",
+				"MarketplaceURL": "",
+				"SupportURL": "",
+				"EnabledByDefault": true,
+				"CanContainContent": true,
+				"Modules": [
+					{
+						"Name": "NiagaraCore",
+						"Type": "Runtime",
+						"LoadingPhase": "PreDefault"
+					},
+					{
+						"Name": "Niagara",
+						"Type": "Runtime",
+						"LoadingPhase": "PreDefault"
+					},
+					{
+						"Name": "NiagaraAnimNotifies",
+						"Type": "Runtime",
+						"LoadingPhase": "PreDefault"
+					},
+					{
+						"Name": "NiagaraShader",
+						"Type": "Runtime",
+						"LoadingPhase": "PostConfigInit"
+					},
+					{
+						"Name": "NiagaraVertexFactories",
+						"Type": "Runtime",
+						"LoadingPhase": "PostConfigInit"
+					},
+					{
+						"Name": "NiagaraBlueprintNodes",
+						"Type": "UncookedOnly",
+						"LoadingPhase": "Default"
+					},
+					{
+						"Name": "NiagaraEditor",
+						"Type": "Editor",
+						"LoadingPhase": "Default"
+					},
+					{
+						"Name": "NiagaraEditorWidgets",
+						"Type": "Editor",
+						"LoadingPhase": "Default"
+					}
+				],
+				"Plugins": [
+					{
+						"Name": "PythonScriptPlugin",
+						"Enabled": true
+					}
+				]
+			}
+		},
+		{
 			"File": "../../../Engine/Plugins/Fab/Fab.uplugin",
 			"Descriptor": 
 			{
 				"FileVersion": 3,
-				"Version": 3,
-				"VersionName": "0.0.3",
+				"Version": 12,
+				"VersionName": "0.0.12",
 				"FriendlyName": "Fab",
 				"Description": "Fab Plugin",
 				"Category": "Other",
 				"CreatedBy": "Epic Games, Inc.",
-				"CreatedByURL": "http://epicgames.com",
+				"CreatedByURL": "https://epicgames.com",
 				"DocsURL": "",
 				"MarketplaceURL": "",
 				"SupportURL": "",
-				"EngineVersion": "5.4.0",
+				"EngineVersion": "5.6.0",
 				"EnabledByDefault": true,
 				"CanContainContent": true,
-				"SupportedTargetPlatforms": [
-					"Win64",
-					"Mac",
-					"Linux"
-				],
 				"Modules": [
 					{
 						"Name": "Fab",
 						"Type": "Editor",
-						"LoadingPhase": "PostDefault"
+						"LoadingPhase": "PostDefault",
+						"PlatformAllowList": [
+							"Linux",
+							"Win64",
+							"Mac"
+						]
 					}
 				],
 				"Plugins": [
 					{
 						"Name": "Interchange",
+						"Enabled": true,
+						"PlatformAllowList": [
+							"Linux",
+							"Win64",
+							"Mac"
+						]
+					},
+					{
+						"Name": "EditorDataStorageFeatures",
 						"Enabled": true
 					},
 					{
@@ -1653,7 +2365,41 @@
 					},
 					{
 						"Name": "EOSShared",
-						"Enabled": true
+						"Enabled": true,
+						"PlatformAllowList": [
+							"Linux",
+							"Win64",
+							"Mac"
+						],
+						"TargetAllowList": [
+							"Editor"
+						]
+					}
+				]
+			}
+		},
+		{
+			"File": "../../../Engine/Plugins/Interchange/Assets/InterchangeAssets.uplugin",
+			"Descriptor": 
+			{
+				"FileVersion": 3,
+				"Version": 1,
+				"VersionName": "1.0",
+				"FriendlyName": "Interchange Framework Assets",
+				"Description": "The Interchange Framework Assets plugin exposes the assets used by the Interchange import framework.",
+				"Category": "Importers",
+				"CreatedBy": "Epic Games, Inc.",
+				"CreatedByURL": "https://epicgames.com",
+				"DocsURL": "",
+				"MarketplaceURL": "",
+				"SupportURL": "",
+				"EnabledByDefault": true,
+				"CanContainContent": true,
+				"Modules": [
+					{
+						"Name": "InterchangeAssets",
+						"Type": "Runtime",
+						"LoadingPhase": "PostConfigInit"
 					}
 				]
 			}
@@ -1814,18 +2560,30 @@
 				],
 				"Plugins": [
 					{
+						"Name": "GeometryCache",
+						"Enabled": true
+					},
+					{
+						"Name": "GeometryProcessing",
+						"Enabled": true
+					},
+					{
 						"Name": "VariantManagerContent",
 						"Enabled": true
 					},
 					{
 						"Name": "VariantManager",
 						"Enabled": true
+					},
+					{
+						"Name": "InterchangeAssets",
+						"Enabled": true
 					}
 				]
 			}
 		},
 		{
-			"File": "../../../Engine/Plugins/Marketplace/RuntimeAudioImporter_5.4/RuntimeAudioImporter.uplugin",
+			"File": "../../../Engine/Plugins/Marketplace/RuntimeAcd0e72637c3dV14/RuntimeAudioImporter.uplugin",
 			"Descriptor": 
 			{
 				"FileVersion": 3,
@@ -1839,7 +2597,7 @@
 				"DocsURL": "https://docs.georgy.dev/runtime-audio-importer/overview",
 				"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/product/81fd278e318e4235a028d3fdf46bf036",
 				"SupportURL": "https://georgy.dev/",
-				"EngineVersion": "5.4.0",
+				"EngineVersion": "5.6.0",
 				"CanContainContent": true,
 				"Installed": true,
 				"Modules": [
@@ -1857,33 +2615,47 @@
 			}
 		},
 		{
-			"File": "../../../Engine/Plugins/Marketplace/VaRestPlugin/VaRest.uplugin",
+			"File": "../../../Engine/Plugins/Marketplace/VaRestRe1437be6cba3bV8/VaRest.uplugin",
 			"Descriptor": 
 			{
 				"FileVersion": 3,
 				"Version": 32,
-				"VersionName": "1.1-r34",
+				"VersionName": "1.0",
 				"FriendlyName": "VaRest",
 				"Description": "Plugin that makes REST (JSON) server communication easy to use",
 				"Category": "Network",
-				"CreatedBy": "Vladimir Alyamkin",
-				"CreatedByURL": "https://ufna.dev",
+				"CreatedBy": "Ziya Bahceci",
+				"CreatedByURL": "www.ziyabahceci.com",
 				"DocsURL": "https://bit.ly/VaRest-Docs",
-				"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/content/e47be161e7a24e928560290abd5dcc4f",
+				"MarketplaceURL": "",
 				"SupportURL": "",
-				"EngineVersion": "5.4.0",
+				"EngineVersion": "5.6.0",
 				"CanContainContent": false,
 				"Installed": true,
 				"Modules": [
 					{
 						"Name": "VaRest",
 						"Type": "Runtime",
-						"LoadingPhase": "PreDefault"
+						"LoadingPhase": "PreDefault",
+						"PlatformAllowList": [
+							"Win64",
+							"Linux",
+							"Mac",
+							"IOS",
+							"Android"
+						]
 					},
 					{
 						"Name": "VaRestEditor",
 						"Type": "UncookedOnly",
-						"LoadingPhase": "Default"
+						"LoadingPhase": "Default",
+						"PlatformAllowList": [
+							"Win64",
+							"Linux",
+							"Mac",
+							"IOS",
+							"Android"
+						]
 					}
 				]
 			}
@@ -2114,6 +2886,10 @@
 						"TargetAllowList": [
 							"Editor"
 						]
+					},
+					{
+						"Name": "CompositeCore",
+						"Enabled": true
 					}
 				]
 			}
@@ -2305,7 +3081,8 @@
 				"EnabledByDefault": true,
 				"CanContainContent": false,
 				"SupportedPrograms": [
-					"UnrealFrontend"
+					"UnrealFrontend",
+					"UnrealInsights"
 				],
 				"Modules": [
 					{
@@ -2313,7 +3090,8 @@
 						"Type": "Runtime",
 						"LoadingPhase": "PreDefault",
 						"ProgramAllowList": [
-							"UnrealFrontend"
+							"UnrealFrontend",
+							"UnrealInsights"
 						]
 					}
 				]
@@ -2337,6 +3115,7 @@
 				"EnabledByDefault": true,
 				"CanContainContent": false,
 				"SupportedPrograms": [
+					"UnrealInsights",
 					"UnrealFrontend",
 					"UnrealMultiUserServer",
 					"UnrealMultiUserSlateServer",
@@ -2344,7 +3123,10 @@
 					"UnrealLightmass",
 					"CrashReportClientEditor",
 					"LiveLinkHub",
-					"TimeSynchronizationWriter"
+					"TimeSynchronizationWriter",
+					"LiveLinkProviderSample",
+					"SpatialMetricsProfiler",
+					"ChaosVisualDebugger"
 				],
 				"Modules": [
 					{
@@ -2352,6 +3134,7 @@
 						"Type": "RuntimeAndProgram",
 						"LoadingPhase": "PreDefault",
 						"ProgramAllowList": [
+							"UnrealInsights",
 							"UnrealFrontend",
 							"UnrealMultiUserServer",
 							"UnrealMultiUserSlateServer",
@@ -2359,7 +3142,73 @@
 							"UnrealLightmass",
 							"CrashReportClientEditor",
 							"LiveLinkHub",
-							"TimeSynchronizationWriter"
+							"TimeSynchronizationWriter",
+							"LiveLinkProviderSample",
+							"SpatialMetricsProfiler",
+							"ChaosVisualDebugger"
+						]
+					}
+				]
+			}
+		},
+		{
+			"File": "../../../Engine/Plugins/MetaHuman/MetaHumanSDK/MetaHumanSDK.uplugin",
+			"Descriptor": 
+			{
+				"FileVersion": 3,
+				"Version": 1,
+				"VersionName": "1.0",
+				"FriendlyName": "MetaHuman SDK",
+				"Description": "Utilities and tools for working with MetaHumans in Unreal Engine.",
+				"Category": "MetaHuman",
+				"CreatedBy": "Epic Games, Inc.",
+				"CreatedByURL": "https://epicgames.com",
+				"DocsURL": "",
+				"MarketplaceURL": "",
+				"SupportURL": "",
+				"EnabledByDefault": true,
+				"CanContainContent": true,
+				"Modules": [
+					{
+						"Name": "MetaHumanSDKEditor",
+						"Type": "Editor",
+						"LoadingPhase": "Default"
+					},
+					{
+						"Name": "MetaHumanSDKRuntime",
+						"Type": "Runtime",
+						"LoadingPhase": "Default"
+					}
+				],
+				"LocalizationTargets": [
+					{
+						"Name": "MetaHumanSDK",
+						"LoadingPolicy": "Editor",
+						"ConfigGenerationPolicy": "Auto"
+					}
+				],
+				"Plugins": [
+					{
+						"Name": "EditorScriptingUtilities",
+						"Enabled": true
+					},
+					{
+						"Name": "ControlRig",
+						"Enabled": true
+					},
+					{
+						"Name": "HairStrands",
+						"Enabled": true
+					},
+					{
+						"Name": "RigLogic",
+						"Enabled": true
+					},
+					{
+						"Name": "EOSShared",
+						"Enabled": true,
+						"TargetAllowList": [
+							"Editor"
 						]
 					}
 				]
@@ -2398,15 +3247,99 @@
 			}
 		},
 		{
-			"File": "../../../Engine/Plugins/Online/EOSShared/EOSShared.uplugin",
+			"File": "../../../Engine/Plugins/MovieScene/LevelSequenceEditor/LevelSequenceEditor.uplugin",
 			"Descriptor": 
 			{
 				"FileVersion": 3,
 				"Version": 1,
 				"VersionName": "1.0",
-				"FriendlyName": "EOS Shared",
-				"Description": "Responsible for init/shutdown of the EOSSDK runtime library.",
-				"Category": "Online Platform",
+				"FriendlyName": "Level Sequence Editor",
+				"Description": "Content Editor for LevelSequence Assets.",
+				"Category": "Editor",
+				"CreatedBy": "Epic Games, Inc.",
+				"CreatedByURL": "https://epicgames.com",
+				"DocsURL": "",
+				"MarketplaceURL": "",
+				"SupportURL": "",
+				"EnabledByDefault": true,
+				"CanContainContent": false,
+				"SupportedPrograms": [
+					"LiveLinkHub"
+				],
+				"Modules": [
+					{
+						"Name": "LevelSequenceEditor",
+						"Type": "Editor",
+						"LoadingPhase": "PostEngineInit",
+						"ProgramAllowList": [
+							"LiveLinkHub"
+						]
+					}
+				],
+				"Plugins": [
+					{
+						"Name": "SequencerScripting",
+						"Enabled": true
+					}
+				]
+			}
+		},
+		{
+			"File": "../../../Engine/Plugins/MovieScene/SequencerScripting/SequencerScripting.uplugin",
+			"Descriptor": 
+			{
+				"FileVersion": 3,
+				"Version": 1,
+				"VersionName": "1.0",
+				"FriendlyName": "Sequencer Scripting",
+				"Description": "Python and editor utility scripting extensions for sequencer and movie scenes",
+				"Category": "Scripting",
+				"CreatedBy": "Epic Games, Inc.",
+				"CreatedByURL": "https://epicgames.com",
+				"DocsURL": "",
+				"MarketplaceURL": "",
+				"SupportURL": "",
+				"CanContainContent": true,
+				"IsBetaVersion": true,
+				"SupportedPrograms": [
+					"LiveLinkHub"
+				],
+				"Modules": [
+					{
+						"Name": "SequencerScripting",
+						"Type": "Runtime",
+						"LoadingPhase": "Default",
+						"ProgramAllowList": [
+							"LiveLinkHub"
+						]
+					},
+					{
+						"Name": "SequencerScriptingEditor",
+						"Type": "Editor",
+						"LoadingPhase": "Default",
+						"ProgramAllowList": [
+							"LiveLinkHub"
+						]
+					}
+				],
+				"Plugins": [
+					{
+						"Name": "PythonScriptPlugin",
+						"Enabled": true
+					}
+				]
+			}
+		},
+		{
+			"File": "../../../Engine/Plugins/MovieScene/TemplateSequence/TemplateSequence.uplugin",
+			"Descriptor": 
+			{
+				"FileVersion": 3,
+				"Version": 1,
+				"VersionName": "0.1",
+				"FriendlyName": "Template Sequence",
+				"Description": "Runtime for template sequences",
+				"Category": "Editor",
 				"CreatedBy": "Epic Games, Inc.",
 				"CreatedByURL": "https://epicgames.com",
 				"DocsURL": "",
@@ -2414,18 +3347,98 @@
 				"SupportURL": "",
 				"EnabledByDefault": false,
 				"CanContainContent": false,
+				"IsBetaVersion": true,
 				"Modules": [
 					{
-						"Name": "EOSShared",
+						"Name": "TemplateSequence",
 						"Type": "Runtime",
-						"LoadingPhase": "PostConfigInit",
+						"LoadingPhase": "Default"
+					},
+					{
+						"Name": "TemplateSequenceEditor",
+						"Type": "Editor",
+						"LoadingPhase": "PostEngineInit"
+					}
+				],
+				"Plugins": [
+					{
+						"Name": "LevelSequenceEditor",
+						"Enabled": true
+					}
+				]
+			}
+		},
+		{
+			"File": "../../../Engine/Plugins/NNE/NNEDenoiser/NNEDenoiser.uplugin",
+			"Descriptor": 
+			{
+				"FileVersion": 3,
+				"Version": 1,
+				"VersionName": "1.0",
+				"FriendlyName": "NNEDenoiser",
+				"Description": "Neural denoiser for the Unreal Path Tracer based on the Neural Network Engine (NNE).",
+				"Category": "Denoising",
+				"CreatedBy": "Epic Games, Inc.",
+				"CreatedByURL": "https://epicgames.com",
+				"DocsURL": "",
+				"MarketplaceURL": "",
+				"SupportURL": "",
+				"EnabledByDefault": true,
+				"CanContainContent": true,
+				"IsBetaVersion": true,
+				"SupportedTargetPlatforms": [
+					"Win64",
+					"Linux",
+					"Mac"
+				],
+				"Modules": [
+					{
+						"Name": "NNEDenoiser",
+						"Type": "Runtime",
+						"LoadingPhase": "Default"
+					},
+					{
+						"Name": "NNEDenoiserShaders",
+						"Type": "Runtime",
+						"LoadingPhase": "PostConfigInit"
+					}
+				],
+				"Plugins": [
+					{
+						"Name": "NNERuntimeORT",
+						"Enabled": true
+					}
+				]
+			}
+		},
+		{
+			"File": "../../../Engine/Plugins/NNE/NNERuntimeORT/NNERuntimeORT.uplugin",
+			"Descriptor": 
+			{
+				"FileVersion": 3,
+				"Version": 1,
+				"VersionName": "1.0",
+				"FriendlyName": "NNERuntimeORT",
+				"Description": "ONNX Runtime backed runtime for the Neural Network Engine (NNE), accelerated by the CPU and DirectML execution providers.",
+				"Category": "ML",
+				"CreatedBy": "Epic Games, Inc.",
+				"CreatedByURL": "https://epicgames.com",
+				"DocsURL": "https://dev.epicgames.com/community/learning/courses/e7w/unreal-engine-neural-network-engine-nne",
+				"MarketplaceURL": "",
+				"SupportURL": "https://forums.unrealengine.com/t/course-neural-network-engine-nne/1162628",
+				"EnabledByDefault": false,
+				"CanContainContent": false,
+				"IsBetaVersion": true,
+				"Modules": [
+					{
+						"Name": "NNERuntimeORT",
+						"Type": "RuntimeAndProgram",
+						"LoadingPhase": "PreDefault",
 						"PlatformAllowList": [
-							"Android",
-							"IOS",
+							"Win64",
 							"Linux",
 							"LinuxArm64",
-							"Mac",
-							"Win64"
+							"Mac"
 						]
 					}
 				]
@@ -2948,6 +3961,11 @@
 						"Name": "AudioWidgets",
 						"Type": "Runtime",
 						"LoadingPhase": "Default"
+					},
+					{
+						"Name": "AudioWidgetsEditor",
+						"Type": "Editor",
+						"LoadingPhase": "Default"
 					}
 				],
 				"Plugins": [
@@ -3011,6 +4029,38 @@
 			}
 		},
 		{
+			"File": "../../../Engine/Plugins/Runtime/ComputeFramework/ComputeFramework.uplugin",
+			"Descriptor": 
+			{
+				"FileVersion": 3,
+				"Version": 1,
+				"VersionName": "0.9",
+				"FriendlyName": "Compute Framework",
+				"Description": "Support for user authored GPU compute graphs",
+				"Category": "Rendering",
+				"CreatedBy": "Epic Games, Inc.",
+				"CreatedByURL": "https://epicgames.com",
+				"DocsURL": "",
+				"MarketplaceURL": "",
+				"SupportURL": "",
+				"EnabledByDefault": false,
+				"CanContainContent": false,
+				"IsBetaVersion": true,
+				"Modules": [
+					{
+						"Name": "ComputeFramework",
+						"Type": "Runtime",
+						"LoadingPhase": "PostConfigInit"
+					},
+					{
+						"Name": "ComputeFrameworkEditor",
+						"Type": "Editor",
+						"LoadingPhase": "Default"
+					}
+				]
+			}
+		},
+		{
 			"File": "../../../Engine/Plugins/Runtime/CustomMeshComponent/CustomMeshComponent.uplugin",
 			"Descriptor": 
 			{
@@ -3063,6 +4113,71 @@
 			}
 		},
 		{
+			"File": "../../../Engine/Plugins/Runtime/GeometryCache/GeometryCache.uplugin",
+			"Descriptor": 
+			{
+				"FileVersion": 3,
+				"Version": 1,
+				"VersionName": "1.0",
+				"FriendlyName": "Geometry Cache",
+				"Description": "Support for distilled Geometry animations",
+				"Category": "Importers",
+				"CreatedBy": "Epic Games, Inc.",
+				"CreatedByURL": "https://epicgames.com",
+				"DocsURL": "https://docs.unrealengine.com/en-US/WorkingWithContent/Importing/AlembicImporter/#importasgeometrycache",
+				"MarketplaceURL": "",
+				"SupportURL": "",
+				"EnabledByDefault": true,
+				"CanContainContent": false,
+				"Modules": [
+					{
+						"Name": "GeometryCacheEd",
+						"Type": "Editor",
+						"LoadingPhase": "Default",
+						"PlatformAllowList": [
+							"Win64",
+							"Mac"
+						]
+					},
+					{
+						"Name": "GeometryCacheSequencer",
+						"Type": "Editor",
+						"LoadingPhase": "Default",
+						"PlatformAllowList": [
+							"Win64",
+							"Mac"
+						]
+					},
+					{
+						"Name": "GeometryCacheStreamer",
+						"Type": "Editor",
+						"LoadingPhase": "Default",
+						"PlatformAllowList": [
+							"Win64",
+							"Mac",
+							"Linux"
+						]
+					},
+					{
+						"Name": "GeometryCache",
+						"Type": "Runtime",
+						"LoadingPhase": "Default"
+					},
+					{
+						"Name": "GeometryCacheTracks",
+						"Type": "Runtime",
+						"LoadingPhase": "Default"
+					}
+				],
+				"Plugins": [
+					{
+						"Name": "Niagara",
+						"Enabled": true
+					}
+				]
+			}
+		},
+		{
 			"File": "../../../Engine/Plugins/Runtime/GeometryProcessing/GeometryProcessing.uplugin",
 			"Descriptor": 
 			{
@@ -3079,6 +4194,9 @@
 				"SupportURL": "",
 				"CanContainContent": true,
 				"IsBetaVersion": true,
+				"SupportedPrograms": [
+					"ChaosVisualDebugger"
+				],
 				"Modules": [
 					{
 						"Name": "GeometryAlgorithms",
@@ -3088,6 +4206,11 @@
 					{
 						"Name": "DynamicMesh",
 						"Type": "Runtime",
+						"LoadingPhase": "Default"
+					},
+					{
+						"Name": "MeshFileUtils",
+						"Type": "DeveloperTool",
 						"LoadingPhase": "Default"
 					}
 				]
@@ -3136,6 +4259,88 @@
 			}
 		},
 		{
+			"File": "../../../Engine/Plugins/Runtime/HairStrands/HairStrands.uplugin",
+			"Descriptor": 
+			{
+				"FileVersion": 3,
+				"Version": 2,
+				"VersionName": "1.0",
+				"FriendlyName": "Groom",
+				"Description": "Rendering and simulation of grooms",
+				"Category": "Geometry",
+				"CreatedBy": "Epic Games, Inc.",
+				"CreatedByURL": "https://epicgames.com",
+				"DocsURL": "",
+				"MarketplaceURL": "",
+				"SupportURL": "",
+				"EnabledByDefault": false,
+				"CanContainContent": true,
+				"Modules": [
+					{
+						"Name": "HairStrandsCore",
+						"Type": "Runtime",
+						"LoadingPhase": "PostConfigInit"
+					},
+					{
+						"Name": "HairStrandsDeformer",
+						"Type": "Runtime",
+						"LoadingPhase": "Default",
+						"PlatformDenyList": [
+							"Android",
+							"IOS"
+						]
+					},
+					{
+						"Name": "HairStrandsRuntime",
+						"Type": "Runtime",
+						"LoadingPhase": "Default"
+					},
+					{
+						"Name": "HairStrandsEditor",
+						"Type": "Editor",
+						"LoadingPhase": "Default"
+					},
+					{
+						"Name": "HairCardGeneratorFramework",
+						"Type": "Editor",
+						"LoadingPhase": "Default"
+					},
+					{
+						"Name": "HairStrandsDataflow",
+						"Type": "Editor",
+						"LoadingPhase": "Default"
+					},
+					{
+						"Name": "HairStrandsSolver",
+						"Type": "Runtime",
+						"LoadingPhase": "Default"
+					}
+				],
+				"Plugins": [
+					{
+						"Name": "Niagara",
+						"Enabled": true
+					},
+					{
+						"Name": "GeometryCache",
+						"Enabled": true
+					},
+					{
+						"Name": "DeformerGraph",
+						"Enabled": true
+					},
+					{
+						"Name": "Dataflow",
+						"Enabled": true
+					},
+					{
+						"Name": "ComputeFramework",
+						"Enabled": true
+					}
+				]
+			}
+		},
+		{
 			"File": "../../../Engine/Plugins/Runtime/LocationServicesBPLibrary/LocationServicesBPLibrary.uplugin",
 			"Descriptor": 
 			{
@@ -3157,71 +4362,6 @@
 						"Name": "LocationServicesBPLibrary",
 						"Type": "Runtime",
 						"LoadingPhase": "PreDefault"
-					}
-				]
-			}
-		},
-		{
-			"File": "../../../Engine/Plugins/Runtime/MeshModelingToolset/MeshModelingToolset.uplugin",
-			"Descriptor": 
-			{
-				"FileVersion": 3,
-				"Version": 1,
-				"VersionName": "0.1",
-				"FriendlyName": "Mesh Modeling Toolset",
-				"Description": "A set of modules implementing 3D mesh creation and editing based on the Interactive Tools Framework",
-				"Category": "Other",
-				"CreatedBy": "Epic Games, Inc.",
-				"CreatedByURL": "https://epicgames.com",
-				"DocsURL": "",
-				"MarketplaceURL": "",
-				"SupportURL": "",
-				"CanContainContent": true,
-				"IsBetaVersion": true,
-				"Modules": [
-					{
-						"Name": "MeshModelingTools",
-						"Type": "Runtime",
-						"LoadingPhase": "Default"
-					},
-					{
-						"Name": "MeshModelingToolsEditorOnly",
-						"Type": "Editor",
-						"LoadingPhase": "Default"
-					},
-					{
-						"Name": "ModelingComponents",
-						"Type": "Runtime",
-						"LoadingPhase": "Default"
-					},
-					{
-						"Name": "ModelingComponentsEditorOnly",
-						"Type": "Editor",
-						"LoadingPhase": "Default"
-					},
-					{
-						"Name": "ModelingOperators",
-						"Type": "Runtime",
-						"LoadingPhase": "Default"
-					},
-					{
-						"Name": "ModelingOperatorsEditorOnly",
-						"Type": "Editor",
-						"LoadingPhase": "Default"
-					}
-				],
-				"Plugins": [
-					{
-						"Name": "GeometryProcessing",
-						"Enabled": true
-					},
-					{
-						"Name": "ProxyLODPlugin",
-						"Enabled": true
-					},
-					{
-						"Name": "PlanarCut",
-						"Enabled": true
 					}
 				]
 			}
@@ -3271,7 +4411,7 @@
 					},
 					{
 						"Name": "MetasoundEngineTest",
-						"Type": "Runtime",
+						"Type": "UncookedOnly",
 						"LoadingPhase": "PreDefault"
 					},
 					{
@@ -3287,6 +4427,10 @@
 					},
 					{
 						"Name": "AudioSynesthesia",
+						"Enabled": true
+					},
+					{
+						"Name": "ContentBrowserAssetDataSource",
 						"Enabled": true
 					},
 					{
@@ -3429,6 +4573,10 @@
 				"SupportURL": "",
 				"EnabledByDefault": true,
 				"CanContainContent": false,
+				"SupportedPrograms": [
+					"ChaosVisualDebugger",
+					"LiveLinkHub"
+				],
 				"Modules": [
 					{
 						"Name": "PropertyAccessEditor",
@@ -3520,12 +4668,6 @@
 						"Name": "RigVMEditor",
 						"Type": "Editor",
 						"LoadingPhase": "PostEngineInit"
-					}
-				],
-				"Plugins": [
-					{
-						"Name": "StructUtils",
-						"Enabled": true
 					}
 				]
 			}
@@ -3806,7 +4948,6 @@
 				"EnabledByDefault": true,
 				"CanContainContent": false,
 				"IsBetaVersion": true,
-				"IsExperimentalVersion": true,
 				"Modules": [
 					{
 						"Name": "InterchangeTests",
@@ -3830,6 +4971,10 @@
 					},
 					{
 						"Name": "VariantManagerContent",
+						"Enabled": true
+					},
+					{
+						"Name": "EditorScriptingUtilities",
 						"Enabled": true
 					}
 				]
@@ -3867,6 +5012,107 @@
 			}
 		},
 		{
+			"File": "../../../Engine/Plugins/VirtualProduction/Takes/Takes.uplugin",
+			"Descriptor": 
+			{
+				"FileVersion": 3,
+				"Version": 1,
+				"VersionName": "1.0",
+				"FriendlyName": "Take Recorder",
+				"Description": "A suite of tools and interfaces designed for recording, reviewing and playing back takes in a virtual production environment.",
+				"Category": "Virtual Production",
+				"CreatedBy": "Epic Games, Inc.",
+				"CreatedByURL": "https://epicgames.com",
+				"DocsURL": "",
+				"MarketplaceURL": "",
+				"SupportURL": "",
+				"CanContainContent": true,
+				"SupportedPrograms": [
+					"LiveLinkHub"
+				],
+				"Modules": [
+					{
+						"Name": "TakesCore",
+						"Type": "UncookedOnly",
+						"LoadingPhase": "PostDefault",
+						"ProgramAllowList": [
+							"LiveLinkHub"
+						]
+					},
+					{
+						"Name": "TakeTrackRecorders",
+						"Type": "UncookedOnly",
+						"LoadingPhase": "PostDefault",
+						"ProgramAllowList": [
+							"LiveLinkHub"
+						]
+					},
+					{
+						"Name": "TakeRecorderSources",
+						"Type": "UncookedOnly",
+						"LoadingPhase": "PostDefault",
+						"ProgramAllowList": [
+							"LiveLinkHub"
+						]
+					},
+					{
+						"Name": "TakeRecorder",
+						"Type": "UncookedOnly",
+						"LoadingPhase": "PostDefault",
+						"ProgramAllowList": [
+							"LiveLinkHub"
+						]
+					},
+					{
+						"Name": "TakeMovieScene",
+						"Type": "Runtime",
+						"LoadingPhase": "Default",
+						"ProgramAllowList": [
+							"LiveLinkHub"
+						]
+					},
+					{
+						"Name": "TakeSequencer",
+						"Type": "Editor",
+						"LoadingPhase": "Default",
+						"ProgramAllowList": [
+							"LiveLinkHub"
+						]
+					},
+					{
+						"Name": "CacheTrackRecorder",
+						"Type": "UncookedOnly",
+						"LoadingPhase": "PostDefault",
+						"ProgramAllowList": [
+							"LiveLinkHub"
+						]
+					},
+					{
+						"Name": "TakeRecorderNamingTokens",
+						"Type": "UncookedOnly",
+						"LoadingPhase": "PostDefault",
+						"ProgramAllowList": [
+							"LiveLinkHub"
+						]
+					}
+				],
+				"Plugins": [
+					{
+						"Name": "AudioCapture",
+						"Enabled": true
+					},
+					{
+						"Name": "LevelSequenceEditor",
+						"Enabled": true
+					},
+					{
+						"Name": "NamingTokens",
+						"Enabled": true
+					}
+				]
+			}
+		},
+		{
 			"File": "../../../Engine/Plugins/WorldMetrics/WorldMetrics.uplugin",
 			"Descriptor": 
 			{
@@ -3884,15 +5130,18 @@
 				"EnabledByDefault": true,
 				"CanContainContent": false,
 				"IsExperimentalVersion": true,
+				"SupportedPrograms": [
+					"SpatialMetricsProfiler"
+				],
 				"Modules": [
 					{
 						"Name": "WorldMetricsCore",
-						"Type": "Runtime",
+						"Type": "RuntimeAndProgram",
 						"LoadingPhase": "Default"
 					},
 					{
 						"Name": "WorldMetricsTest",
-						"Type": "Runtime",
+						"Type": "RuntimeAndProgram",
 						"LoadingPhase": "Default",
 						"TargetConfigurationDenyList": [
 							"Shipping"
@@ -3900,7 +5149,7 @@
 					},
 					{
 						"Name": "CsvMetrics",
-						"Type": "Runtime",
+						"Type": "RuntimeAndProgram",
 						"LoadingPhase": "Default"
 					}
 				]

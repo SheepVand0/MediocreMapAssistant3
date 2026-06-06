@@ -13,28 +13,23 @@ class MMA3_API ACNoteTool : public ACMappingTool {
 
 	GENERATED_BODY()
 
+protected:
+	
+	virtual void OnUpdate(const FVector& position) override;
+	
 public:
 
 	ACNoteTool();
 
 	virtual void Tick(float delta) override;
 
-	UPROPERTY()
-	UStaticMeshComponent* ArrowMesh;
+	UPROPERTY() UStaticMeshComponent* ArrowMesh;
+	UPROPERTY() UStaticMesh* DotMesh;
+	UPROPERTY() TObjectPtr<UMaterialInterface> NoteMaterial;
+	UPROPERTY() int Type;
+	UPROPERTY() int Direction;
 
-	UPROPERTY()
-	UStaticMesh* DotMesh;
-
-	UPROPERTY()
-	TObjectPtr<UMaterialInterface> NoteMaterial;
-
-	UPROPERTY()
-	int Type;
-
-	UPROPERTY()
-	int Direction;
-
-	virtual void OnUse(FVector p_Position) override;
+	virtual void OnFinishUsing(FVector p_Position) override;
 
 	virtual UStaticMesh* GetToolMesh() override;
 

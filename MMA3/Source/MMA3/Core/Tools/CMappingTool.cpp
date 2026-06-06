@@ -4,19 +4,31 @@
 #include <iostream>
 
 // Sets default values
-ACMappingTool::ACMappingTool()
+ACMappingTool::ACMappingTool() : bInstantUse(true)
 {
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
 	ToolMeshComp = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Tool Mesh"));
 	ToolMeshComp->SetupAttachment(GetRootComponent());
+	
+	CustomScale = FVector::One();
 }
 
 // Called when the game starts or when spawned
 void ACMappingTool::BeginPlay()
-{
+{	
 	Super::BeginPlay();
+}
+
+void ACMappingTool::OnUpdateUse(const FVector& position)
+{
+	
+}
+
+void ACMappingTool::OnUpdate(const FVector& position)
+{
+	
 }
 
 // Called every frame
@@ -51,9 +63,43 @@ UMaterialInterface* ACMappingTool::GetToolMaterial() {
 	return ToolMaterial;
 }
 
-void ACMappingTool::OnUse(FVector p_Position) {
-	std::string l_ExceptionText = "OnUse method not overriden on tool";
-	throw new std::exception(l_ExceptionText.c_str());
+void ACMappingTool::OnFinishUsing(FVector p_Position) {
+	//std::string l_ExceptionText = "OnUse method not overriden on tool";
+	//throw new std::exception(l_ExceptionText.c_str());
+}
+
+void ACMappingTool::OnStartUsing(FVector position)
+{
+}
+
+void ACMappingTool::StartUsing(const FVector& position)
+{
+	if (bIsUsing)
+	{
+		bIsUsing = false;
+		OnFinishUsing(position);
+		return;
+	}
+	
+	if (bInstantUse)
+	{
+		OnFinishUsing(position);
+	} else
+	{
+		bIsUsing = true;
+		OnStartUsing(position);	
+	}
+}
+
+void ACMappingTool::UpdateUse(FVector position)
+{
+	if (!bIsUsing)
+	{
+		OnUpdate(position);
+	} else
+	{
+		OnUpdateUse(position);
+	}
 }
 
 FVector ACMappingTool::GetCustomPosition() {
@@ -66,4 +112,9 @@ FRotator ACMappingTool::GetCustomRotation() {
 
 FVector ACMappingTool::GetCustomScale() {
 	return CustomScale;
+}
+
+bool ACMappingTool::IsUsing()
+{
+	return bIsUsing;
 }

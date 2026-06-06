@@ -99,29 +99,18 @@ TArray<int> ACController::GetAllNotesIndexInSectionInclusive(float beat, float l
 
 		if (note->Beat > beat + length) break;
 	}
-
+	
+	l_Result.Sort();
+	
 	return l_Result;
 }
 
 TArray<FNoteData*> ACController::GetSelectedNotes()
 {
-	TArray<FNoteData*> l_Result;
-
-	if (!MapContent) return TArray<FNoteData*>();
-
-	if (SelectionFirstBPM == SelectionEndBPM) return TArray<FNoteData*>();
-
-	for (int x = 0; x < MapContent->_notes.Num(); x++) {
-		auto l_Note = MapContent->_notes[x];
-
-		if (l_Note->Beat >= SelectionFirstBPM && l_Note->Beat <= SelectionEndBPM)
-			l_Result.Add(l_Note);
-	}
-
-	return l_Result;
+	return SelectedNotes;
 }
 
-FNoteData* ACController::GetLastSameColorNote(FNoteData* current)
+FNoteData* ACController::GetLastSameColorNote(FNoteData* current) const
 {
 	if (!MapContent) return nullptr;
 

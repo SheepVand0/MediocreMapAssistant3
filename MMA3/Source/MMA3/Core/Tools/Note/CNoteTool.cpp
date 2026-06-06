@@ -5,6 +5,13 @@
 #include <Kismet/GameplayStatics.h>
 #include "MMA3/MMAConfig.h"
 
+void ACNoteTool::OnUpdate(const FVector& position)
+{
+	Super::OnUpdate(position);
+	
+	SetActorLocation(position);
+}
+
 ACNoteTool::ACNoteTool() {
 	ConstructorHelpers::FObjectFinder<UStaticMesh> l_ArrowMesh(TEXT("/Script/Engine.StaticMesh'/Game/Assets/Meshes/NoteBody_Cylinder.NoteBody_Cylinder'"));
 	ConstructorHelpers::FObjectFinder<UStaticMesh> l_DotMesh(TEXT("/Script/Engine.StaticMesh'/Game/Assets/Meshes/NoteBody_Cylinder_001.NoteBody_Cylinder_001'"));
@@ -35,15 +42,13 @@ void ACNoteTool::Tick(float delta) {
 	ArrowMesh->SetStaticMesh(Direction == 8 ? DotMesh : ArrowStaticMesh);
 }
 
-void ACNoteTool::OnUse(FVector position) {
+void ACNoteTool::OnFinishUsing(FVector position) {
 	if (!GetMappingController()->GetMapDifficulty()->HasRequirement(EDefaultRequirement::MappingExtensions) &&
 		!GetMappingController()->GetMapDifficulty()->HasRequirement(EDefaultRequirement::NoodleExtensions)) {
 
 		int l_LineIndex = -((position.X + 13) / 25) + 4;
 		int l_LineLayer = (position.Z) / 25;
-
-		UE_LOG(LogTemp, Display, TEXT("Dir: %d"), Direction);
-
+		
 		FNoteData* l_Note = new FNoteData();
 		l_Note->Line = l_LineIndex;
 		l_Note->Layer = l_LineLayer;

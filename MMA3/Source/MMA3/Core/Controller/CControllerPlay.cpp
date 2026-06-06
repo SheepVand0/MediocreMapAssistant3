@@ -26,6 +26,7 @@ void ACController::Stop() {
 
 	Playing = false;
 	AudioComponent->Stop();
+	OnPauseEvent.Broadcast();
 }
 
 void ACController::AddTime(float p_Value) {
